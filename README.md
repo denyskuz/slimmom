@@ -8,12 +8,20 @@ To run this project, you will need to add the following environment variables to
 
 `BACKEND_URL`
 
+## Installation
 
-## Running Tests
-
-To run tests, run the following command
+Install with npm
 
 ```bash
-  npm run test
+  npm install 
+  npm run start 
 ```
+
+Install with yarn
+
+```bash
+  yarn 
+  yarn start 
+```
+    
 
