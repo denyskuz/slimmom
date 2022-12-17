@@ -5,10 +5,10 @@ import AppBar from '../Header/AppBar';
 const Layout = () => {
   return (
     <>
-        <AppBar />
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
+      <AppBar />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

@@ -1,22 +1,22 @@
 import {
-    List,
-    ListItem,
-    // UserInfo,
-    // Arrow,
-    // Button,
-    // UserInfoWrapper,
-    // UserName,
+  List,
+  ListItem,
+  // UserInfo,
+  // Arrow,
+  // Button,
+  // UserInfoWrapper,
+  // UserName,
 } from './UserMenu.styled';
 
 const UserMenu = () => {
-    // const name = "Nick";
-    return (
-        <>
-            <List>
-                <ListItem to="/dairy">DAIRY</ListItem>
-                <ListItem to="/calculator">CALCULATOR</ListItem>
-            </List>
-            {/* <UserInfo>
+  // const name = "Nick";
+  return (
+    <>
+      <List>
+        <ListItem to="/dairy">DAIRY</ListItem>
+        <ListItem to="/calculator">CALCULATOR</ListItem>
+      </List>
+      {/* <UserInfo>
             <Button
                 type="button"
             >
@@ -27,8 +27,8 @@ const UserMenu = () => {
                 <Button type="button">Exit</Button>
                 </UserInfoWrapper>
             </UserInfo> */}
-        </>
-    );
+    </>
+  );
 };
 
 export default UserMenu;
