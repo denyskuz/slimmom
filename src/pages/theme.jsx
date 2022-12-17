@@ -12,7 +12,7 @@ export let theme = createTheme({
 
 theme = createTheme(theme, {
   palette: {
-    primary:{
+    primary: {
       main: '#fc842d', //колір фокусу інпутів
     },
     text: {
@@ -27,7 +27,8 @@ theme = createTheme(theme, {
   typography: {
     fontFamily: ['Verdana', 'sans-serif'].join(','), //основний шрифт
     fontWeightBold: 700,
-    title1: { //кастомний стиль заголовка калькулятора
+    title1: {
+      //кастомний стиль заголовка калькулятора
       fontSize: 18,
       lineHeight: 1.44,
       [theme.breakpoints.up('mobile')]: {

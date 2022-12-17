@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { ThemeProvider } from '@mui/material/styles';
 import { Container, Grid, Typography, CssBaseline } from '@mui/material';
-import { useEffect } from 'react';
 import { CalorieForm } from 'components/CalculatorСalorieForm/CalorieForm';
 import { theme } from './theme';
 

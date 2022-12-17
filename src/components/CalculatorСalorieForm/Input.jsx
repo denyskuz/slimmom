@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import { TextField } from '@mui/material';
 
 export const Input = styled(TextField, {
-  shouldForwardProp: (props) => props !== 'bloodType',
+  shouldForwardProp: props => props !== 'bloodType',
 })(({ theme, bloodType }) => ({
   marginTop: theme => theme.spacing(2),
   maxWidth: '100%',
