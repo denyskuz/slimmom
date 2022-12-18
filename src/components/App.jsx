@@ -9,9 +9,9 @@ const darkTheme = createTheme({
 });
 export const App = () => {
   return (
-      <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Main/>
+      <Main />
     </ThemeProvider>
   );
 };
