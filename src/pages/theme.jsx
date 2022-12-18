@@ -27,6 +27,9 @@ theme = createTheme(theme, {
   typography: {
     fontFamily: ['Verdana', 'sans-serif'].join(','), //основний шрифт
     fontWeightBold: 700,
+    subtle1: {
+      lineHeight: 1.2,
+    },
     title1: {
       //кастомний стиль заголовка калькулятора
       fontSize: 18,

@@ -4,7 +4,7 @@ import { Container, Grid, Typography, CssBaseline } from '@mui/material';
 import { CalorieForm } from 'components/CalculatorСalorieForm/CalorieForm';
 import { theme } from './theme';
 
-const Contacts = () => {
+const Calculator = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
@@ -23,4 +23,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default Calculator;
