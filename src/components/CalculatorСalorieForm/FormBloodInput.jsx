@@ -19,3 +19,8 @@ export const FormBloodInput = styled(FormInput)(({ theme }) => ({
     },
   },
 }));
+
+FormBloodInput.defaultProps = {
+  ...FormInput.defaultProps,
+  inputProps: { maxLength: 1 },
+};

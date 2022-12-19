@@ -1,29 +1,78 @@
 import { React, useState } from 'react';
 import { Grid, Radio, RadioGroup, FormControl } from '@mui/material';
+import { useForm } from 'react-hook-form';
+import { joiResolver } from '@hookform/resolvers/joi';
 import { FormInputContainer } from './FormInputContainer';
 import { FormInput } from './FormInput';
 import { FormButton } from './FormButton';
 import { FormBloodInput } from './FormBloodInput';
 import { FormLabel } from './FormLabel';
+import { userParamsShema } from 'validation';
 
 export const CalorieForm = () => {
   const [bloodType, setBloodType] = useState();
   const handleBloodType = event => {
-    setBloodType(event.target.value);
+    const bloodType = event.target.value;
+    if (bloodType >= 1 && bloodType <= 4) {
+      setBloodType(bloodType);
+    }
   };
+  const {
+    register,
+    handleSubmit,
+    trigger,
+    formState: { errors },
+  } = useForm({
+    resolver: joiResolver(userParamsShema),
+  });
 
+  const onFormSubmit = (data, e) => {};
   return (
-    <FormControl>
+    <FormControl component="form" onSubmit={handleSubmit(onFormSubmit)}>
       <FormInputContainer>
         <Grid>
-          <FormInput name="height" label="Height*" />
-          <FormInput name="age" label="Age*" />
-          <FormInput name="currentWeight" label="Current weight*" />
+          <FormInput
+            {...register('height')}
+            error={Boolean(errors?.height)}
+            helperText={errors?.height?.message}
+            label="Height*"
+            onBlur={async () => {
+              await trigger('height');
+            }}
+          />
+          <FormInput
+            {...register('age')}
+            error={Boolean(errors?.age)}
+            helperText={errors?.age?.message}
+            label="Age*"
+            onBlur={async () => {
+              await trigger('age');
+            }}
+          />
+          <FormInput
+            {...register('currentWeight')}
+            error={Boolean(errors?.currentWeight)}
+            helperText={errors?.currentWeight?.message}
+            label="Current weight*"
+            onBlur={async () => {
+              await trigger('currentWeight');
+            }}
+          />
         </Grid>
         <Grid>
-          <FormInput name="desiredWeight" label="Desired weight*" />
+          <FormInput
+            {...register('desiredWeight')}
+            error={Boolean(errors?.desiredWeight)}
+            helperText={errors?.desiredWeight?.message}
+            label="Desired weight*"
+            onBlur={async () => {
+              await trigger('desiredWeight');
+            }}
+          />
           <FormBloodInput
-            name="bloodType"
+            {...register('bloodType')}
+            error={Boolean(errors?.bloodType)}
+            helperText={errors?.bloodType?.message}
             label="Blood type *"
             value={bloodType || ''}
             onChange={handleBloodType}

@@ -29,7 +29,7 @@ export const FormInput = styled(TextField)(({ theme }) => ({
 }));
 
 FormInput.defaultProps = {
-  InputProps: { inputMode: 'numeric', pattern: '[0-9]*' },
+  inputProps: { maxLength: 3 },
   variant: 'standard',
   ...FormInput.defaultProps,
 };
