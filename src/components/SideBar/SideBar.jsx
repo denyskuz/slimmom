@@ -4,7 +4,7 @@ import { BadFoodList } from './BadFoodList';
 import { SummaryList } from './SummaryList';
 import { BadFoodContainer } from './BadFoodContainer';
 
-export const CalculatorSummary = () => {
+export const SideBar = () => {
   return (
     <SideBarContainer>
       <Box>
