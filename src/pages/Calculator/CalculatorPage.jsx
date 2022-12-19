@@ -6,7 +6,7 @@ import { SideBar } from 'components/SideBar';
 import { CalculatorPageContainer } from './CalculatorPageContainer';
 import { theme } from './theme';
 
-export const CalculatorPage = () => {
+export default function CalculatorPage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
@@ -19,4 +19,4 @@ export const CalculatorPage = () => {
       </CalculatorPageContainer>
     </ThemeProvider>
   );
-};
+}

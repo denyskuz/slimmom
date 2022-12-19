@@ -16,7 +16,7 @@ const MainPage = lazy(() => import('../pages/MainPage.js'));
 const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.js'));
 const DairyPage = lazy(() => import('../pages/DairyPage'));
-const CalculatorPage = lazy(() => import('../pages/Calculator'));
+const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
   return (

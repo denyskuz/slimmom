@@ -8,6 +8,8 @@ import { FormButton } from './FormButton';
 import { FormBloodInput } from './FormBloodInput';
 import { FormLabel } from './FormLabel';
 import { userParamsShema } from 'validation';
+import { getProducts } from 'redux/products/actions';
+import { selectProducts, selectLoadStatus } from 'redux/products/selectors';
 
 export const CalorieForm = () => {
   const [bloodType, setBloodType] = useState();
