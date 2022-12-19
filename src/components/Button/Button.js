@@ -64,10 +64,5 @@ export const RegisterButt = styled(NavLink)`
   &:hover {
     background-color: inherit;
     color: inherit;
-    /* box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5); */
-    /* border-radius: 30px; */
-  }
-  @media screen and (min-width: 768px) {
-    /* margin-top: 60px; */
   }
 `;

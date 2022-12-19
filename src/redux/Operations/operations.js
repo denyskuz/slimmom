@@ -5,10 +5,13 @@ export const login = createAsyncThunk(
   '/api/auth/login',
   async (data, thunkAPI) => {
     try {
-      const res = await await axios.post('/api/auth/login', data);
+      // const res = await await axios.post('/api/auth/login', data);
 
-      console.log('OPERATION:', res);
-      return res;
+      console.log('OPERATION:', data);
+      return {
+        token: 1111,
+        data,
+      };
     } catch (error) {
       console.log(error.message);
     }

@@ -5,9 +5,9 @@ import { Title } from './LoginPage.Styled';
 export default function LoginPage() {
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         <title>Login</title>
-      </Helmet> */}
+      </Helmet>
 
       <Title>Log in</Title>
       <LoginForm />
