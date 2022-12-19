@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:js": "eslint src/**/*.{js,jsx}",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.{js,jsx}' --write",
+    "prettier-format": "prettier --config .prettierrc src/**/*.{js,jsx} --write",
     "prepare": "husky install"
   },
   "eslintConfig": {
