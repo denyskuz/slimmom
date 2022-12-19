@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
   ButtonPrimary,
@@ -17,7 +17,7 @@ const LoginForm = () => {
     initialValues: { email: '', password: '' },
     validationSchema: Yup.object().shape({
       email: Yup.string().email().required(),
-      password: Yup.string().min(6).required(),
+      password: Yup.string().min(6).max(16).required(),
     }),
     onSubmit: (values, { resetForm }) => {
       dispatch(login(values));
