@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { TextField } from '@mui/material';
-
 import { Box } from '@mui/system';
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -42,5 +42,11 @@ export const Input = styled(TextField)`
   }
   @media screen and (min-width: 1024px) {
     width: 240px;
+  }
+  & label.Mui-focused {
+    color: #9b9faa;
+  }
+  & .MuiInput-underline:after {
+    border-bottom-color: #fc842d;
   }
 `;

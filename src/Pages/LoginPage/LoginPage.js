@@ -2,18 +2,15 @@ import LoginForm from 'components/LoginForm/LoginForm';
 import { Helmet } from 'react-helmet';
 import { Title } from './LoginPage.Styled';
 
-export const LoginPage = () => {
+export default function LoginPage() {
   return (
     <>
-      {/* <BackGround> */}
-      <Helmet>
+      {/* <Helmet>
         <title>Login</title>
-      </Helmet>
-      <>
-        <Title>Log in</Title>
-        <LoginForm />
-      </>
-      {/* </BackGround> */}
+      </Helmet> */}
+
+      <Title>Log in</Title>
+      <LoginForm />
     </>
   );
-};
+}

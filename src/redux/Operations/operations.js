@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
+import axios from 'axios';
 
 export const login = createAsyncThunk(
   '/api/auth/login',
   async (data, thunkAPI) => {
     try {
-      const res = await UserAPI(data);
-      //   await axios.post('/api/auth/login', data);
+      const res = await await axios.post('/api/auth/login', data);
+
       console.log('OPERATION:', res);
       return res;
     } catch (error) {
@@ -14,7 +14,3 @@ export const login = createAsyncThunk(
     }
   }
 );
-
-const UserAPI = async data => {
-  return data;
-};

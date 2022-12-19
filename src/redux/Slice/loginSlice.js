@@ -13,9 +13,6 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: {
     [login.fulfilled](state, action) {
-      console.log('fulfilled!!');
-      console.log('action:', action.payload);
-      console.log('state:', state);
       state.isLoggedIn = true;
       state.user = action.payload;
     },

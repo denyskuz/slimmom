@@ -28,6 +28,7 @@ export const ButtonPrimary = styled(Button)`
 `;
 export const ButtonSecondary = styled(Button)`
   margin-top: 20px;
+  padding: 0px;
   width: 182px;
   height: 44px;
   background-color: #fff;
@@ -52,16 +53,13 @@ export const ButtonSecondary = styled(Button)`
 `;
 
 export const RegisterButt = styled(NavLink)`
-  /* width: 182px; */
-  /* height: 44px; */
-  /* border-radius: 30px; */
+  padding: 13px;
+  width: 182px;
+  height: 44px;
+  border-radius: 30px;
   text-align: center;
   text-decoration: none;
-  font-family: Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
+
   color: inherit;
   &:hover {
     background-color: inherit;
