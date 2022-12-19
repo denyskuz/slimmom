@@ -4,9 +4,8 @@ const getUserEmail = state => state.auth.user.email;
 const getToken = state => state.auth.token;
 
 export const authSelectors = {
-    getIsLoggedIn,
-    getUserName,
-    getUserEmail,
-    getToken,
-}
-
+  getIsLoggedIn,
+  getUserName,
+  getUserEmail,
+  getToken,
+};

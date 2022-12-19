@@ -75,5 +75,4 @@ export default function RegistrationPage() {
       </RegisterForm>
     </RegisterContainer>
   );
-};
-
+}

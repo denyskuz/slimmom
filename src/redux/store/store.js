@@ -13,14 +13,11 @@ import {
 } from 'redux-persist';
 import { authReducer } from '../auth/authSlice';
 
-
-
 const persistAuthConfig = {
   key: 'auth',
   storage,
   whitlist: ['token'],
 };
-
 
 export const store = configureStore({
   reducer: {
@@ -33,7 +30,6 @@ export const store = configureStore({
       },
     }),
 });
-
 
 export const persistor = persistStore(store);
 setupListeners(store.dispatch);
