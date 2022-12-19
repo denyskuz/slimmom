@@ -4,6 +4,7 @@ import { Container } from '@mui/material';
 export const CalculatorPageContainer = styled(Container)(({ theme }) => ({
   padding: 0,
   display: 'flex',
+  justifyContent: 'space-between',
   [theme.breakpoints.down('mobile')]: {
     maxWidth: 320,
   },
@@ -12,6 +13,8 @@ export const CalculatorPageContainer = styled(Container)(({ theme }) => ({
   },
   [theme.breakpoints.up('tablet')]: {
     maxWidth: 1280,
+  },
+  [theme.breakpoints.down('tablet')]: {
     flexDirection: 'column',
   },
 }));

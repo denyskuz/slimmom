@@ -4,6 +4,7 @@ import { Typography, CssBaseline } from '@mui/material';
 import { CalorieForm } from 'components/CalculatorСalorieForm/CalorieForm';
 import { CalculatorContainer } from 'components/Calculator/CalculatorContainer';
 import { CalculatorPageContainer } from './CalculatorPageContainer';
+import { CalculatorSummary } from 'components/CalculatorSummary/CalculatorSummary';
 import { theme } from './theme';
 
 const Calculator = () => {
@@ -20,6 +21,7 @@ const Calculator = () => {
           </Typography>
           <CalorieForm />
         </CalculatorContainer>
+        <CalculatorSummary />
       </CalculatorPageContainer>
     </ThemeProvider>
   );
