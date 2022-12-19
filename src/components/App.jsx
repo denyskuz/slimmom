@@ -14,7 +14,7 @@ const darkTheme = createTheme({
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegistrationPage = lazy(() =>
-  import('../pages/registration/registrationPage/registrationPage')
+  import('../pages/registration/registrationPage')
 );
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DairyPage = lazy(() => import('../pages/DairyPage'));

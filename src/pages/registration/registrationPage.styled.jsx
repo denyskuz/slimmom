@@ -1,20 +1,58 @@
 import styled from '@emotion/styled';
 
+export const MainContainer = styled.div`
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 768px;
+    padding-left: 16px;
+    padding-right: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+`;
+
 export const RegisterContainer = styled.div`
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   padding: 120px 15px 99px 20px;
-  max-width: 320px;
+  width: 320px;
   text-align: center;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 768px;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: left;
+  }
 `;
 
 export const RegisterForm = styled.div`
   padding-top: 40px;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 768px;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    margin-left: 0;
+    text-align: left;
+  }
 `;
 
 export const RegisterFormName = styled.h1`
   margin: 0;
-  width: 254px;
   height: 12px;
   font-family: 'Verdana';
   font-style: normal;
@@ -42,6 +80,14 @@ export const RegisterButton = styled.button`
   line-height: 17px;
   letter-spacing: 0.04em;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-right: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 32px;
+  }
 `;
 
 export const LogInButton = styled.button`
