@@ -4,7 +4,8 @@ import { getProducts } from './actions';
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
-    items: [],
+    calories: 0,
+    bad: [],
     loading: false,
   },
   extraReducers: builder => {
@@ -12,7 +13,8 @@ const productsSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
-      state.items = action.payload;
+      state.calories = action.payload.kCal;
+      state.bad = action.payload.products;
     });
     builder.addMatcher(
       isAnyOf(

@@ -9,7 +9,7 @@ export const SideBar = () => {
     <SideBarContainer>
       <Box>
         <Typography variant="title3" component="h3">
-          Summary for 20/06/2020
+          Summary for {new Date().toDateString()}
         </Typography>
         <SummaryList />
       </Box>

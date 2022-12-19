@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { Grid, Radio, RadioGroup, FormControl } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
+import { useSelector, useDispatch } from 'react-redux';
 import { FormInputContainer } from './FormInputContainer';
 import { FormInput } from './FormInput';
 import { FormButton } from './FormButton';
@@ -9,9 +10,12 @@ import { FormBloodInput } from './FormBloodInput';
 import { FormLabel } from './FormLabel';
 import { userParamsShema } from 'validation';
 import { getProducts } from 'redux/products/actions';
-import { selectProducts, selectLoadStatus } from 'redux/products/selectors';
+import { selectLoadStatus } from 'redux/products/selectors';
 
 export const CalorieForm = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector(selectLoadStatus);
+
   const [bloodType, setBloodType] = useState();
   const handleBloodType = event => {
     const bloodType = event.target.value;
@@ -28,7 +32,10 @@ export const CalorieForm = () => {
     resolver: joiResolver(userParamsShema),
   });
 
-  const onFormSubmit = (data, e) => {};
+  const onFormSubmit = (data, e) => {
+    e.preventDefault();
+    dispatch(getProducts(data));
+  };
   return (
     <FormControl component="form" onSubmit={handleSubmit(onFormSubmit)}>
       <FormInputContainer>
@@ -97,7 +104,12 @@ export const CalorieForm = () => {
           </RadioGroup>
         </Grid>
       </FormInputContainer>
-      <FormButton variant="contained" color="button" type="submit">
+      <FormButton
+        disabled={loading}
+        variant="contained"
+        color="button"
+        type="submit"
+      >
         Start losing weight
       </FormButton>
     </FormControl>

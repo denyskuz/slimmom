@@ -1,8 +1,11 @@
 import { List, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { selectBadProducts } from 'redux/products/selectors';
 import { SummaryListItem } from './SummaryListItem';
 
-export const BadFoodList = ({ data }) => {
-  if (!data) {
+export const BadFoodList = () => {
+  const products = useSelector(selectBadProducts);
+  if (!products) {
     return (
       <Typography
         sx={theme => ({
@@ -20,18 +23,13 @@ export const BadFoodList = ({ data }) => {
       })}
       component="ol"
     >
-      <SummaryListItem disablePadding>
-        <Typography>Flour products</Typography>
-      </SummaryListItem>
-      <SummaryListItem disablePadding>
-        <Typography>Milk</Typography>
-      </SummaryListItem>
-      <SummaryListItem disablePadding>
-        <Typography>Red meat</Typography>
-      </SummaryListItem>
-      <SummaryListItem disablePadding>
-        <Typography>Smoked meats</Typography>
-      </SummaryListItem>
+      {products.slice(0, 5).map(product => {
+        return (
+          <SummaryListItem key={product._id} disablePadding>
+            <Typography>{product.title[0].ua}</Typography>
+          </SummaryListItem>
+        );
+      })}
     </List>
   );
 };

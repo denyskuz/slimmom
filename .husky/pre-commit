@@ -4,5 +4,3 @@
 yarn lint:js
 yarn prettier-format
 yarn test --watchAll=false
-
-git update-index -g
