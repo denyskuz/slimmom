@@ -12,9 +12,9 @@ const darkTheme = createTheme({
   },
 });
 
-const MainPage = lazy(() => import('../pages/MainPage'));
+const MainPage = lazy(() => import('../pages/MainPage.js'));
 const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
-const LoginPage = lazy(() => import('../pages/LoginPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.js'));
 const DairyPage = lazy(() => import('../pages/DairyPage'));
 const CalculatorPage = lazy(() => import('../pages/Calculator'));
 
