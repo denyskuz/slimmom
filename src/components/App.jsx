@@ -24,12 +24,13 @@ export const App = () => {
       <CssBaseline />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index
-              element={
-                <PublicRoute redirectTo="/" restricted>
-                  <MainPage />
-                </PublicRoute>
-              }
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/" restricted>
+                <MainPage />
+              </PublicRoute>
+            }
           />
           <Route
             path="signup"
