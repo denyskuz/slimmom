@@ -31,7 +31,6 @@ export const DiaryDateCalendar = () => {
   };
 
   return (
-    <>
       <Container>
         <Datetime
           renderInput={renderInput}
@@ -43,6 +42,5 @@ export const DiaryDateCalendar = () => {
           onChange={handleChangeDate}
         />
       </Container>
-    </>
   );
 };
