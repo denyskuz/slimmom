@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'https://slimmom-s41d.onrender.com';
 
 const token = {
   set(token) {
@@ -12,10 +12,13 @@ const token = {
   },
 };
 
-export const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post(`/users/signup`, credentials);
-    token.set(data.token);
-    return data;
-  } catch (error) {}
-});
+export const register = createAsyncThunk(
+  '/api/auth/registration',
+  async credentials => {
+    try {
+      const { data } = await axios.post(`/api/auth/registration`, credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {}
+  }
+);

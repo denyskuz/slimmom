@@ -14,7 +14,7 @@ export const Form = styled.form`
     max-width: 380px;
     margin-left: 32px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     margin-left: 16px;
   }
 `;
@@ -38,7 +38,7 @@ export const Input = styled(TextField)`
   @media screen and (min-width: 768px) {
     width: 240px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     width: 240px;
   }
   & label.Mui-focused {
