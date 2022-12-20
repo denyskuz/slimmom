@@ -1,10 +1,10 @@
+import moment from 'moment';
 import Datetime from 'react-datetime';
-import 'react-datetime/css/react-datetime.css';
 import { useState } from 'react';
 import { Container } from '../Container.styled';
 import { Box } from 'components/Boxstatus';
+import 'react-datetime/css/react-datetime.css';
 import iconCalendar from '../../images/icon/calendar.svg';
-import moment from 'moment';
 import { DiaryDate } from './DiaryDateCalendar.styled';
 
 export const DiaryDateCalendar = () => {
