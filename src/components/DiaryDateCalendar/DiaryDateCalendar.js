@@ -16,8 +16,7 @@ export const DiaryDateCalendar = () => {
     setDate(moment(value).format('DD.MM.YYYY'));
   };
 
-  const renderInput = (props, openCalendar) => {
-    return (
+  const renderInput = (props, openCalendar) => (
       <Box
         display="flex"
         alignItems="center"
@@ -27,11 +26,10 @@ export const DiaryDateCalendar = () => {
         <DiaryDate>{date}</DiaryDate>
         <img src={iconCalendar} width={20} height={20} alt="calendar" />
       </Box>
-    );
-  };
+  );
+
 
   return (
-    <>
       <Container>
         <Datetime
           renderInput={renderInput}
@@ -43,6 +41,5 @@ export const DiaryDateCalendar = () => {
           onChange={handleChangeDate}
         />
       </Container>
-    </>
   );
 };
