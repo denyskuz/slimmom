@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -6,29 +6,37 @@ import {
   ButtonSecondary,
   LinkButton,
 } from 'components/Button/Button';
-import { login } from 'redux/Operations/operations';
-import { Form, ButtonBox, Input } from './LoginForm.styled';
+import { register } from 'redux/auth/authOperation';
+import { Form, ButtonBox, Input } from './registrationForm.styled';
 
-const LoginForm = () => {
-  const Mail = useSelector(store => store.auth);
+const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
-    initialValues: { email: '', password: '' },
+    initialValues: { name: '', email: '', password: '' },
     validationSchema: Yup.object().shape({
+      name: Yup.string().required(),
       email: Yup.string().email().required(),
       password: Yup.string().min(6).max(16).required(),
     }),
     onSubmit: (values, { resetForm }) => {
-      dispatch(login(values));
-
+      dispatch(register(values));
       resetForm();
-      console.log(Mail);
     },
   });
 
   return (
     <Form onSubmit={formik.handleSubmit}>
+      <Input
+        id="name"
+        label="Name *"
+        variant="standard"
+        onChange={formik.handleChange}
+        value={formik.values.name}
+      />
+      {formik.touched.name && formik.errors.name ? (
+        <div>{formik.errors.name}</div>
+      ) : null}
       <Input
         id="email"
         label="E-mail *"
@@ -50,13 +58,13 @@ const LoginForm = () => {
         <div>{formik.errors.password}</div>
       ) : null}
       <ButtonBox>
-        <ButtonPrimary type="submit">Login</ButtonPrimary>
+        <ButtonPrimary type="submit">Register</ButtonPrimary>
         <ButtonSecondary type="button">
-          <LinkButton to={'/signup'}>Register</LinkButton>
+          <LinkButton to={'/login'}>Log in</LinkButton>
         </ButtonSecondary>
       </ButtonBox>
     </Form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

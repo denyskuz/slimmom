@@ -40,7 +40,6 @@ export const ButtonSecondary = styled(Button)`
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-
   &:hover {
     background-color: #fc842d;
     color: #fff;
@@ -52,14 +51,13 @@ export const ButtonSecondary = styled(Button)`
   }
 `;
 
-export const RegisterButt = styled(NavLink)`
+export const LinkButton = styled(NavLink)`
   padding: 13px;
   width: 182px;
   height: 44px;
   border-radius: 30px;
   text-align: center;
   text-decoration: none;
-
   color: inherit;
   &:hover {
     background-color: inherit;

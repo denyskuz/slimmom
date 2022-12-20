@@ -17,29 +17,28 @@ export const DiaryDateCalendar = () => {
   };
 
   const renderInput = (props, openCalendar) => (
-      <Box
-        display="flex"
-        alignItems="center"
-        gridGap="20px"
-        onClick={openCalendar}
-      >
-        <DiaryDate>{date}</DiaryDate>
-        <img src={iconCalendar} width={20} height={20} alt="calendar" />
-      </Box>
+    <Box
+      display="flex"
+      alignItems="center"
+      gridGap="20px"
+      onClick={openCalendar}
+    >
+      <DiaryDate>{date}</DiaryDate>
+      <img src={iconCalendar} width={20} height={20} alt="calendar" />
+    </Box>
   );
 
-
   return (
-      <Container>
-        <Datetime
-          renderInput={renderInput}
-          value={date}
-          dateFormat="DD.MM.YYYY"
-          closeOnSelect={true}
-          timeFormat={false}
-          strictParsing={true}
-          onChange={handleChangeDate}
-        />
-      </Container>
+    <Container>
+      <Datetime
+        renderInput={renderInput}
+        value={date}
+        dateFormat="DD.MM.YYYY"
+        closeOnSelect={true}
+        timeFormat={false}
+        strictParsing={true}
+        onChange={handleChangeDate}
+      />
+    </Container>
   );
 };
