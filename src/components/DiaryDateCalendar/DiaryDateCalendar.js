@@ -16,7 +16,7 @@ export const DiaryDateCalendar = () => {
     setDate(moment(value).format('DD.MM.YYYY'));
   };
 
-  const input = (props, openCalendar) => {
+  const renderInput = (props, openCalendar) => {
     return (
       <Box
         display="flex"
@@ -34,7 +34,7 @@ export const DiaryDateCalendar = () => {
     <>
       <Container>
         <Datetime
-          renderInput={input}
+          renderInput={renderInput}
           value={date}
           dateFormat="DD.MM.YYYY"
           closeOnSelect={true}
