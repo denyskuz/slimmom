@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 axios.defaults.baseURL = BASE_URL;
 
