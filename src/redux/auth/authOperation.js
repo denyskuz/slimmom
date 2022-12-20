@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const { BACKEND_URL } = process.env;
+const BASE_URL = process.env.BACKEND_URL;
 
-axios.defaults.baseURL = BACKEND_URL;
+axios.defaults.baseURL = BASE_URL;
 
 const token = {
   set(token) {
