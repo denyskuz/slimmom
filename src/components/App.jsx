@@ -69,7 +69,6 @@ export const App = () => {
           </Route>
         </Routes>
       </ThemeProvider>
-      
     </>
   );
 };
