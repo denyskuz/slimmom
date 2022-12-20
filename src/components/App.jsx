@@ -13,7 +13,7 @@ const darkTheme = createTheme({
 });
 
 const MainPage = lazy(() => import('../pages/MainPage'));
-const RegisterPage = lazy(() =>
+const RegistrationPage = lazy(() =>
   import('../pages/registration/registrationPage')
 );
 const LoginPage = lazy(() => import('../pages/LoginPage'));
@@ -39,7 +39,7 @@ export const App = () => {
               path="signup"
               element={
                 <PublicRoute redirectTo="/dairy" restricted>
-                  <RegisterPage />
+                  <RegistrationPage />
                 </PublicRoute>
               }
             />

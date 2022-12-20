@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://slimmom-s41d.onrender.com';
+const { BACKEND_URL } = process.env;
+
+axios.defaults.baseURL = BACKEND_URL;
 
 const token = {
   set(token) {

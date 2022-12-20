@@ -7,7 +7,7 @@ import {
   LinkButton,
 } from 'components/Button/Button';
 import { register } from 'redux/auth/authOperation';
-import { Form, ButtonBox, Input } from './registerForm.styled';
+import { Form, ButtonBox, Input } from './registrationForm.styled';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();

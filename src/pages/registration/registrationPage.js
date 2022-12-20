@@ -1,8 +1,8 @@
-import RegisterForm from 'components/RegisterForm/registerForm';
+import RegisterForm from 'components/RegistrationForm/registrationForm';
 import { Helmet } from 'react-helmet';
 import { Title } from './registrationPage.styled';
 
-export default function LoginPage() {
+export default function RegistrationPage() {
   return (
     <>
       <Helmet>
