@@ -15,7 +15,7 @@ export const Title = styled.h1`
     text-align: start;
     margin-left: 32px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     margin-left: 16px;
   }
 `;
