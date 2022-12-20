@@ -7,7 +7,7 @@ export const login = createAsyncThunk(
     try {
        const res = await await axios.post('/api/auth/login', data);
 
-      console.log('OPERATION:', data);
+      console.log('OPERATION:', res);
       return {
         token: 1111,
         data,
