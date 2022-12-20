@@ -12,7 +12,7 @@ const darkTheme = createTheme({
   },
 });
 
-const MainPage = lazy(() => import('../pages/MainPage'));
+const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DairyPage = lazy(() => import('../pages/DairyPage'));
@@ -28,7 +28,7 @@ export const App = () => {
             <Route
               index
               element={
-                <PublicRoute redirectTo="/dairy" restricted>
+                <PublicRoute redirectTo="/" restricted>
                   <MainPage />
                 </PublicRoute>
               }
