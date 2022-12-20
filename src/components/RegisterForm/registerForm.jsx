@@ -6,7 +6,7 @@ import {
   ButtonSecondary,
   LinkButton,
 } from 'components/Button/Button';
-import { register } from 'redux/auth/authOperation'; 
+import { register } from 'redux/auth/authOperation';
 import { Form, ButtonBox, Input } from './registerForm.styled';
 
 const RegisterForm = () => {

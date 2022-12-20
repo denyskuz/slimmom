@@ -1,4 +1,4 @@
-import RegisterForm from "components/RegisterForm/registerForm";
+import RegisterForm from 'components/RegisterForm/registerForm';
 import { Helmet } from 'react-helmet';
 import { Title } from './registrationPage.styled';
 
