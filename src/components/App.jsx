@@ -1,10 +1,12 @@
+import { lazy } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
 import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
+import 'react-toastify/dist/ReactToastify.css';
 
 const darkTheme = createTheme({
   palette: {
@@ -24,12 +26,13 @@ export const App = () => {
       <CssBaseline />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index
-              element={
-                <PublicRoute redirectTo="/" restricted>
-                  <MainPage />
-                </PublicRoute>
-              }
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/" restricted>
+                <MainPage />
+              </PublicRoute>
+            }
           />
           <Route
             path="signup"
@@ -66,6 +69,7 @@ export const App = () => {
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </ThemeProvider>
   );
 };
