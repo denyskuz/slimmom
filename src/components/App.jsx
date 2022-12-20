@@ -13,64 +13,60 @@ const darkTheme = createTheme({
 });
 
 const MainPage = lazy(() => import('../pages/MainPage'));
-const RegistrationPage = lazy(() =>
-  import('../pages/registration/registrationPage')
-);
+const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DairyPage = lazy(() => import('../pages/DairyPage'));
 const CalculatorPage = lazy(() => import('../pages/CalculatorPage'));
 
 export const App = () => {
   return (
-    <>
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route
-              index
-              element={
-                <PublicRoute redirectTo="/" restricted>
-                  <MainPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="signup"
-              element={
-                <PublicRoute redirectTo="/dairy" restricted>
-                  <RegistrationPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <PublicRoute redirectTo="/dairy" restricted>
-                  <LoginPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="dairy"
-              element={
-                <PrivateRoute>
-                  <DairyPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="calculator"
-              element={
-                <PrivateRoute>
-                  <CalculatorPage />
-                </PrivateRoute>
-              }
-            />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Route>
-        </Routes>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/" restricted>
+                <MainPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="signup"
+            element={
+              <PublicRoute redirectTo="/dairy" restricted>
+                <RegistrationPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute redirectTo="/dairy" restricted>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="dairy"
+            element={
+              <PrivateRoute>
+                <DairyPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="calculator"
+            element={
+              <PrivateRoute>
+                <CalculatorPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 };
