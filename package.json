@@ -5,13 +5,16 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@hookform/resolvers": "^2.9.10",
     "@mui/material": "^5.11.0",
     "@reduxjs/toolkit": "1.8.5",
     "axios": "0.27.2",
     "classnames": "^2.3.2",
     "formik": "^2.2.9",
     "modern-normalize": "1.1.0",
+    "moment": "^2.29.4",
     "react": "18.2.0",
+    "react-datetime": "^3.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
     "react-hot-toast": "2.4.0",
@@ -19,8 +22,12 @@
     "react-redux": "8.0.4",
     "react-router-dom": "6.4.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
+    "react-window": "^1.8.8",
     "redux-persist": "6.0.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "styled-system": "^5.1.5",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

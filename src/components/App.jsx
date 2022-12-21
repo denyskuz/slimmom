@@ -1,10 +1,13 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { GlobalStyle } from './GlobalStyle';
-import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
+import 'react-toastify/dist/ReactToastify.css';
+import AppBar from './Header/AppBar';
 
 const darkTheme = createTheme({
   palette: {
@@ -13,22 +16,23 @@ const darkTheme = createTheme({
 });
 
 const MainPage = lazy(() => import('../pages/MainPage'));
-const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
+const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DairyPage = lazy(() => import('../pages/DairyPage'));
-const CalculatorPage = lazy(() => import('../pages/CalculatorPage'));
+const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
   return (
-    <>
+
       <ThemeProvider theme={darkTheme}>
-        <GlobalStyle />
+      <CssBaseline />
+            <AppBar />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
               index
               element={
-                <PublicRoute redirectTo="/dairy" restricted>
+                <PublicRoute redirectTo="/" restricted>
                   <MainPage />
                 </PublicRoute>
               }
@@ -67,8 +71,9 @@ export const App = () => {
             />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
-        </Routes>
+      </Routes>
+            <ToastContainer />
       </ThemeProvider>
-    </>
+
   );
 };
