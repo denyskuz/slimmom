@@ -22,46 +22,46 @@ const AppBar = () => {
 
   return (
     <Header>
-        <NavHeader>
-          <LogoLink to="/">
-            {isLoggedIn ? (
-              <>
-                <Logo />
-                <LoggedWrapper>
-                  <LogoSlim />
-                  <LogoMom />
-                </LoggedWrapper>
-              </>
-            ) : (
-              <>
-                <Logo />
-                <Wrapper>
-                  <LogoSlim />
-                  <LogoMom />
-                </Wrapper>
-              </>
-            )}
-          </LogoLink>
+      <NavHeader>
+        <LogoLink to="/">
+          {isLoggedIn ? (
+            <>
+              <Logo />
+              <LoggedWrapper>
+                <LogoSlim />
+                <LogoMom />
+              </LoggedWrapper>
+            </>
+          ) : (
+            <>
+              <Logo />
+              <Wrapper>
+                <LogoSlim />
+                <LogoMom />
+              </Wrapper>
+            </>
+          )}
+        </LogoLink>
 
-          <Navigation>
-            {isLoggedIn ? (
-              <>
-                <UserMenuWrapperDesk>
-                  <UserMenu />
-                </UserMenuWrapperDesk>
-                <Burger/>
-              </>
-            ) : (
-              <AuthNav />
-            )}
-          </Navigation>
-        </NavHeader>
+        <Navigation>
+          {isLoggedIn ? (
+            <>
+              <UserMenuWrapperDesk>
+                <UserMenu />
+              </UserMenuWrapperDesk>
+              <Burger />
+            </>
+          ) : (
+            <AuthNav />
+          )}
+        </Navigation>
+      </NavHeader>
 
-        {isLoggedIn && (
-          <UserMenuWrapper>
-            <UserMenu />
-          </UserMenuWrapper>
-        )}
+      {isLoggedIn && (
+        <UserMenuWrapper>
+          <UserMenu />
+        </UserMenuWrapper>
+      )}
     </Header>
   );
 };

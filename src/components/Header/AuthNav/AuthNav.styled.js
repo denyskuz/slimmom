@@ -13,11 +13,10 @@ export const Link = styled(NavLink)`
   text-transform: uppercase;
   color: #9b9faa;
 
-  
   :first-child {
     margin-right: 16px;
   }
-  
+
   :hover {
     color: #fc842d;
   }

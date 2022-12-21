@@ -9,7 +9,7 @@ import {
 } from './UserMenu.styled';
 
 const UserMenu = () => {
-  const name = "Nick";
+  const name = 'Nick';
 
   return (
     <>
@@ -17,9 +17,7 @@ const UserMenu = () => {
         <ListItem to="/dairy">Dairy</ListItem>
         <ListItem to="/calculator">Calculator</ListItem>
       </List>
-      <Button
-        type="button"
-      >
+      <Button type="button">
         <Arrow color="black" size="20px" />
       </Button>
       <UserInfoWrapper>

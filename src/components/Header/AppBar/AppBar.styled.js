@@ -132,13 +132,13 @@ export const UserMenuWrapperDesk = styled.div`
 
 export const UserMenuWrapper = styled.div`
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #eff1f3;
 
-    @media screen and (min-width: 768px) {
-      display: none;
-    }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `;

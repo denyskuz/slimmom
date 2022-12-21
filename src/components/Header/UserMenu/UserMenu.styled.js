@@ -26,7 +26,7 @@ export const ListItem = styled(NavLink)`
   :first-child {
     margin-right: 16px;
   }
-  
+
   :hover {
     color: #fc842d;
   }
@@ -34,13 +34,13 @@ export const ListItem = styled(NavLink)`
   &.active {
     color: #212121;
   }
-  `;
+`;
 
 export const UserInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: auto;
-  height: 40px
+  height: 40px;
 `;
 
 export const UserName = styled.h2`
