@@ -19,7 +19,3 @@ export const Title = styled.h1`
     margin-left: 16px;
   }
 `;
-export const Container = styled.div`
-  @media screen {
-  }
-`;

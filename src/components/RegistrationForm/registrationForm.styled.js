@@ -11,9 +11,7 @@ export const Form = styled.form`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #9b9faa;
   @media screen and (min-width: 768px) {
-    height: 289px;
-    width: 396px;
-    max-width: none;
+    max-width: 380px;
     margin-left: 32px;
   }
   @media screen and (min-width: 1280px) {
