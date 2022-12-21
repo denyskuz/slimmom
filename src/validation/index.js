@@ -1,19 +1,20 @@
-const Joi = require('joi');
+import * as Yup from 'yup';
 
-export const userParamsShema = Joi.object({
-  height: Joi.number().min(10).max(300).required().example('150'),
-  age: Joi.number().integer().min(10).max(200).required().example('18'),
-  currentWeight: Joi.number()
-    .integer()
-    .min(10)
-    .max(500)
+export const userParamsShema = Yup.object().shape({
+  height: Yup.number().positive().required().typeError('Must be a number'),
+  age: Yup.number().positive().required().typeError('Must be a number'),
+  currentWeight: Yup.number()
+    .positive()
     .required()
-    .example('60'),
-  desiredWeight: Joi.number()
-    .integer()
-    .min(10)
-    .max(500)
+    .typeError('Must be a number'),
+  desiredWeight: Yup.number()
+    .positive()
     .required()
-    .example('50'),
-  bloodType: Joi.number().integer().min(1).max(4).required().example('1'),
-}).required();
+    .typeError('Must be a number'),
+  bloodType: Yup.number()
+    .positive()
+    .required()
+    .min(1)
+    .max(4)
+    .typeError('Must be a number'),
+});

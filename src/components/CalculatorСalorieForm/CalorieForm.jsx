@@ -1,100 +1,101 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { Grid, Radio, RadioGroup, FormControl } from '@mui/material';
-import { useForm } from 'react-hook-form';
-import { joiResolver } from '@hookform/resolvers/joi';
+import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormInputContainer } from './FormInputContainer';
 import { FormInput } from './FormInput';
 import { FormButton } from './FormButton';
 import { FormBloodInput } from './FormBloodInput';
 import { FormLabel } from './FormLabel';
-import { userParamsShema } from 'validation';
 import { getProducts } from 'redux/products/actions';
 import { selectLoadStatus } from 'redux/products/selectors';
+import { userParamsShema } from 'validation';
 
 export const CalorieForm = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
 
-  const [bloodType, setBloodType] = useState();
   const handleBloodType = event => {
-    const bloodType = event.target.value;
-    if (bloodType >= 1 && bloodType <= 4) {
-      setBloodType(bloodType);
-    }
+    handleChange(event);
   };
-  const {
-    register,
-    handleSubmit,
-    trigger,
-    formState: { errors },
-  } = useForm({
-    resolver: joiResolver(userParamsShema),
+  const formik = useFormik({
+    initialValues: {
+      height: '',
+      age: '',
+      currentWeight: '',
+      desiredWeight: '',
+      bloodType: '',
+    },
+    validationSchema: userParamsShema,
+    onSubmit: (data, e) => {
+      e.preventDefault();
+      dispatch(getProducts(data));
+    },
   });
-  const onFormSubmit = (data, e) => {
-    e.preventDefault();
-    dispatch(getProducts(data));
+
+  const { values, errors, setFieldValue, setFieldTouched, touched } = formik;
+  const handleChange = e => {
+    if (e.target.name === 'bloodType') {
+      const bloodType = e.target.value;
+      if (!['1', '2', '3', '4'].includes(bloodType)) {
+        return;
+      }
+    }
+    setFieldValue(e.target.name, e.target.value);
+    setFieldTouched(e.target.name, true, false);
   };
   return (
-    <FormControl component="form" onSubmit={handleSubmit(onFormSubmit)}>
+    <FormControl component="form" onSubmit={formik.handleSubmit}>
       <FormInputContainer>
         <Grid>
           <FormInput
-            {...register('height')}
-            error={Boolean(errors?.height)}
-            helperText={errors?.height?.message}
+            id="height"
+            name="height"
+            value={values.height}
+            error={Boolean(touched.height && errors.height)}
+            helperText={touched.height && errors.height}
             label="Height*"
-            onBlur={async () => {
-              await trigger('height');
-            }}
+            onChange={handleChange}
           />
           <FormInput
-            {...register('age')}
-            error={Boolean(errors?.age)}
-            helperText={errors?.age?.message}
+            name="age"
+            value={values.age}
+            error={Boolean(touched.age && errors.age)}
+            helperText={touched.age && errors.age}
             label="Age*"
-            onBlur={async () => {
-              await trigger('age');
-            }}
+            onChange={handleChange}
           />
           <FormInput
-            {...register('currentWeight')}
-            error={Boolean(errors?.currentWeight)}
-            helperText={errors?.currentWeight?.message}
+            name="currentWeight"
+            value={values.currentWeight}
+            error={Boolean(touched.currentWeight && errors.currentWeight)}
+            helperText={touched.currentWeight && errors.currentWeight}
             label="Current weight*"
-            onBlur={async () => {
-              await trigger('currentWeight');
-            }}
+            onChange={handleChange}
           />
         </Grid>
         <Grid>
           <FormInput
-            {...register('desiredWeight')}
-            error={Boolean(errors?.desiredWeight)}
-            helperText={errors?.desiredWeight?.message}
+            name="desiredWeight"
+            value={values.desiredWeight}
+            error={Boolean(touched.desiredWeight && errors.desiredWeight)}
+            helperText={touched.desiredWeight && errors.desiredWeight}
             label="Desired weight*"
-            onBlur={async () => {
-              await trigger('desiredWeight');
-            }}
+            onChange={handleChange}
           />
           <FormBloodInput
-            {...register('bloodType')}
-            error={Boolean(errors?.bloodType)}
-            helperText={errors?.bloodType?.message}
+            name="bloodType"
+            error={Boolean(touched.bloodType && errors.bloodType)}
+            helperText={touched.bloodType && errors.bloodType}
             label="Blood type *"
-            value={bloodType || ''}
             onChange={handleBloodType}
-            inputRef={input => {
-              if (input != null && bloodType !== undefined) {
-                input.focus();
-              }
-            }}
+            value={values.bloodType}
           />
           <RadioGroup
             name="bloodType"
             row
             onChange={handleBloodType}
-            value={bloodType || ''}
+            value={values.bloodType}
           >
             <FormLabel value="1" control={<Radio />} label="1" />
             <FormLabel value="2" control={<Radio />} label="2" />
