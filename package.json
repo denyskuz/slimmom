@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@hookform/resolvers": "^2.9.10",
     "@mui/material": "^5.11.0",
     "@reduxjs/toolkit": "1.8.5",
     "axios": "0.27.2",
@@ -21,9 +22,12 @@
     "react-redux": "8.0.4",
     "react-router-dom": "6.4.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
+    "react-window": "^1.8.8",
     "redux-persist": "6.0.0",
     "styled-components": "^5.3.6",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
