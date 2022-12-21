@@ -2,12 +2,11 @@ import { DailyCaloriesForm } from 'components/DailyCaloriesForm/DailyCaloriesFor
 import { Wrapper } from './MainPage.styled';
 import Container from 'components/Container';
 
-
 export default function MainPage() {
   return (
     <main>
       <Wrapper>
-        <Container >
+        <Container>
           <DailyCaloriesForm />
         </Container>
       </Wrapper>

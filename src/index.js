@@ -15,10 +15,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-          <BrowserRouter basename="/">
-            <ThemeProvider theme={theme}>
+        <BrowserRouter basename="/">
+          <ThemeProvider theme={theme}>
             <App />
-            </ThemeProvider>
+          </ThemeProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>
