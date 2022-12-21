@@ -47,9 +47,17 @@ export const Wrapper = styled.div`
     position: absolute;
     bottom: 0;
     left: 60px;
-    border-right: 2px solid;
-    border-color: #e0e0e0;
-    padding-right: 20px;
+    
+    ::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: -20px;
+    height: 32px;
+    width: 2px;
+    background-color: #e0e0e0;
+    }
   }
 `;
 
@@ -60,19 +68,23 @@ export const LoggedWrapper = styled.div`
     position: absolute;
     bottom: 0;
     left: 60px;
-    border-right: 2px solid;
-    border-color: #e0e0e0;
-    padding-right: 20px;
+
+    ::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 130px;
+    height: 32px;
+    width: 2px;
+    background-color: #e0e0e0;
+    }
   }
 `;
 
 export const LogoLink = styled(NavLink)`
   display: flex;
   align-items: center;
-
-  @media screen and (min-width: 768px) {
-    margin-right: 330px;
-  }
 
   @media only screen and (min-width: 1280px) {
     position: relative;
@@ -127,6 +139,10 @@ export const UserMenuWrapperDesk = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-right: 50px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 0;
   }
 `;
 

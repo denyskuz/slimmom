@@ -7,7 +7,7 @@ export const List = styled.div`
 
   @media only screen and (min-width: 1280px) {
     display: flex;
-    margin-right: 550px;
+    margin-right: 770px;
   }
 `;
 
@@ -37,6 +37,7 @@ export const ListItem = styled(NavLink)`
 `;
 
 export const UserInfoWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -52,8 +53,17 @@ export const UserName = styled.h2`
   letter-spacing: 0.04em;
   margin: 0;
   padding: 15px 16px 13px 0;
-  border-right: 2px solid;
-  border-color: #e0e0e0;
+
+  ::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    height: 32px;
+    width: 2px;
+    background-color: #e0e0e0;
+    }
 `;
 
 export const Button = styled.button`

@@ -1,4 +1,3 @@
-// import { useMediaQuery } from 'react-responsive';
 // import Container from 'components/Container';
 import AuthNav from 'components/Header/AuthNav';
 import UserMenu from 'components/Header/UserMenu';

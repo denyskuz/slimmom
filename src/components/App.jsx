@@ -1,5 +1,5 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { GlobalStyle } from './GlobalStyle';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 import Layout from './Layout';
@@ -22,7 +22,7 @@ export const App = () => {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
+        <GlobalStyle />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
