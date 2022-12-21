@@ -25,8 +25,7 @@ export const DailyCaloriesForm = () => {
   });
   return (
     <FormWrapper>
-      {/* <DailyCalorieIntake/> */}
-      <div>
+      <DailyCalorieIntake/>
         <Title>Calculate your daily calorie intake right now</Title>
         <Form onSubmit={formik.handleSubmit}>
           <Label>
@@ -89,7 +88,6 @@ export const DailyCaloriesForm = () => {
           </Label>
           <Button type="submit">Start losing weight</Button>
         </Form>
-      </div>
     </FormWrapper>
   );
 };

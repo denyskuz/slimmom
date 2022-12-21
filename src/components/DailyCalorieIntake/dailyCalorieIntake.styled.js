@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Close from '../../images/icon/Close.svg';
 import Close_mobile from '../../images/icon/Close_mobile.svg';
 import { Button } from '@mui/material';
- 
+
 export const IntakeWrapper = styled.div`
   text-align: center;
   @media (min-width: 768px) {
@@ -10,7 +10,7 @@ export const IntakeWrapper = styled.div`
     height: 572px;
     padding: 0 20px;
     background-color: #fff;
-  } 
+  }
 `;
 
 export const IntakeBar = styled.div`
@@ -35,9 +35,9 @@ export const CloseButton = styled(Button)`
 `;
 
 export const TitleWrapper = styled.div`
-text-align: left;
-width: 280px;
-margin: auto;
+  text-align: left;
+  width: 280px;
+  margin: auto;
 `;
 
 export const IntakeTitle = styled.h2`
@@ -83,7 +83,6 @@ export const ListTitle = styled.h3`
 export const List = styled.ol`
   padding-left: 20px;
 `;
-
 
 export const ListItem = styled.li`
   font-family: 'Verdana';
