@@ -54,7 +54,7 @@ export const UserName = styled.h2`
   margin: 0;
   padding: 15px 16px 13px 0;
 
-  ::after{
+  ::after {
     content: '';
     display: block;
     position: absolute;
@@ -63,7 +63,7 @@ export const UserName = styled.h2`
     height: 32px;
     width: 2px;
     background-color: #e0e0e0;
-    }
+  }
 `;
 
 export const Button = styled.button`

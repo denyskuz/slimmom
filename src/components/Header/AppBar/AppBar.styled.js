@@ -47,16 +47,16 @@ export const Wrapper = styled.div`
     position: absolute;
     bottom: 0;
     left: 60px;
-    
-    ::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: -7px;
-    left: -20px;
-    height: 32px;
-    width: 2px;
-    background-color: #e0e0e0;
+
+    ::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -7px;
+      left: -20px;
+      height: 32px;
+      width: 2px;
+      background-color: #e0e0e0;
     }
   }
 `;
@@ -69,15 +69,15 @@ export const LoggedWrapper = styled.div`
     bottom: 0;
     left: 60px;
 
-    ::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: -5px;
-    left: 130px;
-    height: 32px;
-    width: 2px;
-    background-color: #e0e0e0;
+    ::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -5px;
+      left: 130px;
+      height: 32px;
+      width: 2px;
+      background-color: #e0e0e0;
     }
   }
 `;
