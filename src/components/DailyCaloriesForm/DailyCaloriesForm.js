@@ -1,3 +1,6 @@
+import * as React from 'react';
+import { Modal } from '@mui/material';
+
 import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
 import { useFormik } from 'formik';
 import {
@@ -8,9 +11,18 @@ import {
   FormWrapper,
   Button,
   RadioGroup,
+  StyledModalBox,
 } from './DailyCaloriesForm.styled';
 
+
+
+
+
 export const DailyCaloriesForm = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -25,7 +37,6 @@ export const DailyCaloriesForm = () => {
   });
   return (
     <FormWrapper>
-      <DailyCalorieIntake />
       <Title>Calculate your daily calorie intake right now</Title>
       <Form onSubmit={formik.handleSubmit}>
         <Label>
@@ -86,7 +97,20 @@ export const DailyCaloriesForm = () => {
             </label>
           </RadioGroup>
         </Label>
-        <Button type="submit">Start losing weight</Button>
+        <Button type="submit" onClick={handleOpen}>
+          Start losing weight
+        </Button>
+        
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <StyledModalBox>
+            <DailyCalorieIntake closeModal={handleClose} />
+          </StyledModalBox>
+        </Modal>
       </Form>
     </FormWrapper>
   );

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
@@ -94,5 +95,24 @@ export const Button = styled.button`
   @media (min-width: 1280px) {
     grid-column: 2 / 3;
     margin: 0 auto 20px auto;
+  }
+`;
+
+// added with Modal
+
+export const StyledModalBox = styled(Box)`
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  @media (min-width: 768px) {
+    width: 672px;
+    height: 572px;
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    boxshadow: 24;
+    p: 3;
   }
 `;

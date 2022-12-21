@@ -3,16 +3,6 @@ import Close from '../../images/icon/Close.svg';
 import Close_mobile from '../../images/icon/Close_mobile.svg';
 import { Button } from '@mui/material';
 
-export const IntakeWrapper = styled.div`
-  text-align: center;
-  @media (min-width: 768px) {
-    width: 672px;
-    height: 572px;
-    padding: 0 20px;
-    background-color: #fff;
-  }
-`;
-
 export const IntakeBar = styled.div`
   height: 40px;
   margin: 0 -20px;
@@ -25,10 +15,10 @@ export const IntakeBar = styled.div`
 `;
 
 export const CloseButton = styled(Button)`
-  width: 20px;
+  width: 672px;
   height: 40px;
   border: none;
-  background: url(${Close_mobile}) no-repeat bottom 16px left 20px #eff1f3;
+  background: url(${Close_mobile}) no-repeat bottom 16px left 40px #eff1f3;
   @media (min-width: 768px) {
     background: url(${Close}) no-repeat top 15px right 20px;
   }
@@ -92,4 +82,22 @@ export const ListItem = styled.li`
   line-height: 17px;
   letter-spacing: 0.04em;
   color: #9b9faa;
+`;
+
+export const ButtonStart = styled.button`
+  margin: 40px auto 0 auto;
+  width: 210px;
+  height: 43px;
+  background-color: #fc842d;
+  color: #ffffff;
+  display: block;
+  font-family: Verdana;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
 `;
