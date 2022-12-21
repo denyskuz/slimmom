@@ -7,6 +7,7 @@ import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import 'react-toastify/dist/ReactToastify.css';
+import AppBar from './Header/AppBar';
 
 const darkTheme = createTheme({
   palette: {
@@ -24,6 +25,7 @@ export const App = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <AppBar />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route

@@ -1,6 +1,7 @@
 import RegisterForm from 'components/RegistrationForm/registrationForm';
 import { Helmet } from 'react-helmet';
 import { Title } from './registrationPage.styled';
+import Container from 'components/Container';
 
 export default function RegistrationPage() {
   return (
@@ -8,9 +9,10 @@ export default function RegistrationPage() {
       <Helmet>
         <title>Register</title>
       </Helmet>
-
-      <Title>Register</Title>
-      <RegisterForm />
+      <Container>
+        <Title>Register</Title>
+        <RegisterForm />
+      </Container>
     </>
   );
 }

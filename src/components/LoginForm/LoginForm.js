@@ -34,27 +34,20 @@ const LoginForm = () => {
         required
         label="E-mail"
         variant="standard"
+        type="email"
+
         placeholder="example@gmail.com"
         onChange={formik.handleChange}
         value={formik.values.email}
-        error={formik.touched.email && formik.errors.email}
-        helperText={
-          formik.touched.email && formik.errors.email && formik.errors.email
-        }
       />
       <Input
         required
         id="password"
         label="Passwords"
+        type="password"
         variant="standard"
         onChange={formik.handleChange}
-        value={formik.values.password}
-        error={formik.touched.password && formik.errors.password}
-        helperText={
-          formik.touched.password &&
-          formik.errors.password &&
-          formik.errors.password
-        }
+        value={formik.values.password}    
       />
       <ButtonBox>
         <ButtonPrimary type="submit">Login</ButtonPrimary>
