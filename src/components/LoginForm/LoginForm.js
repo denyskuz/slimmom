@@ -35,7 +35,6 @@ const LoginForm = () => {
         label="E-mail"
         variant="standard"
         type="email"
-
         placeholder="example@gmail.com"
         onChange={formik.handleChange}
         value={formik.values.email}
@@ -47,7 +46,7 @@ const LoginForm = () => {
         type="password"
         variant="standard"
         onChange={formik.handleChange}
-        value={formik.values.password}    
+        value={formik.values.password}
       />
       <ButtonBox>
         <ButtonPrimary type="submit">Login</ButtonPrimary>
