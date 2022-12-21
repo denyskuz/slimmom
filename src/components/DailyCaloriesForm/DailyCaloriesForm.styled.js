@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
   width: 100%;
-  padding: 32px 20px 110px;
+  /* padding: 32px 20px 110px; */
 
   @media (min-width: 768px) {
     width: 80%;
