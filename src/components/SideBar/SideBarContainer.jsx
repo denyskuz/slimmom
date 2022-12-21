@@ -13,11 +13,15 @@ export const SideBarContainer = styled(Grid)(({ theme }) => ({
     width: '100%',
   },
   [theme.breakpoints.up('tablet')]: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    height: '100%',
+    width: '40%',
     display: 'grid',
     alignContent: 'start',
     justifyContent: 'center',
-    paddingTop: 145,
-    minWidth: 517,
+    paddingTop: 292,
     gap: 60,
   },
 }));

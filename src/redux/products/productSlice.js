@@ -7,10 +7,14 @@ const productsSlice = createSlice({
     calories: 0,
     bad: [],
     loading: false,
+    error: '',
   },
   extraReducers: builder => {
-    builder.addCase(isAnyOf(getProducts.pending), state => {
+    builder.addCase(getProducts.pending, state => {
       state.loading = true;
+    });
+    builder.addCase(getProducts.rejected, (state, action) => {
+      state.error = action.error;
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
       state.calories = action.payload.kCal;

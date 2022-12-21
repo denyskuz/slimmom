@@ -60,9 +60,9 @@ export const App = () => {
             <Route
               path="calculator"
               element={
-                <PrivateRoute>
+                <PublicRoute>
                   <CalculatorPage />
-                </PrivateRoute>
+                </PublicRoute>
               }
             />
             <Route path="*" element={<Navigate to="/" />} />

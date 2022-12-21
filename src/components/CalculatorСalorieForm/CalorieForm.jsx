@@ -31,7 +31,6 @@ export const CalorieForm = () => {
   } = useForm({
     resolver: joiResolver(userParamsShema),
   });
-
   const onFormSubmit = (data, e) => {
     e.preventDefault();
     dispatch(getProducts(data));

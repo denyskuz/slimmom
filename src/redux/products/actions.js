@@ -1,6 +1,6 @@
 import axios from 'axios';
-import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 //axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 axios.defaults.baseURL = 'http://localhost:3001/api/';
@@ -10,14 +10,18 @@ const setAuthHeader = token => {
 };
 
 export const getProducts = createAsyncThunk(
-  'products/get',
-  async userParams => {
-    const { data } = await axios
-      .post('products', userParams)
-      .catch(function (error) {
-        toast(error.message);
-      });
-    setAuthHeader(data.token);
-    return data;
+  'products/getBad',
+  async (userParams, thunkAPI) => {
+    try {
+      const { data, status } = await axios.post('products', userParams);
+      setAuthHeader(data.token);
+      if (!data) {
+        return await thunkAPI.rejectWithValue(status);
+      }
+      return data;
+    } catch (err) {
+      toast('Get products error');
+      return await thunkAPI.rejectWithValue(err.response.data);
+    }
   }
 );

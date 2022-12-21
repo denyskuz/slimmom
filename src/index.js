@@ -9,6 +9,7 @@ import 'modern-normalize';
 import './index.css';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
+import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -21,5 +22,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </CssBaseline>
     </Provider>
+    <Toaster />
   </React.StrictMode>
 );
