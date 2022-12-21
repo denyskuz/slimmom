@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { App } from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
-import { theme } from 'theme';
-import { ThemeProvider } from 'styled-components';
 import 'modern-normalize';
 import './index.css';
 import { Toaster } from 'react-hot-toast';
