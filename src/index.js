@@ -7,6 +7,7 @@ import { App } from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
 import 'modern-normalize';
 import './index.css';
+import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,5 +18,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </PersistGate>
     </Provider>
+    <Toaster />
   </React.StrictMode>
 );
