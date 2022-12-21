@@ -14,10 +14,6 @@ import {
   StyledModalBox,
 } from './DailyCaloriesForm.styled';
 
-
-
-
-
 export const DailyCaloriesForm = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -100,7 +96,7 @@ export const DailyCaloriesForm = () => {
         <Button type="submit" onClick={handleOpen}>
           Start losing weight
         </Button>
-        
+
         <Modal
           open={open}
           onClose={handleClose}

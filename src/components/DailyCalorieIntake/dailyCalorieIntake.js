@@ -16,7 +16,7 @@ const DailyCalorieIntake = ({ closeModal }) => {
   return (
     <>
       <IntakeBar>
-              <CloseButton onClick={()=>closeModal()}></CloseButton>
+        <CloseButton onClick={() => closeModal()}></CloseButton>
       </IntakeBar>
       <TitleWrapper>
         <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
