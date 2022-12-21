@@ -13,7 +13,7 @@ export const Link = styled(NavLink)`
     color: #212121;
   }
 
-  :first-child {
+  :first-of-type {
     margin-right: 16px;
   }
 

@@ -18,7 +18,7 @@ const darkTheme = createTheme({
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
-const DairyPage = lazy(() => import('../pages/DairyPage'));
+const DiaryPage = lazy(() => import('../pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
@@ -39,7 +39,7 @@ export const App = () => {
           <Route
             path="signup"
             element={
-              <PublicRoute redirectTo="/dairy" restricted>
+              <PublicRoute redirectTo="/diary" restricted>
                 <RegistrationPage />
               </PublicRoute>
             }
@@ -47,16 +47,16 @@ export const App = () => {
           <Route
             path="login"
             element={
-              <PublicRoute redirectTo="/dairy" restricted>
+              <PublicRoute redirectTo="/diary" restricted>
                 <LoginPage />
               </PublicRoute>
             }
           />
           <Route
-            path="dairy"
+            path="diary"
             element={
               <PrivateRoute>
-                <DairyPage />
+                <DiaryPage />
               </PrivateRoute>
             }
           />

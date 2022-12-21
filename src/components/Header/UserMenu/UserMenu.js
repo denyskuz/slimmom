@@ -13,7 +13,7 @@ const UserMenu = () => {
   return (
     <>
       <List>
-        <ListItem to="/dairy">DAIRY</ListItem>
+        <ListItem to="/diary">DIARY</ListItem>
         <ListItem to="/calculator">CALCULATOR</ListItem>
       </List>
       {/* <UserInfo>
