@@ -33,30 +33,33 @@ const RegisterForm = () => {
         variant="standard"
         onChange={formik.handleChange}
         value={formik.values.name}
+        error={formik.touched.name && formik.errors.name}
+        helperText={
+          formik.touched.name && formik.errors.name && formik.errors.name
+        }
       />
-      {formik.touched.name && formik.errors.name ? (
-        <div>{formik.errors.name}</div>
-      ) : null}
       <Input
         id="email"
         label="E-mail *"
         variant="standard"
         onChange={formik.handleChange}
         value={formik.values.email}
+        error={formik.touched.email && formik.errors.email}
+        helperText={
+          formik.touched.email && formik.errors.email && formik.errors.email
+        }
       />
-      {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
-      ) : null}
       <Input
         id="password"
         label="Password *"
         variant="standard"
         onChange={formik.handleChange}
         value={formik.values.password}
+        error={formik.touched.password && formik.errors.password}
+        helperText={
+          formik.touched.password && formik.errors.password && formik.errors.password
+        }
       />
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
       <ButtonBox>
         <ButtonPrimary type="submit">Register</ButtonPrimary>
         <ButtonSecondary type="button">
