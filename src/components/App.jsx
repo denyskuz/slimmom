@@ -23,57 +23,55 @@ const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
   return (
-
-      <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-            <AppBar />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route
-              index
-              element={
-                <PublicRoute redirectTo="/" restricted>
-                  <MainPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="signup"
-              element={
-                <PublicRoute redirectTo="/dairy" restricted>
-                  <RegistrationPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <PublicRoute redirectTo="/dairy" restricted>
-                  <LoginPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="dairy"
-              element={
-                <PrivateRoute>
-                  <DairyPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="calculator"
-              element={
-                <PrivateRoute>
-                  <CalculatorPage />
-                </PrivateRoute>
-              }
-            />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Route>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/" restricted>
+                <MainPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="signup"
+            element={
+              <PublicRoute redirectTo="/dairy" restricted>
+                <RegistrationPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute redirectTo="/dairy" restricted>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="dairy"
+            element={
+              <PrivateRoute>
+                <DairyPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="calculator"
+            element={
+              <PrivateRoute>
+                <CalculatorPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
       </Routes>
-            <ToastContainer />
-      </ThemeProvider>
-
+      <ToastContainer />
+    </ThemeProvider>
   );
 };
