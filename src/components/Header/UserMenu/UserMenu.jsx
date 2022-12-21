@@ -1,32 +1,31 @@
 import {
   List,
   ListItem,
-  // UserInfo,
-  // Arrow,
-  // Button,
-  // UserInfoWrapper,
-  // UserName,
+  Arrow,
+  Button,
+  UserInfoWrapper,
+  UserName,
+  UserExitButton,
 } from './UserMenu.styled';
 
 const UserMenu = () => {
-  // const name = "Nick";
+  const name = "Nick";
+
   return (
     <>
       <List>
-        <ListItem to="/dairy">DAIRY</ListItem>
-        <ListItem to="/calculator">CALCULATOR</ListItem>
+        <ListItem to="/dairy">Dairy</ListItem>
+        <ListItem to="/calculator">Calculator</ListItem>
       </List>
-      {/* <UserInfo>
-            <Button
-                type="button"
-            >
-                <Arrow color="black" size="20px"/>
-            </Button>
-            <UserInfoWrapper>
-                <UserName>{name}</UserName>
-                <Button type="button">Exit</Button>
-                </UserInfoWrapper>
-            </UserInfo> */}
+      <Button
+        type="button"
+      >
+        <Arrow color="black" size="20px" />
+      </Button>
+      <UserInfoWrapper>
+        <UserName>{name}</UserName>
+        <UserExitButton type="button">Exit</UserExitButton>
+      </UserInfoWrapper>
     </>
   );
 };

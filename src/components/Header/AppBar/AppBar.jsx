@@ -1,6 +1,8 @@
-import Container from 'components/Container';
+// import { useMediaQuery } from 'react-responsive';
+// import Container from 'components/Container';
 import AuthNav from 'components/Header/AuthNav';
 import UserMenu from 'components/Header/UserMenu';
+import Burger from 'components/Header/Burger';
 import {
   Header,
   NavHeader,
@@ -12,13 +14,14 @@ import {
   Wrapper,
   Navigation,
   UserMenuWrapperDesk,
+  UserMenuWrapper,
 } from './AppBar.styled';
 
 const AppBar = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
+
   return (
     <Header>
-      <Container>
         <NavHeader>
           <LogoLink to="/">
             {isLoggedIn ? (
@@ -46,13 +49,19 @@ const AppBar = () => {
                 <UserMenuWrapperDesk>
                   <UserMenu />
                 </UserMenuWrapperDesk>
+                <Burger/>
               </>
             ) : (
               <AuthNav />
             )}
           </Navigation>
         </NavHeader>
-      </Container>
+
+        {isLoggedIn && (
+          <UserMenuWrapper>
+            <UserMenu />
+          </UserMenuWrapper>
+        )}
     </Header>
   );
 };

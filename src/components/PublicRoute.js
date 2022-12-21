@@ -5,7 +5,7 @@ export const PublicRoute = ({
   redirectTo = '/',
   restricted = false,
 }) => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   const shouldRedirect = isLoggedIn && restricted;
   return shouldRedirect ? <Navigate to={redirectTo} /> : children;
 };

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../images/logo/logo.png';
 import logoDesk from '../../../images/logo/logoDesk.png';
@@ -6,19 +6,15 @@ import slim from '../../../images/logo/logoSlim.png';
 import mom from '../../../images/logo/logoMom.png';
 
 export const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
+  display: block;
+  /* justify-content: space-between; */
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 16px;
   border-bottom: 2px solid;
   border-color: #e0e0e0;
 
   @media screen and (min-width: 1280px) {
     border-bottom: none;
     align-items: baseline;
-    padding-top: 80px;
-    padding-bottom: 0;
   }
 `;
 
@@ -26,16 +22,24 @@ export const NavHeader = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 20px 16px 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
 
   @media screen and (min-width: 1280px) {
     justify-content: flex-start;
     align-items: baseline;
+    padding: 80px 16px 0 16px;
   }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  @media screen and (max-width: 480px) {
+
+  @media screen and (max-width: 767.5px) {
     display: none;
   }
 
@@ -51,10 +55,6 @@ export const Wrapper = styled.div`
 
 export const LoggedWrapper = styled.div`
   display: flex;
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
 
   @media screen and (min-width: 1280px) {
     position: absolute;
@@ -119,12 +119,26 @@ export const LogoMom = styled.span`
 `;
 
 export const UserMenuWrapperDesk = styled.div`
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
 
-  /* @media screen and (max-width: 1279px) {
-        display: none;
-    } */
+  @media screen and (min-width: 768px) {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+  }
+`;
+
+export const UserMenuWrapper = styled.div`
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #eff1f3;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
 `;
