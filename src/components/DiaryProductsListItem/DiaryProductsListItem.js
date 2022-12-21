@@ -89,22 +89,29 @@ export default function DiaryProductsListItem({ data }) {
   const handleDelete = ({ $oid }) => {
     console.log($oid);
   };
-  return data.map((e, i, ar) => {
-    // console.log(e.id);
-    return (
-      <tr key={e._id.$oid}>
-        <td>{e.title.ua}</td>
-        <td>{e.weight} g</td>
-        <td>{e.calories}kcal</td>
-        <td>
-          <button
-            type="button"
-            onClick={() => {
-              handleDelete(e._id);
-            }}
-          ></button>
-        </td>
-      </tr>
-    );
-  });
+  return (
+    <table>
+      <tbody>
+        {data.map((e, i, ar) => {
+          return (
+            <tr key={e._id.$oid}>
+              <td>{e.title.ua}</td>
+              <td>{e.weight} g</td>
+              <td>{e.calories}kcal</td>
+              <td>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleDelete(e._id);
+                  }}
+                >
+                  X
+                </button>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
 }
