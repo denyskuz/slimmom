@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import { FixedSizeList } from 'react-window';
 import { useSelector } from 'react-redux';
-import { selectBadProducts } from 'redux/products/selectors';
+import { selectBadProducts } from 'redux/services/selectors';
 import { SummaryListItem } from './SummaryListItem';
 
 function renderRow({ data, index, style }) {
