@@ -1,6 +1,8 @@
 import { lazy } from 'react';
 import { createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { HelmetProvider } from 'react-helmet-async';
+
 import { GlobalStyle } from './GlobalStyle';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -26,57 +28,8 @@ const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <AppBar />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <PublicRoute redirectTo="/" restricted>
-                <MainPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="signup"
-            element={
-              <PublicRoute redirectTo="/diary" restricted>
-                <RegistrationPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="login"
-            element={
-              <PublicRoute redirectTo="/diary" restricted>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="diary"
-            element={
-              <PrivateRoute>
-                <DiaryPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="calculator"
-            element={
-              <PublicRoute>
-                <CalculatorPage />
-              </PublicRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      </Routes>
-      <ToastContainer />
-    <ThemeProvider theme={theme}>
-      <ThemeProvider theme={darkTheme}>
+    <HelmetProvider>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <CssBaseline />
         <AppBar />
@@ -127,6 +80,7 @@ export const App = () => {
         </Routes>
         <ToastContainer />
       </ThemeProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 };
