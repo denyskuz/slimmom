@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { LinkButton } from 'components/Button/Button';
 import {
   IntakeBar,
@@ -38,3 +39,7 @@ const DailyCalorieIntake = ({ closeModal }) => {
 };
 
 export default DailyCalorieIntake;
+
+DailyCalorieIntake.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+}
