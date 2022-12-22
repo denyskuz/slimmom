@@ -7,8 +7,8 @@ import { FormInput } from './FormInput';
 import { FormButton } from './FormButton';
 import { FormBloodInput } from './FormBloodInput';
 import { FormLabel } from './FormLabel';
-import { getProducts } from 'redux/products/actions';
-import { selectLoadStatus } from 'redux/products/selectors';
+import { getProducts } from 'redux/services/operations';
+import { selectLoadStatus } from 'redux/services/selectors';
 import { userParamsShema } from 'validation';
 
 export const CalorieForm = () => {
