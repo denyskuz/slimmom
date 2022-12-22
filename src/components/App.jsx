@@ -80,7 +80,6 @@ export const App = () => {
         </Routes>
         <ToastContainer />
       </ThemeProvider>
-      </ThemeProvider>
     </HelmetProvider>
   );
 };
