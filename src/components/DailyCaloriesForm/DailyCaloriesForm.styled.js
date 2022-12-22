@@ -1,8 +1,10 @@
 import { Box } from '@mui/material';
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
 
 export const FormWrapper = styled.div`
-  width: 100%;
+  width: 80%;
+  padding: 32px 0px 110px;
 
   @media (min-width: 768px) {
     width: 80%;
@@ -51,11 +53,12 @@ export const Label = styled.label`
   letter-spacing: normal;
   color: #9b9faa;
   margin-bottom: 8px;
+  padding-top: 28px;
 `;
 
-export const Input = styled.input`
+export const Input = styled(TextField)`
   font-family: Verdana;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: normal;
@@ -63,12 +66,69 @@ export const Input = styled.input`
   color: #9b9faa;
   margin-bottom: 32px;
   border: none;
-  border-bottom: 1px solid #9b9faa;
+  background-color: transparent;
+  & label {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: normal;
+    color: #9b9faa;
+  }
+  & label.Mui-focused {
+    color: #9b9faa;
+  }
+  & .MuiInput-underline {
+    border-bottom-color: #e0e0e0;
+  }
+  & .MuiInput-underline:after {
+    border-bottom-color: #fc842d;
+  }
 `;
 
 export const RadioGroup = styled.div`
   margin-top: 20px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
 `;
+
+export const Radio = styled.input`
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%, -30%);
+    background-color: white;
+    border: 1px solid #9b9faa;
+  }
+
+  &:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fc842d;
+    transform: translate(-50%, -12%);
+    visibility: visible;
+  }
+`;
+
 export const Button = styled.button`
   margin: 40px auto 0 auto;
   width: 210px;
@@ -95,6 +155,26 @@ export const Button = styled.button`
     grid-column: 2 / 3;
     margin: 0 auto 20px auto;
   }
+  &:hover {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+  }
+`;
+
+export const Error = styled.div`
+  position: relative;
+
+  left: 0;
+  width: 150px;
+  width: 100px;
+  color: red;
+  font-size: 12px;
+`;
+
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const StyledModalBox = styled(Box)`
