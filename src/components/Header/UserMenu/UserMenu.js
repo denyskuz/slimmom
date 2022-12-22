@@ -17,7 +17,7 @@ const UserMenu = () => {
   const name = useSelector(getUserName);
 
   const onLogout = () => {
-    dispatch(logout())
+    dispatch(logout());
   };
 
   return (
@@ -30,7 +30,7 @@ const UserMenu = () => {
         <Arrow color="black" size="20px" />
       </LinkToCalc>
       <UserInfoWrapper>
-        <UserName>{ name }</UserName>
+        <UserName>{name}</UserName>
         <UserExitButton type="button" onClick={onLogout}>
           Exit
         </UserExitButton>

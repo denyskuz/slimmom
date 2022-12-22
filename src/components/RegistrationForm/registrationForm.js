@@ -30,7 +30,7 @@ const RegisterForm = () => {
       <Input
         id="name"
         label="Name *"
-        type= 'text'
+        type="text"
         variant="standard"
         onChange={formik.handleChange}
         value={formik.values.name}
@@ -43,7 +43,7 @@ const RegisterForm = () => {
         id="email"
         label="E-mail *"
         variant="standard"
-        type='email'
+        type="email"
         onChange={formik.handleChange}
         value={formik.values.email}
         error={formik.touched.email && formik.errors.email}
@@ -55,7 +55,7 @@ const RegisterForm = () => {
         id="password"
         label="Password *"
         variant="standard"
-        type='password'
+        type="password"
         onChange={formik.handleChange}
         value={formik.values.password}
         error={formik.touched.password && formik.errors.password}

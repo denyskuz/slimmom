@@ -55,9 +55,9 @@ export const getProducts = createAsyncThunk(
   }
 );
 
- export const logout = createAsyncThunk('/api/auth/logout', async () => {
-   try {
-     await axios.get(`/api/auth/logout`);
-     token.unset();
-   } catch (error) {}
- }); 
+export const logout = createAsyncThunk('/api/auth/logout', async () => {
+  try {
+    await axios.get(`/api/auth/logout`);
+    token.unset();
+  } catch (error) {}
+});
