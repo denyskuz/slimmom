@@ -23,14 +23,13 @@ const darkTheme = createTheme({
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
-const DiaryPage = lazy(() => import('../pages/DiaryPage'));
+const DiaryPage = lazy(() => import('../pages/Diary/DiaryPage'));
 const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
   return (
     <HelmetProvider>
       <ThemeProvider theme={theme}>
-      <ThemeProvider theme={darkTheme}>
         <GlobalStyle />
         <CssBaseline />
         <AppBar />
@@ -80,7 +79,6 @@ export const App = () => {
           </Route>
         </Routes>
         <ToastContainer />
-      </ThemeProvider>
       </ThemeProvider>
     </HelmetProvider>
   );
