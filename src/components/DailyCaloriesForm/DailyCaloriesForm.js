@@ -9,8 +9,10 @@ import {
   Label,
   Form,
   Input,
+  BloodInput,
   FormWrapper,
-  RadioGroup,
+  FormRadioGroup,
+  RadioButton,
   Button,
 } from './DailyCaloriesForm.styled';
 
@@ -101,8 +103,8 @@ export const DailyCaloriesForm = () => {
           error={Boolean(touched.age && errors.age)}
           helperText={helper('age', 'years')}
         />
-        <div>
-          <Input
+        <FormRadioGroup>
+          <BloodInput
             id="bloodType"
             name="bloodType"
             type="number"
@@ -114,27 +116,18 @@ export const DailyCaloriesForm = () => {
             error={Boolean(touched.bloodType && errors.bloodType)}
             helperText={helper('bloodType', '')}
           />
-          <RadioGroup
-            role="group"
-            aria-labelledby="bloodType"
+          <FormRadioGroup
+            row
             name="bloodType"
             onChange={handleChange}
             value={values.bloodType}
           >
-            <Label>
-              <input type="radio" name="bloodType" value="1" />1
-            </Label>
-            <Label>
-              <input type="radio" name="bloodType" value="2" />2
-            </Label>
-            <Label>
-              <input type="radio" name="bloodType" value="3" />3
-            </Label>
-            <Label>
-              <input type="radio" name="bloodType" value="4" />4
-            </Label>
-          </RadioGroup>
-        </div>
+            <Label value="1" control={<RadioButton />} label="1" />
+            <Label value="2" control={<RadioButton />} label="2" />
+            <Label value="3" control={<RadioButton />} label="3" />
+            <Label value="4" control={<RadioButton />} label="4" />
+          </FormRadioGroup>
+        </FormRadioGroup>
         <Input
           id="currentWeight"
           name="currentWeight"

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
+import { TextField, FormControlLabel, RadioGroup, Radio } from '@mui/material';
 import { ButtonPrimary } from 'components/Button/Button';
 
 export const FormWrapper = styled.div`
@@ -44,24 +44,29 @@ export const Form = styled.form`
   }
 `;
 
-export const Label = styled.label`
+export const Label = styled(FormControlLabel)`
   font-family: Verdana;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: normal;
   color: #9b9faa;
-  margin-bottom: 8px;
+  & .Mui-checked + .MuiFormControlLabel-label {
+    font-weight: 700;
+    color: #fc842d;
+  }
 `;
 
 export const Input = styled(TextField)`
-  font-family: Verdana;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: normal;
-  width: 100%;
-  color: #9b9faa;
+  & input {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: normal;
+    width: 100%;
+    color: #9b9faa;
+  }
   & label {
     font-family: Verdana;
     font-weight: 700;
@@ -69,6 +74,7 @@ export const Input = styled(TextField)`
     line-height: 17px;
     letter-spacing: normal;
     color: #9b9faa;
+    top: -20px;
   }
   & p {
     text-align: right;
@@ -87,11 +93,32 @@ export const Input = styled(TextField)`
   }
 `;
 
-export const RadioGroup = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+export const BloodInput = styled(Input)`
+  & .MuiInputBase-input {
+    visibility: hidden;
+  }
 `;
+
+export const FormRadioGroup = styled(RadioGroup)`
+  justify-content: space-between;
+`;
+
+export const RadioButton = styled(Radio)`
+  color: #e0e0e0;
+  & span {
+    &.MuiSvgIcon-root {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  &.Mui-checked {
+    color: #fc842d;
+  }
+  & [data-testid='radiobuttonuncheckedicon'] {
+    color: #e0e0e0;
+  }
+`;
+
 export const Button = styled(ButtonPrimary)`
   margin: 40px auto 0 auto;
   width: 210px;
