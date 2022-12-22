@@ -13,9 +13,7 @@ import {
 const UserMenu = () => {
   // const name = useSelector(authSelectors.getUserName);
 
-  const onLogout = () => {
-    
-  };
+  const onLogout = () => {};
 
   return (
     <>
@@ -23,15 +21,14 @@ const UserMenu = () => {
         <ListItem to="/diary">Diary</ListItem>
         <ListItem to="/calculator">Calculator</ListItem>
       </List>
-      <LinkToCalc to ="/calculator">
+      <LinkToCalc to="/calculator">
         <Arrow color="black" size="20px" />
       </LinkToCalc>
       <UserInfoWrapper>
         <UserName>Nick</UserName>
-        <UserExitButton
-          type="button"
-          onClick={onLogout}
-        >Exit</UserExitButton>
+        <UserExitButton type="button" onClick={onLogout}>
+          Exit
+        </UserExitButton>
       </UserInfoWrapper>
     </>
   );

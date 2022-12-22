@@ -41,18 +41,18 @@ export const BurgerButton = styled.button`
 `;
 
 export const BurgerMenu = styled.nav`
-    position: fixed;
-    top: 80px;
-    right: -105%;
-    padding-top:  ${prop => prop.theme.spaceForm[3]}px;
-    display: flex;
-    flex-flow: column;
-    width: 100vw;
-    height: 105%;
-    overflow-y: auto;
-    background-color: ${prop => prop.theme.colors.bcgBurger};
-    z-index: 100;
-    transition: 0.8s;
+  position: fixed;
+  top: 80px;
+  right: -105%;
+  padding-top: ${prop => prop.theme.spaceForm[3]}px;
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
+  height: 105%;
+  overflow-y: auto;
+  background-color: ${prop => prop.theme.colors.bcgBurger};
+  z-index: 100;
+  transition: 0.8s;
 
   @media screen and (min-width: 1280px) {
     display: none;

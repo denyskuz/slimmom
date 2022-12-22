@@ -78,7 +78,7 @@ export const LinkToCalc = styled(NavLink)`
     color: ${prop => prop.theme.colors.accent};
   }
 
-  &.active{
+  &.active {
     opacity: 0;
   }
 `;

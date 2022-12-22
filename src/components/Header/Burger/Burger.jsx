@@ -22,7 +22,11 @@ const Burger = () => {
         aria-label="open burger menu"
         onClick={toggleBurgerMenu}
       >
-        {isBurgerMenuOpen ? <GrClose size={20} /> : <GiHamburgerMenu size={24} />}
+        {isBurgerMenuOpen ? (
+          <GrClose size={20} />
+        ) : (
+          <GiHamburgerMenu size={24} />
+        )}
       </BurgerButton>
       <BurgerMenu className={isBurgerMenuOpen ? 'open' : ''}>
         <>

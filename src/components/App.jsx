@@ -1,4 +1,4 @@
-import { lazy } from 'react'
+import { lazy } from 'react';
 import { createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { GlobalStyle } from './GlobalStyle';

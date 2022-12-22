@@ -64,7 +64,7 @@ export const LoggedWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     position: absolute;
     bottom: 0;
-    left: ${prop => prop.theme.spaceForm[3]}px;;
+    left: ${prop => prop.theme.spaceForm[3]}px;
 
     ::after {
       content: '';
@@ -149,7 +149,7 @@ export const UserMenuWrapper = styled.div`
   align-items: center;
   padding-right: ${prop => prop.theme.spaceForm[1]}px;
   padding-left: ${prop => prop.theme.spaceForm[1]}px;
-  background-color:  ${prop => prop.theme.colors.bcgUserInfo};
+  background-color: ${prop => prop.theme.colors.bcgUserInfo};
 
   @media screen and (min-width: 768px) {
     display: none;
