@@ -64,3 +64,21 @@ export const LinkButton = styled(NavLink)`
     color: inherit;
   }
 `;
+
+export const AddProductBtn = styled(Button)`
+  align-self: center;
+  border-radius: 50px;
+  cursor: pointer;
+  min-width: 48px;
+  height: 48px;
+  background: #fc842d;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  color: white;
+  font-size: 30px;
+  transition: 0.4s;
+  &:hover {
+    transform: rotate(90deg);
+    background: #fc832dbb;
+  }
+`;

@@ -1,6 +1,8 @@
 import { lazy } from 'react';
 import { createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { HelmetProvider } from 'react-helmet-async';
+
 import { GlobalStyle } from './GlobalStyle';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -30,13 +32,13 @@ const darkTheme = createTheme({
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
-const DiaryPage = lazy(() => import('../pages/DiaryPage'));
+const DiaryPage = lazy(() => import('../pages/Diary/DiaryPage'));
 const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <ThemeProvider theme={darkTheme}>
+    <HelmetProvider>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <CssBaseline />
         <AppBar />
@@ -87,6 +89,6 @@ export const App = () => {
         </Routes>
         <ToastContainer />
       </ThemeProvider>
-    </ThemeProvider>
+    </HelmetProvider>
   );
 };
