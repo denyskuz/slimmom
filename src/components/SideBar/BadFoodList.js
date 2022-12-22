@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { selectBadProducts } from 'redux/products/selectors';
+import { selectBadProducts } from 'redux/services/selectors';
 import { VirtualizedList } from './VirtualizedList';
 
 export const BadFoodList = () => {

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import styled from 'styled-components';
 import { TextField, FormControlLabel, RadioGroup, Radio } from '@mui/material';
 import { ButtonPrimary } from 'components/Button/Button';
@@ -5,12 +6,10 @@ import { ButtonPrimary } from 'components/Button/Button';
 export const FormWrapper = styled.div`
   width: 100%;
   padding: 32px 20px 110px;
-
   @media (min-width: 768px) {
     width: 80%;
     padding: 100px 32px;
   }
-
   @media (min-width: 1280px) {
     width: 60vw;
     padding: 100px 32px;
@@ -25,7 +24,6 @@ export const Title = styled.h1`
   letter-spacing: normal;
   margin: 0;
   margin-bottom: 34px;
-
   @media (min-width: 768px) {
     font-size: 34px;
     line-height: 47px;
@@ -36,7 +34,6 @@ export const Title = styled.h1`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 240px);
@@ -129,10 +126,26 @@ export const Button = styled(ButtonPrimary)`
     margin: 0;
     grid-row: 4 / span 1;
   }
-
   @media (min-width: 1280px) {
     align-self: start;
     justify-self: end;
     grid-column: 2;
+  }
+`;
+
+export const StyledModalBox = styled(Box)`
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  @media (min-width: 768px) {
+    width: 672px;
+    height: 572px;
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    boxshadow: 24;
+    p: 3;
   }
 `;

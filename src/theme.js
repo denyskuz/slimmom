@@ -4,6 +4,8 @@ export const theme = {
     white: '#fff',
     input: '#E0E0E0',
     background: '#fff',
+    bcgUserInfo: '#EFF1F3',
+    bcgBurger: '#264061',
     primary: '#212121',
     secondary: '#9B9FAA',
     accent: '#FC842D',
@@ -30,10 +32,12 @@ export const theme = {
   lineHeights: {
     body: 1.5,
     heading: 1.125,
+    link: 0.93,
   },
   borders: {
     none: 'none',
     normal: '1px solid',
+    line: '2px solid',
   },
   radii: {
     none: '0',

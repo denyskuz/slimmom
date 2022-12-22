@@ -1,8 +1,9 @@
-import { React } from 'react';
+import { useState } from 'react';
+import { Modal } from '@mui/material';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProducts } from 'redux/products/actions';
-import { selectLoadStatus } from 'redux/products/selectors';
+import { getProducts } from 'redux/services/operations';
+import { selectLoadStatus } from 'redux/services/selectors';
 import { userParamsShema } from 'validation';
 import {
   Title,
@@ -14,11 +15,17 @@ import {
   FormRadioGroup,
   RadioButton,
   Button,
+  StyledModalBox,
 } from './DailyCaloriesForm.styled';
+import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
 
 export const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const formik = useFormik({
     initialValues: {
@@ -140,9 +147,20 @@ export const DailyCaloriesForm = () => {
           error={Boolean(touched.currentWeight && errors.currentWeight)}
           helperText={helper('currentWeight', 'kg')}
         />
-        <Button disabled={loading} type="submit">
+        <Button disabled={loading} type="submit" onClick={handleOpen}>
           Start losing weight
         </Button>
+
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <StyledModalBox>
+            <DailyCalorieIntake closeModal={handleClose} />
+          </StyledModalBox>
+        </Modal>
       </Form>
     </FormWrapper>
   );
