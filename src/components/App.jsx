@@ -14,11 +14,11 @@ import { PrivateRoute } from 'components/PrivateRoute';
 import 'react-toastify/dist/ReactToastify.css';
 import AppBar from './Header/AppBar';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'light',
-  },
-});
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: 'light',
+//   },
+// });
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegistrationPage = lazy(() => import('../pages/registration'));
