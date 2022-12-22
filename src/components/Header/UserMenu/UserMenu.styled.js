@@ -1,56 +1,85 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FiCornerDownLeft } from 'react-icons/fi';
 
 export const List = styled.div`
-  display: flex;
+  display: none;
 
   @media only screen and (min-width: 1280px) {
     display: flex;
-    margin-right: 550px;
+    margin-right: 765px;
   }
 `;
 
 export const ListItem = styled(NavLink)`
-  color: #9b9faa;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
   letter-spacing: 0.04em;
-  padding: 10px 10px 10px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: ${prop => prop.theme.colors.secondary};
+
+  :first-child {
+    margin-right: ${prop => prop.theme.space[4]}px;
+  }
+
+  :hover {
+    color: ${prop => prop.theme.colors.accent};
+  }
 
   &.active {
-    color: #212121;
+    color: ${prop => prop.theme.colors.primary};
   }
 `;
+
+export const UserInfoWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  height: 40px;
+  z-index: 10;
+`;
+
 export const UserName = styled.h2`
   display: inline;
   font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
   letter-spacing: 0.04em;
+  margin: 0;
   padding: 15px 16px 13px 0;
-  margin-left: 10px;
-  border-right: 2px solid;
-  border-color: #e0e0e0;
+  color: ${prop => prop.theme.colors.primary};
+
+  ::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    height: 32px;
+    width: 2px;
+    background-color: ${prop => prop.theme.colors.input};
+  }
 `;
 
-export const Button = styled.button`
-  font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
+export const LinkToCalc = styled(NavLink)`
   border: none;
   background-color: transparent;
-  padding: 15px 0;
+  padding: 0;
   cursor: pointer;
 
   &:hover {
-    color: #fc842d;
+    color: ${prop => prop.theme.colors.accent};
+  }
+
+  &.active {
+    opacity: 0;
   }
 `;
 
@@ -61,8 +90,19 @@ export const Arrow = styled(FiCornerDownLeft)`
   }
 `;
 
-export const UserInfoWrapper = styled.div`
-  margin-left: auto;
-  display: flex;
-  align-items: center;
+export const UserExitButton = styled.button`
+  font-family: Gotham Pro;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
+  letter-spacing: 0.04em;
+  color: ${prop => prop.theme.colors.secondary};
+  border: none;
+  background-color: transparent;
+  padding: 15px 0 13px 16px;
+  cursor: pointer;
+
+  &:hover {
+    color: ${prop => prop.theme.colors.accent};
+  }
 `;

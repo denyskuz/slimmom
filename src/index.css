@@ -5,7 +5,10 @@
   --font-size-title: 25px;
   --default-border-radius: 4px;
 }
-
+html{
+    min-height: 100%;
+    position: relative;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

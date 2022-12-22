@@ -1,23 +1,27 @@
 import { NavLink } from 'react-router-dom';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const Link = styled(NavLink)`
-  color: #9b9faa;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: 0.93;
   letter-spacing: 0.04em;
   text-decoration: none;
-  &.active {
-    color: #212121;
-  }
+  text-transform: uppercase;
+  color: ${prop => prop.theme.colors.secondary};
 
   :first-child {
-    margin-right: 16px;
+    margin-right: ${prop => prop.theme.space[4]}px;
   }
 
   :hover {
-    color: #fc842d;
+    color: ${prop => prop.theme.colors.accent};
+  }
+
+  &.active {
+    color: ${prop => prop.theme.colors.primary};
   }
 `;
