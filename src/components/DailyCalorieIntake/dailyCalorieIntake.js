@@ -42,4 +42,4 @@ export default DailyCalorieIntake;
 
 DailyCalorieIntake.propTypes = {
   closeModal: PropTypes.func.isRequired,
-}
+};
