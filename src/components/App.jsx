@@ -1,6 +1,8 @@
 import { lazy } from 'react';
 import { createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { HelmetProvider } from 'react-helmet-async';
+
 import { GlobalStyle } from './GlobalStyle';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -26,7 +28,8 @@ const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
 
 export const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <HelmetProvider>
+      <ThemeProvider theme={theme}>
       <ThemeProvider theme={darkTheme}>
         <GlobalStyle />
         <CssBaseline />
@@ -78,6 +81,7 @@ export const App = () => {
         </Routes>
         <ToastContainer />
       </ThemeProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 };
