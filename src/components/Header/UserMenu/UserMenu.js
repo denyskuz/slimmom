@@ -1,32 +1,40 @@
+import { useSelector } from 'react-redux';
+import { getUserName } from 'redux/services/selectors';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/services/operations';
 import {
   List,
   ListItem,
-  // UserInfo,
-  // Arrow,
-  // Button,
-  // UserInfoWrapper,
-  // UserName,
+  Arrow,
+  LinkToCalc,
+  UserInfoWrapper,
+  UserName,
+  UserExitButton,
 } from './UserMenu.styled';
 
 const UserMenu = () => {
-  // const name = "Nick";
+  const dispatch = useDispatch();
+  const name = useSelector(getUserName);
+
+  const onLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <>
       <List>
-        <ListItem to="/dairy">DAIRY</ListItem>
-        <ListItem to="/calculator">CALCULATOR</ListItem>
+        <ListItem to="/diary">Diary</ListItem>
+        <ListItem to="/calculator">Calculator</ListItem>
       </List>
-      {/* <UserInfo>
-            <Button
-                type="button"
-            >
-                <Arrow color="black" size="20px"/>
-            </Button>
-            <UserInfoWrapper>
-                <UserName>{name}</UserName>
-                <Button type="button">Exit</Button>
-                </UserInfoWrapper>
-            </UserInfo> */}
+      <LinkToCalc to="/calculator">
+        <Arrow color="black" size="20px" />
+      </LinkToCalc>
+      <UserInfoWrapper>
+        <UserName>{name}</UserName>
+        <UserExitButton type="button" onClick={onLogout}>
+          Exit
+        </UserExitButton>
+      </UserInfoWrapper>
     </>
   );
 };
