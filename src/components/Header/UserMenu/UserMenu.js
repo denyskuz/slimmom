@@ -1,32 +1,35 @@
+// import { useSelector } from 'react-redux';
+// import { authSelectors } from 'redux/auth/authSelectors';
 import {
   List,
   ListItem,
-  // UserInfo,
-  // Arrow,
-  // Button,
-  // UserInfoWrapper,
-  // UserName,
+  Arrow,
+  LinkToCalc,
+  UserInfoWrapper,
+  UserName,
+  UserExitButton,
 } from './UserMenu.styled';
 
 const UserMenu = () => {
-  // const name = "Nick";
+  // const name = useSelector(authSelectors.getUserName);
+
+  const onLogout = () => {};
+
   return (
     <>
       <List>
-        <ListItem to="/diary">DIARY</ListItem>
-        <ListItem to="/calculator">CALCULATOR</ListItem>
+        <ListItem to="/diary">Diary</ListItem>
+        <ListItem to="/calculator">Calculator</ListItem>
       </List>
-      {/* <UserInfo>
-            <Button
-                type="button"
-            >
-                <Arrow color="black" size="20px"/>
-            </Button>
-            <UserInfoWrapper>
-                <UserName>{name}</UserName>
-                <Button type="button">Exit</Button>
-                </UserInfoWrapper>
-            </UserInfo> */}
+      <LinkToCalc to="/calculator">
+        <Arrow color="black" size="20px" />
+      </LinkToCalc>
+      <UserInfoWrapper>
+        <UserName>Nick</UserName>
+        <UserExitButton type="button" onClick={onLogout}>
+          Exit
+        </UserExitButton>
+      </UserInfoWrapper>
     </>
   );
 };

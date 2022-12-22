@@ -1,6 +1,6 @@
-import Container from 'components/Container';
 import AuthNav from 'components/Header/AuthNav';
 import UserMenu from 'components/Header/UserMenu';
+import Burger from 'components/Header/Burger';
 import {
   Header,
   NavHeader,
@@ -12,47 +12,56 @@ import {
   Wrapper,
   Navigation,
   UserMenuWrapperDesk,
+  UserMenuWrapper,
 } from './AppBar.styled';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth/authSelectors';
 
 const AppBar = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <Header>
-      <Container>
-        <NavHeader>
-          <LogoLink to="/">
-            {isLoggedIn ? (
-              <>
-                <Logo />
-                <LoggedWrapper>
-                  <LogoSlim />
-                  <LogoMom />
-                </LoggedWrapper>
-              </>
-            ) : (
-              <>
-                <Logo />
-                <Wrapper>
-                  <LogoSlim />
-                  <LogoMom />
-                </Wrapper>
-              </>
-            )}
-          </LogoLink>
+      <NavHeader>
+        <LogoLink to="/">
+          {isLoggedIn ? (
+            <>
+              <Logo />
+              <LoggedWrapper>
+                <LogoSlim />
+                <LogoMom />
+              </LoggedWrapper>
+            </>
+          ) : (
+            <>
+              <Logo />
+              <Wrapper>
+                <LogoSlim />
+                <LogoMom />
+              </Wrapper>
+            </>
+          )}
+        </LogoLink>
 
-          <Navigation>
-            {isLoggedIn ? (
-              <>
-                <UserMenuWrapperDesk>
-                  <UserMenu />
-                </UserMenuWrapperDesk>
-              </>
-            ) : (
-              <AuthNav />
-            )}
-          </Navigation>
-        </NavHeader>
-      </Container>
+        <Navigation>
+          {isLoggedIn ? (
+            <>
+              <UserMenuWrapperDesk>
+                <UserMenu />
+              </UserMenuWrapperDesk>
+              <Burger />
+            </>
+          ) : (
+            <AuthNav />
+          )}
+        </Navigation>
+      </NavHeader>
+
+      {isLoggedIn && (
+        <UserMenuWrapper>
+          <UserMenu />
+        </UserMenuWrapper>
+      )}
     </Header>
   );
 };
