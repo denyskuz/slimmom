@@ -6,7 +6,7 @@ import {
   ButtonSecondary,
   LinkButton,
 } from 'components/Button/Button';
-import { login } from 'redux/Operations/operations';
+import { login } from '../../redux/services/operations';
 import { Form, ButtonBox, Input } from './LoginForm.styled';
 
 const LoginForm = () => {
