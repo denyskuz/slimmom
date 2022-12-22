@@ -1,6 +1,6 @@
 import { List, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { selectCalories } from 'redux/products/selectors';
+import { selectCalories } from 'redux/services/selectors';
 import { SummaryListItem } from './SummaryListItem';
 
 export const SummaryList = () => {

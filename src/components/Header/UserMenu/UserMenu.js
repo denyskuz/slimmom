@@ -1,5 +1,7 @@
-// import { useSelector } from 'react-redux';
-// import { authSelectors } from 'redux/auth/authSelectors';
+import { useSelector } from 'react-redux';
+import { getUserName } from 'redux/services/selectors';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/services/operations';
 import {
   List,
   ListItem,
@@ -11,9 +13,12 @@ import {
 } from './UserMenu.styled';
 
 const UserMenu = () => {
-  // const name = useSelector(authSelectors.getUserName);
+  const dispatch = useDispatch();
+  const name = useSelector(getUserName);
 
-  const onLogout = () => {};
+  const onLogout = () => {
+    dispatch(logout())
+  };
 
   return (
     <>
@@ -25,7 +30,7 @@ const UserMenu = () => {
         <Arrow color="black" size="20px" />
       </LinkToCalc>
       <UserInfoWrapper>
-        <UserName>Nick</UserName>
+        <UserName>{ name }</UserName>
         <UserExitButton type="button" onClick={onLogout}>
           Exit
         </UserExitButton>

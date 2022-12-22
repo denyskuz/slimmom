@@ -6,7 +6,7 @@ import {
   ButtonSecondary,
   LinkButton,
 } from 'components/Button/Button';
-import { register } from 'redux/auth/authOperation';
+import { register } from 'redux/services/operations';
 import { Form, ButtonBox, Input } from './registrationForm.styled';
 
 const RegisterForm = () => {
@@ -30,6 +30,7 @@ const RegisterForm = () => {
       <Input
         id="name"
         label="Name *"
+        type= 'text'
         variant="standard"
         onChange={formik.handleChange}
         value={formik.values.name}
@@ -42,6 +43,7 @@ const RegisterForm = () => {
         id="email"
         label="E-mail *"
         variant="standard"
+        type='email'
         onChange={formik.handleChange}
         value={formik.values.email}
         error={formik.touched.email && formik.errors.email}
@@ -53,6 +55,7 @@ const RegisterForm = () => {
         id="password"
         label="Password *"
         variant="standard"
+        type='password'
         onChange={formik.handleChange}
         value={formik.values.password}
         error={formik.touched.password && formik.errors.password}

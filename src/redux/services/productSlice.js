@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getProducts } from './actions';
+import { getProducts } from './operations';
 
 const productsSlice = createSlice({
   name: 'products',
