@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -6,11 +6,10 @@ import {
   ButtonSecondary,
   LinkButton,
 } from 'components/Button/Button';
-import { login } from 'redux/Operations/operations';
+import { login } from 'redux/auth/authOperation';
 import { Form, ButtonBox, Input } from './LoginForm.styled';
 
 const LoginForm = () => {
-  const Mail = useSelector(store => store.auth);
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -21,9 +20,7 @@ const LoginForm = () => {
     }),
     onSubmit: (values, { resetForm }) => {
       dispatch(login(values));
-
       resetForm();
-      console.log(Mail);
     },
   });
 

@@ -13,6 +13,15 @@ const darkTheme = createTheme({
   palette: {
     mode: 'light',
   },
+  typography: {
+    htmlFontSize: 15,
+    color: '#fc842d',
+    fontFamily: 'Verdana',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    fontSize: 14,
+    lineHeight: 17,
+  },
 });
 
 const MainPage = lazy(() => import('../pages/MainPage'));

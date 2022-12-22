@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+// const { REACT_APP_BACKEND_URL } = process.env;
 
-axios.defaults.baseURL = BASE_URL;
+axios.defaults.baseURL = 'https://slimmom-s41d.onrender.com';
 
 const token = {
   set(token) {
@@ -22,5 +22,18 @@ export const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {}
+  }
+);
+
+export const login = createAsyncThunk(
+  '/api/auth/login',
+  async (data, thunkAPI) => {
+    try {
+      const res = await await axios.post('/api/auth/login', data);
+      console.log(res.data);
+      return res.data;
+    } catch (error) {
+      return await thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
