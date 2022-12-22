@@ -10,12 +10,12 @@ export default function LoginPage() {
       {/* <Helmet> */}
       {/* <title>Login</title> */}
       {/* </Helmet> */}
-      <Wrapper>
-        <Container>
-          <Title>Log in</Title>
-          <LoginForm />
-        </Container>
-      </Wrapper>
+      {/* <Wrapper> */}
+      <Container>
+        <Title>Log in</Title>
+        <LoginForm />
+      </Container>
+      {/* </Wrapper> */}
     </>
   );
 }

@@ -6,14 +6,15 @@ export const useDairyStore = () => {
   const dispatch = useDispatch();
 
   const [diaryData, setDiaryData] = useState(data);
+
   const deleteDiaryProduct = id => {
     const newArr = diaryData.filter((e, i, ar) => e._id.$oid !== id);
     setDiaryData(newArr);
-    dispatch(deleteProduct(id));
+    // dispatch(deleteProduct(id));
   };
 
   const addDiaryProduct = () => {
     // add code
   };
-  return { dairyData: diaryData, deleteDiaryProduct };
+  return { diaryData, deleteDiaryProduct };
 };

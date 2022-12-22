@@ -182,12 +182,16 @@ export const data = [
 ];
 
 export default function DiaryProductsListItem() {
-  const { dairyData, deleteDiaryProduct } = useDairyStore();
-  const dataX = dairyData;
-  console.log(dairyData);
+  const { diaryData, deleteDiaryProduct } = useDairyStore();
+  const dataX = diaryData;
 
   const handleDelete = ({ $oid }) => {
-    deleteDiaryProduct($oid);
+    let isDelete = window.confirm('Do you want delete this product?');
+    console.log(isDelete);
+    if (isDelete === true) {
+      deleteDiaryProduct($oid);
+    }
+    return;
   };
   return (
     <Container>

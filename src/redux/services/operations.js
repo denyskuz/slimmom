@@ -30,7 +30,7 @@ export const login = createAsyncThunk(
   '/api/auth/login',
   async (data, thunkAPI) => {
     try {
-      const res = await await axios.post('/api/auth/login', data);
+      const res = await axios.post('/api/auth/login', data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -62,8 +62,13 @@ export const logout = createAsyncThunk('/api/auth/logout', async () => {
   } catch (error) {}
 });
 
-export const deleteProduct = createAsyncThunk('delete', async id => {
-  try {
-    await axios.delete(`/api/auth/diary/:${id}`);
-  } catch (error) {}
-});
+export const deleteProduct = createAsyncThunk(
+  'delete',
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/api/auth/diary/:${id}`);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
