@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { data } from 'components/DiaryProductsListItem/DiaryProductsListItem';
-import { useDispatch } from 'react-redux';
-import { deleteProduct } from 'redux/services/operations';
+// import { useDispatch } from 'react-redux';
+// import { deleteProduct } from 'redux/services/operations';
 export const useDairyStore = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [diaryData, setDiaryData] = useState(data);
 
@@ -16,5 +16,5 @@ export const useDairyStore = () => {
   const addDiaryProduct = () => {
     // add code
   };
-  return { diaryData, deleteDiaryProduct };
+  return { diaryData, deleteDiaryProduct, addDiaryProduct };
 };

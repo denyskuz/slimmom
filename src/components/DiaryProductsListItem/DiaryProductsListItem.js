@@ -1,3 +1,4 @@
+import { Backdrop } from '@mui/material';
 import Container from 'components/Container';
 import { useDairyStore } from 'hooks/diaryStoreHook';
 import {
@@ -187,7 +188,6 @@ export default function DiaryProductsListItem() {
 
   const handleDelete = ({ $oid }) => {
     let isDelete = window.confirm('Do you want delete this product?');
-    console.log(isDelete);
     if (isDelete === true) {
       deleteDiaryProduct($oid);
     }
@@ -216,6 +216,7 @@ export default function DiaryProductsListItem() {
           );
         })}
       </List>
+      <Backdrop></Backdrop>
     </Container>
   );
 }
