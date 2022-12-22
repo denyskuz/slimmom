@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Modal, InputLabel } from '@mui/material';
+import { Modal } from '@mui/material';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from 'redux/services/operations';
@@ -19,7 +20,7 @@ import {
 } from './DailyCaloriesForm.styled';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
 
-export const DailyCaloriesForm = () => {
+export const DailyCaloriesForm = ({ isModal }) => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
 
@@ -36,9 +37,8 @@ export const DailyCaloriesForm = () => {
       bloodType: '',
     },
     validationSchema: userParamsShema,
-    onSubmit: (data, e) => {
-      e.preventDefault();
-      dispatch(getProducts(data));
+    onSubmit: data => {
+      isModal ? handleOpen() : dispatch(getProducts(data));
     },
   });
 
@@ -148,12 +148,7 @@ export const DailyCaloriesForm = () => {
           error={Boolean(touched.currentWeight && errors.currentWeight)}
           helperText={helper('currentWeight', 'kg')}
         />
-        <Button
-          disabled={loading}
-          variant="contained"
-          type="submit"
-          onClick={handleOpen}
-        >
+        <Button disabled={loading} variant="contained" type="submit">
           Start losing weight
         </Button>
 
@@ -170,4 +165,8 @@ export const DailyCaloriesForm = () => {
       </Form>
     </FormWrapper>
   );
+};
+
+DailyCaloriesForm.propTypes = {
+  isModal: PropTypes.bool,
 };

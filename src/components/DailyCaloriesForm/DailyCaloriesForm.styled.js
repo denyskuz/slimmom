@@ -68,6 +68,10 @@ export const Input = styled(TextField)`
     width: 100%;
     color: #9b9faa;
   }
+  & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
   & label {
     font-family: Verdana;
     font-weight: 700;
@@ -100,6 +104,12 @@ export const BloodInput = styled(Input)`
   }
   & .MuiInputLabel-shrink {
     transform: translate(0, 20px);
+  }
+  & label.Mui-focused {
+    color: #9b9faa;
+  }
+  & .MuiInput-underline:after {
+    border-bottom-color: #9b9faa;
   }
 `;
 
