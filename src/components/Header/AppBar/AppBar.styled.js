@@ -6,11 +6,8 @@ import slim from '../../../images/logo/logoSlim.png';
 import mom from '../../../images/logo/logoMom.png';
 
 export const Header = styled.header`
-  display: block;
-  /* justify-content: space-between; */
-  align-items: center;
-  border-bottom: 2px solid;
-  border-color: #e0e0e0;
+  border-bottom: ${prop => prop.theme.borders.line};
+  border-color: ${prop => prop.theme.colors.input};
 
   @media screen and (min-width: 1280px) {
     border-bottom: none;
@@ -25,8 +22,8 @@ export const NavHeader = styled.nav`
   padding: 20px 20px 16px 20px;
 
   @media screen and (min-width: 768px) {
-    padding-right: 32px;
-    padding-left: 32px;
+    padding-right: ${prop => prop.theme.space[5]}px;
+    padding-left: ${prop => prop.theme.space[5]}px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -46,17 +43,17 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 1280px) {
     position: absolute;
     bottom: 0;
-    left: 60px;
+    left: ${prop => prop.theme.spaceForm[3]}px;
 
     ::after {
       content: '';
       display: block;
       position: absolute;
-      top: -7px;
-      left: -20px;
-      height: 32px;
-      width: 2px;
-      background-color: #e0e0e0;
+      top: -5px;
+      left: 130px;
+      height: ${prop => prop.theme.space[5]}px;
+      width: ${prop => prop.theme.space[1]}px;
+      background-color: ${prop => prop.theme.colors.input};
     }
   }
 `;
@@ -67,7 +64,7 @@ export const LoggedWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     position: absolute;
     bottom: 0;
-    left: 60px;
+    left: ${prop => prop.theme.spaceForm[3]}px;;
 
     ::after {
       content: '';
@@ -75,9 +72,9 @@ export const LoggedWrapper = styled.div`
       position: absolute;
       top: -5px;
       left: 130px;
-      height: 32px;
-      width: 2px;
-      background-color: #e0e0e0;
+      height: ${prop => prop.theme.space[5]}px;
+      width: ${prop => prop.theme.space[1]}px;
+      background-color: ${prop => prop.theme.colors.input};
     }
   }
 `;
@@ -117,7 +114,7 @@ export const Logo = styled.div`
 
 export const LogoSlim = styled.span`
   width: 48px;
-  height: 16px;
+  height: ${prop => prop.theme.space[4]}px;
   margin-right: 6px;
   background-image: url(${slim});
   background-size: cover;
@@ -150,9 +147,9 @@ export const UserMenuWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 20px;
-  padding-left: 20px;
-  background-color: #eff1f3;
+  padding-right: ${prop => prop.theme.spaceForm[1]}px;
+  padding-left: ${prop => prop.theme.spaceForm[1]}px;
+  background-color:  ${prop => prop.theme.colors.bcgUserInfo};
 
   @media screen and (min-width: 768px) {
     display: none;

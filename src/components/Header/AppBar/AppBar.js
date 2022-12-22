@@ -1,4 +1,3 @@
-// import Container from 'components/Container';
 import AuthNav from 'components/Header/AuthNav';
 import UserMenu from 'components/Header/UserMenu';
 import Burger from 'components/Header/Burger';
@@ -15,9 +14,11 @@ import {
   UserMenuWrapperDesk,
   UserMenuWrapper,
 } from './AppBar.styled';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth/authSelectors';
 
 const AppBar = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
     <Header>

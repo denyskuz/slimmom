@@ -7,7 +7,7 @@ export const List = styled.div`
 
   @media only screen and (min-width: 1280px) {
     display: flex;
-    margin-right: 770px;
+    margin-right: 765px;
   }
 `;
 
@@ -15,24 +15,24 @@ export const ListItem = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
   letter-spacing: 0.04em;
   text-decoration: none;
   text-transform: uppercase;
-  color: #9b9faa;
+  color: ${prop => prop.theme.colors.secondary};
 
   :first-child {
-    margin-right: 16px;
+    margin-right: ${prop => prop.theme.space[4]}px;
   }
 
   :hover {
-    color: #fc842d;
+    color: ${prop => prop.theme.colors.accent};
   }
 
   &.active {
-    color: #212121;
+    color: ${prop => prop.theme.colors.primary};
   }
 `;
 
@@ -42,17 +42,19 @@ export const UserInfoWrapper = styled.div`
   align-items: center;
   margin-left: auto;
   height: 40px;
+  z-index: 10;
 `;
 
 export const UserName = styled.h2`
   display: inline;
   font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
   letter-spacing: 0.04em;
   margin: 0;
   padding: 15px 16px 13px 0;
+  color: ${prop => prop.theme.colors.primary};
 
   ::after {
     content: '';
@@ -62,18 +64,22 @@ export const UserName = styled.h2`
     right: 40px;
     height: 32px;
     width: 2px;
-    background-color: #e0e0e0;
+    background-color: ${prop => prop.theme.colors.input};
   }
 `;
 
-export const Button = styled.button`
+export const LinkToCalc = styled(NavLink)`
   border: none;
   background-color: transparent;
   padding: 0;
   cursor: pointer;
 
   &:hover {
-    color: #fc842d;
+    color: ${prop => prop.theme.colors.accent};
+  }
+
+  &.active{
+    opacity: 0;
   }
 `;
 
@@ -86,17 +92,17 @@ export const Arrow = styled(FiCornerDownLeft)`
 
 export const UserExitButton = styled.button`
   font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
   letter-spacing: 0.04em;
-  color: #9b9faa;
+  color: ${prop => prop.theme.colors.secondary};
   border: none;
   background-color: transparent;
   padding: 15px 0 13px 16px;
   cursor: pointer;
 
   &:hover {
-    color: #fc842d;
+    color: ${prop => prop.theme.colors.accent};
   }
 `;

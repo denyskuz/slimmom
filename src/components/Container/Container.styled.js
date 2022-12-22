@@ -8,13 +8,13 @@ export const MainContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: ${prop => prop.theme.space[5]}px;
+    padding-right: ${prop => prop.theme.space[5]}px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: ${prop => prop.theme.space[4]}px;
+    padding-right: ${prop => prop.theme.space[4]}px;
   }
 `;

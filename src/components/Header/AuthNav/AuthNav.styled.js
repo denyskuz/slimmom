@@ -5,23 +5,23 @@ export const Link = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: Gotham Pro;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 13px;
+  font-size:  ${prop => prop.theme.fontSizes.xs};
+  font-weight:  ${prop => prop.theme.fontWeights.bold};
+  line-height: 0.93;
   letter-spacing: 0.04em;
   text-decoration: none;
   text-transform: uppercase;
-  color: #9b9faa;
+  color:  ${prop => prop.theme.colors.secondary};
 
   :first-child {
-    margin-right: 16px;
+    margin-right: ${prop => prop.theme.space[4]}px;
   }
 
   :hover {
-    color: #fc842d;
+    color:  ${prop => prop.theme.colors.accent};
   }
 
   &.active {
-    color: #212121;
+    color:  ${prop => prop.theme.colors.primary};
   }
 `;

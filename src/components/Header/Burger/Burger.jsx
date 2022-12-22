@@ -4,32 +4,31 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import {
   BurgerButton,
   BurgerMenu,
-  NavDairyLink,
+  NavDiaryLink,
   NavCalcLink,
 } from './Burger.styled';
 
 const Burger = () => {
-  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
+  const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
   const toggleBurgerMenu = () => {
-    setBurgerMenuOpen(!burgerMenuOpen);
+    setBurgerMenuOpen(!isBurgerMenuOpen);
   };
 
   return (
     <>
       <BurgerButton
-        className={burgerMenuOpen ? 'active' : ''}
-        aria-label="Open burger menu"
+        className={isBurgerMenuOpen ? 'active' : ''}
+        aria-label="open burger menu"
         onClick={toggleBurgerMenu}
       >
-        {burgerMenuOpen ? <GrClose size={20} /> : <GiHamburgerMenu size={24} />}
+        {isBurgerMenuOpen ? <GrClose size={20} /> : <GiHamburgerMenu size={24} />}
       </BurgerButton>
-      <BurgerMenu open={burgerMenuOpen}>
-        {''}
+      <BurgerMenu className={isBurgerMenuOpen ? 'open' : ''}>
         <>
-          <NavDairyLink to="/dairy" onClick={toggleBurgerMenu}>
-            Dairy
-          </NavDairyLink>
+          <NavDiaryLink to="/diary" onClick={toggleBurgerMenu}>
+            Diary
+          </NavDiaryLink>
           <NavCalcLink to="calculator" onClick={toggleBurgerMenu}>
             Calculator
           </NavCalcLink>
