@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal } from '@mui/material';
+import { Modal, InputLabel } from '@mui/material';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from 'redux/services/operations';
@@ -72,7 +72,9 @@ export const DailyCaloriesForm = () => {
 
   return (
     <FormWrapper>
-      <Title>Calculate your daily calorie intake right now</Title>
+      <Title>
+        Calculate your daily calorie <br /> intake right now
+      </Title>
       <Form onSubmit={handleSubmit}>
         <Input
           id="height"
@@ -121,7 +123,6 @@ export const DailyCaloriesForm = () => {
             onChange={handleChange}
             value={values.bloodType}
             error={Boolean(touched.bloodType && errors.bloodType)}
-            helperText={helper('bloodType', '')}
           />
           <FormRadioGroup
             row
@@ -147,7 +148,12 @@ export const DailyCaloriesForm = () => {
           error={Boolean(touched.currentWeight && errors.currentWeight)}
           helperText={helper('currentWeight', 'kg')}
         />
-        <Button disabled={loading} type="submit" onClick={handleOpen}>
+        <Button
+          disabled={loading}
+          variant="contained"
+          type="submit"
+          onClick={handleOpen}
+        >
           Start losing weight
         </Button>
 
