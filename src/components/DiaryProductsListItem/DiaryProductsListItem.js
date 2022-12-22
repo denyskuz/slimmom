@@ -1,5 +1,5 @@
 import Container from 'components/Container';
-import { useDairyStore } from 'hooks/dairyStoreHook';
+import { useDairyStore } from 'hooks/diaryStoreHook';
 import {
   DeleteButton,
   IconCross,
@@ -182,17 +182,17 @@ export const data = [
 ];
 
 export default function DiaryProductsListItem() {
-  const { dairyData, deleteDairyProduct } = useDairyStore();
-
-  console.log(dairyData._id.$oid);
+  const { dairyData, deleteDiaryProduct } = useDairyStore();
+  const dataX = dairyData;
+  console.log(dairyData);
 
   const handleDelete = ({ $oid }) => {
-    deleteDairyProduct($oid);
+    deleteDiaryProduct($oid);
   };
   return (
     <Container>
       <List>
-        {data.map((e, i, ar) => {
+        {dataX.map((e, i, ar) => {
           return (
             <ListItems key={e._id.$oid}>
               <NameProduct noWrap>{e.title.ua}</NameProduct>

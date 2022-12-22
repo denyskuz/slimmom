@@ -61,3 +61,9 @@ export const logout = createAsyncThunk('/api/auth/logout', async () => {
     token.unset();
   } catch (error) {}
 });
+
+export const deleteProduct = createAsyncThunk('delete', async id => {
+  try {
+    await axios.delete(`/api/auth/diary/:${id}`);
+  } catch (error) {}
+});

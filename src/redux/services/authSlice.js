@@ -21,12 +21,10 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [register.fulfilled](state, action) {
-      // console.log(action);
       state.user = [action.meta.arg];
       state.isLoggedIn = true;
     },
     [login.fulfilled](state, action) {
-      // console.log(action);
       state.user = action.payload.data.user;
       state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
