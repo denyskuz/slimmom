@@ -51,11 +51,11 @@ export const CalorieForm = () => {
           <FormInput
             id="height"
             name="height"
+            onChange={handleChange}
             value={values.height}
             error={Boolean(touched.height && errors.height)}
             helperText={touched.height && errors.height}
             label="Height*"
-            onChange={handleChange}
           />
           <FormInput
             name="age"

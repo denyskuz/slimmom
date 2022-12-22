@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
+import { ButtonPrimary } from 'components/Button/Button';
 
 export const FormWrapper = styled.div`
   width: 100%;
@@ -37,8 +39,7 @@ export const Form = styled.form`
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(2, 240px);
     gap: 30px;
   }
 `;
@@ -53,7 +54,7 @@ export const Label = styled.label`
   margin-bottom: 8px;
 `;
 
-export const Input = styled.input`
+export const Input = styled(TextField)`
   font-family: Verdana;
   font-weight: 500;
   font-size: 14px;
@@ -61,38 +62,50 @@ export const Input = styled.input`
   letter-spacing: normal;
   width: 100%;
   color: #9b9faa;
-  margin-bottom: 32px;
-  border: none;
-  border-bottom: 1px solid #9b9faa;
+  & label {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: normal;
+    color: #9b9faa;
+  }
+  & p {
+    text-align: right;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 17px;
+    letter-spacing: normal;
+    color: #9b9faa;
+  }
+  & label.Mui-focused {
+    color: #fc842d;
+  }
+  & .MuiInput-underline:after {
+    border-bottom-color: #fc842d;
+  }
 `;
 
 export const RadioGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
 `;
-export const Button = styled.button`
+export const Button = styled(ButtonPrimary)`
   margin: 40px auto 0 auto;
   width: 210px;
   height: 43px;
-  background-color: #fc842d;
-  color: #ffffff;
-  display: block;
-  font-family: Verdana;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  border: 2px solid transparent;
   cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-
+  text-transform: none;
   @media (min-width: 768px) {
-    margin: 60px 0 0 0;
+    margin: 0;
     grid-row: 4 / span 1;
   }
 
   @media (min-width: 1280px) {
-    grid-column: 2 / 3;
-    margin: 0 auto 20px auto;
+    align-self: start;
+    justify-self: end;
+    grid-column: 2;
   }
 `;
