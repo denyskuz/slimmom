@@ -22,6 +22,7 @@ export const DiaryDateCalendar = () => {
       alignItems="center"
       gridGap="20px"
       onClick={openCalendar}
+      aria-label="Open calendar"
     >
       <DiaryDate>{date}</DiaryDate>
       <img src={iconCalendar} width={20} height={20} alt="calendar" />

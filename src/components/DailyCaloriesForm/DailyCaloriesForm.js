@@ -43,6 +43,7 @@ export const DailyCaloriesForm = () => {
             type="number"
             onChange={formik.handleChange}
             value={formik.values.height}
+            aria-label="Your height"
           />
         </Label>
 
@@ -54,6 +55,7 @@ export const DailyCaloriesForm = () => {
             type="number"
             onChange={formik.handleChange}
             value={formik.values.age}
+            aria-label="Your age"
           />
         </Label>
         <Label htmlFor="currentWeight">
@@ -64,6 +66,7 @@ export const DailyCaloriesForm = () => {
             type="number"
             onChange={formik.handleChange}
             value={formik.values.currentWeight}
+            aria-label="Your current weight"
           />
         </Label>
         <Label htmlFor="desiredWeight">
@@ -74,6 +77,7 @@ export const DailyCaloriesForm = () => {
             type="number"
             onChange={formik.handleChange}
             value={formik.values.desiredWeight}
+            aria-label="Your desired weight"
           />
         </Label>
         <Label id="bloodType">

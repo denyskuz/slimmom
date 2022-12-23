@@ -30,10 +30,18 @@ const Burger = () => {
       </BurgerButton>
       <BurgerMenu className={isBurgerMenuOpen ? 'open' : ''}>
         <>
-          <NavDiaryLink to="/diary" onClick={toggleBurgerMenu}>
+          <NavDiaryLink
+            aria-label="Your diary"
+            to="/diary"
+            onClick={toggleBurgerMenu}
+          >
             Diary
           </NavDiaryLink>
-          <NavCalcLink to="calculator" onClick={toggleBurgerMenu}>
+          <NavCalcLink
+            aria-label="Calculator"
+            to="calculator"
+            onClick={toggleBurgerMenu}
+          >
             Calculator
           </NavCalcLink>
         </>

@@ -17,21 +17,24 @@ const DailyCalorieIntake = ({ closeModal }) => {
   return (
     <>
       <IntakeBar>
-        <CloseButton onClick={() => closeModal()}></CloseButton>
+        <CloseButton
+          aria-label="Close"
+          onClick={() => closeModal()}
+        ></CloseButton>
       </IntakeBar>
       <TitleWrapper>
         <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
-        <IntakeResult>2800 kcal</IntakeResult>
+        <IntakeResult aria-label="Your daily calorie">2800 kcal</IntakeResult>
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
-        <List>
+        <List aria-label="Not allowed food">
           <ListItem>food1</ListItem>
           <ListItem>food2</ListItem>
           <ListItem>food3</ListItem>
         </List>
       </ListWrapper>
-      <ButtonStart type="button">
+      <ButtonStart aria-label="Signup" type="button">
         <LinkButton to={'/signup'}>Start losing weight</LinkButton>
       </ButtonStart>
     </>

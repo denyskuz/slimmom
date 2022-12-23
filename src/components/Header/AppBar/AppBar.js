@@ -27,7 +27,7 @@ const AppBar = () => {
           {isLoggedIn ? (
             <>
               <Logo />
-              <LoggedWrapper>
+              <LoggedWrapper aria-label='Main page'>
                 <LogoSlim />
                 <LogoMom />
               </LoggedWrapper>

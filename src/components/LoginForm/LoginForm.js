@@ -38,6 +38,7 @@ const LoginForm = () => {
         placeholder="example@gmail.com"
         onChange={formik.handleChange}
         value={formik.values.email}
+        aria-label="Your email"
       />
       <Input
         required
@@ -47,11 +48,16 @@ const LoginForm = () => {
         variant="standard"
         onChange={formik.handleChange}
         value={formik.values.password}
+        aria-label="your password"
       />
       <ButtonBox>
-        <ButtonPrimary type="submit">Login</ButtonPrimary>
+        <ButtonPrimary aria-label="Login" type="submit">
+          Login
+        </ButtonPrimary>
         <ButtonSecondary type="button">
-          <LinkButton to={'/signup'}>Register</LinkButton>
+          <LinkButton aria-label="Register" to={'/signup'}>
+            Register
+          </LinkButton>
         </ButtonSecondary>
       </ButtonBox>
     </Form>

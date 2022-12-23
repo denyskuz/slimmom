@@ -56,6 +56,7 @@ export const CalorieForm = () => {
             helperText={touched.height && errors.height}
             label="Height*"
             onChange={handleChange}
+            aria-label="Your height"
           />
           <FormInput
             name="age"
@@ -64,6 +65,7 @@ export const CalorieForm = () => {
             helperText={touched.age && errors.age}
             label="Age*"
             onChange={handleChange}
+            aria-label="Your age"
           />
           <FormInput
             name="currentWeight"
@@ -72,6 +74,7 @@ export const CalorieForm = () => {
             helperText={touched.currentWeight && errors.currentWeight}
             label="Current weight*"
             onChange={handleChange}
+            aria-label="Your current weight"
           />
         </Grid>
         <Grid>
@@ -82,6 +85,7 @@ export const CalorieForm = () => {
             helperText={touched.desiredWeight && errors.desiredWeight}
             label="Desired weight*"
             onChange={handleChange}
+            aria-label="Your desired weight"
           />
           <FormBloodInput
             name="bloodType"
@@ -96,11 +100,37 @@ export const CalorieForm = () => {
             row
             onChange={handleBloodType}
             value={values.bloodType}
+            aria-labelledby="Your-blood-type"
+            id="Your-blood-type"
           >
-            <FormLabel value="1" control={<Radio />} label="1" />
-            <FormLabel value="2" control={<Radio />} label="2" />
-            <FormLabel value="3" control={<Radio />} label="3" />
-            <FormLabel value="4" control={<Radio />} label="4" />
+            <FormLabel
+              value="1"
+              control={<Radio />}
+              label="1"
+              id="Yourbloodtype_0"
+              aria-labelledby="1"
+            />
+            <FormLabel
+              value="2"
+              control={<Radio />}
+              label="2"
+              id="Yourbloodtype_1"
+              aria-labelledby="2"
+            />
+            <FormLabel
+              value="3"
+              control={<Radio />}
+              label="3"
+              id="Yourbloodtype_2"
+              aria-labelledby="3"
+            />
+            <FormLabel
+              value="4"
+              control={<Radio />}
+              label="4"
+              id="Yourbloodtype_3"
+              aria-labelledby="4"
+            />
           </RadioGroup>
         </Grid>
       </FormInputContainer>
@@ -109,6 +139,7 @@ export const CalorieForm = () => {
         variant="contained"
         color="button"
         type="submit"
+        aria-label="Send form"
       >
         Start losing weight
       </FormButton>
