@@ -17,11 +17,15 @@ const token = {
 
 export const register = createAsyncThunk(
   '/api/auth/registration',
-  async (credentials, thunkAPI) => {
+  async (value, thunkAPI) => {
     try {
-      const { data } = await axios.post(`/api/auth/registration`, credentials);
-      token.set(data.token);
-      return data;
+      const { data } = await axios.post(`/api/auth/registration`, value);
+      await token.set(data.token);
+      const res = await axios.post('/api/auth/login', {
+        password: value.password,
+        email: value.email
+      });
+      return res.data;
     } catch (error) {
       toast('Register error');
       return thunkAPI.rejectWithValue(error.message);
@@ -43,10 +47,13 @@ export const login = createAsyncThunk(
 );
 
 export const getProducts = createAsyncThunk(
-  '/products/getBad',
+  'api/auth/products/',
   async (userParams, thunkAPI) => {
     try {
-      const { data, status } = await axios.post('/products', userParams);
+      const { data, status } = await axios.post(
+        'api/auth/products/',
+        userParams
+      );
       token.set(data.token);
       if (!data) {
         return thunkAPI.rejectWithValue(status);

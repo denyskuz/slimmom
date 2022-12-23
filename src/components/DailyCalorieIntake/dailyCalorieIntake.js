@@ -13,7 +13,6 @@ import {
 import { BadFoodList } from 'components/SideBar';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
-  console.log(params);
   const { height, age, currentWeight, desiredWeight } = params;
   const caloriesResult = Math.round(
     10 * currentWeight +

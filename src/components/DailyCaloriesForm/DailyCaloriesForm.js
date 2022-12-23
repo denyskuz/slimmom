@@ -67,7 +67,7 @@ export const DailyCaloriesForm = () => {
 
     onSubmit: (values, { resetForm }) => {
       setParams(formik.values);
-      dispatch(getProducts(values));
+      dispatch(getProducts(JSON.stringify(formik.values)));
       handleOpen();
       resetForm();
     },
