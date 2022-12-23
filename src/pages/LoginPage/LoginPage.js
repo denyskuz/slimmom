@@ -1,5 +1,5 @@
 import LoginForm from 'components/LoginForm/LoginForm';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Title } from './LoginPage.Styled';
 import Container from 'components/Container';
 
