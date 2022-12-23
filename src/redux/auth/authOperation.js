@@ -24,3 +24,22 @@ export const register = createAsyncThunk(
     } catch (error) {}
   }
 );
+
+// export const refreshUser = createAsyncThunk(
+//   'api/auth/refresh',
+//   async (_, thunkAPI) => {
+//     const state = thunkAPI.getState();
+
+//     if (state.auth.token === null) {
+//       return thunkAPI.rejectWithValue('Unable to fetch user');
+//     }
+
+//     try {
+//       token.set(state.auth.token);
+//       const res = await axios.get('api/auth/current');
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

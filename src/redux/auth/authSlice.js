@@ -9,6 +9,7 @@ const initialState = {
   },
   token: null,
   isLoggedIn: false,
+  // isRefreshing: false,
 };
 
 const authSlice = createSlice({
@@ -19,6 +20,17 @@ const authSlice = createSlice({
       state.user = [action.meta.arg];
       state.isLoggedIn = true;
     });
+    // .addCase(refreshUser.pending, (state, action) => {
+    //   state.isRefreshing = true;
+    // })
+    // .addCase(refreshUser.fulfilled, (state, action) => {
+    //   state.user = action.payload.user;
+    //   state.isLoggedIn = true;
+    //   state.isRefreshing = false;
+    // })
+    // .addCase(refreshUser.rejected, (state, action) => {
+    //   state.isRefreshing = false;
+    // });
   },
 });
 
