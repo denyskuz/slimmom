@@ -7,25 +7,21 @@ import {
 } from './DiaryModalList.styled';
 
 export const DiaryModalList = ({ id }) => {
-  const { deleteDiaryProduct } = useDairyStore();
+  const { deleteDiaryProductHook } = useDairyStore();
   // const handleConfirm = () => {
   // console.log('MODAL', id);
   // };
-  const handleDelete = id => {
+  const handleDelete = () => {
+    const id = localStorage.getItem('id');
     console.log('MAIN', id);
-    deleteDiaryProduct(id);
+    deleteDiaryProductHook(id);
   };
 
   return (
     <ModalDiaryStyled>
       <ModalTextDiary>'Do you want delete this product?'</ModalTextDiary>
       <ButtonBox>
-        <ButtonModalDiary
-          variant="contained"
-          onClick={() => {
-            handleDelete(id);
-          }}
-        >
+        <ButtonModalDiary variant="contained" onClick={handleDelete}>
           yes
         </ButtonModalDiary>
         <ButtonModalDiary variant="outlined">no</ButtonModalDiary>

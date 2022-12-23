@@ -186,17 +186,15 @@ export const data = [
 export default function DiaryProductsListItem() {
   const { diaryData } = useDairyStore();
   const [open, setOpen] = useState(false);
-
   const handleClose = () => {
     setOpen(false);
   };
   const handleToggle = id => {
     setOpen(!open);
+    localStorage.setItem('id', `${id}`);
   };
-  // const handleDelete = id => {
-  //   console.log('MAIN', id);
-  //   deleteDiaryProduct(id);
-  // };
+
+  console.log(new Date());
 
   return (
     <List>
@@ -216,16 +214,16 @@ export default function DiaryProductsListItem() {
             >
               <IconCross />
             </DeleteButton>
-            <Backdrop
-              sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
-              open={open}
-              onClick={handleClose}
-            >
-              <DiaryModalList id={e._id.$oid} />
-            </Backdrop>
           </ListItems>
         );
       })}
+      <Backdrop
+        sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+      >
+        <DiaryModalList />
+      </Backdrop>
     </List>
   );
 }

@@ -62,12 +62,25 @@ export const logout = createAsyncThunk('/api/auth/logout', async () => {
   } catch (error) {}
 });
 
-export const deleteProduct = createAsyncThunk(
+export const deleteDiaryProduct = createAsyncThunk(
   'delete',
   async (id, thunkAPI) => {
     try {
       await axios.delete(`/api/auth/diary/:${id}`);
     } catch (error) {
+      toast('product is undefined');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getAllDiaryProduct = createAsyncThunk(
+  'getAll',
+  async (date, thunkAPI) => {
+    try {
+      const res = await axios.get(`/api/auth/diary/:${date}`);
+      return res;
+    } catch (error) {
+      toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
