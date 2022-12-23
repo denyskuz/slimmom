@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -61,3 +61,5 @@ export const logout = createAsyncThunk('/api/auth/logout', async () => {
     token.unset();
   } catch (error) {}
 });
+
+export const setUserParams = createAction('auth/save');
