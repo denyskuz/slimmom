@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
       await token.set(data.token);
       const res = await axios.post('/api/auth/login', {
         password: value.password,
-        email: value.email
+        email: value.email,
       });
       return res.data;
     } catch (error) {
