@@ -51,10 +51,7 @@ export const getProducts = createAsyncThunk(
   async (userParams, thunkAPI) => {
     console.log(userParams);
     try {
-      const { data, status } = await axios.get(
-        '/api/products',
-        userParams
-      );
+      const { data, status } = await axios.get('/api/products', userParams);
       token.set(data.token);
       if (!data) {
         return thunkAPI.rejectWithValue(status);
