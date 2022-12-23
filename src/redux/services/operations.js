@@ -17,12 +17,15 @@ const token = {
 
 export const register = createAsyncThunk(
   '/api/auth/registration',
-  async credentials => {
+  async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.post(`/api/auth/registration`, credentials);
       token.set(data.token);
       return data;
-    } catch (error) {}
+    } catch (error) {
+      toast('Register error');
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
@@ -30,9 +33,10 @@ export const login = createAsyncThunk(
   '/api/auth/login',
   async (data, thunkAPI) => {
     try {
-      const res = await await axios.post('/api/auth/login', data);
+      const res = await axios.post('/api/auth/login', data);
       return res.data;
     } catch (error) {
+      toast('Login error');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

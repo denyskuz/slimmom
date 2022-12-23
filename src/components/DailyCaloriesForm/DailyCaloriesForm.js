@@ -21,6 +21,7 @@ import {
 
 export const DailyCaloriesForm = () => {
   const [open, setOpen] = React.useState(false);
+  const [params, setParams] = React.useState({});
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ export const DailyCaloriesForm = () => {
     }),
 
     onSubmit: (values, { resetForm }) => {
+      setParams(values);
       dispatch(getProducts(values));
       resetForm();
     },
@@ -185,7 +187,7 @@ export const DailyCaloriesForm = () => {
             aria-describedby="modal-modal-description"
           >
             <StyledModalBox>
-              <DailyCalorieIntake closeModal={handleClose} />
+                <DailyCalorieIntake closeModal={handleClose} params={params} />
             </StyledModalBox>
           </Modal>
         )}

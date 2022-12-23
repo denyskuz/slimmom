@@ -21,7 +21,6 @@ const LoginForm = () => {
     }),
     onSubmit: (values, { resetForm }) => {
       dispatch(login(values));
-
       resetForm();
       console.log(Mail);
     },

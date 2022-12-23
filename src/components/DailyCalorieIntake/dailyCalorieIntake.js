@@ -13,7 +13,20 @@ import {
   ButtonStart,
 } from './dailyCalorieIntake.styled';
 
-const DailyCalorieIntake = ({ closeModal }) => {
+// "ФОРМУЛА ДЛЯ РОЗРАХУНКУ ДЕННОЇ НОРМИ КАЛОРІЙ ДЛЯ ЖІНОК
+// 10 * вага + 6.25 * зріст - 5 * вік - 161 - 10 * (вага - бажана вага)"
+
+const DailyCalorieIntake = ({ closeModal, params }) => {
+  console.log(params);
+  const { height, age, currentWeight, desiredWeight } = params;
+  const caloriesResult = Math.round(
+    10 * currentWeight +
+      6.25 * height -
+      5 * age -
+      161 -
+      10 * (currentWeight - desiredWeight)
+  );
+
   return (
     <>
       <IntakeBar>
@@ -21,7 +34,7 @@ const DailyCalorieIntake = ({ closeModal }) => {
       </IntakeBar>
       <TitleWrapper>
         <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
-        <IntakeResult>2800 kcal</IntakeResult>
+        <IntakeResult>{caloriesResult} kcal</IntakeResult>
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
