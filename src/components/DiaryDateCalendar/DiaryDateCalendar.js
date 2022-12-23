@@ -2,10 +2,10 @@ import moment from 'moment';
 import Datetime from 'react-datetime';
 import { useState } from 'react';
 import { Container } from '../Container.styled';
-import { Box } from 'components/Boxstatus';
+import { Box } from 'components/Box';
 import 'react-datetime/css/react-datetime.css';
 import iconCalendar from '../../images/icon/calendar.svg';
-import { DiaryDate } from './DiaryDateCalendar.styled';
+// import { DiaryDate } from './DiaryDateCalendar.styled';
 
 export const DiaryDateCalendar = () => {
   const [date, setDate] = useState(() =>
@@ -23,7 +23,7 @@ export const DiaryDateCalendar = () => {
       gridGap="20px"
       onClick={openCalendar}
     >
-      <DiaryDate>{date}</DiaryDate>
+      {/* <DiaryDate>{date}</DiaryDate> */}
       <img src={iconCalendar} width={20} height={20} alt="calendar" />
     </Box>
   );

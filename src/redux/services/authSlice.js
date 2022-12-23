@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout } from './operations';
+import { register, login, logout, setUserParams } from './operations';
 
 const initialState = {
   user: {
     name: '',
     email: '',
     password: '',
+  },
+  userParams: {
     age: 0,
     bloodType: 0,
     currentWeight: 0,
@@ -20,14 +22,17 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [setUserParams]: (state, action) => {
+      state.userParams = action.payload;
+    },
     [register.fulfilled](state, action) {
-      // console.log(action);
-      state.user = [action.meta.arg];
+      state.user = { ...state.user, ...action.payload.data.user };
+      state.userParams = { ...state.userParams, ...action.payload.data.user };
       state.isLoggedIn = true;
     },
     [login.fulfilled](state, action) {
-      // console.log(action);
-      state.user = action.payload.data.user;
+      state.user = { ...state.user, ...action.payload.data.user };
+      state.userParams = { ...state.userParams, ...action.payload.data.user };
       state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
     },

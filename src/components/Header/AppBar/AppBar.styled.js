@@ -21,6 +21,9 @@ export const NavHeader = styled.nav`
   align-items: center;
   padding: 20px 20px 16px 20px;
 
+  max-width: 1280px;
+  margin: 0 auto;
+
   @media screen and (min-width: 768px) {
     padding-right: ${prop => prop.theme.space[5]}px;
     padding-left: ${prop => prop.theme.space[5]}px;
