@@ -14,7 +14,7 @@ export const List = styled.div`
 export const ListItem = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: Gotham Pro;
+  font-family: GothamPro-Bold;
   font-size: ${prop => prop.theme.fontSizes.xs};
   font-weight: ${prop => prop.theme.fontWeights.bold};
   line-height: ${prop => prop.theme.lineHeights.link};
@@ -47,7 +47,7 @@ export const UserInfoWrapper = styled.div`
 
 export const UserName = styled.h2`
   display: inline;
-  font-family: Gotham Pro;
+  font-family: GothamPro-Bold;
   font-size: ${prop => prop.theme.fontSizes.xs};
   font-weight: ${prop => prop.theme.fontWeights.bold};
   line-height: ${prop => prop.theme.lineHeights.link};
@@ -91,7 +91,7 @@ export const Arrow = styled(FiCornerDownLeft)`
 `;
 
 export const UserExitButton = styled.button`
-  font-family: Gotham Pro;
+  font-family: GothamPro-Bold;
   font-size: ${prop => prop.theme.fontSizes.xs};
   font-weight: ${prop => prop.theme.fontWeights.bold};
   line-height: ${prop => prop.theme.lineHeights.link};
