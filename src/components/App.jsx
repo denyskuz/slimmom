@@ -37,8 +37,8 @@ export const App = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-        <AppBar />
-        {/* <Loader></Loader> */}
+      <AppBar />
+      {/* <Loader></Loader> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
