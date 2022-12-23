@@ -173,9 +173,7 @@ export const DailyCaloriesForm = () => {
             </label>
           </RadioGroup>
         </Label>
-        <Button type="submit">
-          Start losing weight
-        </Button>
+        <Button type="submit">Start losing weight</Button>
         {formik.errors.height ||
         formik.errors.age ||
         formik.errors.currentWeight ||

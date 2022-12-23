@@ -4,8 +4,6 @@ import {
   IntakeBar,
   IntakeResult,
   IntakeTitle,
-  List,
-  ListItem,
   ListTitle,
   ListWrapper,
   TitleWrapper,
@@ -15,7 +13,7 @@ import {
 import { BadFoodList } from 'components/SideBar';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
-   console.log(params);
+  console.log(params);
   const { height, age, currentWeight, desiredWeight } = params;
   const caloriesResult = Math.round(
     10 * currentWeight +
@@ -36,7 +34,7 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
-        <BadFoodList/>
+        <BadFoodList />
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>Start losing weight</LinkButton>

@@ -70,20 +70,6 @@ export const ListTitle = styled.h3`
   color: #212121;
 `;
 
-export const List = styled.ol`
-  padding-left: 20px;
-`;
-
-export const ListItem = styled.li`
-  font-family: 'Verdana';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
-`;
-
 export const ButtonStart = styled.button`
   margin: 40px auto 0 auto;
   width: 210px;
