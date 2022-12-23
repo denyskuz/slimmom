@@ -26,11 +26,8 @@ export const DailyCaloriesForm = ({ isModal }) => {
   const loading = useSelector(selectLoadStatus);
   const user = useSelector(selectUserParams);
 
-export const DailyCaloriesForm = () => {
-  const [open, setOpen] = React.useState(false);
-  const [params, setParams] = React.useState({});
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open, setOpen] = useState(false);
+  const [params, setParams] = useState({});
 
   const formik = useFormik({
     initialValues: {
@@ -40,43 +37,11 @@ export const DailyCaloriesForm = () => {
       desiredWeight: user?.desiredWeight || '',
       bloodType: user?.bloodType || '',
     },
-    validationSchema: Yup.object({
-      height: Yup.number()
-        .positive()
-        .typeError('Height must be a number')
-        .integer()
-        .min(130, 'Too small...')
-        .max(224, 'Too much...')
-        .required('Enter all fields'),
-      age: Yup.number()
-        .positive()
-        .typeError('Age must be a number')
-        .integer()
-        .min(6, 'Too little...')
-        .max(110, 'Too much...')
-        .required('Enter all fields'),
-      currentWeight: Yup.number()
-        .typeError('Current weight must be a number')
-        .positive()
-        .integer()
-        .min(30, 'Too little...')
-        .max(300, 'Too much...')
-        .required('Enter all fields'),
-      desiredWeight: Yup.number()
-        .typeError('Desired weight must be a number')
-        .positive()
-        .integer()
-        .min(30, 'Too little...')
-        .max(300, 'Too much...')
-        .required('Enter all fields'),
-      bloodType: Yup.string().required('Choose your blood type'),
-    }),
-
-    onSubmit: (values, { resetForm }) => {
-      setParams(formik.values);
-      dispatch(getProducts(values));
-      handleOpen();
-      resetForm();
+    validationSchema: userParamsShema,
+    onSubmit: data => {
+      setParams(data);
+      dispatch(setUserParams(data));
+      isModal ? setOpen(true) : dispatch(getProducts(data));
     },
   });
 
@@ -174,68 +139,32 @@ export const DailyCaloriesForm = () => {
             value={values.bloodType}
             error={Boolean(touched.bloodType && errors.bloodType)}
           />
-          {formik.touched.desiredWeight && formik.errors.desiredWeight ? (
-            <Error>{formik.errors.desiredWeight}</Error>
-          ) : null}
-        </Wrap>
-        <Label id="bloodType">
-          Blood type *
-          <RadioGroup role="group" aria-labelledby="bloodType">
-            <label>
-              <Radio
-                type="radio"
-                name="bloodType"
-                onChange={formik.handleChange}
-                value="1"
-              />
-              1
-            </label>
-            <label>
-              <Radio
-                type="radio"
-                name="bloodType"
-                onChange={formik.handleChange}
-                value="2"
-              />
-              2
-            </label>
-            <label>
-              <Radio
-                type="radio"
-                name="bloodType"
-                onChange={formik.handleChange}
-                value="3"
-              />
-              3
-            </label>
-            <label>
-              <Radio
-                type="radio"
-                name="bloodType"
-                onChange={formik.handleChange}
-                value="4"
-              />
-              4
-            </label>
-          </RadioGroup>
-        </Label>
-        <Button type="submit">Start losing weight</Button>
-        {formik.errors.height ||
-        formik.errors.age ||
-        formik.errors.currentWeight ||
-        formik.errors.desiredWeight ||
-        formik.errors.bloodType ? null : (
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+          <FormRadioGroup
+            row
+            name="bloodType"
+            onChange={handleChange}
+            value={values.bloodType}
           >
-            <StyledModalBox>
-              <DailyCalorieIntake closeModal={handleClose} params={params} />
-            </StyledModalBox>
-          </Modal>
-        )}
+            <Label value="1" control={<RadioButton />} label="1" />
+            <Label value="2" control={<RadioButton />} label="2" />
+            <Label value="3" control={<RadioButton />} label="3" />
+            <Label value="4" control={<RadioButton />} label="4" />
+          </FormRadioGroup>
+        </FormRadioGroup>
+        <Button disabled={loading} variant="contained" type="submit">
+          Start losing weight
+        </Button>
+
+        <Modal
+          open={open}
+          onClose={setOpen(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <StyledModalBox>
+            <DailyCalorieIntake closeModal={setOpen(false)} params={params} />
+          </StyledModalBox>
+        </Modal>
       </Form>
     </FormWrapper>
   );

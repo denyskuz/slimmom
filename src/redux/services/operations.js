@@ -72,5 +72,3 @@ export const logout = createAsyncThunk('/api/auth/logout', async () => {
 });
 
 export const setUserParams = createAction('auth/save');
-
-export const setUserParams = createAction('auth/save');

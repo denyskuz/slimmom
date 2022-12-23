@@ -10,7 +10,6 @@ import {
   CloseButton,
   ButtonStart,
 } from './dailyCalorieIntake.styled';
-import { BadFoodList } from 'components/SideBar';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
   const { height, age, currentWeight, desiredWeight } = params;
@@ -33,7 +32,6 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
-        <BadFoodList />
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>Start losing weight</LinkButton>
@@ -46,4 +44,11 @@ export default DailyCalorieIntake;
 
 DailyCalorieIntake.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  params: {
+    height: PropTypes.number.isRequired,
+    age: PropTypes.number.isRequired,
+    currentWeight: PropTypes.number.isRequired,
+    desiredWeight: PropTypes.number.isRequired,
+    bloodType: PropTypes.number.isRequired,
+  },
 };

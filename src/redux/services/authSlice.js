@@ -1,14 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, login, logout, setUserParams } from './operations';
-import { register, login, logout, setUserParams } from './operations';
 
 const initialState = {
   user: {
     name: '',
     email: '',
     password: '',
-  },
-  userParams: {
   },
   userParams: {
     age: 0,
