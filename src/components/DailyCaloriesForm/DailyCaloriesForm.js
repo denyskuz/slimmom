@@ -187,7 +187,7 @@ export const DailyCaloriesForm = () => {
             aria-describedby="modal-modal-description"
           >
             <StyledModalBox>
-                <DailyCalorieIntake closeModal={handleClose} params={params} />
+              <DailyCalorieIntake closeModal={handleClose} params={params} />
             </StyledModalBox>
           </Modal>
         )}
