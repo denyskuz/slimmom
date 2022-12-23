@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, login, logout, setUserParams } from './operations';
+import { register, login, logout, setUserParams } from './operations';
 
 const initialState = {
   user: {
     name: '',
     email: '',
     password: '',
+  },
+  userParams: {
   },
   userParams: {
     age: 0,
@@ -22,6 +25,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [setUserParams]: (state, action) => {
+      state.userParams = action.payload;
+    },
     [setUserParams]: (state, action) => {
       state.userParams = action.payload;
     },

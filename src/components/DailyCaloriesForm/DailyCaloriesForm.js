@@ -1,37 +1,44 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { Modal } from '@mui/material';
-import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
-import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
-import { getProducts } from '../../redux/services/operations';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUserParams, getProducts } from 'redux/services/operations';
+import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
+import { userParamsShema } from 'validation';
 import {
-  Title,
   Label,
   Form,
   Input,
+  Title,
+  BloodInput,
+  ShiftedInput,
   FormWrapper,
+  FormRadioGroup,
+  RadioButton,
   Button,
-  RadioGroup,
   StyledModalBox,
-  Radio,
-  Error,
-  Wrap,
 } from './DailyCaloriesForm.styled';
+import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
+
+export const DailyCaloriesForm = ({ isModal }) => {
+  const dispatch = useDispatch();
+  const loading = useSelector(selectLoadStatus);
+  const user = useSelector(selectUserParams);
 
 export const DailyCaloriesForm = () => {
   const [open, setOpen] = React.useState(false);
   const [params, setParams] = React.useState({});
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
-      height: '',
-      age: '',
-      currentWeight: '',
-      desiredWeight: '',
-      bloodType: '',
+      height: user?.height || '',
+      age: user?.age || '',
+      currentWeight: user?.currentWeight || '',
+      desiredWeight: user?.desiredWeight || '',
+      bloodType: user?.bloodType || '',
     },
     validationSchema: Yup.object({
       height: Yup.number()
@@ -72,61 +79,100 @@ export const DailyCaloriesForm = () => {
       resetForm();
     },
   });
+
+  const {
+    values,
+    errors,
+    setFieldValue,
+    setFieldTouched,
+    touched,
+    handleSubmit,
+  } = formik;
+
+  const handleChange = e => {
+    if (e.target.name === 'bloodType') {
+      const bloodType = e.target.value;
+      if (!['1', '2', '3', '4'].includes(bloodType)) {
+        return;
+      }
+    }
+    setFieldValue(e.target.name, e.target.value);
+    setFieldTouched(e.target.name, true, false);
+  };
+
+  const helper = (name, measure) => {
+    return touched[name]
+      ? errors[name]
+        ? errors[name] + `, ${measure}`
+        : measure
+      : measure;
+  };
+
   return (
     <FormWrapper>
-      <Title>Calculate your daily calorie intake right now</Title>
-      <Form onSubmit={formik.handleSubmit}>
-        <Wrap>
-          <Input
-            label="Height *"
-            id="height"
-            name="height"
+      <Title>
+        Calculate your daily calorie <br /> intake right now
+      </Title>
+      <Form onSubmit={handleSubmit}>
+        <Input
+          id="height"
+          name="height"
+          type="number"
+          label="Height *"
+          variant="standard"
+          InputProps={{ inputProps: { min: 1, max: 300 } }}
+          onChange={handleChange}
+          value={values.height}
+          error={Boolean(touched.height && errors.height)}
+          helperText={helper('height', 'cm')}
+        />
+        <Input
+          id="age"
+          name="age"
+          type="number"
+          label="Age *"
+          variant="standard"
+          InputProps={{ inputProps: { min: 1, max: 200 } }}
+          onChange={handleChange}
+          value={values.age}
+          error={Boolean(touched.age && errors.age)}
+          helperText={helper('age', 'years')}
+        />
+        <Input
+          id="currentWeight"
+          name="currentWeight"
+          type="number"
+          label="Current weight *"
+          variant="standard"
+          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          onChange={handleChange}
+          value={values.currentWeight}
+          error={Boolean(touched.currentWeight && errors.currentWeight)}
+          helperText={helper('currentWeight', 'kg')}
+        />
+        <ShiftedInput
+          id="desiredWeight"
+          name="desiredWeight"
+          type="number"
+          label="Desired weight *"
+          variant="standard"
+          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          onChange={handleChange}
+          value={values.desiredWeight}
+          error={Boolean(touched.desiredWeight && errors.desiredWeight)}
+          helperText={helper('desiredWeight', 'kg')}
+        />
+        <FormRadioGroup>
+          <BloodInput
+            id="bloodType"
+            name="bloodType"
             type="number"
-            onChange={formik.handleChange}
-            value={formik.values.height}
+            label="Blood type *"
             variant="standard"
-          />
-          {formik.touched.height && formik.errors.height ? (
-            <Error>{formik.errors.height}</Error>
-          ) : null}
-        </Wrap>
-        <Wrap>
-          <Input
-            label="Age *"
-            id="age"
-            name="age"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.age}
-            variant="standard"
-          />
-          {formik.touched.age && formik.errors.age ? (
-            <Error>{formik.errors.age}</Error>
-          ) : null}
-        </Wrap>
-        <Wrap>
-          <Input
-            label="Current weight *"
-            id="currentWeight"
-            name="currentWeight"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.currentWeight}
-            variant="standard"
-          />
-          {formik.touched.currentWeight && formik.errors.currentWeight ? (
-            <Error>{formik.errors.currentWeight}</Error>
-          ) : null}
-        </Wrap>
-        <Wrap>
-          <Input
-            label="Desired weight *"
-            id="desiredWeight"
-            name="desiredWeight"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.desiredWeight}
-            variant="standard"
+            InputProps={{ inputProps: { min: 1, max: 4 } }}
+            onChange={handleChange}
+            value={values.bloodType}
+            error={Boolean(touched.bloodType && errors.bloodType)}
           />
           {formik.touched.desiredWeight && formik.errors.desiredWeight ? (
             <Error>{formik.errors.desiredWeight}</Error>
@@ -193,4 +239,8 @@ export const DailyCaloriesForm = () => {
       </Form>
     </FormWrapper>
   );
+};
+
+DailyCaloriesForm.propTypes = {
+  isModal: PropTypes.bool,
 };
