@@ -10,14 +10,18 @@ import {
 
 export const FormWrapper = styled.div`
   width: 100%;
-  padding: 32px 20px 110px;
+  padding: 0 20px;
+  padding-top: 32px;
+  padding-bottom: 41px;
   @media (min-width: 768px) {
-    width: 80%;
-    padding: 100px 32px;
+    padding: 0 32px;
+    padding-top: 100px;
+    padding-bottom: 48px;
   }
   @media (min-width: 1280px) {
-    width: 60vw;
-    padding: 100px 32px;
+    padding-left: 16px;
+    padding-top: 145px;
+    padding-bottom: 111px;
   }
 `;
 
