@@ -12,6 +12,8 @@ export const List = styled.ul`
   @media screen and (min-width: 768px) {
     width: 610px;
     height: 439px;
+    margin: 0;
+    margin-bottom: 10px;
   }
   &::-webkit-scrollbar {
     width: 6px;
@@ -20,6 +22,7 @@ export const List = styled.ul`
   /* Track */
   &::-webkit-scrollbar-track {
     background: #f0f1f3;
+    border-color: transparent;
   }
 
   /* Handle */

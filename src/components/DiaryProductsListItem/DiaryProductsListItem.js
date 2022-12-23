@@ -1,5 +1,6 @@
 import { Backdrop } from '@mui/material';
-import Container from 'components/Container';
+import { DiaryModalList } from 'components/DiaryModalList/DiaryModalList';
+import { useState } from 'react';
 import { useDairyStore } from 'hooks/diaryStoreHook';
 import {
   DeleteButton,
@@ -14,7 +15,7 @@ import {
 export const data = [
   {
     _id: {
-      $oid: '5d51694802b2373622ff554d',
+      $oid: '1',
     },
     categories: ['зерновые'],
     weight: 100,
@@ -28,7 +29,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373622ff555c',
+      $oid: '2',
     },
     categories: ['зерновые'],
     weight: 100,
@@ -42,7 +43,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373622ff553a',
+      $oid: '3',
     },
     categories: ['яйца'],
     weight: 100,
@@ -56,7 +57,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373622ff5530',
+      $oid: '4',
     },
     categories: ['яйца'],
     weight: 100,
@@ -70,7 +71,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373622ff5539',
+      $oid: '5',
     },
     categories: ['яйца'],
     weight: 100,
@@ -84,7 +85,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373622ff552c',
+      $oid: '6',
     },
     categories: ['яйца'],
     weight: 100,
@@ -98,7 +99,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373622ff553d',
+      $oid: '7',
     },
     categories: ['зерновые'],
     weight: 100,
@@ -112,7 +113,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373632ff555c',
+      $oid: '8',
     },
     categories: ['зерновые'],
     weight: 100,
@@ -126,7 +127,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2313622ff553a',
+      $oid: '9',
     },
     categories: ['яйца'],
     weight: 100,
@@ -140,7 +141,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51691802b2373622ff5530',
+      $oid: '10',
     },
     categories: ['яйца'],
     weight: 100,
@@ -154,7 +155,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694802b2373722ff5539',
+      $oid: '11',
     },
     categories: ['яйца'],
     weight: 100,
@@ -168,7 +169,7 @@ export const data = [
   },
   {
     _id: {
-      $oid: '5d51694882b2373622ff552c',
+      $oid: '12',
     },
     categories: ['яйца'],
     weight: 100,
@@ -184,39 +185,47 @@ export const data = [
 
 export default function DiaryProductsListItem() {
   const { diaryData, deleteDiaryProduct } = useDairyStore();
-  const dataX = diaryData;
+  const [open, setOpen] = useState(false);
 
-  const handleDelete = ({ $oid }) => {
-    let isDelete = window.confirm('Do you want delete this product?');
-    if (isDelete === true) {
-      deleteDiaryProduct($oid);
-    }
-    return;
+  const handleClose = () => {
+    setOpen(false);
   };
+  const handleToggle = id => {
+    setOpen(!open);
+  };
+  // const handleDelete = id => {
+  //   console.log('MAIN', id);
+  //   deleteDiaryProduct(id);
+  // };
+
   return (
-    <Container>
-      <List>
-        {dataX.map((e, i, ar) => {
-          return (
-            <ListItems key={e._id.$oid}>
-              <NameProduct noWrap>{e.title.ua}</NameProduct>
-              <DataProduct>
-                <Weight noWrap>{e.weight} g</Weight>
-                <Kcal noWrap>{e.calories}kcal</Kcal>
-              </DataProduct>
-              <DeleteButton
-                type="button"
-                onClick={() => {
-                  handleDelete(e._id);
-                }}
-              >
-                <IconCross />
-              </DeleteButton>
-            </ListItems>
-          );
-        })}
-      </List>
-      <Backdrop></Backdrop>
-    </Container>
+    <List>
+      {diaryData.map((e, i, ar) => {
+        return (
+          <ListItems key={e._id.$oid}>
+            <NameProduct noWrap>{e.title.ua}</NameProduct>
+            <DataProduct>
+              <Weight noWrap>{e.weight} g</Weight>
+              <Kcal noWrap>{e.calories}kcal</Kcal>
+            </DataProduct>
+            <DeleteButton
+              type="button"
+              onClick={() => {
+                handleToggle(e._id.$oid);
+              }}
+            >
+              <IconCross />
+            </DeleteButton>
+            <Backdrop
+              sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
+              open={open}
+              onClick={handleClose}
+            >
+              <DiaryModalList id={e._id.$oid} />
+            </Backdrop>
+          </ListItems>
+        );
+      })}
+    </List>
   );
 }

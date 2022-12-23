@@ -7,6 +7,7 @@ import { theme } from './theme';
 import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 import { BlockContainer } from './DiaryPage.styled';
+import DiaryProductsListItem from 'components/DiaryProductsListItem/DiaryProductsListItem';
 
 export default function CalculatorPage() {
   return (
@@ -20,6 +21,7 @@ export default function CalculatorPage() {
         <BlockContainer>
           <DiaryDateCalendar />
           <DiaryAddProductForm />
+          <DiaryProductsListItem />
         </BlockContainer>
         <SideBar />
       </DiaryPageContainer>

@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-import { createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -13,21 +12,6 @@ import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import 'react-toastify/dist/ReactToastify.css';
 import AppBar from './Header/AppBar';
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'light',
-  },
-  typography: {
-    htmlFontSize: 15,
-    color: '#fc842d',
-    fontFamily: 'Verdana',
-    fontStyle: 'normal',
-    fontWeight: 700,
-    fontSize: 14,
-    lineHeight: 17,
-  },
-});
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegistrationPage = lazy(() => import('../pages/registration'));
