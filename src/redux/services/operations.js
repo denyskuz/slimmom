@@ -47,11 +47,12 @@ export const login = createAsyncThunk(
 );
 
 export const getProducts = createAsyncThunk(
-  'api/auth/products/',
+  '/api/products',
   async (userParams, thunkAPI) => {
+    console.log(userParams);
     try {
-      const { data, status } = await axios.post(
-        'api/auth/products/',
+      const { data, status } = await axios.get(
+        '/api/products',
         userParams
       );
       token.set(data.token);
@@ -60,7 +61,7 @@ export const getProducts = createAsyncThunk(
       }
       return data;
     } catch (err) {
-      toast('Get products error');
+      toast('Get products error', err.response.data);
       return thunkAPI.rejectWithValue(err.response.data);
     }
   }
