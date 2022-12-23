@@ -47,7 +47,6 @@ export const Title = styled.h1`
 
 export const Form = styled.form`
   display: grid;
-
   @media (max-width: 320px) {
     grid-auto-flow: row;
   }
