@@ -66,8 +66,9 @@ export const DailyCaloriesForm = () => {
     }),
 
     onSubmit: (values, { resetForm }) => {
-      setParams(values);
+      setParams(formik.values);
       dispatch(getProducts(values));
+      handleOpen();
       resetForm();
     },
   });
@@ -172,7 +173,7 @@ export const DailyCaloriesForm = () => {
             </label>
           </RadioGroup>
         </Label>
-        <Button type="submit" onClick={handleOpen}>
+        <Button type="submit">
           Start losing weight
         </Button>
         {formik.errors.height ||

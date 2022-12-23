@@ -12,12 +12,10 @@ import {
   CloseButton,
   ButtonStart,
 } from './dailyCalorieIntake.styled';
-
-// "ФОРМУЛА ДЛЯ РОЗРАХУНКУ ДЕННОЇ НОРМИ КАЛОРІЙ ДЛЯ ЖІНОК
-// 10 * вага + 6.25 * зріст - 5 * вік - 161 - 10 * (вага - бажана вага)"
+import { BadFoodList } from 'components/SideBar';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
-  console.log(params);
+   console.log(params);
   const { height, age, currentWeight, desiredWeight } = params;
   const caloriesResult = Math.round(
     10 * currentWeight +
@@ -38,11 +36,7 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
-        <List>
-          <ListItem>food1</ListItem>
-          <ListItem>food2</ListItem>
-          <ListItem>food3</ListItem>
-        </List>
+        <BadFoodList/>
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>Start losing weight</LinkButton>
