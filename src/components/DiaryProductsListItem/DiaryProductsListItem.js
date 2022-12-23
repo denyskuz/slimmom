@@ -184,7 +184,7 @@ export const data = [
 ];
 
 export default function DiaryProductsListItem() {
-  const { diaryData, deleteDiaryProduct } = useDairyStore();
+  const { diaryData } = useDairyStore();
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
