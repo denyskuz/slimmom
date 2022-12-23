@@ -14,6 +14,7 @@ const productsSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(getProducts.rejected, (state, action) => {
+      console.log(action);
       state.error = action.error;
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {

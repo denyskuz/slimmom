@@ -27,6 +27,7 @@ export const DailyCaloriesForm = ({ isModal }) => {
   const user = useSelector(selectUserParams);
 
   const [open, setOpen] = useState(false);
+  const [params, setParams] = useState({});
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -40,6 +41,7 @@ export const DailyCaloriesForm = ({ isModal }) => {
     },
     validationSchema: userParamsShema,
     onSubmit: data => {
+      setParams(data);
       dispatch(setUserParams(data));
       isModal ? handleOpen() : dispatch(getProducts(data));
     },
@@ -162,7 +164,7 @@ export const DailyCaloriesForm = ({ isModal }) => {
           aria-describedby="modal-modal-description"
         >
           <StyledModalBox>
-            <DailyCalorieIntake closeModal={handleClose} />
+            <DailyCalorieIntake closeModal={handleClose} params={params} />
           </StyledModalBox>
         </Modal>
       </Form>

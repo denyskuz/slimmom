@@ -25,19 +25,47 @@ const authSlice = createSlice({
     [setUserParams]: (state, action) => {
       state.userParams = action.payload;
     },
+    [setUserParams]: (state, action) => {
+      state.userParams = action.payload;
+    },
     [register.fulfilled](state, action) {
-      state.user = { ...state.user, ...action.payload.data.user };
-      state.userParams = { ...state.userParams, ...action.payload.data.user };
+      const { age, bloodType, currentWeight, desiredWeight, height } =
+        action.payload.data.user;
+      state.user = action.meta.arg;
+      state.userParams = {
+        age,
+        bloodType,
+        currentWeight,
+        desiredWeight,
+        height,
+      };
+      state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
     },
     [login.fulfilled](state, action) {
-      state.user = { ...state.user, ...action.payload.data.user };
-      state.userParams = { ...state.userParams, ...action.payload.data.user };
+      const {
+        age,
+        bloodType,
+        currentWeight,
+        desiredWeight,
+        height,
+        name,
+        email,
+      } = action.payload.data.user;
+      state.user = { name, email, password: action.meta.arg.password };
+      state.userParams = {
+        age,
+        bloodType,
+        currentWeight,
+        desiredWeight,
+        height,
+      };
       state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
     },
     [logout.fulfilled](state, _) {
       state.user = initialState.user;
+      state.userParams = initialState.userParams;
       state.token = null;
       state.isLoggedIn = false;
     },
