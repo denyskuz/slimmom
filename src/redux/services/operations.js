@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createAsyncThunk ,createAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;

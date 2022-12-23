@@ -26,7 +26,8 @@ const authSlice = createSlice({
       state.userParams = action.payload;
     },
     [register.fulfilled](state, action) {
-      const { age, bloodType, currentWeight, desiredWeight, height } = action.payload.data.user;
+      const { age, bloodType, currentWeight, desiredWeight, height } =
+        action.payload.data.user;
       state.user = action.meta.arg;
       state.userParams = {
         age,
@@ -39,9 +40,16 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [login.fulfilled](state, action) {
-      const { age, bloodType, currentWeight, desiredWeight, height, name, email } =
-        action.payload.data.user;
-      state.user = {name, email, password: action.meta.arg.password};
+      const {
+        age,
+        bloodType,
+        currentWeight,
+        desiredWeight,
+        height,
+        name,
+        email,
+      } = action.payload.data.user;
+      state.user = { name, email, password: action.meta.arg.password };
       state.userParams = {
         age,
         bloodType,
