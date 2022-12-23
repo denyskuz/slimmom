@@ -3,8 +3,8 @@ import { Modal } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProducts } from 'redux/services/operations';
-import { selectLoadStatus } from 'redux/services/selectors';
+import { setUserParams, getProducts } from 'redux/services/operations';
+import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
 import { userParamsShema } from 'validation';
 import {
   Label,
@@ -24,6 +24,7 @@ import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake
 export const DailyCaloriesForm = ({ isModal }) => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
+  const user = useSelector(selectUserParams);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -31,14 +32,15 @@ export const DailyCaloriesForm = ({ isModal }) => {
 
   const formik = useFormik({
     initialValues: {
-      height: '',
-      age: '',
-      currentWeight: '',
-      desiredWeight: '',
-      bloodType: '',
+      height: user?.height || '',
+      age: user?.age || '',
+      currentWeight: user?.currentWeight || '',
+      desiredWeight: user?.desiredWeight || '',
+      bloodType: user?.bloodType || '',
     },
     validationSchema: userParamsShema,
     onSubmit: data => {
+      dispatch(setUserParams(data));
       isModal ? handleOpen() : dispatch(getProducts(data));
     },
   });

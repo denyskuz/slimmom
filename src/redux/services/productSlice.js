@@ -1,15 +1,19 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getProducts } from './operations';
+import { getProducts, setUserParams } from './operations';
 
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
     calories: 0,
     bad: [],
+    userParams: null,
     loading: false,
     error: '',
   },
   extraReducers: builder => {
+    builder.addCase(setUserParams, (state, action) => {
+      state.userParams = action.payload;
+    });
     builder.addCase(getProducts.pending, state => {
       state.loading = true;
     });

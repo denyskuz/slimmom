@@ -4,6 +4,7 @@ export const getUserEmail = state => state.auth.user.email;
 export const getToken = state => state.auth.token;
 export const getGlobalUserData = state => state.auth.user;
 
+export const selectUserParams = state => state.products.userParams;
 export const selectBadProducts = state => state.products.bad;
 export const selectCalories = state => state.products.calories;
 export const selectLoadStatus = state => state.products.loading;
