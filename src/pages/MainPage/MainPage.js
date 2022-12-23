@@ -7,7 +7,7 @@ export default function MainPage() {
     <main>
       <Wrapper>
         <Container>
-          <DailyCaloriesForm />
+          <DailyCaloriesForm isModal={true} />
         </Container>
       </Wrapper>
     </main>

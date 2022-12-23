@@ -25,23 +25,33 @@ export const Title = styled.h1`
   font-family: Verdana;
   font-weight: 700;
   font-size: 18px;
-  line-height: 1.42;
+  line-height: 1.4;
   letter-spacing: normal;
   margin: 0;
   margin-bottom: 34px;
-  @media (min-width: 768px) {
+  @media (max-width: 320px) {
+    width: 260px;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 520px;
+  }
+  @media (min-width: 320px) {
     font-size: 34px;
     margin-bottom: 68px;
   }
 `;
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    display: grid;
+  display: grid;
+
+  @media (max-width: 320px) {
+    grid-auto-flow: row;
+  }
+  @media (min-width: 320px) {
     grid-template-columns: repeat(2, 240px);
-    gap: 30px;
+    grid-template-rows: repeat(4, 4fr);
+    column-gap: 32px;
+    grid-auto-flow: column;
   }
 `;
 
@@ -72,6 +82,9 @@ export const Input = styled(TextField)`
   & input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
   }
+  & .MuiInput-underline:after {
+    border-bottom-color: #fc842d;
+  }
   & label {
     font-family: Verdana;
     font-weight: 700;
@@ -79,7 +92,9 @@ export const Input = styled(TextField)`
     line-height: 17px;
     letter-spacing: 0.04em;
     color: #9b9faa;
-    top: -20px;
+  }
+  & label.Mui-focused {
+    color: #fc842d;
   }
   & p {
     text-align: right;
@@ -90,20 +105,25 @@ export const Input = styled(TextField)`
     letter-spacing: 0.04em;
     color: #9b9faa;
   }
-  & label.Mui-focused {
-    color: #fc842d;
+`;
+export const ShiftedInput = styled(Input)`
+  @media (max-width: 320px) {
+    grid-column: 1;
   }
-  & .MuiInput-underline:after {
-    border-bottom-color: #fc842d;
-  }
+  grid-column: 2;
 `;
 
 export const BloodInput = styled(Input)`
   & input {
     pointer-events: none;
+    @media (max-width: 320px) {
+      visibility: hidden;
+    }
   }
   & .MuiInputLabel-shrink {
-    transform: translate(0, 20px);
+    @media (max-width: 320px) {
+      transform: translate(0, 20px);
+    }
   }
   & label.Mui-focused {
     color: #9b9faa;
@@ -115,6 +135,10 @@ export const BloodInput = styled(Input)`
 
 export const FormRadioGroup = styled(RadioGroup)`
   justify-content: space-between;
+  @media (max-width: 320px) {
+    grid-column: 1;
+  }
+  grid-column: 2;
 `;
 
 export const RadioButton = styled(Radio)`
@@ -143,17 +167,25 @@ export const Button = styled(MuiButton)`
     letter-spacing: 0.04em;
     background: #fc842d;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    @media (max-width: 320px) {
+      margin-top: 40px;
+      justify-self: center;
+    }
   }
   &.MuiButtonBase-root:hover {
     background: #fff;
     color: #fc842d;
   }
-  @media (min-width: 768px) {
+  @media (max-width: 1280px) {
     grid-row: 4 / span 1;
+    grid-column: 1;
+    justify-self: start;
+    align-self: start;
   }
   @media (min-width: 1280px) {
     align-self: start;
     justify-self: end;
+    grid-row: 4 / span 1;
     grid-column: 2;
   }
 `;

@@ -7,11 +7,12 @@ import { getProducts } from 'redux/services/operations';
 import { selectLoadStatus } from 'redux/services/selectors';
 import { userParamsShema } from 'validation';
 import {
-  Title,
   Label,
   Form,
   Input,
+  Title,
   BloodInput,
+  ShiftedInput,
   FormWrapper,
   FormRadioGroup,
   RadioButton,
@@ -89,18 +90,6 @@ export const DailyCaloriesForm = ({ isModal }) => {
           helperText={helper('height', 'cm')}
         />
         <Input
-          id="desiredWeight"
-          name="desiredWeight"
-          type="number"
-          label="Desired weight *"
-          variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 500 } }}
-          onChange={handleChange}
-          value={values.desiredWeight}
-          error={Boolean(touched.desiredWeight && errors.desiredWeight)}
-          helperText={helper('desiredWeight', 'kg')}
-        />
-        <Input
           id="age"
           name="age"
           type="number"
@@ -111,6 +100,30 @@ export const DailyCaloriesForm = ({ isModal }) => {
           value={values.age}
           error={Boolean(touched.age && errors.age)}
           helperText={helper('age', 'years')}
+        />
+        <Input
+          id="currentWeight"
+          name="currentWeight"
+          type="number"
+          label="Current weight *"
+          variant="standard"
+          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          onChange={handleChange}
+          value={values.currentWeight}
+          error={Boolean(touched.currentWeight && errors.currentWeight)}
+          helperText={helper('currentWeight', 'kg')}
+        />
+        <ShiftedInput
+          id="desiredWeight"
+          name="desiredWeight"
+          type="number"
+          label="Desired weight *"
+          variant="standard"
+          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          onChange={handleChange}
+          value={values.desiredWeight}
+          error={Boolean(touched.desiredWeight && errors.desiredWeight)}
+          helperText={helper('desiredWeight', 'kg')}
         />
         <FormRadioGroup>
           <BloodInput
@@ -136,18 +149,6 @@ export const DailyCaloriesForm = ({ isModal }) => {
             <Label value="4" control={<RadioButton />} label="4" />
           </FormRadioGroup>
         </FormRadioGroup>
-        <Input
-          id="currentWeight"
-          name="currentWeight"
-          type="number"
-          label="Current weight *"
-          variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 500 } }}
-          onChange={handleChange}
-          value={values.currentWeight}
-          error={Boolean(touched.currentWeight && errors.currentWeight)}
-          helperText={helper('currentWeight', 'kg')}
-        />
         <Button disabled={loading} variant="contained" type="submit">
           Start losing weight
         </Button>
