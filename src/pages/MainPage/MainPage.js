@@ -3,7 +3,6 @@ import { DailyCaloriesForm } from 'components/DailyCaloriesForm/DailyCaloriesFor
 import { Wrapper } from './MainPage.styled';
 import Container from 'components/Container';
 
-
 export default function MainPage() {
   return (
     <main>
@@ -12,7 +11,7 @@ export default function MainPage() {
       </Helmet>
       <Wrapper>
         <Container>
-          <DailyCaloriesForm />
+          <DailyCaloriesForm isModal={true} />
         </Container>
       </Wrapper>
     </main>
