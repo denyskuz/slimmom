@@ -17,7 +17,6 @@ import { productsReducer } from '../services/productSlice';
 const persistAuthConfig = {
   key: 'auth',
   storage,
-  whitlist: ['token', 'userParams', 'user'],
 };
 
 export const store = configureStore({
