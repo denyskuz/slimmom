@@ -1,13 +1,11 @@
 import AddForm from '../AddForm/AddForm';
 
-import { Backdrop, Btn } from './DiaryModal.styled';
+import { Backdrop } from './DiaryModal.styled';
 
-const DiaryModal = ({ onSubmit, onClickModal }) => {
+const DiaryModal = () => {
   return (
     <Backdrop>
-      <AddForm onClickModal={onClickModal} onSubmit={onSubmit}>
-        <Btn type="submit">Add</Btn>
-      </AddForm>
+      <AddForm />
     </Backdrop>
   );
 };

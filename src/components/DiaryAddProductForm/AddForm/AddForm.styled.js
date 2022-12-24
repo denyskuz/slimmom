@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
 
-export const Form = styled.div`
+export const Form = styled.form`
   position: relative;
   padding: 60px 0;
   display: flex;
@@ -12,7 +13,7 @@ export const Form = styled.div`
   }
 `;
 
-export const ProductInput = styled.input`
+export const ProductInput = styled(TextField)`
   font-size: 16px;
   outline: none;
   width: 240px;
@@ -27,7 +28,7 @@ export const ProductInput = styled.input`
   }
 `;
 
-export const GramsInput = styled.input`
+export const GramsInput = styled(TextField)`
   font-size: 16px;
   outline: none;
   height: 37px;

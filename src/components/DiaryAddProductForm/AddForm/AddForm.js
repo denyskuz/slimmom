@@ -4,43 +4,54 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import { Form, ProductInput, GramsInput } from './AddForm.styled';
+import { useDispatch } from 'react-redux';
+import { addDiaryProduct } from 'redux/services/operations';
 
 const AddForm = () => {
+  const dispatch = useDispatch();
+  const date = new Date().toISOString();
   const formik = useFormik({
-    initialValues: { productName: '', grams: '' },
+    initialValues: { product: '', weight: '' },
     validationSchema: Yup.object().shape({
-      productName: Yup.string().required(),
-      grams: Yup.number().min(2).required(),
+      product: Yup.string().required(),
+      weight: Yup.number().min(2).required(),
     }),
-    onSubmit: (values, e) => {
-      e.preventDefault();
-      console.log(values);
+    onSubmit: (values, { resetForm }) => {
+      const data = { ...values, date };
+      console.log(data);
+      dispatch(addDiaryProduct(data));
+      resetForm();
     },
   });
 
   return (
-    <Form>
+    <Form onSubmit={formik.handleSubmit}>
       <ProductInput
-        id="productName"
+        id="product"
+        name="product"
         label="Enter product name"
         placeholder="Enter product name"
+        type="text"
+        variant="standard"
         multiline
         onChange={formik.handleChange}
-        value={formik.values.productName}
-        error={formik.touched.productName && formik.errors.productName}
-        helperText={formik.touched.productName && formik.errors.productName}
+        value={formik.values.product}
+        error={formik.touched.product && formik.errors.product}
+        helperText={formik.touched.product && formik.errors.product}
       />
       <GramsInput
-        name="grams"
-        label="Grams"
+        id="weight"
+        name="weight"
+        label="grams"
         placeholder="Grams"
+        variant="standard"
         multiline
         onChange={formik.handleChange}
-        value={formik.values.grams}
-        error={formik.touched.grams && formik.errors.grams}
-        helperText={formik.touched.grams && formik.errors.grams}
+        value={formik.values.weight}
+        error={formik.touched.weight && formik.errors.weight}
+        helperText={formik.touched.weight && formik.errors.weight}
       />
-      <AddProductBtn type="button">
+      <AddProductBtn type="submit">
         <HiPlus />
       </AddProductBtn>
     </Form>

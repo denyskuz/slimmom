@@ -27,9 +27,10 @@ export const CalorieForm = () => {
       bloodType: '',
     },
     validationSchema: userParamsShema,
-    onSubmit: (data, e) => {
-      e.preventDefault();
+    onSubmit: (data, { resetForm }) => {
+      // e.preventDefault();
       dispatch(getProducts(data));
+      resetForm();
     },
   });
 

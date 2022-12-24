@@ -6,7 +6,7 @@ import DiaryModal from './DiaryModal/DiaryModal';
 import { useMediaQuery } from 'react-responsive';
 import { Wrapper } from './DiaryAddProductForm.styled';
 
-const DiaryAddProductForm = ({ onSubmit }) => {
+const DiaryAddProductForm = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const [modal, setModal] = useState(false);
   const onModal = () => {
@@ -20,10 +20,10 @@ const DiaryAddProductForm = ({ onSubmit }) => {
           <AddProductBtn type="button" onClick={onModal}>
             <HiPlus />
           </AddProductBtn>
-          {modal && <DiaryModal onClickModal={onModal} onSubmit={onSubmit} />}
+          {modal && <DiaryModal />}
         </Wrapper>
       ) : (
-        <AddForm onSubmit={onSubmit} />
+        <AddForm />
       )}
     </div>
   );

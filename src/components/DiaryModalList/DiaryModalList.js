@@ -8,9 +8,7 @@ import {
 
 export const DiaryModalList = ({ id }) => {
   const { deleteDiaryProductHook } = useDairyStore();
-  // const handleConfirm = () => {
-  // console.log('MODAL', id);
-  // };
+
   const handleDelete = () => {
     const id = localStorage.getItem('id');
     console.log('MAIN', id);

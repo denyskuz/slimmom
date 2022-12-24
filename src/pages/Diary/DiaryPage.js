@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { Helmet } from 'react-helmet';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
@@ -13,7 +14,9 @@ import { getAllDiaryProduct } from 'redux/services/operations';
 
 export default function CalculatorPage() {
   const dispatch = useDispatch();
-  dispatch(getAllDiaryProduct(Date.now()));
+  // all time send request with date now
+  const date = new Date().toISOString();
+  dispatch(getAllDiaryProduct(date));
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />

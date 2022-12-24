@@ -31,6 +31,7 @@ export const login = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await axios.post('/api/auth/login', data);
+      token.set(res.data.data.accessToken);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -66,7 +67,7 @@ export const deleteDiaryProduct = createAsyncThunk(
   'delete',
   async (id, thunkAPI) => {
     try {
-      await axios.delete(`/api/auth/diary/:${id}`);
+      await axios.delete(`/api/diary/${id}`);
     } catch (error) {
       toast('product is undefined');
       return thunkAPI.rejectWithValue(error.message);
@@ -77,8 +78,19 @@ export const getAllDiaryProduct = createAsyncThunk(
   'getAll',
   async (date, thunkAPI) => {
     try {
-      const res = await axios.get(`/api/auth/diary/:${date}`);
+      const res = await axios.get(`/api/diary/${date}`);
       return res;
+    } catch (error) {
+      toast('something went wrong!!');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const addDiaryProduct = createAsyncThunk(
+  'addDiaryProduct',
+  async (data, thunkAPI) => {
+    try {
+      await axios.post('api/diary', data);
     } catch (error) {
       toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);

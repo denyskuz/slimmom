@@ -1,5 +1,5 @@
 const { createSlice } = require('@reduxjs/toolkit');
-const { deleteProduct, getAllDiaryProduct } = require('./operations');
+const { getAllDiaryProduct } = require('./operations');
 
 const diaryProductSlice = createSlice({
   name: 'diaryProduct',
