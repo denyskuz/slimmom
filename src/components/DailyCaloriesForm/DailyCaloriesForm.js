@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserParams, getProducts } from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
-import { userParamsShema } from 'validation';
+import { userParamsSchema } from 'validation';
 import {
   Label,
   Form,
@@ -39,7 +39,7 @@ export const DailyCaloriesForm = ({ isModal }) => {
       desiredWeight: user?.desiredWeight || '',
       bloodType: user?.bloodType || '',
     },
-    validationSchema: userParamsShema,
+    validationSchema: userParamsSchema,
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));

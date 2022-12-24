@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const userParamsShema = Yup.object({
+export const userParamsSchema = Yup.object({
   height: Yup.number()
     .positive()
     .typeError('Height must be a number')

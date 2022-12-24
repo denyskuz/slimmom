@@ -38,6 +38,7 @@ export const login = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await axios.post('/api/auth/login', data);
+
       return res.data;
     } catch (error) {
       toast('Login error');
@@ -49,7 +50,6 @@ export const login = createAsyncThunk(
 export const getProducts = createAsyncThunk(
   '/api/products',
   async (userParams, thunkAPI) => {
-    console.log(userParams);
     try {
       const { data, status } = await axios.post('/api/products', userParams);
       token.set(data.token);
