@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { GlobalStyle } from './GlobalStyle';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../theme';
@@ -18,6 +18,7 @@ const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('../pages/Calculator'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
   return (
@@ -68,7 +69,7 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
         <ToastContainer />
