@@ -69,7 +69,7 @@ export const deleteDiaryProduct = createAsyncThunk(
     try {
       await axios.delete(`/api/diary/${id}`);
     } catch (error) {
-      toast('product is undefined');
+      toast('product is not correct');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

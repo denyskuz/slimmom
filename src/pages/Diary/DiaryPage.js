@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import { Helmet } from 'react-helmet';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';

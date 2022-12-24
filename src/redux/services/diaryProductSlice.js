@@ -3,10 +3,10 @@ const { getAllDiaryProduct } = require('./operations');
 
 const diaryProductSlice = createSlice({
   name: 'diaryProduct',
-  initialState: [],
+  initialState: { notes: [] },
   extraReducers: {
-    [getAllDiaryProduct](state, action) {
-      state = action.notes;
+    [getAllDiaryProduct.fulfilled](state, action) {
+      state.notes = action.payload.data.notes;
     },
   },
 });

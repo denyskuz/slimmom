@@ -13,9 +13,13 @@ import {
   Kcal,
   Weight,
 } from './DiaryProductsListItem.styled';
+import { useSelector } from 'react-redux';
+import { getAllDiaryProduct } from 'redux/services/selectors';
 
 export default function DiaryProductsListItem() {
-  const { diaryData } = useDairyStore();
+  const notes = useSelector(getAllDiaryProduct);
+
+  // const { diaryData } = useDairyStore();
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -24,14 +28,13 @@ export default function DiaryProductsListItem() {
     setOpen(!open);
     localStorage.setItem('id', `${id}`);
   };
-  // const date = format(new Date(), 'yyyy-MM-dd');
-
+  console.log(notes);
   return (
     <List>
-      {diaryData.map((e, i, ar) => {
+      {notes.map((e, i, ar) => {
         return (
-          <ListItems key={e._id.$oid}>
-            <NameProduct noWrap>{e.title.ua}</NameProduct>
+          <ListItems key={e._id}>
+            <NameProduct noWrap>{e.product.title.ua}</NameProduct>
             <DataProduct>
               <Weight noWrap>{e.weight} g</Weight>
               <Kcal noWrap>{e.calories}kcal</Kcal>
@@ -39,7 +42,7 @@ export default function DiaryProductsListItem() {
             <DeleteButton
               type="button"
               onClick={() => {
-                handleToggle(e._id.$oid);
+                handleToggle(e._id);
               }}
             >
               <IconCross />

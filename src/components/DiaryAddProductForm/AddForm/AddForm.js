@@ -22,6 +22,9 @@ const AddForm = () => {
       dispatch(addDiaryProduct(data));
       resetForm();
     },
+    onChange: (values, _) => {
+      console.log(values);
+    },
   });
 
   return (

@@ -28,7 +28,6 @@ export const CalorieForm = () => {
     },
     validationSchema: userParamsShema,
     onSubmit: (data, { resetForm }) => {
-      // e.preventDefault();
       dispatch(getProducts(data));
       resetForm();
     },
