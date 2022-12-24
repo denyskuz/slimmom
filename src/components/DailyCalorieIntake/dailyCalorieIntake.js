@@ -4,8 +4,6 @@ import {
   IntakeBar,
   IntakeResult,
   IntakeTitle,
-  List,
-  ListItem,
   ListTitle,
   ListWrapper,
   TitleWrapper,
@@ -13,7 +11,16 @@ import {
   ButtonStart,
 } from './dailyCalorieIntake.styled';
 
-const DailyCalorieIntake = ({ closeModal }) => {
+const DailyCalorieIntake = ({ closeModal, params }) => {
+  const { height, age, currentWeight, desiredWeight } = params;
+  const caloriesResult = Math.round(
+    10 * currentWeight +
+      6.25 * height -
+      5 * age -
+      161 -
+      10 * (currentWeight - desiredWeight)
+  );
+
   return (
     <>
       <IntakeBar>
@@ -21,15 +28,10 @@ const DailyCalorieIntake = ({ closeModal }) => {
       </IntakeBar>
       <TitleWrapper>
         <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
-        <IntakeResult>2800 kcal</IntakeResult>
+        <IntakeResult>{caloriesResult} kcal</IntakeResult>
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
-        <List>
-          <ListItem>food1</ListItem>
-          <ListItem>food2</ListItem>
-          <ListItem>food3</ListItem>
-        </List>
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>Start losing weight</LinkButton>
@@ -42,4 +44,5 @@ export default DailyCalorieIntake;
 
 DailyCalorieIntake.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  params: PropTypes.objectOf(PropTypes.string),
 };
