@@ -36,10 +36,10 @@ export const register = createAsyncThunk(
 export const login = createAsyncThunk(
   '/api/auth/login',
   async (data, thunkAPI) => {
-    console.log("login action", data);
+    console.log('login action', data);
     try {
       const res = await axios.post('/api/auth/login', data);
-         console.log('log act in', res.data);
+      console.log('log act in', res.data);
 
       return res.data;
     } catch (error) {
