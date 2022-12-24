@@ -20,6 +20,7 @@ const RegisterForm = () => {
       password: Yup.string().min(6).max(16).required(),
     }),
     onSubmit: (values, { resetForm }) => {
+      console.log('reg form', values);
       dispatch(register(values));
       resetForm();
     },
