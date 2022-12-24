@@ -26,7 +26,7 @@ i18n
     },
     interpolation: {
       escapeValue: false,
-  }
+    },
   });
 
 i18n.changeLanguage('uk');
