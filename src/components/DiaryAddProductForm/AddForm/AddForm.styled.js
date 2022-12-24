@@ -13,13 +13,18 @@ export const Form = styled.div`
 `;
 
 export const ProductInput = styled.input`
-  font-size: 16px;
-  outline: none;
   width: 240px;
   height: 37px;
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   margin-right: 22px;
+  margin-bottom: 8px;  
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
   @media (max-width: 767px) {
     margin-bottom: 40px;
     margin-right: 0;
@@ -28,26 +33,29 @@ export const ProductInput = styled.input`
 `;
 
 export const GramsInput = styled.input`
-  font-size: 16px;
-  outline: none;
-  height: 37px;
   width: 106px;
+  height: 37px;
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
+  margin-bottom: 8px;
   margin-right: 87px;
-  :placeholder {
-    text-align: right;
-  }
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: #9B9FAA;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1280px) {
     margin-right: 60px;
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 1280px) {
     margin-right: 30px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 767px) {
     margin-bottom: 70px;
     width: 100%;
     margin-right: 0;

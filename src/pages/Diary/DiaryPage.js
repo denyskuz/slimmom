@@ -8,7 +8,7 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 import { BlockContainer } from './DiaryPage.styled';
 
-export default function CalculatorPage() {
+export default function DiaryPage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
@@ -21,8 +21,8 @@ export default function CalculatorPage() {
           <DiaryDateCalendar />
           <DiaryAddProductForm />
         </BlockContainer>
-        <SideBar />
       </DiaryPageContainer>
+        <SideBar />
     </ThemeProvider>
   );
 }

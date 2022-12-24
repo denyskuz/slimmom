@@ -1,19 +1,13 @@
-import { Typography } from '@mui/material';
+import { BadFoodPlaceholder } from './SideBar.stiled';
 import { useSelector } from 'react-redux';
 import { selectBadProducts } from 'redux/services/selectors';
 import { VirtualizedList } from './VirtualizedList';
 
 export const BadFoodList = () => {
   const products = useSelector(selectBadProducts);
-  return products.length ? (
+  return Boolean(products.length) ? (
     <VirtualizedList />
   ) : (
-    <Typography
-      sx={theme => ({
-        ...theme.summaryListMargin,
-      })}
-    >
-      'Your diet will be displayed here'
-    </Typography>
+    <BadFoodPlaceholder>Your diet will be displayed here</BadFoodPlaceholder>
   );
 };
