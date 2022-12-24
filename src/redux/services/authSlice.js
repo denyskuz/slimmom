@@ -25,9 +25,6 @@ const authSlice = createSlice({
     [setUserParams]: (state, action) => {
       state.userParams = action.payload;
     },
-    [setUserParams]: (state, action) => {
-      state.userParams = action.payload;
-    },
     [register.fulfilled](state, action) {
       const { age, bloodType, currentWeight, desiredWeight, height } =
         action.payload.data.user;
