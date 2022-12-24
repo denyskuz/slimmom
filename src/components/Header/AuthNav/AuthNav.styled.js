@@ -25,3 +25,21 @@ export const Link = styled(NavLink)`
     color: ${prop => prop.theme.colors.primary};
   }
 `;
+
+export const LangButton = styled.button`
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  border-radius: 50px;
+  margin-left: 0px;
+  margin-right: 3px;
+  padding: 2px;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+ border:none;
+  background-color: transparent;
+
+  color: ${props => (props.active ? `#fc842d` : 'black')};
+  &:hover {
+    color: #fc842d;
+`;

@@ -5,6 +5,10 @@ import * as Yup from 'yup';
 
 import { Form, ProductInput, GramsInput } from './AddForm.styled';
 
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line
+import i18n from './../../translations/i18n';
+
 const AddForm = () => {
   const formik = useFormik({
     initialValues: { productName: '', grams: '' },
@@ -17,13 +21,13 @@ const AddForm = () => {
       console.log(values);
     },
   });
-
+  const { t } = useTranslation();
   return (
     <Form>
       <ProductInput
         id="productName"
-        label="Enter product name"
-        placeholder="Enter product name"
+        label={t('Product_name')}
+        placeholder={t('Product_name')}
         aria-label="Enter product name"
         multiline
         onChange={formik.handleChange}
@@ -33,8 +37,8 @@ const AddForm = () => {
       />
       <GramsInput
         name="grams"
-        label="Grams"
-        placeholder="Grams"
+        label={t('Grams')}
+        placeholder={t('Grams')}
         aria-label="Grams"
         multiline
         onChange={formik.handleChange}

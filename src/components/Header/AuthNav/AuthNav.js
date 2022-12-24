@@ -1,4 +1,4 @@
-import { Link } from './AuthNav.styled';
+import { Link, LangButton } from './AuthNav.styled';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -17,12 +17,12 @@ const AuthNav = () => {
   return (
     <>
       <div>
-        <button value="en" onClick={handleOnclick}>
-          English
-        </button>
-        <button value="uk" onClick={handleOnclick}>
-          Ukrainian
-        </button>
+        <LangButton value="en" onClick={handleOnclick}>
+          EN
+        </LangButton>
+        <LangButton value="uk" onClick={handleOnclick}>
+          UK
+        </LangButton>
       </div>
       <Link to="/login" lang={language}>
         {t('Sign_in')}

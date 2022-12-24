@@ -13,18 +13,24 @@ import {
   ButtonStart,
 } from './dailyCalorieIntake.styled';
 
+import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line
+import i18n from './../../translations/i18n';
+
 const DailyCalorieIntake = ({ closeModal }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <IntakeBar>
         <CloseButton onClick={() => closeModal()}></CloseButton>
       </IntakeBar>
       <TitleWrapper>
-        <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
-        <IntakeResult>2800 kcal</IntakeResult>
+        <IntakeTitle>{t('Daily_calorie')}</IntakeTitle>
+        <IntakeResult>2800 {t('kcal')}</IntakeResult>
       </TitleWrapper>
       <ListWrapper>
-        <ListTitle>Foods you should not eat</ListTitle>
+        <ListTitle>{t('Food_list')}</ListTitle>
         <List>
           <ListItem>food1</ListItem>
           <ListItem>food2</ListItem>
@@ -32,7 +38,7 @@ const DailyCalorieIntake = ({ closeModal }) => {
         </List>
       </ListWrapper>
       <ButtonStart type="button">
-        <LinkButton to={'/signup'}>Start losing weight</LinkButton>
+        <LinkButton to={'/signup'}>{t('Start_loosing')}</LinkButton>
       </ButtonStart>
     </>
   );
