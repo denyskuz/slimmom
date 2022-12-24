@@ -11,7 +11,7 @@ export default function MainPage() {
       </Helmet>
       <Wrapper>
         <Container>
-          <DailyCaloriesForm />
+          <DailyCaloriesForm isModal={true} />
         </Container>
       </Wrapper>
     </main>
