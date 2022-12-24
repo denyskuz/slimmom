@@ -10,7 +10,6 @@ import { login } from '../../redux/services/operations';
 import { Form, ButtonBox, Input } from './LoginForm.styled';
 
 const LoginForm = () => {
-  // const Mail = useSelector(store => store.auth);
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -21,9 +20,7 @@ const LoginForm = () => {
     }),
     onSubmit: (values, { resetForm }) => {
       dispatch(login(values));
-
       resetForm();
-      // console.log(Mail);
     },
   });
 

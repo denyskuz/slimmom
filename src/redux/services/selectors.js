@@ -6,6 +6,7 @@ export const getUserEmail = state => state.auth.user.email;
 export const getToken = state => state.auth.token;
 export const getUserData = state => state.auth.user;
 export const selectUserParams = state => state.auth.userParams;
+export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const getGlobalUserData = createSelector(
   [getUserData, selectUserParams],
