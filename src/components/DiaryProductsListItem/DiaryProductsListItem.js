@@ -28,7 +28,6 @@ export default function DiaryProductsListItem() {
     setOpen(!open);
     localStorage.setItem('id', `${id}`);
   };
-  console.log(notes);
   return (
     <List>
       {notes.map((e, i, ar) => {
