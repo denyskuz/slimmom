@@ -24,6 +24,7 @@ const AddForm = () => {
         id="productName"
         label="Enter product name"
         placeholder="Enter product name"
+        aria-label="Enter product name"
         multiline
         onChange={formik.handleChange}
         value={formik.values.productName}
@@ -34,13 +35,14 @@ const AddForm = () => {
         name="grams"
         label="Grams"
         placeholder="Grams"
+        aria-label="Grams"
         multiline
         onChange={formik.handleChange}
         value={formik.values.grams}
         error={formik.touched.grams && formik.errors.grams}
         helperText={formik.touched.grams && formik.errors.grams}
       />
-      <AddProductBtn type="button">
+      <AddProductBtn type="button" aria-label="Add product">
         <HiPlus />
       </AddProductBtn>
     </Form>
