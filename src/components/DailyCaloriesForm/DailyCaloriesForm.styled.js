@@ -1,17 +1,27 @@
 import { Box } from '@mui/material';
 import styled from 'styled-components';
+import {
+  TextField,
+  FormControlLabel,
+  Button as MuiButton,
+  RadioGroup,
+  Radio,
+} from '@mui/material';
 
 export const FormWrapper = styled.div`
   width: 100%;
-
+  padding: 0 20px;
+  padding-top: 32px;
+  padding-bottom: 41px;
   @media (min-width: 768px) {
-    width: 80%;
-    padding: 100px 32px;
+    padding: 0 32px;
+    padding-top: 100px;
+    padding-bottom: 48px;
   }
-
   @media (min-width: 1280px) {
-    width: 60vw;
-    padding: 100px 32px;
+    padding-left: 16px;
+    padding-top: 145px;
+    padding-bottom: 111px;
   }
 `;
 
@@ -19,81 +29,167 @@ export const Title = styled.h1`
   font-family: Verdana;
   font-weight: 700;
   font-size: 18px;
-  line-height: 25px;
+  line-height: 1.4;
   letter-spacing: normal;
   margin: 0;
   margin-bottom: 34px;
-
-  @media (min-width: 768px) {
+  @media (max-width: 320px) {
+    width: 260px;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 520px;
+  }
+  @media (min-width: 320px) {
     font-size: 34px;
-    line-height: 47px;
     margin-bottom: 68px;
   }
 `;
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 100px);
-    gap: 30px;
+  display: grid;
+  @media (max-width: 320px) {
+    grid-auto-flow: row;
+  }
+  @media (min-width: 320px) {
+    grid-template-columns: repeat(2, 240px);
+    grid-template-rows: repeat(4, 4fr);
+    column-gap: 32px;
+    grid-auto-flow: column;
   }
 `;
 
-export const Label = styled.label`
+export const Label = styled(FormControlLabel)`
   font-family: Verdana;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  letter-spacing: normal;
-  color: #9b9faa;
-  margin-bottom: 8px;
-`;
-
-export const Input = styled.input`
-  font-family: Verdana;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: normal;
-  width: 100%;
-  color: #9b9faa;
-  margin-bottom: 32px;
-  border: none;
-  border-bottom: 1px solid #9b9faa;
-`;
-
-export const RadioGroup = styled.div`
-  margin-top: 20px;
-`;
-export const Button = styled.button`
-  margin: 40px auto 0 auto;
-  width: 210px;
-  height: 43px;
-  background-color: #fc842d;
-  color: #ffffff;
-  display: block;
-  font-family: Verdana;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
   letter-spacing: 0.04em;
-  border: 2px solid transparent;
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-
-  @media (min-width: 768px) {
-    margin: 60px 0 0 0;
-    grid-row: 4 / span 1;
+  color: #9b9faa;
+  & .Mui-checked + .MuiFormControlLabel-label {
+    font-weight: 700;
+    color: #fc842d;
   }
+`;
 
+export const Input = styled(TextField)`
+  & input {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    width: 100%;
+    color: #9b9faa;
+  }
+  & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+  & .MuiInput-underline:after {
+    border-bottom-color: #fc842d;
+  }
+  & label {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
+  }
+  & label.Mui-focused {
+    color: #fc842d;
+  }
+  & p {
+    text-align: right;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
+  }
+`;
+export const ShiftedInput = styled(Input)`
+  @media (max-width: 320px) {
+    grid-column: 1;
+  }
+  grid-column: 2;
+`;
+
+export const BloodInput = styled(Input)`
+  & input {
+    pointer-events: none;
+    @media (max-width: 320px) {
+      visibility: hidden;
+    }
+  }
+  & .MuiInputLabel-shrink {
+    @media (max-width: 320px) {
+      transform: translate(0, 20px);
+    }
+  }
+  & label.Mui-focused {
+    color: #9b9faa;
+  }
+  & .MuiInput-underline:after {
+    border-bottom-color: #9b9faa;
+  }
+`;
+
+export const FormRadioGroup = styled(RadioGroup)`
+  justify-content: space-between;
+  @media (max-width: 320px) {
+    grid-column: 1;
+  }
+  grid-column: 2;
+`;
+
+export const RadioButton = styled(Radio)`
+  color: #e0e0e0;
+  & span {
+    & svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  &.Mui-checked {
+    & span {
+      color: #fc842d;
+    }
+  }
+`;
+
+export const Button = styled(MuiButton)`
+  &.MuiButtonBase-root {
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-transform: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    background: #fc842d;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    @media (max-width: 320px) {
+      margin-top: 40px;
+      justify-self: center;
+    }
+  }
+  &.MuiButtonBase-root:hover {
+    background: #fff;
+    color: #fc842d;
+  }
+  @media (max-width: 1280px) {
+    grid-row: 4 / span 1;
+    grid-column: 1;
+    justify-self: start;
+    align-self: start;
+  }
   @media (min-width: 1280px) {
-    grid-column: 2 / 3;
-    margin: 0 auto 20px auto;
+    align-self: start;
+    justify-self: end;
+    grid-row: 4 / span 1;
+    grid-column: 2;
   }
 `;
 
