@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
-const BASE_URL = 'http://localhost:3000/'; //process.env.REACT_APP_BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 axios.defaults.baseURL = BASE_URL;
 
