@@ -14,6 +14,7 @@ const AuthNav = () => {
     e.preventDefault();
     setLanguage(e.target.value);
     i18n.changeLanguage(e.target.value);
+    localStorage.setLanguage('locale', language);
   };
 
   return (
