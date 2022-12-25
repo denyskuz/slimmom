@@ -11,15 +11,15 @@ import { ListText, ProductListText } from './FoodListNotEat.styled';
 export const CustomizedList = ({ number, categorie, list }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
-    const isOpen = Boolean(anchorEl);
-    const handleClick = event => {
-      setAnchorEl(event.currentTarget);
-      setOpen(!open);
-    };
-    const handleClose = () => {
-      setAnchorEl(null);
+  const isOpen = Boolean(anchorEl);
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+    setOpen(!open);
   };
-  
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <Box>
       <ListItemButton
