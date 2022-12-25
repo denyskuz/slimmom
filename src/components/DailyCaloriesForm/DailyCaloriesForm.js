@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Modal } from '@mui/material';
-import PropTypes from 'prop-types';
+import { bool } from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserParams, getProducts } from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
-import { userParamsShema } from 'validation';
+import { userParamsSchema } from 'validation';
 import {
   Label,
   Form,
@@ -21,27 +21,30 @@ import {
 } from './DailyCaloriesForm.styled';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
 
-export const DailyCaloriesForm = ({ isModal }) => {
+export const DailyCaloriesForm = ({ isModal = false }) => {
+
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
   const user = useSelector(selectUserParams);
-
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const initialValues = {
+      height: user?.height || 0,
+      age: user?.age || 0,
+      currentWeight: user?.currentWeight || 0,
+      desiredWeight: user?.desiredWeight || 0,
+      bloodType: user?.bloodType || 1,
+  }
+  const [isOpen, setOpen] = useState(false);
+  const [params, setParams] = useState(initialValues);
   const handleClose = () => setOpen(false);
 
   const formik = useFormik({
-    initialValues: {
-      height: user?.height || '',
-      age: user?.age || '',
-      currentWeight: user?.currentWeight || '',
-      desiredWeight: user?.desiredWeight || '',
-      bloodType: user?.bloodType || '',
-    },
-    validationSchema: userParamsShema,
+    initialValues: initialValues,
+    validationSchema: userParamsSchema,
     onSubmit: data => {
+      setParams(data);
       dispatch(setUserParams(data));
-      isModal ? handleOpen() : dispatch(getProducts(data));
+      setOpen(true);
+      dispatch(getProducts(data));
     },
   });
 
@@ -154,22 +157,23 @@ export const DailyCaloriesForm = ({ isModal }) => {
         <Button disabled={loading} variant="contained" type="submit">
           Start losing weight
         </Button>
-
+        
         <Modal
-          open={open}
+          open={isModal && isOpen}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
           <StyledModalBox>
-            <DailyCalorieIntake closeModal={handleClose} />
+            <DailyCalorieIntake closeModal={handleClose} params={params} />
           </StyledModalBox>
         </Modal>
+      
       </Form>
     </FormWrapper>
   );
 };
 
 DailyCaloriesForm.propTypes = {
-  isModal: PropTypes.bool,
+  isModal: bool,
 };

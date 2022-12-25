@@ -17,7 +17,7 @@ import { productsReducer } from '../services/productSlice';
 const persistAuthConfig = {
   key: 'auth',
   storage,
-  whitlist: ['token', 'userParams'],
+  whitelist: ['token', 'use']
 };
 
 export const store = configureStore({
@@ -34,4 +34,5 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
 setupListeners(store.dispatch);

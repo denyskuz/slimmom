@@ -1,35 +1,34 @@
-import PropTypes from 'prop-types';
+import { func, number, shape } from 'prop-types';
 import { LinkButton } from 'components/Button/Button';
 import {
   IntakeBar,
   IntakeResult,
   IntakeTitle,
-  List,
-  ListItem,
   ListTitle,
   ListWrapper,
   TitleWrapper,
   CloseButton,
   ButtonStart,
 } from './dailyCalorieIntake.styled';
+import { calculateCalories } from 'utils';
+import { useSelector } from 'react-redux';
+import { selectBadProducts } from 'redux/services/selectors';
 
-const DailyCalorieIntake = ({ closeModal }) => {
+const DailyCalorieIntake = ({ closeModal, params }) => {
+  const products = useSelector(selectBadProducts);
+
+
   return (
     <>
       <IntakeBar>
-        <CloseButton onClick={() => closeModal()}></CloseButton>
+        <CloseButton onClick={closeModal}></CloseButton>
       </IntakeBar>
       <TitleWrapper>
         <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
-        <IntakeResult>2800 kcal</IntakeResult>
+        <IntakeResult>{calculateCalories(params)} kcal</IntakeResult>
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
-        <List>
-          <ListItem>food1</ListItem>
-          <ListItem>food2</ListItem>
-          <ListItem>food3</ListItem>
-        </List>
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>Start losing weight</LinkButton>
@@ -41,5 +40,11 @@ const DailyCalorieIntake = ({ closeModal }) => {
 export default DailyCalorieIntake;
 
 DailyCalorieIntake.propTypes = {
-  closeModal: PropTypes.func.isRequired,
+  closeModal: func.isRequired,
+  params: shape({
+    height: number.isRequired,
+    age: number.isRequired,
+    currentWeight: number.isRequired,
+    desiredWeight: number.isRequired
+  }),
 };

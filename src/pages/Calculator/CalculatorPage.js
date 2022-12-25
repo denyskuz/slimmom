@@ -1,16 +1,16 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { DailyCaloriesForm } from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import { SideBar } from 'components/SideBar';
-import { CalculatorPageContainer } from './CalculatorPage.styled';
+import { Container } from '@mui/system';
 
 export default function CalculatorPage() {
   return (
-    <CalculatorPageContainer>
+    <Container>
       <Helmet>
         <title>Calories calculator</title>
       </Helmet>
       <DailyCaloriesForm />
       <SideBar />
-    </CalculatorPageContainer>
+    </Container>
   );
 }
