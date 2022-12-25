@@ -4,19 +4,20 @@ import * as Yup from 'yup';
 
 import { AddProductBtn } from 'components/Button/Button';
 import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
-import { useDispatch } from 'react-redux';
-import { addDiaryProduct } from 'redux/services/operations';
-import { data } from 'globalstore/dataTemp';
+import { useDispatch, useSelector } from 'react-redux';
+import { addDiaryProduct, getNameProducts } from 'redux/services/operations';
+// import { data } from 'globalstore/dataTemp';
 // import { Autocomplete, TextField } from '@mui/material';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { getProductTitle } from 'redux/services/selectors';
 
 const AddForm = () => {
   const dispatch = useDispatch();
   const date = new Date().toISOString();
   const [productName, setProductName] = useState(null);
   const [product, setProduct] = useState('');
-
+  const data = useSelector(getProductTitle);
   const formik = useFormik({
     initialValues: { weight: '' },
     validationSchema: Yup.object().shape({
@@ -28,8 +29,7 @@ const AddForm = () => {
         toast('You need add product');
         return;
       }
-      const data = { product, weight, date };
-      console.log(data);
+      const data = { productName, product, weight, date };
       setProduct(' ');
       setProductName(' ');
       dispatch(addDiaryProduct(data));
@@ -38,20 +38,28 @@ const AddForm = () => {
   });
 
   const handleChange = (e, value) => {
+    console.log('EVENT===>', e);
+    console.log('VALUE===>', value);
+
     setProduct(value.id);
     setProductName(value.label);
-    // dispatch();
-    // console.log('IDevent', value);
   };
-  const nameProd = data.map(e => ({
-    label: e.title.ua,
-    id: e._id.$oid,
-  }));
+  const nameProd = data.map(e => {
+    // console.log(e.title.ua);
+    return {
+      label: e.title.ua,
+      id: e._id,
+    };
+  });
 
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Complete
+        onInputChange={(e, v) => {
+          dispatch(getNameProducts(v));
+        }}
         onChange={handleChange}
+        freeSolo
         disableClearable
         value={productName}
         options={nameProd}
@@ -75,8 +83,6 @@ const AddForm = () => {
         multiline
         onChange={formik.handleChange}
         value={formik.values.weight}
-        error={formik.touched.weight && formik.errors.weight}
-        helperText={formik.touched.weight && formik.errors.weight}
       />
       <AddProductBtn type="submit">
         <HiPlus />
@@ -86,19 +92,3 @@ const AddForm = () => {
 };
 
 export default AddForm;
-
-//  {
-/* <ProductInput
-        id="product"
-        name="product"
-        label="Enter product name"
-        placeholder="Enter product name"
-        type="text"
-        variant="standard"
-        multiline
-        onChange={formik.handleChange}
-        value={formik.values.product}
-        error={formik.touched.product && formik.errors.product}
-        helperText={formik.touched.product && formik.errors.product}
-      /> */
-//  }

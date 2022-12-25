@@ -11,7 +11,6 @@ export const DiaryModalList = ({ id }) => {
 
   const handleDelete = () => {
     const id = localStorage.getItem('id');
-    console.log('MAIN', id);
     deleteDiaryProductHook(id);
   };
 

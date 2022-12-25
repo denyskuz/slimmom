@@ -59,12 +59,14 @@ export const getProducts = createAsyncThunk(
   '/api/products',
   async (userParams, thunkAPI) => {
     try {
+      console.log('QUERY====>', userParams);
       const { data, status } = await axios.post('/api/products', userParams);
       token.set(data.token);
       if (!data) {
         return thunkAPI.rejectWithValue(status);
       }
       data.message && toast.success(data.message);
+      console.log('RESPONSE===>', data);
       return data;
     } catch (err) {
       toast.error(err.response.data.message);
@@ -129,10 +131,9 @@ export const getAllDiaryProduct = createAsyncThunk(
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
-      const res = await axios.get(`/api/diary/${date}`);
+      const { data } = await axios.get(`/api/diary/${date}`);
       token.set(persistedToken);
-
-      return res;
+      return data;
     } catch (error) {
       toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
@@ -141,7 +142,7 @@ export const getAllDiaryProduct = createAsyncThunk(
 );
 export const addDiaryProduct = createAsyncThunk(
   'addDiaryProduct',
-  async (data, thunkAPI) => {
+  async ({ product, weight, date }, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
@@ -149,11 +150,34 @@ export const addDiaryProduct = createAsyncThunk(
     }
     try {
       token.set(persistedToken);
-      await axios.post('api/diary', data);
+      await axios.post('api/diary', { product, weight, date });
       toast('Product added success!');
     } catch (error) {
       toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getNameProducts = createAsyncThunk(
+  '/api/products',
+  async (userQuery, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    try {
+      token.set(persistedToken);
+
+      const { data } = await axios.get(`/api/products`, {
+        params: { title: userQuery },
+      });
+      data.message && toast.success(data.message);
+      return data;
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return thunkAPI.rejectWithValue(err.response.data);
     }
   }
 );

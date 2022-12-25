@@ -17,8 +17,6 @@ import { getAllDiaryProduct } from 'redux/services/selectors';
 
 export default function DiaryProductsListItem() {
   const notes = useSelector(getAllDiaryProduct);
-
-  // const { diaryData } = useDairyStore();
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
