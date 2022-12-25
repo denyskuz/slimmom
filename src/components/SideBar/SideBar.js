@@ -7,8 +7,6 @@ import {
 import { BadFoodList } from './BadFoodList';
 import { SummaryList } from './SummaryList';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-import i18n from './../../translations/i18n';
 
 export const SideBar = () => {
   const { t } = useTranslation();

@@ -21,8 +21,6 @@ import {
 } from './DailyCaloriesForm.styled';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line no-unused-vars
-import i18n from '../../translations/i18n';
 
 export const DailyCaloriesForm = ({ isModal }) => {
   const dispatch = useDispatch();

@@ -6,8 +6,6 @@ import * as Yup from 'yup';
 import { Form, ProductInput, GramsInput } from './AddForm.styled';
 
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-import i18n from './../../translations/i18n';
 
 const AddForm = () => {
   const formik = useFormik({

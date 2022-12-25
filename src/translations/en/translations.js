@@ -13,6 +13,7 @@ export const TRANSLATIONS_EN = {
   Calculator_button: 'Calculator',
   Exit: 'Exit',
   Login: 'Login',
+  Login1: 'Log in',
   Register: 'Register',
   Summary_for: 'Summary for',
   Food_not_recommended: 'Food not recommended',

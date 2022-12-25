@@ -9,8 +9,6 @@ import {
 import { login } from '../../redux/services/operations';
 import { Form, ButtonBox, Input } from './LoginForm.styled';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-import i18n from './../../translations/i18n';
 
 const LoginForm = () => {
   const Mail = useSelector(store => store.auth);
@@ -35,7 +33,7 @@ const LoginForm = () => {
       <Input
         id="email"
         required
-        label="E-mail"
+        label={t('Email')}
         variant="standard"
         type="email"
         placeholder="example@gmail.com"

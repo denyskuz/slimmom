@@ -14,6 +14,7 @@ export const TRANSLATIONS_UK = {
   Calculator_button: 'Калькулятор',
   Exit: 'Вихід',
   Login: 'Увійти',
+  Login1: 'Вхід',
   Register: 'Зареєструватися',
   Summary_for: 'Загалом на',
   Food_not_recommended: 'Продукти, які не рекомендовані',
@@ -32,5 +33,5 @@ export const TRANSLATIONS_UK = {
   Name: "Iм'я *",
   Password: 'Пароль*',
   kcal: 'ккал',
-  Email: 'Е-мейл*',
+  Email: 'Ел адреса',
 };

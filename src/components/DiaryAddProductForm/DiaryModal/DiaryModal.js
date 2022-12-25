@@ -2,8 +2,6 @@ import AddForm from '../AddForm/AddForm';
 
 import { Backdrop, Btn } from './DiaryModal.styled';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-import i18n from './../../translations/i18n';
 
 const DiaryModal = ({ onSubmit, onClickModal }) => {
   const { t } = useTranslation();

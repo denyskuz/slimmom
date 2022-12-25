@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import { selectCalories } from 'redux/services/selectors';
 import { SummaryListItem } from './SideBar.stiled';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-import i18n from './../../translations/i18n';
 
 export const SummaryList = () => {
   const dailyCalories = useSelector(selectCalories);

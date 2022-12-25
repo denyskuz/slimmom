@@ -1,8 +1,9 @@
-import { Link, LangButton } from './AuthNav.styled';
+import { Link, LangButton, ButtonContainer } from './AuthNav.styled';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import i18n from './../../../translations/i18n';
+import '/node_modules/flag-icons/css/flag-icons.min.css';
 
 const AuthNav = () => {
   const { t } = useTranslation();
@@ -16,14 +17,18 @@ const AuthNav = () => {
 
   return (
     <>
-      <div>
-        <LangButton value="en" onClick={handleOnclick}>
-          EN
-        </LangButton>
-        <LangButton value="uk" onClick={handleOnclick}>
-          UK
-        </LangButton>
-      </div>
+      <ButtonContainer>
+        <LangButton
+          value="en"
+          onClick={handleOnclick}
+          className="fi fi-gb"
+        ></LangButton>
+        <LangButton
+          value="uk"
+          onClick={handleOnclick}
+          className="fi fi-ua"
+        ></LangButton>
+      </ButtonContainer>
       <Link to="/login" lang={language}>
         {t('Sign_in')}
       </Link>

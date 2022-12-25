@@ -14,8 +14,6 @@ import {
 } from './dailyCalorieIntake.styled';
 
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-import i18n from './../../translations/i18n';
 
 const DailyCalorieIntake = ({ closeModal }) => {
   const { t } = useTranslation();
