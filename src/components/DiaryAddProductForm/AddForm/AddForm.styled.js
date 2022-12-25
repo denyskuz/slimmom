@@ -18,7 +18,7 @@ export const ProductInput = styled.input`
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   margin-right: 22px;
-  margin-bottom: 8px;  
+  margin-bottom: 8px;
   font-family: Verdana;
   font-weight: 700;
   font-size: 14px;
@@ -45,7 +45,7 @@ export const GramsInput = styled.input`
   line-height: 17px;
   letter-spacing: 0.04em;
   text-align: right;
-  color: #9B9FAA;
+  color: #9b9faa;
 
   @media (min-width: 1280px) {
     margin-right: 60px;

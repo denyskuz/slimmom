@@ -22,7 +22,7 @@ export default function DiaryPage() {
           <DiaryAddProductForm />
         </BlockContainer>
       </DiaryPageContainer>
-        <SideBar />
+      <SideBar />
     </ThemeProvider>
   );
 }
