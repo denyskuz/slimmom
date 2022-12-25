@@ -21,7 +21,7 @@ export const List = styled.ul`
 
   /* Track */
   &::-webkit-scrollbar-track {
-    background: #f0f1f3;
+    background: transparent;
     border-color: transparent;
   }
 

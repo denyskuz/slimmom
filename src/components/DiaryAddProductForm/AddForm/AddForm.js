@@ -7,25 +7,30 @@ import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
 import { useDispatch } from 'react-redux';
 import { addDiaryProduct } from 'redux/services/operations';
 import { data } from 'globalstore/dataTemp';
-import { Autocomplete, TextField } from '@mui/material';
+// import { Autocomplete, TextField } from '@mui/material';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AddForm = () => {
   const dispatch = useDispatch();
   const date = new Date().toISOString();
-  const [productName, setProductName] = useState(' ');
-  const [product, setProductId] = useState(' ');
+  const [productName, setProductName] = useState(null);
+  const [product, setProduct] = useState('');
 
   const formik = useFormik({
-    initialValues: { product: '', weight: '' },
+    initialValues: { weight: '' },
     validationSchema: Yup.object().shape({
       // product: Yup.string().required(),
       weight: Yup.number().min(2).required(),
     }),
     onSubmit: ({ weight }, { resetForm }) => {
+      if (productName === null) {
+        toast('You need add product');
+        return;
+      }
       const data = { product, weight, date };
       console.log(data);
-      setProductId(' ');
+      setProduct(' ');
       setProductName(' ');
       dispatch(addDiaryProduct(data));
       resetForm();
@@ -33,8 +38,9 @@ const AddForm = () => {
   });
 
   const handleChange = (e, value) => {
-    setProductId(value.id);
+    setProduct(value.id);
     setProductName(value.label);
+    // dispatch();
     // console.log('IDevent', value);
   };
   const nameProd = data.map(e => ({
@@ -45,15 +51,7 @@ const AddForm = () => {
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Complete
-        // sx={{
-        //   width: '240px',
-        //   height: '37px',
-        //   mr: '22px',
-        //   outline: 'none',
-        // }}
         onChange={handleChange}
-        id="product"
-        name="product"
         disableClearable
         value={productName}
         options={nameProd}

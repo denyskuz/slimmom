@@ -15,7 +15,6 @@ export const Form = styled.form`
 export const Complete = styled(Autocomplete)`
   margin-right: 22px;
   width: 240px;
-  border: none;
 `;
 
 export const ProductInput = styled(TextField)`

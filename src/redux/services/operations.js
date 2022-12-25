@@ -108,3 +108,39 @@ export const refreshUser = createAsyncThunk(
   }
 );
 export const setUserParams = createAction('auth/save');
+
+export const deleteDiaryProduct = createAsyncThunk(
+  'delete',
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/api/diary/${id}`);
+    } catch (error) {
+      toast('product is not correct');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getAllDiaryProduct = createAsyncThunk(
+  'getAllDiaryProduct',
+  async (date, thunkAPI) => {
+    try {
+      const res = await axios.get(`/api/diary/${date}`);
+      return res;
+    } catch (error) {
+      toast('something went wrong!!');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const addDiaryProduct = createAsyncThunk(
+  'addDiaryProduct',
+  async (data, thunkAPI) => {
+    try {
+      await axios.post('api/diary', data);
+      toast('Product added success!');
+    } catch (error) {
+      toast('something went wrong!!');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
