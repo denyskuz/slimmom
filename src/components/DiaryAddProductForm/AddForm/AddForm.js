@@ -3,63 +3,67 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import { AddProductBtn } from 'components/Button/Button';
-import { Form, ProductInput, GramsInput } from './AddForm.styled';
+import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
 import { useDispatch } from 'react-redux';
 import { addDiaryProduct } from 'redux/services/operations';
 import { data } from 'globalstore/dataTemp';
 import { Autocomplete, TextField } from '@mui/material';
+import { useState } from 'react';
+
 const AddForm = () => {
   const dispatch = useDispatch();
   const date = new Date().toISOString();
+  const [productName, setProductName] = useState(' ');
+  const [product, setProductId] = useState(' ');
+
   const formik = useFormik({
-    initialValues: { product: '', weight: '', auto: '' },
+    initialValues: { product: '', weight: '' },
     validationSchema: Yup.object().shape({
-      product: Yup.string().required(),
+      // product: Yup.string().required(),
       weight: Yup.number().min(2).required(),
     }),
-    onSubmit: (values, { resetForm }) => {
-      const data = { ...values, date };
+    onSubmit: ({ weight }, { resetForm }) => {
+      const data = { product, weight, date };
       console.log(data);
-      dispatch(addDiaryProduct(date));
-      // resetForm();
+      setProductId(' ');
+      setProductName(' ');
+      dispatch(addDiaryProduct(data));
+      resetForm();
     },
   });
-  const nameProd = data.map(e => e.title.ua);
+
+  const handleChange = (e, value) => {
+    setProductId(value.id);
+    setProductName(value.label);
+    // console.log('IDevent', value);
+  };
+  const nameProd = data.map(e => ({
+    label: e.title.ua,
+    id: e._id.$oid,
+  }));
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      <ProductInput
+      <Complete
+        // sx={{
+        //   width: '240px',
+        //   height: '37px',
+        //   mr: '22px',
+        //   outline: 'none',
+        // }}
+        onChange={handleChange}
         id="product"
         name="product"
-        label="Enter product name"
-        placeholder="Enter product name"
-        type="text"
-        variant="standard"
-        multiline
-        onChange={formik.handleChange}
-        value={formik.values.product}
-        error={formik.touched.product && formik.errors.product}
-        helperText={formik.touched.product && formik.errors.product}
-      />
-      <Autocomplete
-        onChange={(e, value) => console.log(value)}
-        value={formik.values.auto}
-        id="auto"
-        name="auto"
-        freeSolo
         disableClearable
-        options={nameProd.map(option => option)}
+        value={productName}
+        options={nameProd}
         renderInput={params => (
-          <TextField
+          <ProductInput
             {...params}
             label="Search input"
             InputProps={{
               ...params.InputProps,
               type: 'search',
-              // onChange: formik.handleChange,
-              // value: formik.values.auto,
-              // id: 'auto',
-              // name: 'auto',
             }}
           />
         )}
@@ -84,3 +88,19 @@ const AddForm = () => {
 };
 
 export default AddForm;
+
+//  {
+/* <ProductInput
+        id="product"
+        name="product"
+        label="Enter product name"
+        placeholder="Enter product name"
+        type="text"
+        variant="standard"
+        multiline
+        onChange={formik.handleChange}
+        value={formik.values.product}
+        error={formik.touched.product && formik.errors.product}
+        helperText={formik.touched.product && formik.errors.product}
+      /> */
+//  }

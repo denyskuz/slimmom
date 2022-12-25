@@ -8,9 +8,9 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 import { BlockContainer } from './DiaryPage.styled';
 import DiaryProductsListItem from 'components/DiaryProductsListItem/DiaryProductsListItem';
-import { useDispatch } from 'react-redux';
 import { getAllDiaryProduct } from 'redux/services/operations';
 
+import { useDispatch } from 'react-redux';
 export default function CalculatorPage() {
   const dispatch = useDispatch();
   // all time send request with date now

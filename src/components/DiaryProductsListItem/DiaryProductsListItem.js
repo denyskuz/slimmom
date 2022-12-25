@@ -2,7 +2,6 @@
 import { Backdrop } from '@mui/material';
 import { DiaryModalList } from 'components/DiaryModalList/DiaryModalList';
 import { useState } from 'react';
-import { useDairyStore } from 'hooks/diaryStoreHook';
 import {
   DeleteButton,
   IconCross,

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
+import { Autocomplete, TextField } from '@mui/material';
 
 export const Form = styled.form`
   position: relative;
@@ -11,6 +11,11 @@ export const Form = styled.form`
     flex-direction: column;
     padding: 80px 20px;
   }
+`;
+export const Complete = styled(Autocomplete)`
+  margin-right: 22px;
+  width: 240px;
+  border: none;
 `;
 
 export const ProductInput = styled(TextField)`
