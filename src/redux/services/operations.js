@@ -3,7 +3,7 @@ import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-
+console.log('BASE_URL', BASE_URL);
 axios.defaults.baseURL = BASE_URL;
 
 const token = {
