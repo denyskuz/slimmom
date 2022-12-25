@@ -17,7 +17,7 @@ import { diaryReducer } from '../services/diaryProductSlice';
 const persistAuthConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'use']
+  whitelist: ['token', 'use'],
 };
 
 export const store = configureStore({

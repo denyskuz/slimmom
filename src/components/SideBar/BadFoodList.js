@@ -7,13 +7,15 @@ import { FixedSizeList } from 'react-window';
 
 export const BadFoodList = () => {
   const products = useSelector(selectBadProducts);
-  const renderRow = ({ data, index, style }) =>(
-      <SummaryListItem sx={style} key={index} disablePadding>
-        <Typography noWrap>{data[index].title.ua}</Typography>
-      </SummaryListItem>
+  const renderRow = ({ data, index, style }) => (
+    <SummaryListItem sx={style} key={index} disablePadding>
+      <Typography noWrap>{data[index].title.ua}</Typography>
+    </SummaryListItem>
   );
-  if (!products.length) { 
-    return  <BadFoodPlaceholder>Your diet will be displayed here</BadFoodPlaceholder>
+  if (!products.length) {
+    return (
+      <BadFoodPlaceholder>Your diet will be displayed here</BadFoodPlaceholder>
+    );
   }
   return (
     <SummaryListContainer>
