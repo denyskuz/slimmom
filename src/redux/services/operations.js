@@ -46,7 +46,7 @@ export const login = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await axios.post('/api/auth/login', data);
-
+      // token.set(res.data.data.accessToken);
       return res.data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -123,8 +123,15 @@ export const deleteDiaryProduct = createAsyncThunk(
 export const getAllDiaryProduct = createAsyncThunk(
   'getAllDiaryProduct',
   async (date, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
       const res = await axios.get(`/api/diary/${date}`);
+      token.set(persistedToken);
+
       return res;
     } catch (error) {
       toast('something went wrong!!');
@@ -135,7 +142,13 @@ export const getAllDiaryProduct = createAsyncThunk(
 export const addDiaryProduct = createAsyncThunk(
   'addDiaryProduct',
   async (data, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
+      token.set(persistedToken);
       await axios.post('api/diary', data);
       toast('Product added success!');
     } catch (error) {
