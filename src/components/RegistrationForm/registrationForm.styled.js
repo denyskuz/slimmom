@@ -6,7 +6,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 55px;
+  margin-top: 60px;
   max-width: 280px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #9b9faa;
@@ -29,22 +29,40 @@ export const ButtonBox = styled(Box)`
   }
 `;
 export const Input = styled(TextField)`
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  color: #9b9faa;
-  @media screen and (min-width: 768px) {
-    width: 240px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 240px;
-  }
-  & label.Mui-focused {
+  & input {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    width: 100%;
     color: #9b9faa;
+  }
+  & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
   }
   & .MuiInput-underline:after {
     border-bottom-color: #fc842d;
+  }
+  & label {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
+  }
+  & label.Mui-focused {
+    color: #fc842d;
+  }
+  & p {
+    text-align: right;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
   }
 `;
