@@ -2,8 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Link = styled(NavLink)`
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   font-family: GothamPro-Bold;
   font-size: ${prop => prop.theme.fontSizes.xs};
   font-weight: ${prop => prop.theme.fontWeights.bold};
@@ -48,18 +47,12 @@ export const Lang = styled.ul`
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
-  
-	  position: relative;
-	  left: 0;
-    display: none;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  
-
-
-
-  }
+  position: relative;
+  left: 0;
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 `;
 
 export const LangItem = styled.option``;
