@@ -40,88 +40,79 @@ const BackgroundContainer = ({ children }) => {
   const strawberryAuth = desktop ? strawberryDesk : strawberryTabForm;
   const leafsAuth = desktop ? leafsDesk : leafsTabForm;
 
-    return (
-        <ImageContainer ref={ref} visible={isLoggedIn}>
-            {isMainPage ? (
-                <>
-                    <VectorImg
-                        src={vector}
-                        alt='grey background'
-                        visibleImg={!isLoggedIn}
-                    />
+  return (
+    <ImageContainer ref={ref} visible={isLoggedIn}>
+      {isMainPage ? (
+        <>
+          <VectorImg
+            src={vector}
+            alt="grey background"
+            visibleImg={!isLoggedIn}
+          />
 
-                    <BananaImg
-                        src={banana}
-                        alt='banana'
-                        visibleImg={!isLoggedIn} />
+          <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
 
-                    <StrawberryImg
-                        src={strawberry}
-                        alt='strawberry'
-                        visibleImg={!isLoggedIn}
-                    />
+          <StrawberryImg
+            src={strawberry}
+            alt="strawberry"
+            visibleImg={!isLoggedIn}
+          />
 
-                    <LeafsImg
-                        src={leafs}
-                        alt='leafs'
-                        visibleImg={!isLoggedIn} />
+          <LeafsImg src={leafs} alt="leafs" visibleImg={!isLoggedIn} />
 
-                    <LeafsSide
-                        src={leafsDeskSideBar}
-                        alt='leafs right side'
-                        visibleImg={isLoggedIn}
-                    />
+          <LeafsSide
+            src={leafsDeskSideBar}
+            alt="leafs right side"
+            visibleImg={isLoggedIn}
+          />
 
-                    <LeafsFoot
-                        src={leafsTabSideBar}
-                        alt='leafs in foot'
-                        visibleImg={isLoggedIn}
-                    />
-                    {children}
-                </>
-            ) : (
-                <>
-                    <VectorImg
-                        src={vector}
-                        alt='grey background'
-                        visibleImg={!isLoggedIn}
-                    />
+          <LeafsFoot
+            src={leafsTabSideBar}
+            alt="leafs in foot"
+            visibleImg={isLoggedIn}
+          />
+          {children}
+        </>
+      ) : (
+        <>
+          <VectorImg
+            src={vector}
+            alt="grey background"
+            visibleImg={!isLoggedIn}
+          />
 
-                    <BananaImg
-                        src={banana}
-                        alt='banana'
-                        visibleImg={!isLoggedIn} />
+          <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
 
-                    <StrawberryAuthImg
-                        src={strawberryAuth}
-                        alt='strawberry'
-                        visibleImg={!isLoggedIn}
-                        auth={!isMainPage}
-                    />
+          <StrawberryAuthImg
+            src={strawberryAuth}
+            alt="strawberry"
+            visibleImg={!isLoggedIn}
+            auth={!isMainPage}
+          />
 
-                    <LeafsAuthImg
-                        src={leafsAuth}
-                        alt='leafs'
-                        visibleImg={!isLoggedIn}
-                        auth={!isMainPage}
-                    />
+          <LeafsAuthImg
+            src={leafsAuth}
+            alt="leafs"
+            visibleImg={!isLoggedIn}
+            auth={!isMainPage}
+          />
 
-                    <LeafsSide
-                        src={leafsDeskSideBar}
-                        alt='leafs right side'
-                        visibleImg={isLoggedIn}
-                    />
+          <LeafsSide
+            src={leafsDeskSideBar}
+            alt="leafs right side"
+            visibleImg={isLoggedIn}
+          />
 
-                    <LeafsFoot
-                        src={leafsTabSideBar}
-                        alt='leafs in foot'
-                        visibleImg={isLoggedIn}
-                    />
-                    {children}
-                </>
-            )}
-        </ImageContainer>
-    );
+          <LeafsFoot
+            src={leafsTabSideBar}
+            alt="leafs in foot"
+            visibleImg={isLoggedIn}
+          />
+          {children}
+        </>
+      )}
+    </ImageContainer>
+  );
 };
 
 export default BackgroundContainer;
