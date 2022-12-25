@@ -5,9 +5,8 @@ import ListItemText from '@mui/material/ListItemText';
 import List from '@mui/material/List';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
-
-export const CustomizedList = ({categorie, list}) => {
-    const [open, setOpen] = React.useState(false);
+export const CustomizedList = ({ categorie, list }) => {
+  const [open, setOpen] = React.useState(false);
   return (
     <Box>
       <ListItemButton
@@ -58,18 +57,19 @@ export const CustomizedList = ({categorie, list}) => {
         }}
         subheader={<li />}
       >
-        {open && list.map(item => (
-          <li key={item.title.ru}>
-            <ListItemText
-              primary={item.title.ru}
-              primaryTypographyProps={{
-                fontSize: 14,
-                fontWeight: 'medium',
-              }}
+        {open &&
+          list.map(item => (
+            <li key={item.title.ru}>
+              <ListItemText
+                primary={item.title.ru}
+                primaryTypographyProps={{
+                  fontSize: 14,
+                  fontWeight: 'medium',
+                }}
               />
-          </li>
+            </li>
           ))}
       </List>
     </Box>
   );
-}
+};

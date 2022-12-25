@@ -11,13 +11,15 @@ import {
   ButtonStart,
 } from './dailyCalorieIntake.styled';
 import { calculateCalories } from 'utils';
-import { CustomizedList } from './FoodListNotEat'; 
+import { CustomizedList } from './FoodListNotEat';
 import { useSelector } from 'react-redux';
 import { selectBadProducts } from 'redux/services/selectors';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
   const products = useSelector(selectBadProducts);
-  const product_categories = products.flatMap(product => product.categories).filter((categorie, index, array) => array.indexOf(categorie) === index);
+  const product_categories = products
+    .flatMap(product => product.categories)
+    .filter((categorie, index, array) => array.indexOf(categorie) === index);
   return (
     <>
       <IntakeBar>
@@ -29,11 +31,14 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
-        {product_categories.map((item) => {
-          const filterList = products.filter(el => el.categories.includes(item))
-          return <CustomizedList key={item} categorie={item} list={filterList} />
-          })
-        }
+        {product_categories.map(item => {
+          const filterList = products.filter(el =>
+            el.categories.includes(item)
+          );
+          return (
+            <CustomizedList key={item} categorie={item} list={filterList} />
+          );
+        })}
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>Start losing weight</LinkButton>
@@ -50,6 +55,6 @@ DailyCalorieIntake.propTypes = {
     height: number.isRequired,
     age: number.isRequired,
     currentWeight: number.isRequired,
-    desiredWeight: number.isRequired
+    desiredWeight: number.isRequired,
   }),
 };

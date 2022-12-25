@@ -22,17 +22,16 @@ import {
 import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
 
 export const DailyCaloriesForm = ({ isModal = false }) => {
-
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
   const user = useSelector(selectUserParams);
   const initialValues = {
-      height: user?.height || '',
-      age: user?.age || '',
-      currentWeight: user?.currentWeight || '',
-      desiredWeight: user?.desiredWeight || '',
-      bloodType: user?.bloodType || 1,
-  }
+    height: user?.height || '',
+    age: user?.age || '',
+    currentWeight: user?.currentWeight || '',
+    desiredWeight: user?.desiredWeight || '',
+    bloodType: user?.bloodType || 1,
+  };
   const [isOpen, setOpen] = useState(false);
   const [params, setParams] = useState(initialValues);
   const handleClose = () => setOpen(false);
