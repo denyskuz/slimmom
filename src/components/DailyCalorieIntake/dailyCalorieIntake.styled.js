@@ -62,7 +62,7 @@ export const ListWrapper = styled.div`
 `;
 
 export const ListTitle = styled.h3`
-margin-top: 20px;
+  margin-top: 20px;
   margin-bottom: 20px;
   font-family: 'Verdana';
   font-style: normal;

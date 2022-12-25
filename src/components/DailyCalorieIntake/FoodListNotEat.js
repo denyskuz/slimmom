@@ -21,7 +21,12 @@ export const CustomizedList = ({ number, categorie, list }) => {
         }}
       >
         <ListText
-          primary={number + '.  ' + categorie.charAt(0).toUpperCase() + categorie.slice(1)}
+          primary={
+            number +
+            '.  ' +
+            categorie.charAt(0).toUpperCase() +
+            categorie.slice(1)
+          }
           sx={{ my: 0 }}
         />
         <KeyboardArrowDown
@@ -47,9 +52,7 @@ export const CustomizedList = ({ number, categorie, list }) => {
         {open &&
           list.map(item => (
             <li key={item.title.ru}>
-              <ProductListText
-                primary={'-  ' + item.title.ru}
-              />
+              <ProductListText primary={'-  ' + item.title.ru} />
             </li>
           ))}
       </List>

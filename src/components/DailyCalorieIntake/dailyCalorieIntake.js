@@ -37,7 +37,12 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
             el.categories.includes(item)
           );
           return (
-            <CustomizedList key={item} number={number} categorie={item} list={filterList} />
+            <CustomizedList
+              key={item}
+              number={number}
+              categorie={item}
+              list={filterList}
+            />
           );
         })}
       </ListWrapper>
