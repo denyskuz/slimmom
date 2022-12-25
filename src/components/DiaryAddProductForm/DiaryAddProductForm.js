@@ -1,7 +1,6 @@
-import * as React from 'react';
-import { Modal } from '@mui/material';
-
 import { useFormik } from 'formik';
+// addDiaryListItem import
+
 import {
   FormWrapper,
   Form,
@@ -10,15 +9,11 @@ import {
   Button,
 } from './DiaryAddProductForm.styled';
 
-export const DiaryAddProductForm = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+export const DiaryAddProductForm = ({ img, openModal }) => {
   const formik = useFormik({
     initialValues: {
       product: '',
-      weights: '',
+      weigth: '',
     },
     onSubmit: values => {
       console.log(values);
@@ -38,21 +33,19 @@ export const DiaryAddProductForm = () => {
             value={formik.values.product}
           />
         </Label>
-
-        <Label htmlFor="weights">
+        <Label>
           Grams
           <Input
-            id="weights"
-            name="weights"
+            id="weigth"
+            name="weigth"
             type="number"
             onChange={formik.handleChange}
-            value={formik.values.weights}
+            value={formik.values.weigth}
           />
         </Label>
-
-        <Button type="submit" onClick={handleOpen}>
-          Add
-        </Button>
+        <Button type="submit">
+          {img !== 'Add' ? <img src={img} alt="add product" /> : 'Add'}
+        </Button>{' '}
       </Form>
     </FormWrapper>
   );
