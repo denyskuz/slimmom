@@ -1,11 +1,12 @@
 import * as React from 'react';
+import { number, arrayOf, object, string } from 'prop-types';
 import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import List from '@mui/material/List';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import { ListText, ProductListText } from './FoodListNotEat.styled';
 
-export const CustomizedList = ({ categorie, list }) => {
+export const CustomizedList = ({ number, categorie, list }) => {
   const [open, setOpen] = React.useState(false);
   return (
     <Box>
@@ -19,21 +20,8 @@ export const CustomizedList = ({ categorie, list }) => {
           '&:hover, &:focus': { '& svg': { opacity: open ? 1 : 0 } },
         }}
       >
-        <ListItemText
-          primary={categorie.charAt(0).toUpperCase() + categorie.slice(1)}
-          primaryTypographyProps={{
-            fontSize: 15,
-            fontWeight: 'medium',
-            lineHeight: '20px',
-            mb: '2px',
-          }}
-          secondary="Authentication, Firestore Database, Realtime Database, Storage, Hosting, Functions, and Machine Learning"
-          secondaryTypographyProps={{
-            noWrap: true,
-            fontSize: 12,
-            lineHeight: '16px',
-            color: open ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,0)',
-          }}
+        <ListText
+          primary={number + '.  ' + categorie.charAt(0).toUpperCase() + categorie.slice(1)}
           sx={{ my: 0 }}
         />
         <KeyboardArrowDown
@@ -48,7 +36,6 @@ export const CustomizedList = ({ categorie, list }) => {
       <List
         sx={{
           width: '100%',
-          maxWidth: 360,
           bgcolor: 'background.paper',
           position: 'relative',
           overflow: 'auto',
@@ -60,16 +47,18 @@ export const CustomizedList = ({ categorie, list }) => {
         {open &&
           list.map(item => (
             <li key={item.title.ru}>
-              <ListItemText
-                primary={item.title.ru}
-                primaryTypographyProps={{
-                  fontSize: 14,
-                  fontWeight: 'medium',
-                }}
+              <ProductListText
+                primary={'-  ' + item.title.ru}
               />
             </li>
           ))}
       </List>
     </Box>
   );
+};
+
+CustomizedList.propTypes = {
+  number: number.isRequired,
+  categorie: string.isRequired,
+  list: arrayOf(object.isRequired),
 };

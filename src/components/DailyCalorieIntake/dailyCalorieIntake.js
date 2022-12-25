@@ -1,4 +1,4 @@
-import { func, number, shape } from 'prop-types';
+import { func, string, shape } from 'prop-types';
 import { LinkButton } from 'components/Button/Button';
 import {
   IntakeBar,
@@ -32,11 +32,12 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       <ListWrapper>
         <ListTitle>Foods you should not eat</ListTitle>
         {product_categories.map(item => {
+          const number = product_categories.indexOf(item) + 1;
           const filterList = products.filter(el =>
             el.categories.includes(item)
           );
           return (
-            <CustomizedList key={item} categorie={item} list={filterList} />
+            <CustomizedList key={item} number={number} categorie={item} list={filterList} />
           );
         })}
       </ListWrapper>
@@ -52,9 +53,9 @@ export default DailyCalorieIntake;
 DailyCalorieIntake.propTypes = {
   closeModal: func.isRequired,
   params: shape({
-    height: number.isRequired,
-    age: number.isRequired,
-    currentWeight: number.isRequired,
-    desiredWeight: number.isRequired,
+    height: string.isRequired,
+    age: string.isRequired,
+    currentWeight: string.isRequired,
+    desiredWeight: string.isRequired,
   }),
 };
