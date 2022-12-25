@@ -1,11 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout, setUserParams } from './operations';
+import {
+  register,
+  login,
+  logout,
+  setUserParams,
+  refreshUser,
+} from './operations';
 
 const initialState = {
   user: {
     name: '',
     email: '',
-    password: '',
   },
   userParams: {
     age: 0,
@@ -16,6 +21,7 @@ const initialState = {
   },
   token: null,
   isLoggedIn: false,
+  isRefreshing: false,
 };
 
 const authSlice = createSlice({
@@ -26,12 +32,12 @@ const authSlice = createSlice({
       state.userParams = action.payload;
     },
     [register.fulfilled](state, action) {
-      state.user = action.meta.arg;
+      state.user = action.payload.data.user;
       state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
     },
     [login.fulfilled](state, action) {
-      state.user = { name: action.payload.data.user.name, ...action.meta.arg };
+      state.user = action.payload.data.user;
       state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
     },
@@ -40,6 +46,19 @@ const authSlice = createSlice({
       state.userParams = initialState.userParams;
       state.token = null;
       state.isLoggedIn = false;
+    },
+    [refreshUser.pending](state) {
+      state.isRefreshing = true;
+    },
+    [refreshUser.fulfilled](state, action) {
+      const { email, name, ...userParams } = action.payload.data.user;
+      state.user = { email, name };
+      state.userParams = userParams;
+      state.isLoggedIn = true;
+      state.isRefreshing = false;
+    },
+    [refreshUser.rejected](state) {
+      state.isRefreshing = false;
     },
   },
 });

@@ -5,14 +5,12 @@ import Container from 'components/Container';
 
 export default function LoginPage() {
   return (
-    <>
+    <Container>
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <Container>
-        <Title>Log in</Title>
-        <LoginForm />
-      </Container>
-    </>
+      <Title>Log in</Title>
+      <LoginForm />
+    </Container>
   );
 }

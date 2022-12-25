@@ -5,16 +5,14 @@ import Container from 'components/Container';
 
 export default function RegistrationPage() {
   return (
-    <>
+    <Wrapper>
       <Helmet>
         <title>Register</title>
       </Helmet>
-      <Wrapper>
-        <Container>
-          <Title>Register</Title>
-          <RegisterForm />
-        </Container>
-      </Wrapper>
-    </>
+      <Container>
+        <Title>Register</Title>
+        <RegisterForm />
+      </Container>
+    </Wrapper>
   );
 }
