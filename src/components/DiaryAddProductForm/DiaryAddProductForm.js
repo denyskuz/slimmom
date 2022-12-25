@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import {
   FormWrapper,
   Form,
-  Label, 
+  Label,
   Input,
   Button,
 } from './DiaryAddProductForm.styled';
@@ -14,8 +14,8 @@ export const DiaryAddProductForm = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-    
-    const formik = useFormik({
+
+  const formik = useFormik({
     initialValues: {
       product: '',
       weights: '',
@@ -26,7 +26,7 @@ export const DiaryAddProductForm = () => {
   });
 
   return (
- <FormWrapper>
+    <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
         <Label>
           Enter product name
@@ -49,7 +49,7 @@ export const DiaryAddProductForm = () => {
             value={formik.values.weights}
           />
         </Label>
-        
+
         <Button type="submit" onClick={handleOpen}>
           Add
         </Button>

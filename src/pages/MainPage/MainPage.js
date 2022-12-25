@@ -9,7 +9,7 @@ export default function MainPage() {
       <Wrapper>
         <Container>
           <DailyCaloriesForm />
-          <DiaryAddProductForm/>
+          <DiaryAddProductForm />
         </Container>
       </Wrapper>
     </main>
