@@ -71,9 +71,9 @@ export const CustomizedList = ({ number, categorie, list }) => {
         >
           {open &&
             list.map(item => (
-                <MenuItem onClick={handleClose} key={item.title.ru}>
-                  <ProductListText primary={'-  ' + item.title.ru} />
-                </MenuItem>
+              <MenuItem onClick={handleClose} key={item.title.ru}>
+                <ProductListText primary={'-  ' + item.title.ru} />
+              </MenuItem>
             ))}
         </Menu>
       </List>
