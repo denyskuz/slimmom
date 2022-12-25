@@ -10,7 +10,9 @@ export const ImageContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
     background: ${props =>
-      props.visible ? `linear-gradient(to left, #F0F1F3 , #fff)` : 'transparent'};
+      props.visible
+        ? `linear-gradient(to left, #F0F1F3 , #fff)`
+        : 'transparent'};
   }
   z-index: 1;
 `;
@@ -99,7 +101,6 @@ export const LeafsAuthImg = styled.img`
   }
   z-index: -1;
 `;
-
 
 export const VectorImg = styled.img`
   @media screen and (max-width: 767px) {

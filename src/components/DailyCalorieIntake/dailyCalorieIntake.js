@@ -17,7 +17,6 @@ import { calculateCalories } from 'utils';
 const DailyCalorieIntake = ({ closeModal, params }) => {
   // const products = useSelector(selectBadProducts);
 
-
   return (
     <>
       <IntakeBar>
@@ -45,6 +44,6 @@ DailyCalorieIntake.propTypes = {
     height: number.isRequired,
     age: number.isRequired,
     currentWeight: number.isRequired,
-    desiredWeight: number.isRequired
+    desiredWeight: number.isRequired,
   }),
 };

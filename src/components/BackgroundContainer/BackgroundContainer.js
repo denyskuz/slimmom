@@ -14,31 +14,31 @@ import { useAuth } from 'hooks/useAuth';
 import { useLocation } from 'react-router-dom';
 import { useResizeDetector } from 'react-resize-detector';
 import {
-    ImageContainer,
-    VectorImg,
-    BananaImg,
-    StrawberryImg,
-    StrawberryAuthImg,
-    LeafsImg,
-    LeafsAuthImg,
-    LeafsSide,
-    LeafsFoot,
+  ImageContainer,
+  VectorImg,
+  BananaImg,
+  StrawberryImg,
+  StrawberryAuthImg,
+  LeafsImg,
+  LeafsAuthImg,
+  LeafsSide,
+  LeafsFoot,
 } from './BackgroundContainer.styled';
 
 const BackgroundContainer = ({ children }) => {
-    const { isLoggedIn } = useAuth();
-    const { width, ref } = useResizeDetector();
-    const desktop = width >= 1280;
+  const { isLoggedIn } = useAuth();
+  const { width, ref } = useResizeDetector();
+  const desktop = width >= 1280;
 
-    const { pathname } = useLocation();
-    const isMainPage = pathname === '/';
-    
-    const banana = desktop ? bananaDesk : bananaTab;
-    const strawberry = desktop ? strawberryDesk : strawberryTab;
-    const leafs = desktop ? leafsDesk : leafsTab;
-    const vector = desktop ? vectorDesk : vectorTab;
-    const strawberryAuth = desktop ? strawberryDesk : strawberryTabForm;
-    const leafsAuth = desktop ? leafsDesk : leafsTabForm;
+  const { pathname } = useLocation();
+  const isMainPage = pathname === '/';
+
+  const banana = desktop ? bananaDesk : bananaTab;
+  const strawberry = desktop ? strawberryDesk : strawberryTab;
+  const leafs = desktop ? leafsDesk : leafsTab;
+  const vector = desktop ? vectorDesk : vectorTab;
+  const strawberryAuth = desktop ? strawberryDesk : strawberryTabForm;
+  const leafsAuth = desktop ? leafsDesk : leafsTabForm;
 
     return (
         <ImageContainer ref={ref} visible={isLoggedIn}>
@@ -53,8 +53,7 @@ const BackgroundContainer = ({ children }) => {
                     <BananaImg
                         src={banana}
                         alt='banana'
-                        visibleImg={!isLoggedIn}
-                    />
+                        visibleImg={!isLoggedIn} />
 
                     <StrawberryImg
                         src={strawberry}
@@ -65,8 +64,7 @@ const BackgroundContainer = ({ children }) => {
                     <LeafsImg
                         src={leafs}
                         alt='leafs'
-                        visibleImg={!isLoggedIn}
-                    />
+                        visibleImg={!isLoggedIn} />
 
                     <LeafsSide
                         src={leafsDeskSideBar}
@@ -92,16 +90,15 @@ const BackgroundContainer = ({ children }) => {
                     <BananaImg
                         src={banana}
                         alt='banana'
-                        visibleImg={!isLoggedIn}
-                    />
-                        
+                        visibleImg={!isLoggedIn} />
+
                     <StrawberryAuthImg
                         src={strawberryAuth}
                         alt='strawberry'
                         visibleImg={!isLoggedIn}
                         auth={!isMainPage}
                     />
-                        
+
                     <LeafsAuthImg
                         src={leafsAuth}
                         alt='leafs'

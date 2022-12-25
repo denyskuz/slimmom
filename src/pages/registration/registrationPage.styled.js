@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   height: 100%;
   padding-top: 150px;
   padding-bottom: 179px;
-
 `;
 
 export const Title = styled.h1`
