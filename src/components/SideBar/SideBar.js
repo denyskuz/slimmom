@@ -1,22 +1,21 @@
-import { Typography, Box } from '@mui/material';
-import { SideBarContainer } from './SideBarContainer';
+import { Box } from '@mui/material';
+import {
+  SideBarContainer,
+  BadFoodContainer,
+  SummaryTitle,
+} from './SideBar.styled';
 import { BadFoodList } from './BadFoodList';
 import { SummaryList } from './SummaryList';
-import { BadFoodContainer } from './BadFoodContainer';
 
 export const SideBar = () => {
   return (
     <SideBarContainer>
       <Box>
-        <Typography variant="title3" component="h3">
-          Summary for {new Date().toDateString()}
-        </Typography>
+        <SummaryTitle>Summary for {new Date().toDateString()}</SummaryTitle>
         <SummaryList />
       </Box>
       <BadFoodContainer>
-        <Typography variant="title3" component="h3">
-          Food not recommended
-        </Typography>
+        <SummaryTitle>Food not recommended</SummaryTitle>
         <BadFoodList />
       </BadFoodContainer>
     </SideBarContainer>

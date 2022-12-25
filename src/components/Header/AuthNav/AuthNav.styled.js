@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Link = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: Gotham Pro;
+  font-family: GothamPro-Bold;
   font-size: ${prop => prop.theme.fontSizes.xs};
   font-weight: ${prop => prop.theme.fontWeights.bold};
   line-height: 0.93;

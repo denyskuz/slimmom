@@ -1,17 +1,12 @@
 import { List, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { selectCalories } from 'redux/products/selectors';
-import { SummaryListItem } from './SummaryListItem';
+import { selectCalories } from 'redux/services/selectors';
+import { SummaryListItem } from './SideBar.styled';
 
 export const SummaryList = () => {
   const dailyCalories = useSelector(selectCalories);
   return (
-    <List
-      sx={theme => ({
-        ...theme.summaryListMargin,
-      })}
-      component="ol"
-    >
+    <List component="ol">
       <SummaryListItem disablePadding>
         <Typography>Left</Typography>
         <Typography>000 kcal</Typography>

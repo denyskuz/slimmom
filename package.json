@@ -2,10 +2,20 @@
   "name": "slim-mom-front-end",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:js": "eslint src/**/*.{js,jsx}",
+    "prettier-format": "prettier --config .prettierrc --write  **/*.{js,jsx}",
+    "prepare": "husky install"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@hookform/resolvers": "^2.9.10",
+    "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
     "@reduxjs/toolkit": "1.8.5",
     "axios": "0.27.2",
@@ -14,12 +24,14 @@
     "modern-normalize": "1.1.0",
     "moment": "^2.29.4",
     "react": "18.2.0",
+    "react-animations": "^1.0.0",
     "react-datetime": "^3.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
-    "react-hot-toast": "2.4.0",
-    "react-icons": "4.4.0",
+    "react-helmet-async": "^1.3.0",
+    "react-icons": "^4.4.0",
     "react-redux": "8.0.4",
+    "react-responsive": "^9.0.2",
     "react-router-dom": "6.4.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
@@ -28,15 +40,6 @@
     "styled-components": "^5.3.6",
     "styled-system": "^5.1.5",
     "yup": "^0.32.11"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}",
-    "prettier-format": "prettier --config .prettierrc --write src/**/*.{js,jsx}",
-    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
