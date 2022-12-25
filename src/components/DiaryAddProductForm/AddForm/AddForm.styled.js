@@ -41,6 +41,9 @@ export const GramsInput = styled(TextField)`
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   margin-right: 87px;
+  :placeholder {
+    text-align: right;
+  }
 
   @media (min-width: 1200px) {
     margin-right: 60px;
