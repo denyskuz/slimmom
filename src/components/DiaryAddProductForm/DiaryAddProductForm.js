@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-// addDiaryListItem import
+import { addProducts } from 'redux/products/actions';
 
 import {
   FormWrapper,
@@ -8,6 +8,7 @@ import {
   Input,
   Button,
 } from './DiaryAddProductForm.styled';
+
 
 export const DiaryAddProductForm = ({ img, openModal }) => {
   const formik = useFormik({

@@ -22,3 +22,15 @@ export const getProducts = createAsyncThunk(
     }
   }
 );
+
+export const addProducts = createAsyncThunk(
+  'products/addItem',
+  async (product, { rejectWithValue }) => {
+    try {
+      const result = await axios.post(`/diary/${product.date}`, { ...product });
+      return result.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
