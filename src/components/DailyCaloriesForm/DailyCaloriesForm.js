@@ -27,10 +27,10 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
   const loading = useSelector(selectLoadStatus);
   const user = useSelector(selectUserParams);
   const initialValues = {
-      height: user?.height || 0,
-      age: user?.age || 0,
-      currentWeight: user?.currentWeight || 0,
-      desiredWeight: user?.desiredWeight || 0,
+      height: user?.height || '',
+      age: user?.age || '',
+      currentWeight: user?.currentWeight || '',
+      desiredWeight: user?.desiredWeight || '',
       bloodType: user?.bloodType || 1,
   }
   const [isOpen, setOpen] = useState(false);
@@ -157,7 +157,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
         <Button disabled={loading} variant="contained" type="submit">
           Start losing weight
         </Button>
-        
+
         <Modal
           open={isModal && isOpen}
           onClose={handleClose}
@@ -168,7 +168,6 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
             <DailyCalorieIntake closeModal={handleClose} params={params} />
           </StyledModalBox>
         </Modal>
-      
       </Form>
     </FormWrapper>
   );
