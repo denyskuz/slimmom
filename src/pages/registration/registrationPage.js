@@ -11,12 +11,10 @@ export default function RegistrationPage() {
       <Helmet>
         <title>{t('Register')}</title>
       </Helmet>
-      <Wrapper>
-        <Container>
-          <Title>{t('Register')}</Title>
-          <RegisterForm />
-        </Container>
-      </Wrapper>
-    </>
+      <Container>
+        <Title>{t('Register')}</Title>
+        <RegisterForm />
+      </Container>
+    </Wrapper>
   );
 }

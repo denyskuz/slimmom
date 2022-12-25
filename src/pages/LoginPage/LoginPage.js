@@ -11,10 +11,8 @@ export default function LoginPage() {
       <Helmet>
         <title>{t('Login')}</title>
       </Helmet>
-      <Container>
-        <Title>{t('Login1')}</Title>
-        <LoginForm />
-      </Container>
-    </>
+      <Title>{t('Login1')}</Title>
+      <LoginForm />
+    </Container>
   );
 }

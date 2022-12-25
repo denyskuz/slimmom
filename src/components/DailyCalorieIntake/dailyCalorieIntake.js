@@ -31,7 +31,9 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </IntakeBar>
       <TitleWrapper>
         <IntakeTitle>{t('Daily_calorie')}</IntakeTitle>
-        <IntakeResult>{calculateCalories(params)} {t('kcal')}</IntakeResult>
+        <IntakeResult>
+          {calculateCalories(params)} {t('kcal')}
+        </IntakeResult>
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>{t('Food_list')}</ListTitle>

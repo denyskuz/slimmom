@@ -15,9 +15,7 @@ export const BadFoodList = () => {
     </SummaryListItem>
   );
   if (!products.length) {
-    return (
-      <BadFoodPlaceholder>{t('Diet_display')}</BadFoodPlaceholder>
-    );
+    return <BadFoodPlaceholder>{t('Diet_display')}</BadFoodPlaceholder>;
   }
   return (
     <SummaryListContainer>
