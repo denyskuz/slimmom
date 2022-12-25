@@ -1,4 +1,3 @@
-
 export default function DiaryPage() {
   return (
     <main>
