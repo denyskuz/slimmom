@@ -41,3 +41,25 @@ export const ButtonContainer = styled.div`
   align-self: baseline;
   padding-top: 8px;
 `;
+
+export const Lang = styled.ul`
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  
+	  position: relative;
+	  left: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  
+
+
+
+  }
+`;
+
+export const LangItem = styled.option``;
