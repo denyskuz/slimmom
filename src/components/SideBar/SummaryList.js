@@ -1,7 +1,7 @@
 import { List, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectCalories } from 'redux/services/selectors';
-import { SummaryListItem } from './SideBar.stiled';
+import { SummaryListItem } from './SideBar.styled';
 import { useTranslation } from 'react-i18next';
 
 export const SummaryList = () => {

@@ -34,4 +34,5 @@ export const TRANSLATIONS_UK = {
   Password: 'Пароль*',
   kcal: 'ккал',
   Email: 'Ел адреса',
+  DiaryPage: 'Ваш щоденник',
 };
