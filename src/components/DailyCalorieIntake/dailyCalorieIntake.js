@@ -11,11 +11,11 @@ import {
   ButtonStart,
 } from './dailyCalorieIntake.styled';
 import { calculateCalories } from 'utils';
-import { useSelector } from 'react-redux';
-import { selectBadProducts } from 'redux/services/selectors';
+// import { useSelector } from 'react-redux';
+// import { selectBadProducts } from 'redux/services/selectors';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
-  const products = useSelector(selectBadProducts);
+  // const products = useSelector(selectBadProducts);
 
 
   return (
