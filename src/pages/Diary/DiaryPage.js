@@ -21,6 +21,7 @@ export default function CalculatorPage() {
       <BlockContainer>
         <DiaryDateCalendar />
         <DiaryAddProductForm />
+        <DiaryProductsListItem />
       </BlockContainer>
       <SideBar />
     </Container>
