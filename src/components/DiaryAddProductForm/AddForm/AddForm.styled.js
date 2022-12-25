@@ -15,6 +15,32 @@ export const Form = styled.form`
 export const Complete = styled(Autocomplete)`
   margin-right: 22px;
   width: 240px;
+
+  & .MuiInputLabel-outlined:not(.MuiInputLabel-shrink) {
+    // Default transform is "translate(14px, 20px) scale(1)""
+    // This lines up the label with the initial cursor position in the input
+    // after changing its padding-left.
+    transform: 'translate(34px, 20px) scale(1);';
+  }
+  &.Mui-focused .MuiInputLabel-outlined {
+    color: 'purple';
+  }
+  & .MuiAutocomplete-inputRoot {
+    color: 'purple';
+
+    & .MuiOutlinedInput-notchedOutline {
+      height: 53px;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid orange;
+    }
+    &:hover .MuiOutlinedInput-notchedOutline {
+      border-color: orange;
+    }
+    &.Mui-focused .MuiOutlinedInput-notchedOutline {
+      border-color: orange;
+    }
+  }
 `;
 
 export const ProductInput = styled(TextField)`
