@@ -3,7 +3,7 @@ import {
   SideBarContainer,
   BadFoodContainer,
   SummaryTitle,
-} from './SideBar.stiled';
+} from './SideBar.styled';
 import { BadFoodList } from './BadFoodList';
 import { SummaryList } from './SummaryList';
 import { useTranslation } from 'react-i18next';

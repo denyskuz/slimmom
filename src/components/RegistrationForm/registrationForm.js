@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import {
   ButtonPrimary,
   ButtonSecondary,
@@ -9,17 +8,14 @@ import {
 import { register } from 'redux/services/operations';
 import { Form, ButtonBox, Input } from './registrationForm.styled';
 import { useTranslation } from 'react-i18next';
+import { userRegisterSchema } from 'validation';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: { name: '', email: '', password: '' },
-    validationSchema: Yup.object().shape({
-      name: Yup.string().required(),
-      email: Yup.string().email().required(),
-      password: Yup.string().min(6).max(16).required(),
-    }),
+    validationSchema: userRegisterSchema,
     onSubmit: (values, { resetForm }) => {
       dispatch(register(values));
       resetForm();
@@ -46,6 +42,7 @@ const RegisterForm = () => {
         variant="standard"
         type="email"
         onChange={formik.handleChange}
+        placeholder="example@gmail.com"
         value={formik.values.email}
         error={formik.touched.email && formik.errors.email}
         helperText={

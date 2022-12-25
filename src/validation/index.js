@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const userParamsShema = Yup.object({
+export const userParamsSchema = Yup.object({
   height: Yup.number()
     .positive()
     .typeError('Height must be a number')
@@ -30,4 +30,29 @@ export const userParamsShema = Yup.object({
     .max(300, 'Too much...')
     .required('Enter desired weight'),
   bloodType: Yup.string().required('Choose your blood type'),
+});
+
+export const userRegisterSchema = Yup.object({
+  name: Yup.string().required('Enter your name'),
+  email: Yup.string()
+    .typeError('Email must be valid')
+    .email()
+    .required('Enter email'),
+  password: Yup.string()
+    .typeError('Must be between 6 and 16 characters')
+    .min(6, 'Too little...')
+    .max(16, 'Too much...')
+    .required('Enter password'),
+});
+
+export const userLoginSchema = Yup.object({
+  email: Yup.string()
+    .typeError('Email must be valid')
+    .email()
+    .required('Enter email'),
+  password: Yup.string()
+    .typeError('Must be between 6 and 16 characters')
+    .min(6, 'Too little...')
+    .max(16, 'Too much...')
+    .required('Enter password'),
 });

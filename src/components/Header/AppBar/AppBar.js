@@ -14,12 +14,10 @@ import {
   UserMenuWrapperDesk,
   UserMenuWrapper,
 } from './AppBar.styled';
-import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from 'redux/services/selectors';
+import { useAuth } from 'hooks/useAuth';
 
 const AppBar = () => {
-  const isLoggedIn = useSelector(getIsLoggedIn);
-
+  const { isLoggedIn } = useAuth();
   return (
     <Header>
       <NavHeader>

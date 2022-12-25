@@ -6,11 +6,7 @@ export const getUserEmail = state => state.auth.user.email;
 export const getToken = state => state.auth.token;
 export const getUserData = state => state.auth.user;
 export const selectUserParams = state => state.auth.userParams;
-
-export const selectBadProducts = state => state.products.bad;
-export const selectCalories = state => state.products.calories;
-export const selectLoadStatus = state => state.products.loading;
-export const selectLoadError = state => state.products.error;
+export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const getGlobalUserData = createSelector(
   [getUserData, selectUserParams],
@@ -18,3 +14,8 @@ export const getGlobalUserData = createSelector(
     return { ...user, ...params };
   }
 );
+
+export const selectBadProducts = state => state.products.bad;
+export const selectCalories = state => state.products.calories;
+export const selectLoadStatus = state => state.products.loading;
+export const selectLoadError = state => state.products.error;

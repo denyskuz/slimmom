@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 export default function RegistrationPage() {
   const { t } = useTranslation();
   return (
-    <>
+    <Wrapper>
       <Helmet>
         <title>{t('Register')}</title>
       </Helmet>
