@@ -12,10 +12,7 @@ export const Form = styled.form`
   color: #9b9faa;
   @media screen and (min-width: 768px) {
     max-width: 380px;
-    margin-left: 32px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-left: 16px;
+    margin: 0;
   }
 `;
 

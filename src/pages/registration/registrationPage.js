@@ -1,6 +1,6 @@
-import RegisterForm from 'components/RegistrationForm/registrationForm';
+import RegisterForm from 'components/RegistrationForm/RegistrationForm';
 import { Helmet } from 'react-helmet-async';
-import { Title, Wrapper } from './registrationPage.styled';
+import { Title, Wrapper } from './RegistrationPage.styled';
 import Container from 'components/Container';
 
 export default function RegistrationPage() {
