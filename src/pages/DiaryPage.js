@@ -1,4 +1,3 @@
-import { DiaryAddProductForm } from '../components/DiaryAddProductForm/DiaryAddProductForm';
 
 export default function DiaryPage() {
   return (
