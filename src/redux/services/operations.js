@@ -55,7 +55,6 @@ export const login = createAsyncThunk(
   }
 );
 
-
 export const getProducts = createAsyncThunk(
   '/api/products',
   async (userParams, thunkAPI) => {
@@ -66,7 +65,7 @@ export const getProducts = createAsyncThunk(
         return thunkAPI.rejectWithValue(status);
       }
       data.message && toast.success(data.message);
-      return data;      
+      return data;
     } catch (err) {
       toast.error(err.response.data.message);
       return thunkAPI.rejectWithValue(err.response.data);
