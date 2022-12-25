@@ -26,6 +26,7 @@ export const CloseButton = styled(Button)`
 
 export const TitleWrapper = styled.div`
   text-align: left;
+  padding-top: 40px;
   width: 280px;
   margin: auto;
 `;
@@ -61,6 +62,8 @@ export const ListWrapper = styled.div`
 `;
 
 export const ListTitle = styled.h3`
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
