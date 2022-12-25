@@ -33,8 +33,7 @@ export const userParamsSchema = Yup.object({
 });
 
 export const userRegisterSchema = Yup.object({
-  name: Yup.string()
-    .required('Enter your name'),
+  name: Yup.string().required('Enter your name'),
   email: Yup.string()
     .typeError('Email must be valid')
     .email()
