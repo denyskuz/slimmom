@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { number, arrayOf, object, string } from 'prop-types';
+import { number, arrayOf, objectOf, shape, string, bool } from 'prop-types';
 import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
 import List from '@mui/material/List';
@@ -59,7 +59,6 @@ export const CustomizedList = ({ number, categorie, list }) => {
           maxHeight: 200,
           '& ul': { padding: 0 },
         }}
-        subheader={<li />}
       >
         <Menu
           id="basic-menu"
@@ -72,11 +71,9 @@ export const CustomizedList = ({ number, categorie, list }) => {
         >
           {open &&
             list.map(item => (
-              <li key={item.title.ru}>
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={handleClose} key={item.title.ru}>
                   <ProductListText primary={'-  ' + item.title.ru} />
                 </MenuItem>
-              </li>
             ))}
         </Menu>
       </List>
@@ -87,5 +84,14 @@ export const CustomizedList = ({ number, categorie, list }) => {
 CustomizedList.propTypes = {
   number: number.isRequired,
   categorie: string.isRequired,
-  list: arrayOf(object.isRequired),
+  list: arrayOf(
+    shape({
+      categories: arrayOf(string.isRequired),
+      groupBloodNotAllowed: arrayOf(bool),
+      title: objectOf(string.isRequired),
+      weight: number,
+      __v: number,
+      _id: string,
+    })
+  ),
 };
