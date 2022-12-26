@@ -1,15 +1,16 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-// import AppBar from '../Header/AppBar';
+import AppBar from '../Header/AppBar';
+import BackgroundContainer from 'components/BackgroundContainer';
 
 const Layout = () => {
   return (
-    <>
-      {/* <AppBar /> */}
+    <BackgroundContainer>
+      <AppBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-    </>
+    </BackgroundContainer>
   );
 };
 

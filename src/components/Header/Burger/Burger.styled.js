@@ -47,7 +47,7 @@ export const BurgerMenu = styled.nav`
   padding-top: ${prop => prop.theme.spaceForm[3]}px;
   display: flex;
   flex-flow: column;
-  width: 100vw;
+  width: 100%;
   height: 105%;
   overflow-y: auto;
   background-color: ${prop => prop.theme.colors.bcgBurger};
