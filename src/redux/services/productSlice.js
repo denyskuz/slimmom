@@ -24,7 +24,7 @@ const productsSlice = createSlice({
     );
 
     builder.addCase(getDailyProducts.fulfilled, (state, action) => {
-      state.daily = action.payload;
+      state.daily = action.payload.notes;
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
       state.calories = action.payload.kCal;
