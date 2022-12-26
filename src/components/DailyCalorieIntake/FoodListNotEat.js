@@ -13,7 +13,7 @@ import { getProducts } from 'redux/services/operations';
 
 export const CustomizedList = ({ number, category }) => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUserParams)
+  const user = useSelector(selectUserParams);
   const allList = useSelector(selectBadProducts);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
@@ -21,7 +21,7 @@ export const CustomizedList = ({ number, category }) => {
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
-    dispatch(getProducts({ category: category, userParams: user}));
+    dispatch(getProducts({ category: category, userParams: user }));
     setOpen(!open);
   };
   const handleClose = () => {
