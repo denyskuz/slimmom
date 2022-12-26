@@ -20,7 +20,7 @@ export const CustomizedList = ({ number, categorie }) => {
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
-    dispatch(getProductsByCategories({categorie: categorie}))
+    dispatch(getProductsByCategories({ categorie: categorie }));
     setOpen(!open);
   };
   const handleClose = () => {
