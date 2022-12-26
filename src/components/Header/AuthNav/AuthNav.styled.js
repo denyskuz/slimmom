@@ -42,7 +42,6 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Lang = styled.ul`
-
   display: flex;
   flex-direction: column;
   align-items: center;

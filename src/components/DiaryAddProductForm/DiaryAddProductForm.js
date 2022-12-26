@@ -4,7 +4,7 @@ import { HiPlus } from 'react-icons/hi';
 import AddForm from './AddForm/AddForm';
 import DiaryModal from './DiaryModal/DiaryModal';
 import { useMediaQuery } from 'react-responsive';
-import { Wrapper } from './DiaryAddProductForm.styled';
+import { FormWrapper } from './DiaryAddProductForm.styled';
 
 const DiaryAddProductForm = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
@@ -16,12 +16,12 @@ const DiaryAddProductForm = () => {
   return (
     <div>
       {isMobile ? (
-        <Wrapper>
+        <FormWrapper>
           <AddProductBtn type="button" onClick={onModal}>
             <HiPlus />
           </AddProductBtn>
           {modal && <DiaryModal />}
-        </Wrapper>
+        </FormWrapper>
       ) : (
         <AddForm />
       )}

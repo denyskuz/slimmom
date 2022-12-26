@@ -142,7 +142,8 @@ export const getAllDiaryProduct = createAsyncThunk(
 );
 export const addDiaryProduct = createAsyncThunk(
   'addDiaryProduct',
-  async ({ product, weight, date }, thunkAPI) => {
+  async (data, thunkAPI) => {
+    const { product, weight, date } = data;
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
     if (persistedToken === null) {

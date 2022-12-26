@@ -1,13 +1,11 @@
 import { HiPlus } from 'react-icons/hi';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
+import { useTranslation } from 'react-i18next';
 import { AddProductBtn } from 'components/Button/Button';
 import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryProduct, getNameProducts } from 'redux/services/operations';
-// import { data } from 'globalstore/dataTemp';
-// import { Autocomplete, TextField } from '@mui/material';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { getProductTitle } from 'redux/services/selectors';
@@ -17,11 +15,10 @@ const AddForm = () => {
   const date = new Date().toISOString();
   const [productName, setProductName] = useState(null);
   const [product, setProduct] = useState('');
-  const data = useSelector(getProductTitle);
+  const dataTitle = useSelector(getProductTitle);
   const formik = useFormik({
     initialValues: { weight: '' },
     validationSchema: Yup.object().shape({
-      // product: Yup.string().required(),
       weight: Yup.number().min(2).required(),
     }),
     onSubmit: ({ weight }, { resetForm }) => {
@@ -29,7 +26,7 @@ const AddForm = () => {
         toast('You need add product');
         return;
       }
-      const data = { productName, product, weight, date };
+      const data = { dataTitle, productName, product, weight, date };
       setProduct(' ');
       setProductName(' ');
       dispatch(addDiaryProduct(data));
@@ -38,14 +35,10 @@ const AddForm = () => {
   });
 
   const handleChange = (e, value) => {
-    console.log('EVENT===>', e);
-    console.log('VALUE===>', value);
-
     setProduct(value.id);
     setProductName(value.label);
   };
-  const nameProd = data.map(e => {
-    // console.log(e.title.ua);
+  const nameProd = dataTitle.map(e => {
     return {
       label: e.title.ua,
       id: e._id,
