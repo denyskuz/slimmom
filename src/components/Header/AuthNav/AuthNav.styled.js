@@ -17,7 +17,8 @@ export const Link = styled(NavLink)`
     margin-left: ${prop => prop.theme.space[4]}px;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: ${prop => prop.theme.colors.accent};
   }
 
@@ -25,12 +26,12 @@ export const Link = styled(NavLink)`
     color: ${prop => prop.theme.colors.primary};
   }
 
-    @media screen and (max-width: 349.5px) {
+  @media screen and (max-width: 349.5px) {
     font-size: 12px;
-    
+
     &:last-child {
-    margin-left: 10px;
-  }
+      margin-left: 10px;
+    }
   }
 `;
 
