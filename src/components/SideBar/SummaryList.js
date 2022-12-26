@@ -56,10 +56,8 @@ export const SummaryList = () => {
         </Typography>
       </SummaryListItem>
       <SummaryListItem disablePadding>
-        <Typography>{t('Norma')}</Typography>
-        <Typography>
-          {percent || '000'} {t('kcal')}
-        </Typography>
+        <Typography>n% of normal</Typography>
+        <Typography>{percent || '000'} %</Typography>
       </SummaryListItem>
     </List>
   );
