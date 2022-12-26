@@ -14,10 +14,6 @@ const token = {
   },
 };
 
-/*
- * POST @ /auth/registration
- * body: { name, email, password }
- */
 export const register = createAsyncThunk(
   '/api/auth/registration',
   async (value, thunkAPI) => {
@@ -36,10 +32,6 @@ export const register = createAsyncThunk(
   }
 );
 
-/*
- * POST @ /auth/login
- * body: { email, password }
- */
 export const login = createAsyncThunk(
   '/api/auth/login',
   async (value, thunkAPI) => {
@@ -54,22 +46,17 @@ export const login = createAsyncThunk(
   }
 );
 
-/*
- * POST @ /api/products
- * body: userParams
- */
 export const getProducts = createAsyncThunk(
   '/api/products',
   async (userParams, thunkAPI) => {
     try {
-      console.log('QUERY====>', userParams);
       const { data, status } = await axios.post('/api/products', userParams);
       token.set(data.token);
       if (!data) {
         return thunkAPI.rejectWithValue(status);
       }
       data.message && toast.success(data.message);
-      console.log('RESPONSE===>', data);
+
       return data;
     } catch (err) {
       toast.error(err.response.data.message);
@@ -78,10 +65,6 @@ export const getProducts = createAsyncThunk(
   }
 );
 
-/*
- * POST @ /api/products/categories
- * body: userParams
- */
 export const getProductsCategories = createAsyncThunk(
   '/api/products/categories',
   async (userParams, thunkAPI) => {
@@ -103,10 +86,6 @@ export const getProductsCategories = createAsyncThunk(
   }
 );
 
-/*
- * GET @ /api/products?category=зерно&currentPage=1&pageSize=2
- * body: {categorie, pageNumber}
- */
 export const getProductsByCategories = createAsyncThunk(
   '/api/products',
   async (credentials, thunkAPI) => {
@@ -126,21 +105,12 @@ export const getProductsByCategories = createAsyncThunk(
   }
 );
 
-/*
- * GET @ /auth/logout
- * headers: Authorization: Bearer token
- */
 export const logout = createAsyncThunk('/api/auth/logout', async () => {
   try {
     await axios.get(`/api/auth/logout`);
     token.unset();
   } catch (error) {}
 });
-
-/*
- * GET @ /auth/current
- * headers: Authorization: Bearer token
- */
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
@@ -151,7 +121,6 @@ export const refreshUser = createAsyncThunk(
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
-      // If there is a token, add it to the HTTP header and perform the request
       token.set(persistedToken);
       const res = await axios.get('/api/auth/current');
       return res.data;
