@@ -51,7 +51,7 @@ const AddForm = () => {
       id: e._id,
     };
   });
-
+  const { t } = useTranslation();
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Complete
@@ -84,7 +84,7 @@ const AddForm = () => {
         onChange={formik.handleChange}
         value={formik.values.weight}
       />
-      <AddProductBtn type="submit">
+      <AddProductBtn type="submit" aria-label="Add product">
         <HiPlus />
       </AddProductBtn>
     </Form>
