@@ -2,15 +2,17 @@ import RegisterForm from 'components/RegistrationForm/registrationForm';
 import { Helmet } from 'react-helmet-async';
 import { Title, Wrapper } from './registrationPage.styled';
 import Container from 'components/Container';
+import { useTranslation } from 'react-i18next';
 
 export default function RegistrationPage() {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <Helmet>
-        <title>Register</title>
+        <title>{t('Register')}</title>
       </Helmet>
       <Container>
-        <Title>Register</Title>
+        <Title>{t('Register')}</Title>
         <RegisterForm />
       </Container>
     </Wrapper>
