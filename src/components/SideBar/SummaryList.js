@@ -11,18 +11,18 @@ const useCalculator = () => {
   const dailyNorm = useSelector(selectCalories);
   const dailyProducts = useSelector(selectDailyProducts);
   useEffect(() => {
-    if (dailyProducts.lenght) {
-      setConsumed(
-        dailyProducts.reduce((total, note) => {
-          return (
-            total + (note.product.calories / note.product.weight) * note.weight
-          );
-        })
-      );
+    if (dailyProducts.length && dailyNorm) {
+      const total = dailyProducts.reduce((total, note) => {
+        return (
+          total + (note.product.calories / note.product.weight) * note.weight
+        );
+      }, 0);
+      setConsumed(total);
     }
-  }, [dailyProducts]);
+  }, [dailyProducts, dailyNorm]);
+
   const left = dailyNorm - consumed;
-  const percent = (left / dailyNorm) * 100.0;
+  const percent = (consumed / dailyNorm) * 100.0;
   return { dailyNorm, consumed, left, percent };
 };
 
