@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { ListItem } from '@mui/material';
+import backgroundTablet from '../../images/background/sidebar-bg-tablet.png';
+import backgroundDesktop from '../../images/background/sidebar-bg-desktop.png';
 
 export const BadFoodContainer = styled.div`
   margin-top: 40px;
@@ -48,8 +50,18 @@ export const SideBarContainer = styled.div`
     width: 768px;
     padding: 80px 32px;
   }
+  @media (min-width: 768px) {
+    background-image: url(${backgroundTablet});
+    background-repeat: no-repeat;
+    background-position: bottom 0 right 0;
+    width: 768px;
+    margin-right: auto;
+    margin-left: auto;
+  }
   @media screen and (min-width: 1280px) {
-    width: 1280px;
+    background-image: url(${backgroundDesktop});
+    background-repeat: no-repeat;
+    background-position: bottom 0 right 0;
     display: grid;
     align-content: start;
     justify-content: center;

@@ -47,6 +47,7 @@ export const Complete = styled(Autocomplete)`
   }
 `;
 
+
 export const ProductInput = styled(TextField)`
   font-size: 16px;
   outline: none;
@@ -55,12 +56,20 @@ export const ProductInput = styled(TextField)`
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   margin-right: 22px;
+  margin-bottom: 8px;
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
   @media (max-width: 767px) {
     margin-bottom: 40px;
     margin-right: 0;
     width: 100%;
   }
 `;
+
 
 export const GramsInput = styled(TextField)`
   font-size: 16px;
@@ -69,6 +78,7 @@ export const GramsInput = styled(TextField)`
   width: 280px;
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
+  margin-bottom: 8px;
   margin-right: 87px;
   :placeholder {
     text-align: right;
@@ -76,5 +86,4 @@ export const GramsInput = styled(TextField)`
   @media (min-width: 768px) {
     width: 106px;
     margin-bottom: 0px;
-  }
 `;

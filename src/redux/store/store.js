@@ -14,6 +14,9 @@ import {
 import { authReducer } from '../services/authSlice';
 import { productsReducer } from '../services/productSlice';
 import { diaryReducer } from '../services/diaryProductSlice';
+import { themeReducer } from '../services/themeSlice';
+
+
 const persistAuthConfig = {
   key: 'auth',
   storage,
@@ -25,6 +28,7 @@ export const store = configureStore({
     auth: persistReducer(persistAuthConfig, authReducer),
     products: productsReducer,
     diary: diaryReducer,
+    theme: themeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

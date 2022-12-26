@@ -33,9 +33,11 @@ export const Title = styled.h1`
   margin: 0;
   margin-bottom: 32px;
   @media (min-width: 320px) {
-    width: 280px;
+    margin: 0 auto;
+    max-width: 360px;
   }
   @media (min-width: 767px) {
+    margin: 0;
     width: 520px;
     font-size: 34px;
     margin-bottom: 68px;
@@ -46,6 +48,8 @@ export const Form = styled.form`
   display: grid;
   @media (max-width: 767.5px) {
     grid-auto-flow: row;
+    max-width: 360px;
+    margin: 0 auto;
   }
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 240px);
