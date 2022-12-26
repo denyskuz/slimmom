@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 
 import { Form, ProductInput, GramsInput } from './AddForm.styled';
 
+import { useTranslation } from 'react-i18next';
+
 const AddForm = () => {
   const formik = useFormik({
     initialValues: { productName: '', grams: '' },
@@ -17,13 +19,14 @@ const AddForm = () => {
       console.log(values);
     },
   });
-
+  const { t } = useTranslation();
   return (
     <Form>
       <ProductInput
         id="productName"
-        label="Enter product name"
-        placeholder="Enter product name"
+        label={t('Product_name')}
+        placeholder={t('Product_name')}
+        aria-label="Enter product name"
         multiline
         onChange={formik.handleChange}
         value={formik.values.productName}
@@ -32,15 +35,16 @@ const AddForm = () => {
       />
       <GramsInput
         name="grams"
-        label="Grams"
-        placeholder="Grams"
+        label={t('Grams')}
+        placeholder={t('Grams')}
+        aria-label="Grams"
         multiline
         onChange={formik.handleChange}
         value={formik.values.grams}
         error={formik.touched.grams && formik.errors.grams}
         helperText={formik.touched.grams && formik.errors.grams}
       />
-      <AddProductBtn type="button">
+      <AddProductBtn type="button" aria-label="Add product">
         <HiPlus />
       </AddProductBtn>
     </Form>

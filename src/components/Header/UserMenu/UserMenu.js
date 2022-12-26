@@ -12,6 +12,8 @@ import {
   UserExitButton,
 } from './UserMenu.styled';
 
+import { useTranslation } from 'react-i18next';
+
 const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(getUserName);
@@ -19,12 +21,12 @@ const UserMenu = () => {
   const onLogout = () => {
     dispatch(logout());
   };
-
+  const { t } = useTranslation();
   return (
     <>
       <List>
-        <ListItem to="/diary">Diary</ListItem>
-        <ListItem to="/calculator">Calculator</ListItem>
+        <ListItem to="/diary">{t('Diary')}</ListItem>
+        <ListItem to="/calculator">{t('Calculator_button')}</ListItem>
       </List>
       <LinkToCalc to="/calculator">
         <Arrow color="black" size="20px" />
@@ -32,7 +34,7 @@ const UserMenu = () => {
       <UserInfoWrapper>
         <UserName>{name}</UserName>
         <UserExitButton type="button" onClick={onLogout}>
-          Exit
+          {t('Exit')}
         </UserExitButton>
       </UserInfoWrapper>
     </>

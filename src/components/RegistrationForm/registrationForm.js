@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import {
@@ -6,11 +7,21 @@ import {
   LinkButton,
 } from 'components/Button/Button';
 import { register } from 'redux/services/operations';
-import { Form, ButtonBox, Input } from './RegistrationForm.styled';
+import { Form, ButtonBox, Input } from './registrationForm.styled';
+import { useTranslation } from 'react-i18next';
 import { userRegisterSchema } from 'validation';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(show => !show);
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
 
   const formik = useFormik({
     initialValues: { name: '', email: '', password: '' },
@@ -20,12 +31,12 @@ const RegisterForm = () => {
       resetForm();
     },
   });
-
+  const { t } = useTranslation();
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Input
         id="name"
-        label="Name *"
+        label={t('Name')}
         type="text"
         variant="standard"
         onChange={formik.handleChange}
@@ -37,7 +48,7 @@ const RegisterForm = () => {
       />
       <Input
         id="email"
-        label="E-mail *"
+        label={t('Email')}
         variant="standard"
         type="email"
         onChange={formik.handleChange}
@@ -50,9 +61,23 @@ const RegisterForm = () => {
       />
       <Input
         id="password"
-        label="Password *"
+        label={t('Password')}
         variant="standard"
-        type="password"
+        type={showPassword ? 'text' : 'password'}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
         onChange={formik.handleChange}
         value={formik.values.password}
         error={formik.touched.password && formik.errors.password}
@@ -63,9 +88,9 @@ const RegisterForm = () => {
         }
       />
       <ButtonBox>
-        <ButtonPrimary type="submit">Register</ButtonPrimary>
+        <ButtonPrimary type="submit">{t('Register')}</ButtonPrimary>
         <ButtonSecondary type="button">
-          <LinkButton to={'/login'}>Log in</LinkButton>
+          <LinkButton to={'/login'}>{t('Login')}</LinkButton>
         </ButtonSecondary>
       </ButtonBox>
     </Form>
