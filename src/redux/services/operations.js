@@ -3,7 +3,6 @@ import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-console.log('BASE_URL', BASE_URL);
 axios.defaults.baseURL = BASE_URL;
 
 const token = {
@@ -55,12 +54,64 @@ export const login = createAsyncThunk(
   }
 );
 
+/*
+ * POST @ /api/products
+ * body: userParams
+ */
 export const getProducts = createAsyncThunk(
   '/api/products',
   async (userParams, thunkAPI) => {
     try {
       const { data, status } = await axios.post('/api/products', userParams);
       token.set(data.token);
+      if (!data) {
+        return thunkAPI.rejectWithValue(status);
+      }
+      data.message && toast.success(data.message);
+      return data;
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
+
+/*
+ * POST @ /api/products/categories
+ * body: userParams
+ */
+export const getProductsCategories = createAsyncThunk(
+  '/api/products/categories',
+  async (userParams, thunkAPI) => {
+    try {
+      const { data, status } = await axios.post(
+        '/api/products/categories',
+        userParams
+      );
+      token.set(data.token);
+      if (!data) {
+        return thunkAPI.rejectWithValue(status);
+      }
+      data.message && toast.success(data.message);
+      return data;
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
+
+/*
+ * GET @ /api/products?category=зерно&currentPage=1&pageSize=2
+ * body: {categorie, pageNumber}
+ */
+export const getProductsByCategories = createAsyncThunk(
+  '/api/products',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data, status } = await axios.get(
+        `/api/products?category=${credentials.categorie}&currentPage=1&pageSize=20`
+      );
       if (!data) {
         return thunkAPI.rejectWithValue(status);
       }
@@ -107,4 +158,42 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const addProducts = createAsyncThunk(
+  'products/addItem',
+  async (product, { getState, rejectWithValue }) => {
+    try {
+      const state = getState();
+      const persistedToken = state.auth.token;
+      token.set(persistedToken);
+      const result = await axios.post(`/api/diary/`, {
+        ...product,
+      });
+      return result.data;
+    } catch (error) {
+      toast('Add product in diary error');
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getDailyProducts = createAsyncThunk(
+  'products/getDaily',
+  async (value, { getState, rejectWithValue }) => {
+    try {
+      const state = getState();
+      const persistedToken = state.auth.token;
+      token.set(persistedToken);
+      const { data, status } = await axios.get('/api/diary/' + value);
+      if (!data) {
+        return await rejectWithValue(status);
+      }
+      return data;
+    } catch (err) {
+      toast('Get get daily products error');
+      return await rejectWithValue(err.response.data);
+    }
+  }
+);
+
 export const setUserParams = createAction('auth/save');

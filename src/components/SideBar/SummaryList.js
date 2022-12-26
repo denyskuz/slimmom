@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { List, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDailyProducts } from 'redux/products/actions';
+import { getDailyProducts } from 'redux/services/operations';
 import { selectCalories, selectDailyProducts } from 'redux/services/selectors';
 import { SummaryListItem } from './SideBar.styled';
 import { useTranslation } from 'react-i18next';
@@ -9,12 +9,12 @@ import { useTranslation } from 'react-i18next';
 export const SummaryList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getDailyProducts(new Date().toDateString()));
+    dispatch(getDailyProducts(new Date().toISOString()));
   }, [dispatch]);
 
   const dailyCalories = useSelector(selectCalories);
   const dailyProducts = useSelector(selectDailyProducts);
-  console.log(dailyProducts);
+
   const { t } = useTranslation();
   return (
     <List component="ol" padding="0px">

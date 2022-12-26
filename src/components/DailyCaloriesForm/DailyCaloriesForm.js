@@ -3,7 +3,11 @@ import { Modal } from '@mui/material';
 import { bool } from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserParams, getProducts } from 'redux/services/operations';
+import {
+  setUserParams,
+  getProductsCategories,
+  getProducts,
+} from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
 import { userParamsSchema } from 'validation';
 import {
@@ -43,8 +47,9 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));
-      setOpen(true);
+      dispatch(getProductsCategories(data));
       dispatch(getProducts(data));
+      setOpen(true);
     },
   });
 
