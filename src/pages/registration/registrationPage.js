@@ -1,4 +1,4 @@
-import RegisterForm from 'components/RegistrationForm/RegistrationForm';
+import RegisterForm from 'components/RegistrationForm/registrationForm';
 import { Helmet } from 'react-helmet-async';
 import { Title, Wrapper } from './registrationPage.styled';
 import Container from 'components/Container';

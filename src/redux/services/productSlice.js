@@ -1,10 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getProducts } from './operations';
+import { getProducts, getProductsCategories } from './operations';
 
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
     calories: 0,
+    categories: [],
     bad: [],
     loading: false,
     error: '',
@@ -19,6 +20,15 @@ const productsSlice = createSlice({
     builder.addCase(getProducts.fulfilled, (state, action) => {
       state.calories = action.payload.kCal;
       state.bad = action.payload.products;
+    });
+    builder.addCase(getProductsCategories.pending, state => {
+      state.loading = true;
+    });
+    builder.addCase(getProductsCategories.rejected, (state, action) => {
+      state.error = action.error;
+    });
+    builder.addCase(getProductsCategories.fulfilled, (state, action) => {
+      state.categories = action.payload.titles;
     });
     builder.addMatcher(
       isAnyOf(
