@@ -186,7 +186,7 @@ export const Button = styled(MuiButton)`
     background: #fff;
     color: #fc842d;
   }
-    @media (max-width: 767.5px) {
+  @media (max-width: 767.5px) {
     grid-row: 6 / span 1;
     grid-column: 1;
     justify-self: start;

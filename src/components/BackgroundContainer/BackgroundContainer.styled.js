@@ -14,7 +14,9 @@ export const ImageContainer = styled.div`
   @media screen and (min-width: 1280px) {
     width: 1280px;
     background: ${props =>
-      props.visible ? `linear-gradient(to left, #F0F1F3 , #fff)` : 'transparent'};
+      props.visible
+        ? `linear-gradient(to left, #F0F1F3 , #fff)`
+        : 'transparent'};
   }
   z-index: 1;
 `;

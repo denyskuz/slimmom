@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 768px) {
     padding-top: 150px;
     padding-bottom: 200px;
-}
+  }
 `;
 
 export const Title = styled.h1`
