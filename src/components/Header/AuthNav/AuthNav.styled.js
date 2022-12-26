@@ -2,7 +2,8 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Link = styled(NavLink)`
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: GothamPro-Bold;
   font-size: ${prop => prop.theme.fontSizes.xs};
   font-weight: ${prop => prop.theme.fontWeights.bold};
@@ -12,16 +13,24 @@ export const Link = styled(NavLink)`
   text-transform: uppercase;
   color: ${prop => prop.theme.colors.secondary};
 
-  :first-child {
-    margin-right: ${prop => prop.theme.space[4]}px;
+  &:last-child {
+    margin-left: ${prop => prop.theme.space[4]}px;
   }
 
-  :hover {
+  &:hover, &:focus {
     color: ${prop => prop.theme.colors.accent};
   }
 
   &.active {
     color: ${prop => prop.theme.colors.primary};
+  }
+
+    @media screen and (max-width: 349.5px) {
+    font-size: 12px;
+    
+    &:last-child {
+    margin-left: 10px;
+  }
   }
 `;
 
@@ -39,6 +48,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
   align-self: baseline;
   padding-top: 8px;
+  margin-right: 10px;
 `;
 
 export const Lang = styled.ul`
