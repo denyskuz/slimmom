@@ -18,7 +18,7 @@ import { refreshUser } from 'redux/services/operations';
 import Loader from './Loader';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
-const RegistrationPage = lazy(() => import('../pages/Registration'));
+const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DiaryPage = lazy(() => import('../pages/Diary'));
 const CalculatorPage = lazy(() => import('../pages/Calculator'));
