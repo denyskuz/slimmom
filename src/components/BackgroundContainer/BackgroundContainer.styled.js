@@ -13,10 +13,7 @@ export const ImageContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    background-color: ${props =>
-      props.visible
-        ? '#FFFFFF'
-        : 'transparent'};
+    background-color: ${props => (props.visible ? '#FFFFFF' : 'transparent')};
   }
   z-index: 1;
 `;

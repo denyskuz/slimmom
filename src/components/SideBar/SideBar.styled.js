@@ -80,7 +80,7 @@ export const SummaryListItem = styled(ListItem)`
 export const BackgroundImageTab = styled.img`
   display: none;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     position: absolute;
     display: block;
     bottom: 0;
@@ -93,7 +93,7 @@ export const BackgroundImageTab = styled.img`
 `;
 
 export const BackgroundImageDesk = styled.img`
-  @media screen and (max-width: 1279.5px){
+  @media screen and (max-width: 1279.5px) {
     display: none;
   }
 

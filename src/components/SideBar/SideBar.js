@@ -22,12 +22,8 @@ export const SideBar = () => {
         <SummaryTitle>Food not recommended</SummaryTitle>
         <BadFoodList />
       </BadFoodContainer>
-      <BackgroundImageTab
-        src={leafsTabSideBar}
-        alt='leafs' />
-      <BackgroundImageDesk
-        src={leafsDeskSideBar}
-        alt='leafs'/>
+      <BackgroundImageTab src={leafsTabSideBar} alt="leafs" />
+      <BackgroundImageDesk src={leafsDeskSideBar} alt="leafs" />
     </SideBarContainer>
   );
 };

@@ -42,54 +42,38 @@ const BackgroundContainer = ({ children }) => {
         <>
           <VectorImg
             src={vector}
-            alt='grey background'
+            alt="grey background"
             visibleImg={!isLoggedIn}
           />
 
-          <BananaImg
-            src={banana}
-            alt='banana'
-            visibleImg={!isLoggedIn}
-          />
+          <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
 
           <StrawberryImg
             src={strawberry}
-            alt='strawberry'
+            alt="strawberry"
             visibleImg={!isLoggedIn}
           />
 
-          <LeafsImg
-            src={leafs}
-            alt='leafs'
-            visibleImg={!isLoggedIn}
-          />
+          <LeafsImg src={leafs} alt="leafs" visibleImg={!isLoggedIn} />
           {children}
         </>
       ) : (
         <>
           <VectorImg
             src={vector}
-            alt='grey background'
+            alt="grey background"
             visibleImg={!isLoggedIn}
           />
 
-            <BananaImg
-              src={banana}
-              alt='banana'
-              visibleImg={!isLoggedIn}
-            />
+          <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
 
           <StrawberryAuthImg
             src={strawberryAuth}
-            alt='strawberry'
+            alt="strawberry"
             visibleImg={!isLoggedIn}
           />
 
-          <LeafsAuthImg
-            src={leafsAuth}
-            alt='leafs'
-            visibleImg={!isLoggedIn}
-          />
+          <LeafsAuthImg src={leafsAuth} alt="leafs" visibleImg={!isLoggedIn} />
           {children}
         </>
       )}
