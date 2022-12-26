@@ -3,7 +3,11 @@ import { Modal } from '@mui/material';
 import { bool } from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserParams, getProductsCategories, getProducts } from 'redux/services/operations';
+import {
+  setUserParams,
+  getProductsCategories,
+  getProducts,
+} from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
 import { userParamsSchema } from 'validation';
 import {

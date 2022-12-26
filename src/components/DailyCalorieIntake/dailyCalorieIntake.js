@@ -49,11 +49,7 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
             {categories.map(item => {
               const number = categories.indexOf(item) + 1;
               return (
-                <CustomizedList
-                  key={item}
-                  number={number}
-                  categorie={item}
-                />
+                <CustomizedList key={item} number={number} categorie={item} />
               );
             })}
           </List>

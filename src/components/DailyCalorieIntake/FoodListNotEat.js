@@ -12,7 +12,9 @@ import { selectBadProducts } from 'redux/services/selectors';
 
 export const CustomizedList = ({ number, categorie }) => {
   const allList = useSelector(selectBadProducts);
-  const productList = allList.filter(item => item.categories.includes(categorie))
+  const productList = allList.filter(item =>
+    item.categories.includes(categorie)
+  );
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const isOpen = Boolean(anchorEl);
