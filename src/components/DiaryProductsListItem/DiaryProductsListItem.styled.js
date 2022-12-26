@@ -13,7 +13,7 @@ export const List = styled.ul`
     width: 610px;
     height: 439px;
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 55px;
   }
   &::-webkit-scrollbar {
     width: 6px;

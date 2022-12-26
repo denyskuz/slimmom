@@ -59,7 +59,7 @@ const AddForm = () => {
         renderInput={params => (
           <ProductInput
             {...params}
-            label="Search input"
+            label="Enter product name"
             InputProps={{
               ...params.InputProps,
               type: 'search',

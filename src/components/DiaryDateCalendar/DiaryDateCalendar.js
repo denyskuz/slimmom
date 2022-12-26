@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Box } from 'components/Box';
 import 'react-datetime/css/react-datetime.css';
 import iconCalendar from '../../images/icon/calendar.svg';
-// import { DiaryDate } from './DiaryDateCalendar.styled';
+import { DiaryDate } from './DiaryDateCalendar.styled';
 
 export const DiaryDateCalendar = () => {
   const [date, setDate] = useState(() =>
@@ -28,7 +28,7 @@ export const DiaryDateCalendar = () => {
   );
 
   return (
-    <>
+    <DiaryDate>
       <Datetime
         renderInput={renderInput}
         value={date}
@@ -38,6 +38,6 @@ export const DiaryDateCalendar = () => {
         strictParsing={true}
         onChange={handleChangeDate}
       />
-    </>
+    </DiaryDate>
   );
 };
