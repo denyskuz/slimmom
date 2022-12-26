@@ -1,9 +1,9 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { GlobalStyle } from './GlobalStyle';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../theme';
@@ -11,21 +11,34 @@ import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import 'react-toastify/dist/ReactToastify.css';
-import AppBar from './Header/AppBar';
+import { useAuth } from 'hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/services/operations';
+import Loader from './Loader';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegistrationPage = lazy(() => import('../pages/registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
-const DiaryPage = lazy(() => import('../pages/Diary/DiaryPage'));
-const CalculatorPage = lazy(() => import('../pages/Calculator/CalculatorPage'));
+const DiaryPage = lazy(() => import('../pages/Diary'));
+const CalculatorPage = lazy(() => import('../pages/Calculator'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <HelmetProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <CssBaseline />
-        <AppBar />
+
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
@@ -68,10 +81,10 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
-        <ToastContainer />
+        <ToastContainer theme="colored" position="bottom-right" />
       </ThemeProvider>
     </HelmetProvider>
   );

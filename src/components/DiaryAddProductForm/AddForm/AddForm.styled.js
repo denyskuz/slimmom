@@ -1,15 +1,49 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
+import { Autocomplete, TextField } from '@mui/material';
 
 export const Form = styled.form`
-  position: relative;
-  padding: 60px 0;
+  width: 300px;
+  padding: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-
-  @media (max-width: 767px) {
-    flex-direction: column;
+  margin: 80px auto 0px;
+  @media (min-width: 768px) {
+    flex-direction: row;
     padding: 80px 20px;
+    width: 503px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 60px;
+  }
+`;
+export const Complete = styled(Autocomplete)`
+  width: 280px;
+  margin-bottom: 32px;
+  @media (min-width: 768px) {
+    width: 240px;
+    margin-right: 22px;
+    margin-bottom: 0px;
+  }
+  & .MuiInputLabel-outlined:not(.MuiInputLabel-shrink) {
+    transform: 'translate(34px, 20px) scale(1);';
+  }
+  &.Mui-focused .MuiInputLabel-outlined {
+    color: 'purple';
+  }
+  & .MuiAutocomplete-inputRoot {
+    color: 'purple';
+
+    & .MuiOutlinedInput-notchedOutline {
+      height: 53px;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid;
+    }
+    &:hover .MuiOutlinedInput-notchedOutline {
+    }
+    &.Mui-focused .MuiOutlinedInput-notchedOutline {
+    }
   }
 `;
 
@@ -32,22 +66,15 @@ export const GramsInput = styled(TextField)`
   font-size: 16px;
   outline: none;
   height: 37px;
-  width: 106px;
+  width: 280px;
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   margin-right: 87px;
-
-  @media (min-width: 1200px) {
-    margin-right: 60px;
+  :placeholder {
+    text-align: right;
   }
-
-  @media (max-width: 540px) {
-    margin-right: 30px;
-  }
-
-  @media (max-width: 480px) {
-    margin-bottom: 70px;
-    width: 100%;
-    margin-right: 0;
+  @media (min-width: 768px) {
+    width: 106px;
+    margin-bottom: 0px;
   }
 `;

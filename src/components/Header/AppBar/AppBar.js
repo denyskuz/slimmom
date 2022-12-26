@@ -14,11 +14,10 @@ import {
   UserMenuWrapperDesk,
   UserMenuWrapper,
 } from './AppBar.styled';
-import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from 'redux/services/selectors';
+import { useAuth } from 'hooks/useAuth';
 
 const AppBar = () => {
-  const isLoggedIn = useSelector(getIsLoggedIn);
+  const { isLoggedIn } = useAuth();
 
   return (
     <Header>
@@ -27,7 +26,7 @@ const AppBar = () => {
           {isLoggedIn ? (
             <>
               <Logo />
-              <LoggedWrapper>
+              <LoggedWrapper aria-label="Main page">
                 <LogoSlim />
                 <LogoMom />
               </LoggedWrapper>
@@ -35,7 +34,7 @@ const AppBar = () => {
           ) : (
             <>
               <Logo />
-              <Wrapper>
+              <Wrapper aria-label="Main page">
                 <LogoSlim />
                 <LogoMom />
               </Wrapper>

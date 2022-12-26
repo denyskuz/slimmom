@@ -17,7 +17,7 @@ import { diaryReducer } from '../services/diaryProductSlice';
 const persistAuthConfig = {
   key: 'auth',
   storage,
-  whitlist: ['token'],
+  whitelist: ['token', 'use'],
 };
 
 export const store = configureStore({
@@ -35,4 +35,5 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
 setupListeners(store.dispatch);

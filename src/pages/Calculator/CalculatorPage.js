@@ -1,26 +1,19 @@
-import { Helmet } from 'react-helmet';
-import { ThemeProvider } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
-import { Calculator } from 'components/Calculator';
+import { Helmet } from 'react-helmet-async';
+import { DailyCaloriesForm } from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import { SideBar } from 'components/SideBar';
-import { CalculatorPageContainer } from './CalculatorPageContainer';
 import Container from 'components/Container';
-import { theme } from './theme';
+import { Wrapper } from 'pages/Diary/DiaryPage.styled';
 
 export default function CalculatorPage() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline enableColorScheme />
-
-      <CalculatorPageContainer>
+    <Wrapper>
+      <Container>
         <Helmet>
           <title>Calories calculator</title>
         </Helmet>
-        <Container>
-          <Calculator />
-        </Container>
-        <SideBar />
-      </CalculatorPageContainer>
-    </ThemeProvider>
+        <DailyCaloriesForm />
+      </Container>
+      <SideBar />
+    </Wrapper>
   );
 }

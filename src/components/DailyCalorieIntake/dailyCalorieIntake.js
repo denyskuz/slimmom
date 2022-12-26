@@ -1,38 +1,62 @@
-import PropTypes from 'prop-types';
+import { func, string, shape } from 'prop-types';
 import { LinkButton } from 'components/Button/Button';
 import {
   IntakeBar,
   IntakeResult,
   IntakeTitle,
-  List,
-  ListItem,
   ListTitle,
   ListWrapper,
   TitleWrapper,
   CloseButton,
   ButtonStart,
 } from './dailyCalorieIntake.styled';
+import { calculateCalories } from 'utils';
+import { CustomizedList } from './FoodListNotEat';
+import { useSelector } from 'react-redux';
+import { selectBadCategories } from 'redux/services/selectors';
+import List from '@mui/joy/List';
+import Sheet from '@mui/joy/Sheet';
 
-const DailyCalorieIntake = ({ closeModal }) => {
+import { useTranslation } from 'react-i18next';
+
+const DailyCalorieIntake = ({ closeModal, params }) => {
+  const categories = useSelector(selectBadCategories);
+  const { t } = useTranslation();
+
   return (
     <>
       <IntakeBar>
-        <CloseButton onClick={() => closeModal()}></CloseButton>
+        <CloseButton onClick={closeModal}></CloseButton>
       </IntakeBar>
       <TitleWrapper>
-        <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
-        <IntakeResult>2800 kcal</IntakeResult>
+        <IntakeTitle>{t('Daily_calorie')}</IntakeTitle>
+        <IntakeResult>
+          {calculateCalories(params)} {t('kcal')}
+        </IntakeResult>
       </TitleWrapper>
       <ListWrapper>
-        <ListTitle>Foods you should not eat</ListTitle>
-        <List>
-          <ListItem>food1</ListItem>
-          <ListItem>food2</ListItem>
-          <ListItem>food3</ListItem>
-        </List>
+        <ListTitle>{t('Food_list')}</ListTitle>
+        <Sheet
+          variant="outlined"
+          sx={{
+            width: 280,
+            maxHeight: 112,
+            overflow: 'auto',
+            border: 'none',
+          }}
+        >
+          <List>
+            {categories.map(item => {
+              const number = categories.indexOf(item) + 1;
+              return (
+                <CustomizedList key={item} number={number} categorie={item} />
+              );
+            })}
+          </List>
+        </Sheet>
       </ListWrapper>
       <ButtonStart type="button">
-        <LinkButton to={'/signup'}>Start losing weight</LinkButton>
+        <LinkButton to={'/signup'}>{t('Start_loosing')}</LinkButton>
       </ButtonStart>
     </>
   );
@@ -41,5 +65,11 @@ const DailyCalorieIntake = ({ closeModal }) => {
 export default DailyCalorieIntake;
 
 DailyCalorieIntake.propTypes = {
-  closeModal: PropTypes.func.isRequired,
+  closeModal: func.isRequired,
+  params: shape({
+    height: string.isRequired,
+    age: string.isRequired,
+    currentWeight: string.isRequired,
+    desiredWeight: string.isRequired,
+  }),
 };

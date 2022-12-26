@@ -1,8 +1,6 @@
-// import { format } from 'date-fns';
 import { Backdrop } from '@mui/material';
 import { DiaryModalList } from 'components/DiaryModalList/DiaryModalList';
 import { useState } from 'react';
-import { useDairyStore } from 'hooks/diaryStoreHook';
 import {
   DeleteButton,
   IconCross,
@@ -18,8 +16,6 @@ import { getAllDiaryProduct } from 'redux/services/selectors';
 
 export default function DiaryProductsListItem() {
   const notes = useSelector(getAllDiaryProduct);
-
-  // const { diaryData } = useDairyStore();
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);

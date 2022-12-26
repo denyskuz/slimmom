@@ -1,65 +1,68 @@
 import { HiPlus } from 'react-icons/hi';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
+// import { useTranslation } from 'react-i18next';
 import { AddProductBtn } from 'components/Button/Button';
-import { Form, ProductInput, GramsInput } from './AddForm.styled';
-import { useDispatch } from 'react-redux';
-import { addDiaryProduct } from 'redux/services/operations';
-import { data } from 'globalstore/dataTemp';
-import { Autocomplete, TextField } from '@mui/material';
+import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { addDiaryProduct, getNameProducts } from 'redux/services/operations';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { getProductTitle } from 'redux/services/selectors';
+
 const AddForm = () => {
   const dispatch = useDispatch();
   const date = new Date().toISOString();
+  const [productName, setProductName] = useState(null);
+  const [product, setProduct] = useState('');
+  const dataTitle = useSelector(getProductTitle);
   const formik = useFormik({
-    initialValues: { product: '', weight: '', auto: '' },
+    initialValues: { weight: '' },
     validationSchema: Yup.object().shape({
-      product: Yup.string().required(),
       weight: Yup.number().min(2).required(),
     }),
-    onSubmit: (values, { resetForm }) => {
-      const data = { ...values, date };
-      console.log(data);
-      dispatch(addDiaryProduct(date));
-      // resetForm();
+    onSubmit: ({ weight }, { resetForm }) => {
+      if (productName === null) {
+        toast('You need add product');
+        return;
+      }
+      const data = { dataTitle, productName, product, weight, date };
+      setProduct(' ');
+      setProductName(' ');
+      dispatch(addDiaryProduct(data));
+      resetForm();
     },
   });
-  const nameProd = data.map(e => e.title.ua);
 
+  const handleChange = (e, value) => {
+    setProduct(value.id);
+    setProductName(value.label);
+  };
+  const nameProd = dataTitle.map(e => {
+    return {
+      label: e.title.ua,
+      id: e._id,
+    };
+  });
+  // const { t } = useTranslation();
   return (
     <Form onSubmit={formik.handleSubmit}>
-      <ProductInput
-        id="product"
-        name="product"
-        label="Enter product name"
-        placeholder="Enter product name"
-        type="text"
-        variant="standard"
-        multiline
-        onChange={formik.handleChange}
-        value={formik.values.product}
-        error={formik.touched.product && formik.errors.product}
-        helperText={formik.touched.product && formik.errors.product}
-      />
-      <Autocomplete
-        onChange={(e, value) => console.log(value)}
-        value={formik.values.auto}
-        id="auto"
-        name="auto"
+      <Complete
+        onInputChange={(e, v) => {
+          dispatch(getNameProducts(v));
+        }}
+        onChange={handleChange}
         freeSolo
         disableClearable
-        options={nameProd.map(option => option)}
+        value={productName}
+        options={nameProd}
         renderInput={params => (
-          <TextField
+          <ProductInput
             {...params}
-            label="Search input"
+            label="Enter product name"
             InputProps={{
               ...params.InputProps,
               type: 'search',
-              // onChange: formik.handleChange,
-              // value: formik.values.auto,
-              // id: 'auto',
-              // name: 'auto',
             }}
           />
         )}
@@ -73,10 +76,8 @@ const AddForm = () => {
         multiline
         onChange={formik.handleChange}
         value={formik.values.weight}
-        error={formik.touched.weight && formik.errors.weight}
-        helperText={formik.touched.weight && formik.errors.weight}
       />
-      <AddProductBtn type="submit">
+      <AddProductBtn type="submit" aria-label="Add product">
         <HiPlus />
       </AddProductBtn>
     </Form>
