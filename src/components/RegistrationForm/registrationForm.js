@@ -8,6 +8,7 @@ import {
 import { register } from 'redux/services/operations';
 import { Form, ButtonBox, Input } from './registrationForm.styled';
 import { userRegisterSchema } from 'validation';
+import Spinner from 'components/Spinner';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -63,7 +64,10 @@ const RegisterForm = () => {
         }
       />
       <ButtonBox>
-        <ButtonPrimary type="submit">Register</ButtonPrimary>
+        <ButtonPrimary type="submit">
+          <Spinner />
+          Register
+        </ButtonPrimary>
         <ButtonSecondary type="button">
           <LinkButton to={'/login'}>Log in</LinkButton>
         </ButtonSecondary>
