@@ -26,7 +26,6 @@ export const Complete = styled(Autocomplete)`
     margin-bottom: 0px;
   }
   & .MuiInputLabel-outlined:not(.MuiInputLabel-shrink) {
-   
     transform: 'translate(34px, 20px) scale(1);';
   }
   &.Mui-focused .MuiInputLabel-outlined {
@@ -42,10 +41,8 @@ export const Complete = styled(Autocomplete)`
       border-bottom: 1px solid;
     }
     &:hover .MuiOutlinedInput-notchedOutline {
-
     }
     &.Mui-focused .MuiOutlinedInput-notchedOutline {
-    
     }
   }
 `;
@@ -80,5 +77,4 @@ export const GramsInput = styled(TextField)`
     width: 106px;
     margin-bottom: 0px;
   }
-
 `;
