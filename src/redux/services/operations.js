@@ -14,10 +14,6 @@ const token = {
   },
 };
 
-/*
- * POST @ /auth/registration
- * body: { name, email, password }
- */
 export const register = createAsyncThunk(
   '/api/auth/registration',
   async (value, thunkAPI) => {
@@ -36,10 +32,6 @@ export const register = createAsyncThunk(
   }
 );
 
-/*
- * POST @ /auth/login
- * body: { email, password }
- */
 export const login = createAsyncThunk(
   '/api/auth/login',
   async (value, thunkAPI) => {
@@ -54,10 +46,6 @@ export const login = createAsyncThunk(
   }
 );
 
-/*
- * POST @ /api/products
- * body: userParams
- */
 export const getProducts = createAsyncThunk(
   '/api/products',
   async (userParams, thunkAPI) => {
@@ -68,6 +56,7 @@ export const getProducts = createAsyncThunk(
         return thunkAPI.rejectWithValue(status);
       }
       data.message && toast.success(data.message);
+
       return data;
     } catch (err) {
       toast.error(err.response.data.message);
@@ -76,10 +65,6 @@ export const getProducts = createAsyncThunk(
   }
 );
 
-/*
- * POST @ /api/products/categories
- * body: userParams
- */
 export const getProductsCategories = createAsyncThunk(
   '/api/products/categories',
   async (userParams, thunkAPI) => {
@@ -101,10 +86,6 @@ export const getProductsCategories = createAsyncThunk(
   }
 );
 
-/*
- * GET @ /api/products?category=зерно&currentPage=1&pageSize=2
- * body: {categorie, pageNumber}
- */
 export const getProductsByCategories = createAsyncThunk(
   '/api/products',
   async (credentials, thunkAPI) => {
@@ -124,21 +105,12 @@ export const getProductsByCategories = createAsyncThunk(
   }
 );
 
-/*
- * GET @ /auth/logout
- * headers: Authorization: Bearer token
- */
 export const logout = createAsyncThunk('/api/auth/logout', async () => {
   try {
     await axios.get(`/api/auth/logout`);
     token.unset();
   } catch (error) {}
 });
-
-/*
- * GET @ /auth/current
- * headers: Authorization: Bearer token
- */
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
@@ -149,7 +121,6 @@ export const refreshUser = createAsyncThunk(
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
-      // If there is a token, add it to the HTTP header and perform the request
       token.set(persistedToken);
       const res = await axios.get('/api/auth/current');
       return res.data;
@@ -159,3 +130,82 @@ export const refreshUser = createAsyncThunk(
   }
 );
 export const setUserParams = createAction('auth/save');
+
+export const deleteDiaryProduct = createAsyncThunk(
+  'delete',
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/api/diary/${id}`);
+    } catch (error) {
+      toast('product is not correct');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getAllDiaryProduct = createAsyncThunk(
+  'getAllDiaryProduct',
+  async (date, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    try {
+      const { data } = await axios.get(`/api/diary/${date}`);
+      token.set(persistedToken);
+      console.log('data', data);
+      const mappedData = data.notes.map(({ product }) => ({ title: product.title, id: product._id }));
+      console.log('mappedData', mappedData);
+      return mappedData;
+    } catch (error) {
+      toast('something went wrong!!');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const addDiaryProduct = createAsyncThunk(
+  'addDiaryProduct',
+  async (data, thunkAPI) => {
+    const { product, weight, date } = data;
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    try {
+      token.set(persistedToken);
+      const { data } = await axios.post('api/diary', { product, weight, date });
+      console.log('data ===', data);
+      toast('Product added success!');
+
+      return data;
+    } catch (error) {
+      toast('something went wrong!!');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getNameProducts = createAsyncThunk(
+  '/api/products',
+  async (userQuery, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    try {
+      token.set(persistedToken);
+
+      const { data } = await axios.get(`/api/products`, {
+        params: { title: userQuery },
+      });
+      data.message && toast.success(data.message);
+      console.log('data', data);
+      return data;
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
