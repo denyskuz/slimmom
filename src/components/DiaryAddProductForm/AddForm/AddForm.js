@@ -1,7 +1,7 @@
 import { HiPlus } from 'react-icons/hi';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { AddProductBtn } from 'components/Button/Button';
 import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,7 +44,7 @@ const AddForm = () => {
       id: e._id,
     };
   });
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Complete
