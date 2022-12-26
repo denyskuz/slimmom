@@ -1,10 +1,10 @@
-import { Link, LangButton, ButtonContainer } from './AuthNav.styled';
+import { Link } from './AuthNav.styled';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import i18n from './../../../translations/i18n';
 import '/node_modules/flag-icons/css/flag-icons.min.css';
-import 'react-dropdown/style.css';
+import { Dropdown } from 'semantic-ui-react';
 
 const AuthNav = () => {
   const { t } = useTranslation();
@@ -16,10 +16,31 @@ const AuthNav = () => {
     i18n.changeLanguage(e.target.value);
     localStorage.setLanguage('locale', language);
   };
-
+  const langdOptions = [
+    {
+      type: 'button',
+      key: 'EN',
+      text: 'EN',
+      value: 'EN',
+      image: { avatar: true, src: '/images/avatar/small/jenny.jpg' },
+    },
+    {
+      type: 'button',
+      key: 'UA',
+      text: 'UA',
+      value: 'UA',
+      image: { avatar: true, src: '/images/avatar/small/elliot.jpg' },
+    },
+  ];
   return (
     <>
-      <ButtonContainer>
+      <Dropdown
+        inline
+        options={langdOptions}
+        defaultValue={langdOptions[0].value}
+        onClick={handleOnclick}
+      />
+      {/* <ButtonContainer>
         <LangButton
           value="en"
           onClick={handleOnclick}
@@ -30,7 +51,7 @@ const AuthNav = () => {
           onClick={handleOnclick}
           className="fi fi-ua"
         ></LangButton>
-      </ButtonContainer>
+      </ButtonContainer> */}
       <Link to="/login" lang={language}>
         {t('Sign_in')}
       </Link>
