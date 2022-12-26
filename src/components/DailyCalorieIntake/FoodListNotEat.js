@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import { number, arrayOf, objectOf, shape, string, bool } from 'prop-types';
 import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -7,11 +8,17 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import { ListText, ProductListText } from './FoodListNotEat.styled';
+import { selectBadProducts } from 'redux/services/selectors';
 
-export const CustomizedList = ({ number, categorie, list }) => {
+export const CustomizedList = ({ number, categorie }) => {
+  const allList = useSelector(selectBadProducts);
+  const productList = allList.filter(item =>
+    item.categories.includes(categorie)
+  );
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const isOpen = Boolean(anchorEl);
+
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
     setOpen(!open);
@@ -26,7 +33,6 @@ export const CustomizedList = ({ number, categorie, list }) => {
         alignItems="flex-start"
         onClick={handleClick}
         sx={{
-          px: 0,
           pt: 0,
           pb: open ? 0 : 1,
           '&:hover, &:focus': { '& svg': { opacity: open ? 1 : 0 } },
@@ -70,9 +76,9 @@ export const CustomizedList = ({ number, categorie, list }) => {
           }}
         >
           {open &&
-            list.map(item => (
-              <MenuItem onClick={handleClose} key={item.title.ru}>
-                <ProductListText primary={'-  ' + item.title.ru} />
+            productList.map(item => (
+              <MenuItem onClick={handleClose} key={item.title.ua}>
+                <ProductListText primary={'-  ' + item.title.ua} />
               </MenuItem>
             ))}
         </Menu>

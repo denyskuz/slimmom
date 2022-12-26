@@ -3,7 +3,6 @@ import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-console.log('BASE_URL', BASE_URL);
 axios.defaults.baseURL = BASE_URL;
 
 const token = {
@@ -55,6 +54,10 @@ export const login = createAsyncThunk(
   }
 );
 
+/*
+ * POST @ /api/products
+ * body: userParams
+ */
 export const getProducts = createAsyncThunk(
   '/api/products',
   async (userParams, thunkAPI) => {
@@ -67,6 +70,54 @@ export const getProducts = createAsyncThunk(
       }
       data.message && toast.success(data.message);
       console.log('RESPONSE===>', data);
+      return data;
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
+
+/*
+ * POST @ /api/products/categories
+ * body: userParams
+ */
+export const getProductsCategories = createAsyncThunk(
+  '/api/products/categories',
+  async (userParams, thunkAPI) => {
+    try {
+      const { data, status } = await axios.post(
+        '/api/products/categories',
+        userParams
+      );
+      token.set(data.token);
+      if (!data) {
+        return thunkAPI.rejectWithValue(status);
+      }
+      data.message && toast.success(data.message);
+      return data;
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
+
+/*
+ * GET @ /api/products?category=зерно&currentPage=1&pageSize=2
+ * body: {categorie, pageNumber}
+ */
+export const getProductsByCategories = createAsyncThunk(
+  '/api/products',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data, status } = await axios.get(
+        `/api/products?category=${credentials.categorie}&currentPage=1&pageSize=20`
+      );
+      if (!data) {
+        return thunkAPI.rejectWithValue(status);
+      }
+      data.message && toast.success(data.message);
       return data;
     } catch (err) {
       toast.error(err.response.data.message);
