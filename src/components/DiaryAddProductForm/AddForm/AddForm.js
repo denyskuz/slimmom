@@ -27,10 +27,11 @@ const AddForm = () => {
         return;
       }
       const data = { dataTitle, productName, product, weight, date };
-      setProduct(' ');
-      setProductName(' ');
+    
       dispatch(addDiaryProduct(data));
-      resetForm();
+      // resetForm();
+      //  setProduct(' ');
+      // setProductName(' ');
     },
   });
 
@@ -49,7 +50,8 @@ const AddForm = () => {
     <Form onSubmit={formik.handleSubmit}>
       <Complete
         onInputChange={(e, v) => {
-          dispatch(getNameProducts(v));
+          console.log('valueeee', v);
+         dispatch(getNameProducts(v));
         }}
         onChange={handleChange}
         freeSolo

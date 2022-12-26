@@ -153,7 +153,10 @@ export const getAllDiaryProduct = createAsyncThunk(
     try {
       const { data } = await axios.get(`/api/diary/${date}`);
       token.set(persistedToken);
-      return data;
+      console.log('data', data);
+      const mappedData = data.notes.map(({ product }) => ({ title: product.title, id: product._id }));
+      console.log('mappedData', mappedData);
+      return mappedData;
     } catch (error) {
       toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
@@ -171,8 +174,11 @@ export const addDiaryProduct = createAsyncThunk(
     }
     try {
       token.set(persistedToken);
-      await axios.post('api/diary', { product, weight, date });
+      const { data } = await axios.post('api/diary', { product, weight, date });
+      console.log('data ===', data);
       toast('Product added success!');
+
+      return data;
     } catch (error) {
       toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
@@ -195,6 +201,7 @@ export const getNameProducts = createAsyncThunk(
         params: { title: userQuery },
       });
       data.message && toast.success(data.message);
+      console.log('data', data);
       return data;
     } catch (err) {
       toast.error(err.response.data.message);

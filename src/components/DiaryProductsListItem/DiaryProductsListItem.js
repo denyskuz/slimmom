@@ -29,7 +29,7 @@ export default function DiaryProductsListItem() {
       {notes.map((e, i, ar) => {
         return (
           <ListItems key={e._id}>
-            <NameProduct noWrap>{e.product.title.ua}</NameProduct>
+            <NameProduct noWrap>{e.title.ua}</NameProduct>
             <DataProduct>
               <Weight noWrap>{e.weight} g</Weight>
               <Kcal noWrap>{e.calories}kcal</Kcal>
