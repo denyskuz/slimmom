@@ -10,6 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { Wrapper } from 'pages/MainPage/MainPage.styled';
 export default function CalculatorPage() {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const dispatch = useDispatch();
@@ -20,25 +21,27 @@ export default function CalculatorPage() {
   }, [date, dispatch]);
 
   return (
-    <Container>
-      <Helmet>
-        <title>Diary</title>
-      </Helmet>
-      <BlockContainer>
-        {isMobile ? (
-          <>
-            <DiaryDateCalendar />
-            <DiaryProductsListItem />
-            <DiaryAddProductForm />
-          </>
-        ) : (
-          <>
-            <DiaryDateCalendar />
-            <DiaryAddProductForm />
-            <DiaryProductsListItem />
-          </>
-        )}
-      </BlockContainer>
+    <Wrapper>
+      <Container>
+        <Helmet>
+          <title>Diary</title>
+        </Helmet>
+        <BlockContainer>
+          {isMobile ? (
+            <>
+              <DiaryDateCalendar />
+              <DiaryProductsListItem />
+              <DiaryAddProductForm />
+            </>
+          ) : (
+            <>
+              <DiaryDateCalendar />
+              <DiaryAddProductForm />
+              <DiaryProductsListItem />
+            </>
+          )}
+        </BlockContainer>
+      </Container>
       <SideBar />
     </Wrapper>
   );

@@ -21,7 +21,7 @@ export const selectLoadStatus = state => state.products.loading;
 export const selectLoadError = state => state.products.error;
 
 export const getAllDiaryProduct = state => {
-  console.log(state.diary.notes);
+  // console.log(state.diary.notes);
   return state.diary.notes;
 };
 export const getProductTitle = state => state.diary.selectTitle;
