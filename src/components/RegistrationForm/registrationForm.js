@@ -7,7 +7,7 @@ import {
   LinkButton,
 } from 'components/Button/Button';
 import { register } from 'redux/services/operations';
-import { Form, ButtonBox, Input } from './RegistrationForm.styled';
+import { Form, ButtonBox, Input } from './registrationForm.styled';
 import { useTranslation } from 'react-i18next';
 import { userRegisterSchema } from 'validation';
 import IconButton from '@mui/material/IconButton';
