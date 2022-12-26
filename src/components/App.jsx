@@ -11,14 +11,14 @@ import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import 'react-toastify/dist/ReactToastify.css';
-import AppBar from './Header/AppBar';
+// import AppBar from './Header/AppBar';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/services/operations';
 import Loader from './Loader';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
-const RegistrationPage = lazy(() => import('../pages/registration'));
+const RegistrationPage = lazy(() => import('../pages/Registration'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DiaryPage = lazy(() => import('../pages/Diary'));
 const CalculatorPage = lazy(() => import('../pages/Calculator'));
@@ -39,7 +39,7 @@ export const App = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <CssBaseline />
-        <AppBar />
+        {/* <AppBar /> */}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
