@@ -8,19 +8,20 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import { ListText, ProductListText } from './FoodListNotEat.styled';
-import { selectFoodList } from 'redux/services/selectors';
-import { getProductsByCategories } from 'redux/services/operations';
+import { selectBadProducts, selectUserParams } from 'redux/services/selectors';
+import { getProducts } from 'redux/services/operations';
 
-export const CustomizedList = ({ number, categorie }) => {
+export const CustomizedList = ({ number, category }) => {
   const dispatch = useDispatch();
-  const allList = useSelector(selectFoodList);
+  const user = useSelector(selectUserParams)
+  const allList = useSelector(selectBadProducts);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const isOpen = Boolean(anchorEl);
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
-    dispatch(getProductsByCategories({ categorie: categorie }));
+    dispatch(getProducts({ category: category, userParams: user}));
     setOpen(!open);
   };
   const handleClose = () => {
@@ -42,8 +43,8 @@ export const CustomizedList = ({ number, categorie }) => {
           primary={
             number +
             '.  ' +
-            categorie.charAt(0).toUpperCase() +
-            categorie.slice(1)
+            category.charAt(0).toUpperCase() +
+            category.slice(1)
           }
           sx={{ my: 0 }}
         />
