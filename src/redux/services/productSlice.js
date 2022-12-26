@@ -1,20 +1,30 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getProducts } from './operations';
+import { getProducts, getDailyProducts } from '../products/actions';
 
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
     calories: 0,
     bad: [],
+    daily: [],
     loading: false,
     error: '',
   },
   extraReducers: builder => {
-    builder.addCase(getProducts.pending, state => {
-      state.loading = true;
-    });
-    builder.addCase(getProducts.rejected, (state, action) => {
-      state.error = action.error;
+    builder.addCase(
+      isAnyOf(getProducts.pending, getDailyProducts.pending),
+      state => {
+        state.loading = true;
+      }
+    );
+    builder.addCase(
+      isAnyOf(getProducts.rejected, getDailyProducts.rejected),
+      (state, action) => {
+        state.error = action.error;
+      }
+    );
+    builder.addCase(getDailyProducts.fulfilled, (state, action) => {
+      state.daily = action.payload;
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
       state.calories = action.payload.kCal;
