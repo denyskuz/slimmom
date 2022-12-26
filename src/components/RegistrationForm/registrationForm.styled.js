@@ -6,12 +6,11 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 60px;
   max-width: 280px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #9b9faa;
   @media screen and (min-width: 768px) {
-    max-width: 380px;
+    max-width: 240px;
     margin: 0;
   }
 `;
@@ -21,12 +20,15 @@ export const ButtonBox = styled(Box)`
   flex-direction: column;
   align-items: center;
   @media screen and (min-width: 768px) {
+    width: 396px;
     justify-content: baseline;
     flex-direction: initial;
   }
 `;
 export const Input = styled(TextField)`
   & input {
+    padding-bottom: 20px;
+    padding-top: 20px;
     font-family: Verdana;
     font-weight: 700;
     font-size: 14px;
@@ -43,6 +45,7 @@ export const Input = styled(TextField)`
     border-bottom-color: #fc842d;
   }
   & label {
+    padding-top: 20px;
     font-family: Verdana;
     font-weight: 700;
     font-size: 14px;

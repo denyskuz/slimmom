@@ -6,7 +6,7 @@ import {
   LinkButton,
 } from 'components/Button/Button';
 import { register } from 'redux/services/operations';
-import { Form, ButtonBox, Input } from './registrationForm.styled';
+import { Form, ButtonBox, Input } from './RegistrationForm.styled';
 import { userRegisterSchema } from 'validation';
 
 const RegisterForm = () => {

@@ -2,30 +2,32 @@ import styled from 'styled-components';
 
 export const ImageContainer = styled.div`
   position: relative;
-  width: 100%;
+  max-width: 1280px;
   height: 100%;
+  margin: 0 auto;
   box-sizing: border-box;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 1280px;
     background: ${props =>
-      props.visible
-        ? `linear-gradient(to left, #F0F1F3 , #fff)`
-        : 'transparent'};
+      props.visible ? `linear-gradient(to left, #F0F1F3 , #fff)` : 'transparent'};
   }
   z-index: 1;
 `;
 
 export const StrawberryImg = styled.img`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.5px) {
     display: none;
   }
   position: absolute;
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   @media screen and (max-width: 1279px) {
-    bottom: -130px;
-    right: 10px;
+    bottom: -25px;
+    right: 30px;
   }
   @media screen and (min-width: 1280px) {
     bottom: 45px;
@@ -35,14 +37,14 @@ export const StrawberryImg = styled.img`
 `;
 
 export const StrawberryAuthImg = styled.img`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.5px) {
     display: none;
   }
   position: absolute;
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   @media screen and (max-width: 1279px) {
-    bottom: -130px;
-    right: 10px;
+    bottom: 0;
+    right: 0;
   }
   @media screen and (min-width: 1280px) {
     bottom: 45px;
@@ -52,48 +54,48 @@ export const StrawberryAuthImg = styled.img`
 `;
 
 export const BananaImg = styled.img`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.5px) {
     display: none;
   }
   position: absolute;
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   @media screen and (max-width: 1279px) {
-    bottom: -300px;
+    bottom: -210px;
     right: 0px;
   }
   @media screen and (min-width: 1280px) {
     top: 0px;
     right: 0px;
   }
-  z-index: 0;
+  z-index: 2;
 `;
 
 export const LeafsImg = styled.img`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.5px) {
     display: none;
   }
   position: absolute;
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   @media screen and (max-width: 1279px) {
-    bottom: -300px;
+    bottom: -210px;
     left: 0px;
   }
   @media screen and (min-width: 1280px) {
     top: 0;
     right: 195px;
   }
-  z-index: -1;
+  z-index: 1;
 `;
 
 export const LeafsAuthImg = styled.img`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.5px) {
     display: none;
   }
   position: absolute;
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   @media screen and (max-width: 1279px) {
-    bottom: -300px;
-    left: 0px;
+    bottom: 45px;
+    left: 20px;
   }
   @media screen and (min-width: 1280px) {
     top: 0;
@@ -103,19 +105,19 @@ export const LeafsAuthImg = styled.img`
 `;
 
 export const VectorImg = styled.img`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.5px) {
     display: none;
   }
   position: absolute;
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
 
   @media screen and (max-width: 1279px) {
-    bottom: -300px;
-    right: 0px;
+    bottom: -200px;
+    right: 0;
   }
   @media screen and (min-width: 1280px) {
-    bottom: 50px;
-    right: 0px;
+    bottom: 40px;
+    right: 0;
   }
   z-index: -1;
 `;
@@ -129,7 +131,6 @@ export const LeafsSide = styled.img`
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   top: 0px;
   right: 0px;
-  z-index: 0;
 `;
 
 export const LeafsFoot = styled.img`
@@ -140,5 +141,4 @@ export const LeafsFoot = styled.img`
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   bottom: 0px;
   right: 0px;
-  z-index: -1;
 `;

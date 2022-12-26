@@ -9,13 +9,14 @@ import {
 } from '@mui/material';
 
 export const FormWrapper = styled.div`
-  width: 100%;
+  height: 100%;
   padding-top: 32px;
-  padding-bottom: 41px;
+
   @media (min-width: 768px) {
     padding-top: 100px;
-    padding-bottom: 48px;
+    padding-bottom: 150px;
   }
+
   @media (min-width: 1280px) {
     padding-top: 137px;
     padding-bottom: 111px;
@@ -29,14 +30,12 @@ export const Title = styled.h1`
   line-height: 1.4;
   letter-spacing: normal;
   margin: 0;
-  margin-bottom: 34px;
-  @media (max-width: 320px) {
-    width: 260px;
-  }
-  @media (min-width: 320px) and (max-width: 768px) {
-    width: 520px;
-  }
+  margin-bottom: 32px;
   @media (min-width: 320px) {
+    width: 280px;
+  }
+  @media (min-width: 767px) {
+    width: 520px;
     font-size: 34px;
     margin-bottom: 68px;
   }
@@ -44,10 +43,10 @@ export const Title = styled.h1`
 
 export const Form = styled.form`
   display: grid;
-  @media (max-width: 320px) {
+  @media (max-width: 767.5px) {
     grid-auto-flow: row;
   }
-  @media (min-width: 320px) {
+  @media (min-width: 768px) {
     grid-template-columns: repeat(2, 240px);
     grid-template-rows: repeat(4, 4fr);
     column-gap: 32px;
@@ -65,17 +64,21 @@ export const Label = styled(FormControlLabel)`
   & .Mui-checked + .MuiFormControlLabel-label {
     font-weight: 700;
     color: #fc842d;
+    margin: 0;
   }
 `;
 
 export const Input = styled(TextField)`
   & input {
+    width: 240px;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 8px;
     font-family: Verdana;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    width: 100%;
     color: #9b9faa;
   }
   & input:-webkit-autofill,
@@ -97,6 +100,7 @@ export const Input = styled(TextField)`
     color: #fc842d;
   }
   & p {
+    margin: 0;
     text-align: right;
     font-family: Verdana;
     font-weight: 700;
@@ -107,7 +111,7 @@ export const Input = styled(TextField)`
   }
 `;
 export const ShiftedInput = styled(Input)`
-  @media (max-width: 320px) {
+  @media (max-width: 767.5px) {
     grid-column: 1;
   }
   grid-column: 2;
@@ -135,7 +139,7 @@ export const BloodInput = styled(Input)`
 
 export const FormRadioGroup = styled(RadioGroup)`
   justify-content: space-between;
-  @media (max-width: 320px) {
+  @media (max-width: 767.5px) {
     grid-column: 1;
   }
   grid-column: 2;
@@ -161,14 +165,20 @@ export const Button = styled(MuiButton)`
     padding: 13px 25px;
     border-radius: 30px;
     text-transform: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.2;
     letter-spacing: 0.04em;
     background: #fc842d;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-    @media (max-width: 320px) {
+    @media (min-width: 320px) {
       margin-top: 40px;
+      justify-self: center;
+    }
+
+    @media (min-width: 768px) {
+      margin-top: 20px;
       justify-self: center;
     }
   }
@@ -176,12 +186,20 @@ export const Button = styled(MuiButton)`
     background: #fff;
     color: #fc842d;
   }
-  @media (max-width: 1280px) {
+    @media (max-width: 767.5px) {
+    grid-row: 6 / span 1;
+    grid-column: 1;
+    justify-self: start;
+    align-self: start;
+  }
+
+  @media (min-width: 768px) {
     grid-row: 4 / span 1;
     grid-column: 1;
     justify-self: start;
     align-self: start;
   }
+
   @media (min-width: 1280px) {
     align-self: start;
     justify-self: end;
