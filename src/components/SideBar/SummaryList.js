@@ -13,7 +13,7 @@ export const SummaryList = () => {
   }, [dispatch]);
 
   const dailyCalories = useSelector(selectCalories);
-  const dailyProducts = useSelector(selectDailyProducts);
+  //const dailyProducts = useSelector(selectDailyProducts);
 
   const { t } = useTranslation();
   return (

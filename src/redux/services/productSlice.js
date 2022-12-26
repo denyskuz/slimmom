@@ -1,5 +1,9 @@
-import { createSlice, isAnyOf, isRejected  } from '@reduxjs/toolkit';
-import { getProducts, getDailyProducts, getProductsCategories } from './operations';
+import { createSlice, isAnyOf, isRejected } from '@reduxjs/toolkit';
+import {
+  getProducts,
+  getDailyProducts,
+  getProductsCategories,
+} from './operations';
 
 const productsSlice = createSlice({
   name: 'products',
