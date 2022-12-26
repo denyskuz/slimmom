@@ -10,16 +10,20 @@ export const Wrapper = styled.div`
 
 export const BlockContainer = styled.div`
   padding-top: 40px;
-  height: 300px;
+  padding-left: 20px;
 
   @media screen and (min-width: 768px) {
-    height: 605px;
     padding-top: 100px;
-    padding-bottom: 55px;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 768px;
+    margin-right: auto;
+    margin-left: auto;
   }
-
   @media screen and (min-width: 1280px) {
-    padding-top: 137px;
-    height: 690px;
+    width: 1280px;
+    padding-top: 145px;
+    padding-left: 16px;
+    margin: 0;
   }
 `;
