@@ -2,17 +2,12 @@ import styled from 'styled-components';
 
 export const ImageContainer = styled.div`
   position: relative;
-  max-width: 1280px;
   height: 100%;
   margin: 0 auto;
   box-sizing: border-box;
 
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
 
   @media screen and (min-width: 1280px) {
-    width: 1280px;
     background-color: ${props => (props.visible ? '#FFFFFF' : 'transparent')};
   }
   z-index: 1;
