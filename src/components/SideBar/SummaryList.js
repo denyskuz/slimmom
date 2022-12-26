@@ -21,7 +21,7 @@ export const SummaryList = () => {
       </SummaryListItem>
       <SummaryListItem disablePadding>
         <Typography>n% of normal</Typography>
-        <Typography>000 kcal</Typography>
+        <Typography>000 %</Typography>
       </SummaryListItem>
     </List>
   );
