@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../theme';
+import  ThemeMode  from './Theme/ThemeMode';
 import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
@@ -18,7 +19,7 @@ import { refreshUser } from 'redux/services/operations';
 import Loader from './Loader';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
-const RegistrationPage = lazy(() => import('../pages/Registration'));
+const RegistrationPage = lazy(() => import('../pages/Registration/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DiaryPage = lazy(() => import('../pages/Diary'));
 const CalculatorPage = lazy(() => import('../pages/Calculator'));
@@ -35,8 +36,9 @@ export const App = () => {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <HelmetProvider>
-      <ThemeProvider theme={theme}>
+      <HelmetProvider>
+        <ThemeMode>
+          <ThemeProvider theme={theme}>
         <GlobalStyle />
         <CssBaseline />
         {/* <AppBar /> */}
@@ -86,7 +88,8 @@ export const App = () => {
           </Route>
         </Routes>
         <ToastContainer theme="colored" position="bottom-right" />
-      </ThemeProvider>
+          </ThemeProvider>
+      </ThemeMode>
     </HelmetProvider>
   );
 };
