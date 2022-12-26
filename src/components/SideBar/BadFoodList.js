@@ -4,16 +4,18 @@ import { selectBadProducts } from 'redux/services/selectors';
 import { SummaryListItem, SummaryListContainer } from './SideBar.styled';
 import { Typography } from '@mui/material';
 import { FixedSizeList } from 'react-window';
+import { useTranslation } from 'react-i18next';
 
 export const BadFoodList = () => {
   const products = useSelector(selectBadProducts);
-  const renderRow = ({ data, index, style }) =>(
-      <SummaryListItem sx={style} key={index} disablePadding>
-        <Typography noWrap>{data[index].title.ua}</Typography>
-      </SummaryListItem>
+  const { t } = useTranslation();
+  const renderRow = ({ data, index, style }) => (
+    <SummaryListItem sx={style} key={index} disablePadding>
+      <Typography noWrap>{data[index].title.ua}</Typography>
+    </SummaryListItem>
   );
-  if (!products.length) { 
-    return  <BadFoodPlaceholder>Your diet will be displayed here</BadFoodPlaceholder>
+  if (!products.length) {
+    return <BadFoodPlaceholder>{t('Diet_display')}</BadFoodPlaceholder>;
   }
   return (
     <SummaryListContainer>

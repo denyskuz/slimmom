@@ -1,31 +1,53 @@
-import { useState } from 'react';
-import { AddProductBtn } from '../../components/Button/Button';
-import { HiPlus } from 'react-icons/hi';
-import AddForm from './AddForm/AddForm';
-import DiaryModal from './DiaryModal/DiaryModal';
-import { useMediaQuery } from 'react-responsive';
-import { Wrapper } from './DiaryAddProductForm.styled';
+import { useFormik } from 'formik';
+//import { addProducts } from 'redux/products/actions';
 
-const DiaryAddProductForm = ({ onSubmit }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  const [modal, setModal] = useState(false);
-  const onModal = () => {
-    setModal(prevState => !prevState);
-  };
+import {
+  FormWrapper,
+  Form,
+  Label,
+  Input,
+  Button,
+} from './DiaryAddProductForm.styled';
+
+const DiaryAddProductForm = ({ img, openModal }) => {
+  const formik = useFormik({
+    initialValues: {
+      product: '',
+      weigth: '',
+    },
+    onSubmit: values => {
+      console.log(values);
+    },
+  });
 
   return (
-    <div>
-      {isMobile ? (
-        <Wrapper>
-          <AddProductBtn type="button" onClick={onModal}>
-            <HiPlus />
-          </AddProductBtn>
-          {modal && <DiaryModal onClickModal={onModal} onSubmit={onSubmit} />}
-        </Wrapper>
-      ) : (
-        <AddForm onSubmit={onSubmit} />
-      )}
-    </div>
+    <FormWrapper>
+      <Form onSubmit={formik.handleSubmit}>
+        <Label>
+          Enter product name
+          <Input
+            id="product"
+            name="product"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.product}
+          />
+        </Label>
+        <Label>
+          Grams
+          <Input
+            id="weigth"
+            name="weigth"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.weigth}
+          />
+        </Label>
+        <Button type="submit">
+          {img !== 'Add' ? <img src={img} alt="add product" /> : 'Add'}
+        </Button>{' '}
+      </Form>
+    </FormWrapper>
   );
 };
 

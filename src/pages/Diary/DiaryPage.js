@@ -8,14 +8,14 @@ import { Container } from '@mui/system';
 export default function CalculatorPage() {
   return (
     <Container>
-        <Helmet>
-          <title>Diary</title>
-        </Helmet>
-        <BlockContainer>
-          <DiaryDateCalendar />
-          <DiaryAddProductForm />
-        </BlockContainer>
-        <SideBar />
+      <Helmet>
+        <title>Diary</title>
+      </Helmet>
+      <BlockContainer>
+        <DiaryDateCalendar />
+        <DiaryAddProductForm />
+      </BlockContainer>
+      <SideBar />
     </Container>
   );
 }

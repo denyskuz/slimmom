@@ -1,11 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
-// import toast from 'react-hot-toast';
 import { toast } from 'react-toastify';
 
-const BASE_URL = "http://localhost:3000/";
-//process.env.REACT_APP_BACKEND_URL;
-
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+console.log('BASE_URL', BASE_URL);
 axios.defaults.baseURL = BASE_URL;
 
 const token = {
@@ -25,13 +23,13 @@ export const register = createAsyncThunk(
   '/api/auth/registration',
   async (value, thunkAPI) => {
     try {
-      const { data } = await axios.post(`/api/auth/registration`, value);
-      token.set(data.token);
-      const res = await axios.post('/api/auth/login', {
+      await axios.post(`/api/auth/registration`, value);
+      const { data } = await axios.post('/api/auth/login', {
         password: value.password,
         email: value.email,
       });
-      return res.data;
+      token.set(data.accessToken);
+      return data;
     } catch (error) {
       toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
@@ -45,18 +43,17 @@ export const register = createAsyncThunk(
  */
 export const login = createAsyncThunk(
   '/api/auth/login',
-  async (data, thunkAPI) => {
+  async (value, thunkAPI) => {
     try {
-      const res = await axios.post('/api/auth/login', data);
-
-      return res.data;
+      const { data } = await axios.post('/api/auth/login', value);
+      token.set(data.accessToken);
+      return data;
     } catch (error) {
       toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
 
 export const getProducts = createAsyncThunk(
   '/api/products',
@@ -68,7 +65,7 @@ export const getProducts = createAsyncThunk(
         return thunkAPI.rejectWithValue(status);
       }
       data.message && toast.success(data.message);
-      return data;      
+      return data;
     } catch (err) {
       toast.error(err.response.data.message);
       return thunkAPI.rejectWithValue(err.response.data);
