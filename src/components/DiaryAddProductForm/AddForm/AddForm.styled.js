@@ -47,7 +47,6 @@ export const Complete = styled(Autocomplete)`
   }
 `;
 
-
 export const ProductInput = styled(TextField)`
   font-size: 16px;
   outline: none;
@@ -69,7 +68,6 @@ export const ProductInput = styled(TextField)`
     width: 100%;
   }
 `;
-
 
 export const GramsInput = styled(TextField)`
   font-size: 16px;

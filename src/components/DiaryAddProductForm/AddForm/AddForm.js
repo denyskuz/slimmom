@@ -27,7 +27,7 @@ const AddForm = () => {
         return;
       }
       const data = { dataTitle, productName, product, weight, date };
-    
+
       dispatch(addDiaryProduct(data));
       // resetForm();
       //  setProduct(' ');
@@ -51,7 +51,7 @@ const AddForm = () => {
       <Complete
         onInputChange={(e, v) => {
           console.log('valueeee', v);
-         dispatch(getNameProducts(v));
+          dispatch(getNameProducts(v));
         }}
         onChange={handleChange}
         freeSolo

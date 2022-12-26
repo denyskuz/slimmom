@@ -22,7 +22,10 @@ const diaryProductSlice = createSlice({
       // const productToAdd = idToAdd.filter(({ _id }) => _id === idWhatAdd);
       console.log('action', action);
       console.log('action', action);
-      state.notes = [...state.notes, {title: action.meta.arg.productName, id: action.meta.arg.product}];
+      state.notes = [
+        ...state.notes,
+        { title: action.meta.arg.productName, id: action.meta.arg.product },
+      ];
     },
     [deleteDiaryProduct.fulfilled](state, action) {
       const index = state.notes.findIndex(({ _id }) => _id === action.meta.arg);

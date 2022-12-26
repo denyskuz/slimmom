@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const useCalculator = () => {
   const [consumed, setConsumed] = useState(0);
-  const dailyNorm = useSelector(selectCalories);
+  const dailyNorm = useSelector(selectCalories).toFixed(0);
   const dailyProducts = useSelector(selectDailyProducts);
   useEffect(() => {
     if (dailyProducts.length && dailyNorm) {
@@ -22,7 +22,7 @@ const useCalculator = () => {
   }, [dailyProducts, dailyNorm]);
 
   const left = dailyNorm - consumed;
-  const percent = (consumed / dailyNorm) * 100.0;
+  const percent = (consumed / dailyNorm).toFixed(2) * 100.0;
   return { dailyNorm, consumed, left, percent };
 };
 
