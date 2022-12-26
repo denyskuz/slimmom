@@ -18,6 +18,7 @@ import { useAuth } from 'hooks/useAuth';
 
 const AppBar = () => {
   const { isLoggedIn } = useAuth();
+
   return (
     <Header>
       <NavHeader>

@@ -1,7 +1,6 @@
 import moment from 'moment';
 import Datetime from 'react-datetime';
 import { useState } from 'react';
-import { Container } from '../Container.styled';
 import { Box } from 'components/Box';
 import 'react-datetime/css/react-datetime.css';
 import iconCalendar from '../../images/icon/calendar.svg';
@@ -19,7 +18,7 @@ export const DiaryDateCalendar = () => {
   const renderInput = (props, openCalendar) => (
     <Box
       display="flex"
-      alignItems="center"
+      alignItems="baseline"
       gridGap="20px"
       onClick={openCalendar}
     >
@@ -29,7 +28,7 @@ export const DiaryDateCalendar = () => {
   );
 
   return (
-    <Container>
+    <>
       <Datetime
         renderInput={renderInput}
         value={date}
@@ -39,6 +38,6 @@ export const DiaryDateCalendar = () => {
         strictParsing={true}
         onChange={handleChangeDate}
       />
-    </Container>
+    </>
   );
 };

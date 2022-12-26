@@ -40,6 +40,6 @@ export default function CalculatorPage() {
         )}
       </BlockContainer>
       <SideBar />
-    </Container>
+    </Wrapper>
   );
 }
