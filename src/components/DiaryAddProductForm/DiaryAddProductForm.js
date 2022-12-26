@@ -8,8 +8,7 @@ import {
   Button,
 } from './DiaryAddProductForm.styled';
 
-
-export const DiaryAddProductForm = ({ img, openModal }) => {
+const DiaryAddProductForm = ({ img, openModal }) => {
   const formik = useFormik({
     initialValues: {
       product: '',
@@ -50,3 +49,5 @@ export const DiaryAddProductForm = ({ img, openModal }) => {
     </FormWrapper>
   );
 };
+
+export default DiaryAddProductForm;

@@ -8,13 +8,15 @@ import {
   NavCalcLink,
 } from './Burger.styled';
 
+import { useTranslation } from 'react-i18next';
+
 const Burger = () => {
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
   const toggleBurgerMenu = () => {
     setBurgerMenuOpen(!isBurgerMenuOpen);
   };
-
+  const { t } = useTranslation();
   return (
     <>
       <BurgerButton
@@ -31,10 +33,10 @@ const Burger = () => {
       <BurgerMenu className={isBurgerMenuOpen ? 'open' : ''}>
         <>
           <NavDiaryLink to="/diary" onClick={toggleBurgerMenu}>
-            Diary
+            {t('Diary')}
           </NavDiaryLink>
           <NavCalcLink to="calculator" onClick={toggleBurgerMenu}>
-            Calculator
+            {t('Calculator_button')}
           </NavCalcLink>
         </>
       </BurgerMenu>

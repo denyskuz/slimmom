@@ -13,41 +13,50 @@ import {
 import { calculateCalories } from 'utils';
 import { CustomizedList } from './FoodListNotEat';
 import { useSelector } from 'react-redux';
-import { selectBadProducts } from 'redux/services/selectors';
+import { selectBadCategories } from 'redux/services/selectors';
+import List from '@mui/joy/List';
+import Sheet from '@mui/joy/Sheet';
+
+import { useTranslation } from 'react-i18next';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
-  const products = useSelector(selectBadProducts);
-  const product_categories = products
-    .flatMap(product => product.categories)
-    .filter((categorie, index, array) => array.indexOf(categorie) === index);
+  const categories = useSelector(selectBadCategories);
+  const { t } = useTranslation();
+
   return (
     <>
       <IntakeBar>
         <CloseButton onClick={closeModal}></CloseButton>
       </IntakeBar>
       <TitleWrapper>
-        <IntakeTitle>Your recommended daily calorie intake is</IntakeTitle>
-        <IntakeResult>{calculateCalories(params)} kcal</IntakeResult>
+        <IntakeTitle>{t('Daily_calorie')}</IntakeTitle>
+        <IntakeResult>
+          {calculateCalories(params)} {t('kcal')}
+        </IntakeResult>
       </TitleWrapper>
       <ListWrapper>
-        <ListTitle>Foods you should not eat</ListTitle>
-        {product_categories.map(item => {
-          const number = product_categories.indexOf(item) + 1;
-          const filterList = products.filter(el =>
-            el.categories.includes(item)
-          );
-          return (
-            <CustomizedList
-              key={item}
-              number={number}
-              categorie={item}
-              list={filterList}
-            />
-          );
-        })}
+        <ListTitle>{t('Food_list')}</ListTitle>
+        <Sheet
+          variant="outlined"
+          sx={{
+            width: 280,
+            maxHeight: 112,
+            overflow: 'auto',
+            border: 'none',
+          }}
+        >
+          <List>
+            {categories.map(item => {
+              const number = categories.indexOf(item) + 1;
+              return (
+                <CustomizedList key={item} number={number} categorie={item} />
+              );
+            })}
+          </List>
+        </Sheet>
       </ListWrapper>
       <ButtonStart type="button">
-        <LinkButton to={'/signup'}>Start losing weight</LinkButton>
+        <LinkButton to={'/signup'}>{t('Start_loosing')}</LinkButton>
       </ButtonStart>
     </>
   );

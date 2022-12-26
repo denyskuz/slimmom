@@ -9,6 +9,7 @@ import {
 import { login } from '../../redux/services/operations';
 import { Form, ButtonBox, Input } from './LoginForm.styled';
 import { userLoginSchema } from 'validation';
+import { useTranslation } from 'react-i18next';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -30,13 +31,13 @@ const LoginForm = () => {
       resetForm();
     },
   });
-
+  const { t } = useTranslation();
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Input
         id="email"
         required
-        label="E-mail"
+        label={t('Email')}
         variant="standard"
         type="email"
         placeholder="example@gmail.com"
@@ -46,7 +47,7 @@ const LoginForm = () => {
       <Input
         required
         id="password"
-        label="Passwords"
+        label={t('Passwords')}
         type={showPassword ? 'text' : 'password'}
         variant="standard"
         InputProps={{
@@ -67,9 +68,9 @@ const LoginForm = () => {
         value={formik.values.password}
       />
       <ButtonBox>
-        <ButtonPrimary type="submit">Login</ButtonPrimary>
+        <ButtonPrimary type="submit">{t('Login')}</ButtonPrimary>
         <ButtonSecondary type="button">
-          <LinkButton to={'/signup'}>Register</LinkButton>
+          <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
         </ButtonSecondary>
       </ButtonBox>
     </Form>

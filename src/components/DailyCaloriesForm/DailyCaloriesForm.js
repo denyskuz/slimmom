@@ -3,7 +3,11 @@ import { Modal } from '@mui/material';
 import { bool } from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserParams, getProducts } from 'redux/services/operations';
+import {
+  setUserParams,
+  getProductsCategories,
+  getProducts,
+} from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
 import { userParamsSchema } from 'validation';
 import {
@@ -20,6 +24,7 @@ import {
   StyledModalBox,
 } from './DailyCaloriesForm.styled';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/dailyCalorieIntake';
+import { useTranslation } from 'react-i18next';
 
 export const DailyCaloriesForm = ({ isModal = false }) => {
   const dispatch = useDispatch();
@@ -42,8 +47,9 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));
-      setOpen(true);
+      dispatch(getProductsCategories(data));
       dispatch(getProducts(data));
+      setOpen(true);
     },
   });
 
@@ -74,67 +80,65 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
         : measure
       : measure;
   };
-
+  const { t } = useTranslation();
   return (
     <FormWrapper>
-      <Title>
-        Calculate your daily calorie <br /> intake right now
-      </Title>
+      <Title>{t('Register_calculator')}</Title>
       <Form onSubmit={handleSubmit}>
         <Input
           id="height"
           name="height"
           type="number"
-          label="Height *"
+          label={t('Height')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 300 } }}
+          InputProps={{ inputProps: { min: 100, max: 250 } }}
           onChange={handleChange}
           value={values.height}
           error={Boolean(touched.height && errors.height)}
-          helperText={helper('height', 'cm')}
+          helperText={helper('height', t('cm'))}
         />
         <Input
           id="age"
           name="age"
           type="number"
-          label="Age *"
+          label={t('Age')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 200 } }}
+          InputProps={{ inputProps: { min: 18, max: 100 } }}
           onChange={handleChange}
           value={values.age}
           error={Boolean(touched.age && errors.age)}
-          helperText={helper('age', 'years')}
+          helperText={helper('age', t('years'))}
         />
         <Input
           id="currentWeight"
           name="currentWeight"
           type="number"
-          label="Current weight *"
+          label={t('Current_weight')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          InputProps={{ inputProps: { min: 20, max: 500 } }}
           onChange={handleChange}
           value={values.currentWeight}
           error={Boolean(touched.currentWeight && errors.currentWeight)}
-          helperText={helper('currentWeight', 'kg')}
+          helperText={helper('currentWeight', t('kg'))}
         />
         <ShiftedInput
           id="desiredWeight"
           name="desiredWeight"
           type="number"
-          label="Desired weight *"
+          label={t('Desired_weight')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          InputProps={{ inputProps: { min: 20, max: 500 } }}
           onChange={handleChange}
           value={values.desiredWeight}
           error={Boolean(touched.desiredWeight && errors.desiredWeight)}
-          helperText={helper('desiredWeight', 'kg')}
+          helperText={helper('desiredWeight', t('kg'))}
         />
         <FormRadioGroup>
           <BloodInput
             id="bloodType"
             name="bloodType"
             type="number"
-            label="Blood type *"
+            label={t('Blood_type')}
             variant="standard"
             InputProps={{ inputProps: { min: 1, max: 4 } }}
             onChange={handleChange}
@@ -154,7 +158,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
           </FormRadioGroup>
         </FormRadioGroup>
         <Button disabled={loading} variant="contained" type="submit">
-          Start losing weight
+          {t('Start_loosing')}
         </Button>
 
         <Modal
