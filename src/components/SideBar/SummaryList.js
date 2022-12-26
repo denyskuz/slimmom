@@ -6,7 +6,7 @@ import { SummaryListItem } from './SideBar.styled';
 export const SummaryList = () => {
   const dailyCalories = useSelector(selectCalories);
   return (
-    <List component="ol">
+    <List component="ol" padding='0px'>
       <SummaryListItem disablePadding>
         <Typography>Left</Typography>
         <Typography>000 kcal</Typography>

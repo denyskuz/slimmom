@@ -11,6 +11,7 @@ import {
 export const FormWrapper = styled.div`
   height: 100%;
   padding-top: 32px;
+  padding-bottom: 41px;
 
   @media (min-width: 768px) {
     padding-top: 100px;

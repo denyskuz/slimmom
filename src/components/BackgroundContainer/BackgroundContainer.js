@@ -5,8 +5,6 @@ import vectorTab from '../../images/background/vectorTab.png';
 import leafsDesk from '../../images/background/leafsDesk.png';
 import leafsTab from '../../images/background/leafsTab.png';
 import leafsTabForm from '../../images/background/leafsTabForm.png';
-import leafsDeskSideBar from '../../images/background/leafsDeskSideBar.png';
-import leafsTabSideBar from '../../images/background/leafsTabSideBar.png';
 import strawberryDesk from '../../images/background/strawberryDesk.png';
 import strawberryTab from '../../images/background/strawberryTab.png';
 import strawberryTabForm from '../../images/background/strawberryTabForm.png';
@@ -21,8 +19,6 @@ import {
   StrawberryAuthImg,
   LeafsImg,
   LeafsAuthImg,
-  LeafsSide,
-  LeafsFoot,
 } from './BackgroundContainer.styled';
 
 const BackgroundContainer = ({ children }) => {
@@ -46,30 +42,26 @@ const BackgroundContainer = ({ children }) => {
         <>
           <VectorImg
             src={vector}
-            alt="grey background"
+            alt='grey background'
             visibleImg={!isLoggedIn}
           />
 
-          <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
+          <BananaImg
+            src={banana}
+            alt='banana'
+            visibleImg={!isLoggedIn}
+          />
 
           <StrawberryImg
             src={strawberry}
-            alt="strawberry"
+            alt='strawberry'
             visibleImg={!isLoggedIn}
           />
 
-          <LeafsImg src={leafs} alt="leafs" visibleImg={!isLoggedIn} />
-
-          <LeafsSide
-            src={leafsDeskSideBar}
-            alt="leafs right side"
-            visibleImg={isLoggedIn}
-          />
-
-          <LeafsFoot
-            src={leafsTabSideBar}
-            alt="leafs in foot"
-            visibleImg={isLoggedIn}
+          <LeafsImg
+            src={leafs}
+            alt='leafs'
+            visibleImg={!isLoggedIn}
           />
           {children}
         </>
@@ -77,36 +69,26 @@ const BackgroundContainer = ({ children }) => {
         <>
           <VectorImg
             src={vector}
-            alt="grey background"
+            alt='grey background'
             visibleImg={!isLoggedIn}
           />
 
-          <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
+            <BananaImg
+              src={banana}
+              alt='banana'
+              visibleImg={!isLoggedIn}
+            />
 
           <StrawberryAuthImg
             src={strawberryAuth}
-            alt="strawberry"
+            alt='strawberry'
             visibleImg={!isLoggedIn}
-            auth={!isMainPage}
           />
 
           <LeafsAuthImg
             src={leafsAuth}
-            alt="leafs"
+            alt='leafs'
             visibleImg={!isLoggedIn}
-            auth={!isMainPage}
-          />
-
-          <LeafsSide
-            src={leafsDeskSideBar}
-            alt="leafs right side"
-            visibleImg={isLoggedIn}
-          />
-
-          <LeafsFoot
-            src={leafsTabSideBar}
-            alt="leafs in foot"
-            visibleImg={isLoggedIn}
           />
           {children}
         </>

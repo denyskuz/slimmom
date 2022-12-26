@@ -13,9 +13,9 @@ export const ImageContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    background: ${props =>
+    background-color: ${props =>
       props.visible
-        ? `linear-gradient(to left, #F0F1F3 , #fff)`
+        ? '#FFFFFF'
         : 'transparent'};
   }
   z-index: 1;
@@ -122,25 +122,4 @@ export const VectorImg = styled.img`
     right: 0;
   }
   z-index: -1;
-`;
-
-export const LeafsSide = styled.img`
-  pointer-events: none;
-  @media screen and (max-width: 1279px) {
-    display: none;
-  }
-  position: absolute;
-  display: ${props => (props.visibleImg ? 'flex' : 'none')};
-  top: 0px;
-  right: 0px;
-`;
-
-export const LeafsFoot = styled.img`
-  @media screen and (min-width: 1279px) {
-    display: none;
-  }
-  position: absolute;
-  display: ${props => (props.visibleImg ? 'flex' : 'none')};
-  bottom: 0px;
-  right: 0px;
 `;
