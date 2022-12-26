@@ -9,7 +9,6 @@ import {
   Button,
 } from './DiaryAddProductForm.styled';
 
-
 const DiaryAddProductForm = ({ img, openModal }) => {
   const formik = useFormik({
     initialValues: {
