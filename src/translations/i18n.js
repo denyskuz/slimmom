@@ -27,8 +27,9 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    fallbackLng:['en', 'uk']
   });
 
-i18n.changeLanguage('uk');
+// i18n.changeLanguage('uk');
 
 export default i18n;
