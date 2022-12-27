@@ -1,9 +1,12 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../images/logo/logo.png';
 import logoDesk from '../../../images/logo/logoDesk.png';
 import slim from '../../../images/logo/logoSlim.png';
 import mom from '../../../images/logo/logoMom.png';
+import { zoomIn } from 'react-animations';
+
+const zoomAnimation = keyframes`${zoomIn}`; 
 
 export const Header = styled.header`
   max-width: 1280px;
@@ -107,6 +110,7 @@ export const Navigation = styled.div`
 `;
 
 export const Logo = styled.div`
+  animation: 3s ${zoomAnimation};
   width: 46.67px;
   height: 44px;
   margin-right: 10px;

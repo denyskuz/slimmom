@@ -1,13 +1,19 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  height: calc(100% - 82px);
+  width: 100%;
+  height: 100%;
   padding-top: 40px;
   padding-bottom: 99px;
 
   @media screen and (min-width: 768px) {
+    padding-top: 100px;
+    padding-bottom: 419px;
+  }
+
+    @media screen and (min-width: 1280px) {
     padding-top: 150px;
-    padding-bottom: 200px;
+    padding-bottom: 179px;
   }
 `;
 
