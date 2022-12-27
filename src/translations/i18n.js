@@ -27,7 +27,7 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    fallbackLng:['en', 'uk']
+    fallbackLng: ['en', 'uk'],
   });
 
 // i18n.changeLanguage('uk');
