@@ -55,14 +55,15 @@ const AppBar = () => {
               </UserMenuWrapperDesk>
               <Burger />
             </>
-          ) : (<>
-            <AuthMenu>
-              <AuthNav />
-            </AuthMenu>
-            <BurgerWrapper>
-              <Burger />
-            </BurgerWrapper>
-          </>
+          ) : (
+            <>
+              <AuthMenu>
+                <AuthNav />
+              </AuthMenu>
+              <BurgerWrapper>
+                <Burger />
+              </BurgerWrapper>
+            </>
           )}
         </Navigation>
       </NavHeader>
