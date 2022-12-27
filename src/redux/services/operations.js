@@ -160,7 +160,6 @@ export const getAllDiaryProduct = createAsyncThunk(
         weight: notes.weight,
         calories: notes.product.calories,
       }));
-
       return mappedData;
     } catch (error) {
       toast('something went wrong!!');

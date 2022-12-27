@@ -67,7 +67,6 @@ const AddForm = () => {
     };
   });
   const { values, errors, touched, handleSubmit } = formik;
-  console.log(process.env);
 
   // const { t } = useTranslation();
   return (
