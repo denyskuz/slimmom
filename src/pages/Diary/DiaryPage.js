@@ -6,16 +6,9 @@ import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalenda
 import DiaryProductsListItem from 'components/DiaryProductsListItem/DiaryProductsListItem';
 import { Container } from '@mui/system';
 import { useMediaQuery } from 'react-responsive';
-
-import { getAllDiaryProduct } from 'redux/services/operations';
-import { useDispatch } from 'react-redux';
 import { Wrapper } from 'pages/MainPage/MainPage.styled';
 export default function CalculatorPage() {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-
-  // const dispatch = useDispatch();
-  // const date = new Date().toISOString();
-  // dispatch(getAllDiaryProduct(date));
 
   return (
     <Wrapper>
