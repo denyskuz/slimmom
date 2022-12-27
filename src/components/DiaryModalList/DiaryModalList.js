@@ -7,10 +7,11 @@ import {
   ButtonModalDiary,
 } from './DiaryModalList.styled';
 
-export const DiaryModalList = ({ id }) => {
+export const DiaryModalList = () => {
   const dispatch = useDispatch();
   const handleDelete = () => {
     const id = localStorage.getItem('id');
+    console.log(id);
     dispatch(deleteDiaryProduct(id));
   };
 
