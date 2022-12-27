@@ -61,7 +61,6 @@ export const login = createAsyncThunk(
 export const getProducts = createAsyncThunk(
   '/api/products',
   async (query, thunkAPI) => {
-    console.log(query);
     try {
       const { data, status } = await axios.post(
         `/api/products?category=${query.category}&currentPage=1&pageSize=20`,

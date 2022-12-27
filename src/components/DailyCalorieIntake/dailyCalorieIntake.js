@@ -9,12 +9,12 @@ import {
   TitleWrapper,
   CloseButton,
   ButtonStart,
+  List,
 } from './dailyCalorieIntake.styled';
 import { calculateCalories } from 'utils';
 import { CustomizedList } from './FoodListNotEat';
 import { useSelector } from 'react-redux';
 import { selectBadCategories } from 'redux/services/selectors';
-import { List, Sheet } from '@mui/joy';
 
 import { useTranslation } from 'react-i18next';
 
@@ -35,23 +35,13 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>{t('Food_list')}</ListTitle>
-        <Sheet
-          variant="outlined"
-          sx={{
-            width: 280,
-            maxHeight: 112,
-            overflow: 'auto',
-            border: 'none',
-          }}
-        >
-          <List>
-            {categories.map((item, index) => {
-              return (
-                <CustomizedList key={item} number={index + 1} category={item} />
-              );
-            })}
-          </List>
-        </Sheet>
+        <List>
+          {categories.map((item, index) => {
+            return (
+              <CustomizedList key={item} number={index + 1} category={item} />
+            );
+          })}
+        </List>
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>{t('Start_loosing')}</LinkButton>

@@ -8,7 +8,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:js": "eslint src/**/*.{js,jsx}",
-    "prettier-format": "prettier --config .prettierrc --write src/**/*.{js,jsx}",
+    "prettier-format": "prettier --config .prettierrc --write **/*.{js,jsx}",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -18,9 +18,11 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/joy": "^5.0.0-alpha.60",
     "@mui/material": "^5.11.0",
+    "@mui/x-data-grid-pro": "^5.17.17",
     "@reduxjs/toolkit": "1.8.5",
     "axios": "0.27.2",
     "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
     "flag-icons": "^6.6.6",
     "formik": "^2.2.9",
     "i18n-backend": "^0.1.13",
