@@ -13,13 +13,6 @@ const AuthNav = () => {
     i18n.changeLanguage(language);
     setLanguage(language);
   };
-
-  // const handleOnclick = e => {
-  //   // e.preventDefault();
-  //   setLanguage(e.target.value);
-  //   i18n.changeLanguage(e.target.value);
-  // };
-
   return (
     <>
       <LangSwitcher onClick={() => setDroped(!droped)}>
