@@ -10,7 +10,6 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import { ListText, ProductListText } from './FoodListNotEat.styled';
 import { selectUserParams } from 'redux/services/selectors';
 import Loader from 'components/Loader';
-import { overflow } from 'styled-system';
 
 export const CustomizedList = ({ number, category }) => {
   const user = useSelector(selectUserParams);
@@ -115,7 +114,7 @@ export const CustomizedList = ({ number, category }) => {
         }}
       >
         {open && !products[1] ? (
-          <Box sx={{ height: '400px', width: '300px'}}>
+          <Box sx={{ height: '400px', width: '300px' }}>
             <Loader />
           </Box>
         ) : (
