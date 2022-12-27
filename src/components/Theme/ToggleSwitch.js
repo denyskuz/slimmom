@@ -1,10 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { FormGroup, FormControlLabel, Switch } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { toggleTheme } from '../../redux/services/themeSlice';
 
 export const ToggleSwitch = () => {
-  const theme = useSelector(state => state.theme);
 
   const dispatch = useDispatch();
 
@@ -61,7 +60,7 @@ export const ToggleSwitch = () => {
       <FormControlLabel
         control={
           <MaterialUISwitch
-            checked={theme.darkTheme}
+            defaultChecked
             onChange={() => dispatch(toggleTheme())}
           />
         }
