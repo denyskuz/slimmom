@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   setUserParams,
   getProductsCategories,
-  getProducts,
 } from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
 import { userParamsSchema } from 'validation';
@@ -48,7 +47,6 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
       setParams(data);
       dispatch(setUserParams(data));
       dispatch(getProductsCategories(data));
-      dispatch(getProducts(data));
       setOpen(true);
     },
   });
