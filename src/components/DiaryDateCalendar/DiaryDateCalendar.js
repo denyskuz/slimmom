@@ -10,10 +10,9 @@ import { DiaryDate } from './DiaryDateCalendar.styled';
 import TextField from '@mui/material/TextField';
 
 export const DiaryDateCalendar = () => {
+  const [value, setValue] = React.useState(dayjs(new Date()));
 
-   const [value, setValue] = React.useState(dayjs(new Date()));
-
-   const handleChange = (newValue) => {
+  const handleChange = newValue => {
     setValue(newValue);
   };
 
@@ -37,7 +36,7 @@ export const DiaryDateCalendar = () => {
           closeOnSelect={true}
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={params => <TextField {...params} />}
         />
       </DiaryDate>
     </LocalizationProvider>
