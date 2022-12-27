@@ -1,7 +1,6 @@
 import { lazy, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { HelmetProvider } from 'react-helmet-async';
-
 import { GlobalStyle } from './GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -40,7 +39,6 @@ export const App = () => {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <CssBaseline />
-          {/* <AppBar /> */}
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route

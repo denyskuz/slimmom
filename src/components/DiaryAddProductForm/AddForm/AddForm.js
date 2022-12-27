@@ -32,6 +32,8 @@ const AddForm = () => {
         toast.info('You need add weight');
         return;
       }
+      const data = { dataTitle, productName, product, weight, date };
+
       console.log(weight);
       const productToAdd = dataTitle.filter(({ _id }) => _id === product);
       const data = {
@@ -72,6 +74,10 @@ const AddForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Complete
+        onInputChange={(e, v) => {
+          console.log('valueeee', v);
+          dispatch(getNameProducts(v));
+        }}
         onInputChange={onInputChange}
         onChange={handleChange}
         disableClearable

@@ -18,7 +18,6 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      console.log('action', action.meta.arg);
       state.notes = [
         ...state.notes,
         {
