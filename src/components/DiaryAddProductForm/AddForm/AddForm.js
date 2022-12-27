@@ -32,7 +32,6 @@ const AddForm = () => {
         toast.info('You need add weight');
         return;
       }
-      console.log(weight);
       const productToAdd = dataTitle.filter(({ _id }) => _id === product);
       const data = {
         prod: productToAdd[0],
@@ -67,7 +66,6 @@ const AddForm = () => {
     };
   });
   const { values, errors, touched, handleSubmit } = formik;
-  console.log(process.env);
 
   // const { t } = useTranslation();
   return (

@@ -9,7 +9,7 @@ const {
 const diaryProductSlice = createSlice({
   name: 'diaryProduct',
   initialState: {
-    notes: [],
+    notes: [{ title: { ua: '' }, id: '', weight: '', calories: '' }],
     selectTitle: [],
     isLoading: false,
   },
@@ -18,14 +18,13 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      console.log('action', action.meta.arg);
       state.notes = [
         ...state.notes,
         {
           title: { ua: action.meta.arg.productName },
           id: action.meta.arg.product,
           weight: action.meta.arg.weight,
-          calories: action.meta.arg.prod.calories || '0',
+          calories: action.meta.arg.prod.calories,
         },
       ];
     },
@@ -34,7 +33,8 @@ const diaryProductSlice = createSlice({
     },
     [deleteDiaryProduct.fulfilled](state, action) {
       const index = state.notes.findIndex(({ id }) => id === action.meta.arg);
-      state.notes.splice(index, 1);
+      const newState = state.notes.splice(index, 1);
+      state.notes = newState;
       state.isLoading = false;
     },
     [deleteDiaryProduct.rejected](state, action) {

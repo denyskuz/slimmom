@@ -15,6 +15,7 @@ export const getGlobalUserData = createSelector(
   }
 );
 
+export const selectDailyProducts = state => state.products.daily;
 export const selectBadProducts = state => state.products.bad;
 export const selectCalories = state => state.products.calories;
 export const selectLoadStatus = state => state.products.loading;
