@@ -60,13 +60,14 @@ export const CustomizedList = ({ number, category }) => {
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
-    axios.post(
-          `/api/products?category=${category}&currentPage=1&pageSize=15`,
-          user
-        )
+    axios
+      .post(
+        `/api/products?category=${category}&currentPage=1&pageSize=15`,
+        user
+      )
       .then(res => {
         setProducts(res.data.products);
-      })
+      });
     setOpen(!open);
   };
 
@@ -114,7 +115,7 @@ export const CustomizedList = ({ number, category }) => {
         }}
       >
         {open && !products[1] ? (
-          <Box sx={{ height: '400px', width: '300px', overflow: 'none'}}>
+          <Box sx={{ height: '400px', width: '300px'}}>
             <Loader />
           </Box>
         ) : (
