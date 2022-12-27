@@ -22,13 +22,13 @@ export const DiaryDateCalendar = () => {
       gridGap="20px"
       onClick={openCalendar}
     >
-      <DiaryDate>{date}</DiaryDate>
+      <div>{date}</div>
       <img src={iconCalendar} width={20} height={20} alt="calendar" />
     </Box>
   );
 
   return (
-    <>
+    <DiaryDate>
       <Datetime
         renderInput={renderInput}
         value={date}
@@ -38,6 +38,6 @@ export const DiaryDateCalendar = () => {
         strictParsing={true}
         onChange={handleChangeDate}
       />
-    </>
+    </DiaryDate>
   );
 };

@@ -66,10 +66,13 @@ export const LinkButton = styled(NavLink)`
 `;
 
 export const AddProductBtn = styled(Button)`
-  align-self: center;
+  padding: 0;
+  min-width: 0px;
+  display: flex;
+  margin: 60px auto;
   border-radius: 50px;
   cursor: pointer;
-  min-width: 48px;
+  width: 48px;
   height: 48px;
   background: #fc842d;
   border: none;

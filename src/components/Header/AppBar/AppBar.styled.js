@@ -1,11 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../images/logo/logo.png';
 import logoDesk from '../../../images/logo/logoDesk.png';
 import slim from '../../../images/logo/logoSlim.png';
 import mom from '../../../images/logo/logoMom.png';
+import { zoomIn } from 'react-animations';
+
+const zoomAnimation = keyframes`${zoomIn}`;
 
 export const Header = styled.header`
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
   border-bottom: ${prop => prop.theme.borders.line};
   border-color: ${prop => prop.theme.colors.input};
 
@@ -21,18 +27,21 @@ export const NavHeader = styled.nav`
   align-items: center;
   padding: 20px 20px 16px 20px;
 
-  max-width: 1280px;
-  margin: 0 auto;
-
   @media screen and (min-width: 768px) {
-    padding-right: ${prop => prop.theme.space[5]}px;
+    width: 768px;
+    margin: 0 auto;
     padding-left: ${prop => prop.theme.space[5]}px;
+    padding-right: ${prop => prop.theme.space[5]}px;
   }
 
   @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: ${prop => prop.theme.space[4]}px;
+    padding-right: ${prop => prop.theme.space[4]}px;
     justify-content: flex-start;
     align-items: baseline;
-    padding: 80px 16px 0 16px;
+    padding-top: 80px;
+    padding-bottom: 0;
   }
 `;
 
@@ -96,12 +105,12 @@ export const Navigation = styled.div`
   display: flex;
 
   @media only screen and (min-width: 1280px) {
-    display: flex;
-    align-items: center;
+    width: 100%;
   }
 `;
 
 export const Logo = styled.div`
+  animation: 3s ${zoomAnimation};
   width: 46.67px;
   height: 44px;
   margin-right: 10px;
@@ -138,10 +147,13 @@ export const UserMenuWrapperDesk = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 50px;
   }
 
   @media screen and (min-width: 1280px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-right: 0;
   }
 `;
@@ -157,4 +169,23 @@ export const UserMenuWrapper = styled.div`
   @media screen and (min-width: 768px) {
     display: none;
   }
+`;
+
+export const AuthMenu = styled.div`
+  @media screen and (max-width: 767.5px) {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+`;
+
+export const BurgerWrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const AuthContainer = styled.div`
+  display: flex;
+  align-items: baseline;
 `;
