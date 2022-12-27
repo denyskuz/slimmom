@@ -67,10 +67,6 @@ export const ProductInput = styled(TextField)`
     color: #fc842d;
     left: -14px;
   }
-  // & input.MuiAutocomplete-root .MuiOutlinedInput-inputRoot{
-  // & .css-1qqsdnr-MuiAutocomplete-root .MuiOutlinedInput-root{
-  //   padding: 0;
-  // }
   @media (max-width: 767px) {
     margin-bottom: 40px;
     margin-right: 0;
