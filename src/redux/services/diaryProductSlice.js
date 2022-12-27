@@ -33,7 +33,9 @@ const diaryProductSlice = createSlice({
     },
     [deleteDiaryProduct.fulfilled](state, action) {
       const index = state.notes.findIndex(({ id }) => id === action.meta.arg);
+      console.log('INDEX', index);
       const newState = state.notes.splice(index, 1);
+      console.log('STATE', newState);
       state.notes = newState;
       state.isLoading = false;
     },

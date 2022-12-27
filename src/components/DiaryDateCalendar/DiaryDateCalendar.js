@@ -6,13 +6,22 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import 'react-datetime/css/react-datetime.css';
 import { DiaryDate, Outline } from './DiaryDateCalendar.styled';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+import { useDispatch } from 'react-redux';
+import { getAllDiaryProduct } from 'redux/services/operations';
 
 export const DiaryDateCalendar = () => {
-  const [value, setValue] = React.useState(dayjs(new Date()));
+  const [value, setValue] = React.useState(new Date().toISOString());
+  const dispatch = useDispatch();
 
   const handleChange = newValue => {
-    setValue(newValue);
+    const date = dayjs(newValue).format();
+    console.log(date);
+    setValue(date);
+    dispatch(getAllDiaryProduct(date));
   };
+  React.useEffect(() => {
+    dispatch(getAllDiaryProduct(value));
+  }, [dispatch, value]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

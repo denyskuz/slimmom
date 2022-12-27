@@ -84,9 +84,8 @@ export const AddProductBtn = styled(Button)`
     transform: rotate(90deg);
     background: #fc832dbb;
   }
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     // margin: 40px 0 0 87px ;
     margin: 0 0 0 87px;
-    
-  }    
-  `;
+  }
+`;
