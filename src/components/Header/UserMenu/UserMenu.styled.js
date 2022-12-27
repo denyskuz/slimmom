@@ -7,7 +7,6 @@ export const List = styled.div`
 
   @media only screen and (min-width: 1280px) {
     display: flex;
-    margin-right: 765px;
   }
 `;
 
@@ -40,12 +39,19 @@ export const UserInfoWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: auto;
   height: 40px;
   z-index: 10;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 50px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin: 0;
+  }
 `;
 
-export const UserName = styled.h2`
+export const UserName = styled.span`
+  position: relative;
   display: inline;
   font-family: GothamPro-Bold;
   font-size: ${prop => prop.theme.fontSizes.xs};
@@ -61,7 +67,7 @@ export const UserName = styled.h2`
     display: block;
     position: absolute;
     top: 5px;
-    right: 40px;
+    right: 0;
     height: 32px;
     width: 2px;
     background-color: ${prop => prop.theme.colors.input};
