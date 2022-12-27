@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { number, arrayOf, objectOf, shape, string, bool } from 'prop-types';
+import { number, string } from 'prop-types';
 import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
 import List from '@mui/material/List';
@@ -90,15 +90,5 @@ export const CustomizedList = ({ number, category }) => {
 
 CustomizedList.propTypes = {
   number: number.isRequired,
-  categorie: string.isRequired,
-  list: arrayOf(
-    shape({
-      categories: arrayOf(string.isRequired),
-      groupBloodNotAllowed: arrayOf(bool),
-      title: objectOf(string.isRequired),
-      weight: number,
-      __v: number,
-      _id: string,
-    })
-  ),
+  category: string.isRequired,
 };

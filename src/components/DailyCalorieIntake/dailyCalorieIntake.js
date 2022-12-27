@@ -14,8 +14,7 @@ import { calculateCalories } from 'utils';
 import { CustomizedList } from './FoodListNotEat';
 import { useSelector } from 'react-redux';
 import { selectBadCategories } from 'redux/services/selectors';
-import List from '@mui/joy/List';
-import Sheet from '@mui/joy/Sheet';
+import {List, Sheet} from '@mui/joy';
 
 import { useTranslation } from 'react-i18next';
 
@@ -46,10 +45,9 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
           }}
         >
           <List>
-            {categories.map(item => {
-              const number = categories.indexOf(item) + 1;
+            {categories.map((item, index) => {
               return (
-                <CustomizedList key={item} number={number} category={item} />
+                <CustomizedList key={item} number={index + 1} category={item} />
               );
             })}
           </List>
