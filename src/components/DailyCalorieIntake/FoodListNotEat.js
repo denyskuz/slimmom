@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { number, string } from 'prop-types';
 import Box from '@mui/material/Box';
@@ -8,13 +8,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import { ListText, ProductListText } from './FoodListNotEat.styled';
-import { selectBadProducts, selectUserParams } from 'redux/services/selectors';
-import { getProducts } from 'redux/services/operations';
+import { selectUserParams } from 'redux/services/selectors';
+import Loader from 'components/Loader';
+import { overflow } from 'styled-system';
 
 export const CustomizedList = ({ number, category }) => {
-  const dispatch = useDispatch();
   const user = useSelector(selectUserParams);
-  const allList = useSelector(selectBadProducts);
   const [products, setProducts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -61,10 +60,16 @@ export const CustomizedList = ({ number, category }) => {
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
-    dispatch(getProducts({ category: category, userParams: user }));
-    setProducts(allList);
+    axios.post(
+          `/api/products?category=${category}&currentPage=1&pageSize=15`,
+          user
+        )
+      .then(res => {
+        setProducts(res.data.products);
+      })
     setOpen(!open);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
     setOpen(!open);
@@ -108,17 +113,17 @@ export const CustomizedList = ({ number, category }) => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {open && !products[1]
-          ? allList.map(item => (
-              <MenuItem onClick={handleClose} key={item.title.ua}>
-                <ProductListText primary={'-  ' + item.title.ua} />
-              </MenuItem>
-            ))
-          : products.map(item => (
-              <MenuItem onClick={handleClose} key={item.title.ua}>
-                <ProductListText primary={'-  ' + item.title.ua} />
-              </MenuItem>
-            ))}
+        {open && !products[1] ? (
+          <Box sx={{ height: '400px', width: '300px', overflow: 'none'}}>
+            <Loader />
+          </Box>
+        ) : (
+          products.map(item => (
+            <MenuItem onClick={handleClose} key={item.title.ua}>
+              <ProductListText primary={'-  ' + item.title.ua} />
+            </MenuItem>
+          ))
+        )}
       </Menu>
     </Box>
   );
