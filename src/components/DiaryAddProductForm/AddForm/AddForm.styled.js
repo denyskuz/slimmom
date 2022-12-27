@@ -62,7 +62,7 @@ export const ProductInput = styled(TextField)`
     letter-spacing: 0.04em;
     color: #9b9faa;
     padding: 0;
-  }   
+  }
   & label.Mui-focused {
     color: #fc842d;
     left: -14px;
