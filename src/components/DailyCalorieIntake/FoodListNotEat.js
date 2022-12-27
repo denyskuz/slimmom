@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { number, string } from 'prop-types';
@@ -18,19 +18,19 @@ export const CustomizedList = ({ number, category }) => {
   const [products, setProducts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
-  const [page, setPage] = useState(2)
-  const [fetching, setFetching] = useState(false)
+  const [page, setPage] = useState(2);
+  const [fetching, setFetching] = useState(false);
   const isOpen = Boolean(anchorEl);
 
   useEffect(() => {
-    if(open) {
+    if (open) {
       document.addEventListener('scroll', scrollHandler);
       return function () {
-      document.removeEventListener('scroll', scrollHandler);
+        document.removeEventListener('scroll', scrollHandler);
       };
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[open])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   useEffect(() => {
     if (fetching) {
@@ -44,17 +44,20 @@ export const CustomizedList = ({ number, category }) => {
           setPage(prevstate => prevstate + 1);
         })
         .finally(() => setFetching(false));
-      
     }
-    
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetching])
 
-  const scrollHandler = (e) => {
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetching]);
+
+  const scrollHandler = e => {
+    if (
+      e.target.documentElement.scrollHeight -
+        (e.target.documentElement.scrollTop + window.innerHeight) <
+      100
+    ) {
       setFetching(true);
-        }
-  }
+    }
+  };
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
