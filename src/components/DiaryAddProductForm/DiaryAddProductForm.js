@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { addProducts } from 'redux/products/actions';
+// import { addProducts } from 'redux/products/actions';
 
 import {
   FormWrapper,
@@ -8,7 +8,6 @@ import {
   Input,
   Button,
 } from './DiaryAddProductForm.styled';
-
 
 const DiaryAddProductForm = ({ img, openModal }) => {
   const formik = useFormik({
