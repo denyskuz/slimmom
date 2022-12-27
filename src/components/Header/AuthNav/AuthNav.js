@@ -6,7 +6,7 @@ import '/node_modules/flag-icons/css/flag-icons.min.css';
 
 const AuthNav = () => {
   const { t } = useTranslation();
-  const [droped, setDroped] = useState('');
+  const [droped, setDroped] = useState('false');
   const [language, setLanguage] = useState('en');
 
   const hadleChangeLang = language => {
