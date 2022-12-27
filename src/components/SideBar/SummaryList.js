@@ -24,8 +24,8 @@ export const SummaryList = () => {
         </Typography>
       </SummaryListItem>
       <SummaryListItem disablePadding>
-        <Typography>{t('Norma')}</Typography>
-        <Typography>000 {t('kcal')}</Typography>
+        <Typography>n% of normal</Typography>
+        <Typography>000 %</Typography>
       </SummaryListItem>
     </List>
   );
