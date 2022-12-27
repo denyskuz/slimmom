@@ -1,43 +1,31 @@
-import moment from 'moment';
-import Datetime from 'react-datetime';
-import { useState } from 'react';
-import { Box } from 'components/Box';
+import * as React from 'react';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import 'react-datetime/css/react-datetime.css';
-import iconCalendar from '../../images/icon/calendar.svg';
-import { DiaryDate } from './DiaryDateCalendar.styled';
+import { DiaryDate, Outline } from './DiaryDateCalendar.styled';
+import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export const DiaryDateCalendar = () => {
-  const [date, setDate] = useState(() =>
-    moment(new Date()).format('DD.MM.YYYY')
-  );
+  const [value, setValue] = React.useState(dayjs(new Date()));
 
-  const handleChangeDate = value => {
-    setDate(moment(value).format('DD.MM.YYYY'));
+  const handleChange = newValue => {
+    setValue(newValue);
   };
 
-  const renderInput = (props, openCalendar) => (
-    <Box
-      display="flex"
-      alignItems="baseline"
-      gridGap="20px"
-      onClick={openCalendar}
-    >
-      <div>{date}</div>
-      <img src={iconCalendar} width={20} height={20} alt="calendar" />
-    </Box>
-  );
-
   return (
-    <DiaryDate>
-      <Datetime
-        renderInput={renderInput}
-        value={date}
-        dateFormat="DD.MM.YYYY"
-        closeOnSelect={true}
-        timeFormat={false}
-        strictParsing={true}
-        onChange={handleChangeDate}
-      />
-    </DiaryDate>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DiaryDate>
+        <DesktopDatePicker
+          inputFormat="DD.MM.YYYY"
+          closeOnSelect={true}
+          value={value}
+          components={{ OpenPickerIcon: DateRangeIcon }}
+          onChange={handleChange}
+          renderInput={params => <Outline {...params} />}
+        />
+      </DiaryDate>
+    </LocalizationProvider>
   );
 };
