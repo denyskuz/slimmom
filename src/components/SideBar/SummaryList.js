@@ -8,10 +8,11 @@ import { useTranslation } from 'react-i18next';
 
 const useCalculator = () => {
   const [consumed, setConsumed] = useState(0);
-  const dailyNorm = useSelector(selectCalories).toFixed(0);
+  const dailyCalories = useSelector(selectCalories);
   const dailyProducts = useSelector(selectDailyProducts);
+
   useEffect(() => {
-    if (dailyProducts.length && dailyNorm) {
+    if (dailyProducts.length && dailyCalories) {
       const total = dailyProducts.reduce((total, note) => {
         return (
           total + (note.product.calories / note.product.weight) * note.weight
@@ -19,11 +20,16 @@ const useCalculator = () => {
       }, 0);
       setConsumed(total);
     }
-  }, [dailyProducts, dailyNorm]);
+  }, [dailyProducts, dailyCalories]);
 
-  const left = dailyNorm - consumed;
-  const percent = (consumed / dailyNorm).toFixed(2) * 100.0;
-  return { dailyNorm, consumed, left, percent };
+  if (dailyCalories) {
+    const dailyNorm = dailyCalories.toFixed(0);
+    const left = dailyNorm - consumed;
+    const percent = (consumed / dailyNorm).toFixed(2) * 100.0;
+    return { dailyNorm, consumed, left, percent };
+  }
+
+  return {};
 };
 
 export const SummaryList = () => {
