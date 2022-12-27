@@ -6,7 +6,6 @@ export const ImageContainer = styled.div`
   margin: 0 auto;
   box-sizing: border-box;
 
-
   @media screen and (min-width: 1280px) {
     background-color: ${props => (props.visible ? '#FFFFFF' : 'transparent')};
   }

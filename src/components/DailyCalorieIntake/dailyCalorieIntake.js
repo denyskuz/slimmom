@@ -14,7 +14,7 @@ import { calculateCalories } from 'utils';
 import { CustomizedList } from './FoodListNotEat';
 import { useSelector } from 'react-redux';
 import { selectBadCategories } from 'redux/services/selectors';
-import {List, Sheet} from '@mui/joy';
+import { List, Sheet } from '@mui/joy';
 
 import { useTranslation } from 'react-i18next';
 
