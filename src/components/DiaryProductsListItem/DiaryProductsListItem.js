@@ -12,12 +12,10 @@ import {
   Weight,
 } from './DiaryProductsListItem.styled';
 import { useSelector } from 'react-redux';
-import { getAllDiaryProduct, getIsLoading } from 'redux/services/selectors';
-// import Loader from 'components/Loader';
+import { getAllDiaryProduct } from 'redux/services/selectors';
 
 export default function DiaryProductsListItem() {
   const notes = useSelector(getAllDiaryProduct);
-  const isLoading = useSelector(getIsLoading);
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -27,9 +25,7 @@ export default function DiaryProductsListItem() {
     localStorage.setItem('id', `${id}`);
   };
 
-  return isLoading ? (
-    'Loading ...'
-  ) : (
+  return (
     <List>
       {notes.map((e, i, ar) => {
         return (

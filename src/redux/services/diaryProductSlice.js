@@ -9,7 +9,7 @@ const {
 const diaryProductSlice = createSlice({
   name: 'diaryProduct',
   initialState: {
-    notes: [{ title: { ua: '' }, id: '', weight: '', calories: '' }],
+    notes: [],
     selectTitle: [],
     isLoading: false,
   },
@@ -18,30 +18,26 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
+      console.log(action.meta.arg._id);
       state.notes = [
         ...state.notes,
         {
           title: { ua: action.meta.arg.productName },
-          id: action.meta.arg.product,
+          id: action.payload.note._id,
           weight: action.meta.arg.weight,
           calories: action.meta.arg.prod.calories,
         },
       ];
     },
-    [deleteDiaryProduct.pending](state, action) {
-      state.isLoading = true;
-    },
     [deleteDiaryProduct.fulfilled](state, action) {
-      const index = state.notes.findIndex(({ id }) => id === action.meta.arg);
+      const index = state.notes.findIndex(({ id }) => {
+        console.log(id === action.meta.arg);
+        return id === action.meta.arg;
+      });
       console.log('INDEX', index);
-      const newState = state.notes.splice(index, 1);
-      console.log('STATE', newState);
-      state.notes = newState;
-      state.isLoading = false;
+      state.notes.splice(index, 1);
     },
-    [deleteDiaryProduct.rejected](state, action) {
-      state.isLoading = false;
-    },
+
     [getNameProducts.fulfilled](state, action) {
       state.selectTitle = [...action.payload.products];
     },

@@ -126,7 +126,7 @@ export const addProducts = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      toast('Add product in diary error');
+      toast.info('Add product in diary error');
       return rejectWithValue(error.message);
     }
   }
@@ -145,7 +145,7 @@ export const getDailyProducts = createAsyncThunk(
       }
       return data;
     } catch (err) {
-      toast('Get get daily products error');
+      toast.warning('Get get daily products error');
       return await rejectWithValue(err.response.data);
     }
   }
@@ -185,7 +185,7 @@ export const getAllDiaryProduct = createAsyncThunk(
       }));
       return mappedData;
     } catch (error) {
-      toast('something went wrong!!');
+      toast.warning('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -202,10 +202,10 @@ export const addDiaryProduct = createAsyncThunk(
     try {
       token.set(persistedToken);
       const { data } = await axios.post('api/diary', { product, weight, date });
-      toast('Product added success!');
+      toast.success('Product added success!');
       return data;
     } catch (error) {
-      toast('something went wrong!!');
+      toast.warning('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
