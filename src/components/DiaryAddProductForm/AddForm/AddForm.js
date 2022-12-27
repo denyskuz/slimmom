@@ -90,8 +90,8 @@ const AddForm = () => {
       <GramsInput
         id="weight"
         name="weight"
-        label="grams"
-        type="number"
+        label="Grams"
+        type={'number'}
         variant="standard"
         InputProps={{ inputProps: { min: 5, max: 500 } }}
         onChange={formik.handleChange}
