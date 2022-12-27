@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import 'react-datetime/css/react-datetime.css';
 import { DiaryDate, Outline } from './DiaryDateCalendar.styled';
-import TextField from '@mui/material/TextField';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export const DiaryDateCalendar = () => {
