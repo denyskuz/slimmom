@@ -1,18 +1,55 @@
 import styled from 'styled-components';
+import { Autocomplete, TextField } from '@mui/material';
 
-export const Form = styled.div`
-  position: relative;
-  padding: 60px 0;
+export const Form = styled.form`
+  width: 300px;
+  padding: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-
-  @media (max-width: 767px) {
-    flex-direction: column;
+  margin: 80px auto 0px;
+  @media (min-width: 768px) {
+    flex-direction: row;
     padding: 80px 20px;
+    width: 503px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 60px;
+  }
+`;
+export const Complete = styled(Autocomplete)`
+  width: 280px;
+  margin-bottom: 32px;
+  @media (min-width: 768px) {
+    width: 240px;
+    margin-right: 22px;
+    margin-bottom: 0px;
+  }
+  & .MuiInputLabel-outlined:not(.MuiInputLabel-shrink) {
+    transform: 'translate(34px, 20px) scale(1);';
+  }
+  &.Mui-focused .MuiInputLabel-outlined {
+    color: 'purple';
+  }
+  & .MuiAutocomplete-inputRoot {
+    color: 'purple';
+
+    & .MuiOutlinedInput-notchedOutline {
+      height: 53px;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid;
+    }
+    &:hover .MuiOutlinedInput-notchedOutline {
+    }
+    &.Mui-focused .MuiOutlinedInput-notchedOutline {
+    }
   }
 `;
 
-export const ProductInput = styled.input`
+export const ProductInput = styled(TextField)`
+  font-size: 16px;
+  outline: none;
   width: 240px;
   height: 37px;
   border: none;
@@ -32,32 +69,19 @@ export const ProductInput = styled.input`
   }
 `;
 
-export const GramsInput = styled.input`
-  width: 106px;
+export const GramsInput = styled(TextField)`
+  font-size: 16px;
+  outline: none;
   height: 37px;
+  width: 280px;
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   margin-bottom: 8px;
   margin-right: 87px;
-  font-family: Verdana;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  text-align: right;
-  color: #9b9faa;
-
-  @media (min-width: 1280px) {
-    margin-right: 60px;
+  :placeholder {
+    text-align: right;
   }
-
-  @media (max-width: 1280px) {
-    margin-right: 30px;
-  }
-
-  @media (max-width: 767px) {
-    margin-bottom: 70px;
-    width: 100%;
-    margin-right: 0;
-  }
+  @media (min-width: 768px) {
+    width: 106px;
+    margin-bottom: 0px;
 `;
