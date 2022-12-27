@@ -30,7 +30,7 @@ export const SummaryTitle = styled.h3`
 `;
 
 export const SideBarContainer = styled.div`
-  position: relative;
+  /* position: relative; */
   height: 100%;
   display: flex;
   flex-direction: column;

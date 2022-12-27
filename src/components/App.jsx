@@ -12,7 +12,6 @@ import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import 'react-toastify/dist/ReactToastify.css';
-// import AppBar from './Header/AppBar';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/services/operations';

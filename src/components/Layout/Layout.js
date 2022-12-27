@@ -8,10 +8,10 @@ const Layout = () => {
   return (
     <BackgroundContainer>
       <Container>
-      <AppBar />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+        <AppBar />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </Container>
     </BackgroundContainer>
   );
