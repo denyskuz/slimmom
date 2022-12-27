@@ -27,7 +27,7 @@ export default function DiaryProductsListItem() {
     localStorage.setItem('id', `${id}`);
   };
 
-  return !isLoading ? (
+  return isLoading ? (
     'Loading ...'
   ) : (
     <List>
