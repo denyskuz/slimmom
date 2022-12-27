@@ -16,6 +16,7 @@ import {
   UserMenuWrapper,
   AuthMenu,
   BurgerWrapper,
+  AuthContainer,
 } from './AppBar.styled';
 import { useAuth } from 'hooks/useAuth';
 
@@ -56,14 +57,14 @@ const AppBar = () => {
               <Burger />
             </>
           ) : (
-            <>
+            <AuthContainer>
               <AuthMenu>
                 <AuthNav />
               </AuthMenu>
               <BurgerWrapper>
                 <Burger />
               </BurgerWrapper>
-            </>
+            </AuthContainer>
           )}
         </Navigation>
       </NavHeader>

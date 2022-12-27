@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
 `;
 
 export const BurgerButton = styled.button`

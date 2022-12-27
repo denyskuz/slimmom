@@ -184,3 +184,8 @@ export const BurgerWrapper = styled.div`
     display: none;
   }
 `;
+
+export const AuthContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
