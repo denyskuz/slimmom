@@ -3,30 +3,18 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { Box } from 'components/Box';
 import 'react-datetime/css/react-datetime.css';
-import iconCalendar from '../../images/icon/calendar.svg';
-import { DiaryDate } from './DiaryDateCalendar.styled';
+import { DiaryDate, Outline } from './DiaryDateCalendar.styled';
 import TextField from '@mui/material/TextField';
+import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export const DiaryDateCalendar = () => {
-  const [value, setValue] = React.useState(dayjs(new Date()));
 
-  const handleChange = newValue => {
+   const [value, setValue] = React.useState(dayjs(new Date()));
+
+   const handleChange = (newValue) => {
     setValue(newValue);
   };
-
-  // const renderInput = (props, openCalendar) => (
-  //   <Box
-  //     display="flex"
-  //     alignItems="baseline"
-  //     gridGap="20px"
-  //     onClick={openCalendar}
-  //   >
-  //     <DiaryDate>{value}</DiaryDate>
-  //     <img src={iconCalendar} width={20} height={20} alt="calendar" />
-  //   </Box>
-  // );
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -35,8 +23,9 @@ export const DiaryDateCalendar = () => {
           inputFormat="DD.MM.YYYY"
           closeOnSelect={true}
           value={value}
+          components={{OpenPickerIcon: DateRangeIcon}}
           onChange={handleChange}
-          renderInput={params => <TextField {...params} />}
+          renderInput={(params) => <Outline {...params} />}
         />
       </DiaryDate>
     </LocalizationProvider>
