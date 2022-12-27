@@ -18,7 +18,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const StrawberryImg = styled.img`
-  animation: 3s ${zoomAnimation};
+  animation: 2s ${zoomAnimation};
   @media screen and (max-width: 767.5px) {
     display: none;
   }
@@ -36,7 +36,7 @@ export const StrawberryImg = styled.img`
 `;
 
 export const StrawberryAuthImg = styled.img`
-  animation: 3s ${zoomAnimation};
+  animation: 2s ${zoomAnimation};
 
   @media screen and (max-width: 767.5px) {
     display: none;
@@ -72,7 +72,7 @@ export const BananaImg = styled.img`
 `;
 
 export const LeafsImg = styled.img`
-  animation: 3s ${zoomAnimation};
+  animation: 2s ${zoomAnimation};
   @media screen and (max-width: 767.5px) {
     display: none;
   }
@@ -90,7 +90,7 @@ export const LeafsImg = styled.img`
 `;
 
 export const LeafsAuthImg = styled.img`
-  animation: 3s ${zoomAnimation};
+  animation: 2s ${zoomAnimation};
   @media screen and (max-width: 767.5px) {
     display: none;
   }

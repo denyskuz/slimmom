@@ -6,39 +6,81 @@ import {
   BurgerMenu,
   NavDiaryLink,
   NavCalcLink,
+  AuthLink,
+  ButtonWrapper,
 } from './Burger.styled';
-
+import { LangButton, ButtonContainer } from '../AuthNav/AuthNav.styled';
+import { useAuth } from 'hooks/useAuth';
 import { useTranslation } from 'react-i18next';
+import i18n from './../../../translations/i18n';
+import '/node_modules/flag-icons/css/flag-icons.min.css';
+import 'react-dropdown/style.css';
 
 const Burger = () => {
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   const toggleBurgerMenu = () => {
     setBurgerMenuOpen(!isBurgerMenuOpen);
   };
+
   const { t } = useTranslation();
+  const [language, setLanguage] = useState('en');
+
+  const handleOnclick = e => {
+    e.preventDefault();
+    setLanguage(e.target.value);
+    i18n.changeLanguage(e.target.value);
+    localStorage.setLanguage('locale', language);
+  };
+
   return (
     <>
-      <BurgerButton
-        className={isBurgerMenuOpen ? 'active' : ''}
-        aria-label="burger menu"
-        onClick={toggleBurgerMenu}
-      >
-        {isBurgerMenuOpen ? (
-          <GrClose size={20} />
-        ) : (
-          <GiHamburgerMenu size={24} />
-        )}
-      </BurgerButton>
+      <ButtonWrapper>
+        <ButtonContainer>
+          <LangButton
+            value="en"
+            onClick={handleOnclick}
+            className="fi fi-gb"
+          ></LangButton>
+          <LangButton
+            value="uk"
+            onClick={handleOnclick}
+            className="fi fi-ua"
+          ></LangButton>
+        </ButtonContainer>
+        <BurgerButton
+          className={isBurgerMenuOpen ? 'active' : ''}
+          aria-label="burger menu"
+          onClick={toggleBurgerMenu}
+        >
+          {isBurgerMenuOpen ? (
+            <GrClose size={20} />
+          ) : (
+            <GiHamburgerMenu size={24} />
+          )}
+        </BurgerButton>
+      </ButtonWrapper>
       <BurgerMenu className={isBurgerMenuOpen ? 'open' : ''}>
-        <>
-          <NavDiaryLink to="/diary" onClick={toggleBurgerMenu}>
-            {t('Diary')}
-          </NavDiaryLink>
-          <NavCalcLink to="calculator" onClick={toggleBurgerMenu}>
-            {t('Calculator_button')}
-          </NavCalcLink>
-        </>
+        {isLoggedIn ? (
+          <>
+            <NavDiaryLink to="/diary" onClick={toggleBurgerMenu}>
+              {t('Diary')}
+            </NavDiaryLink>
+            <NavCalcLink to="calculator" onClick={toggleBurgerMenu}>
+              {t('Calculator_button')}
+            </NavCalcLink>
+          </>
+        ) : (
+          <>
+            <AuthLink to="login" onClick={toggleBurgerMenu}>
+              {t('Sign_in')}
+            </AuthLink>
+            <AuthLink to="signup" onClick={toggleBurgerMenu}>
+              {t('Registration')}
+            </AuthLink>
+          </>
+        )}
       </BurgerMenu>
     </>
   );

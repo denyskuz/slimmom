@@ -50,6 +50,11 @@ export const ButtonContainer = styled.div`
   align-self: baseline;
   padding-top: 8px;
   margin-right: 10px;
+
+  @media screen and (max-width: 767.5px) {
+    padding-top: 2px;
+    margin-right: 15px;
+  }
 `;
 
 export const Lang = styled.ul`

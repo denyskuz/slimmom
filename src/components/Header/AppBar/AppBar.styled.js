@@ -170,3 +170,17 @@ export const UserMenuWrapper = styled.div`
     display: none;
   }
 `;
+
+export const AuthMenu = styled.div`
+  @media screen and (max-width: 767.5px) {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+`;
+
+export const BurgerWrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;

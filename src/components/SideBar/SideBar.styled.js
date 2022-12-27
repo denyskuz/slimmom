@@ -86,31 +86,3 @@ export const SummaryListItem = styled(ListItem)`
     margin-top: 2px;
   }
 `;
-
-// export const BackgroundImageTab = styled.img`
-//   display: none;
-
-//   @media screen and (min-width: 768px) {
-//     position: absolute;
-//     display: block;
-//     bottom: 0;
-//     right: 0;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     display: none;
-//   }
-// `;
-
-// export const BackgroundImageDesk = styled.img`
-//   @media screen and (max-width: 1279.5px) {
-//     display: none;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     position: absolute;
-//     display: block;
-//     bottom: 30px;
-//     right: 0;
-//   }
-// `;
