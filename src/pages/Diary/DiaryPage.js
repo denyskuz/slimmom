@@ -4,21 +4,11 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 
 import DiaryProductsListItem from 'components/DiaryProductsListItem/DiaryProductsListItem';
-import { getAllDiaryProduct } from 'redux/services/operations';
 import { Container } from '@mui/system';
 import { useMediaQuery } from 'react-responsive';
-
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { Wrapper } from 'pages/MainPage/MainPage.styled';
 export default function CalculatorPage() {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  const dispatch = useDispatch();
-
-  const date = new Date().toISOString();
-  useEffect(() => {
-    dispatch(getAllDiaryProduct(date));
-  }, [date, dispatch]);
 
   return (
     <Wrapper>

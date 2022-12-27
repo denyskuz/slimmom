@@ -1,17 +1,18 @@
 import { ButtonBox } from 'components/DiaryModalList/DiaryModalList.styled';
-import { useDairyStore } from 'hooks/diaryStoreHook';
+import { useDispatch } from 'react-redux';
+import { deleteDiaryProduct } from 'redux/services/operations';
 import {
   ModalDiaryStyled,
   ModalTextDiary,
   ButtonModalDiary,
 } from './DiaryModalList.styled';
 
-export const DiaryModalList = ({ id }) => {
-  const { deleteDiaryProductHook } = useDairyStore();
-
+export const DiaryModalList = () => {
+  const dispatch = useDispatch();
   const handleDelete = () => {
     const id = localStorage.getItem('id');
-    deleteDiaryProductHook(id);
+    console.log(id);
+    dispatch(deleteDiaryProduct(id));
   };
 
   return (
