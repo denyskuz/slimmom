@@ -16,7 +16,6 @@ import { productsReducer } from '../services/productSlice';
 import { diaryReducer } from '../services/diaryProductSlice';
 import { themeReducer } from '../services/themeSlice';
 
-
 const persistAuthConfig = {
   key: 'auth',
   storage,
