@@ -41,10 +41,10 @@ export const CustomizedList = ({ number, category }) => {
         user
       )
       .then(res => {
-        const titles = res.data.products.flatMap(prod => prod.title.ua)
+        const titles = res.data.products.flatMap(prod => prod.title.ua);
         setProducts(prev => [...prev, ...titles]);
       });
-    setPage(prev=>prev+1)
+    setPage(prev => prev + 1);
     setOpen(!open);
   };
 
@@ -91,34 +91,37 @@ export const CustomizedList = ({ number, category }) => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {open && (<div
-                id="scrollableDiv"
-                style={{
-                  height: 700,
-                  overflow: 'auto',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                <InfiniteScroll
-                  dataLength={products.length}
-                  next={getTitles}
-                  style={{ display: 'flex', flexDirection: 'column' }} 
-                  inverse={false} //
-                  hasMore={true}
-                  loader={<Box sx={{ height: '400px', width: '300px' }}>
-                            <Loader />
-                          </Box>}
-                  scrollableTarget="scrollableDiv"
-                >
-                  {products.map((item, index) => (
-                      <MenuItem onClick={handleClose} key={index}>
-                        <ProductListText primary={'-  ' + item} />
-                      </MenuItem>
-                    ))}
-                </InfiniteScroll>
-              </div>)
-          }
+        {open && (
+          <div
+            id="scrollableDiv"
+            style={{
+              height: 700,
+              overflow: 'auto',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <InfiniteScroll
+              dataLength={products.length}
+              next={getTitles}
+              style={{ display: 'flex', flexDirection: 'column' }}
+              inverse={false} //
+              hasMore={true}
+              loader={
+                <Box sx={{ height: '400px', width: '300px' }}>
+                  <Loader />
+                </Box>
+              }
+              scrollableTarget="scrollableDiv"
+            >
+              {products.map((item, index) => (
+                <MenuItem onClick={handleClose} key={index}>
+                  <ProductListText primary={'-  ' + item} />
+                </MenuItem>
+              ))}
+            </InfiniteScroll>
+          </div>
+        )}
       </Menu>
     </Box>
   );
