@@ -48,9 +48,12 @@ export const login = createAsyncThunk(
 
 export const getProducts = createAsyncThunk(
   '/api/products',
-  async (userParams, thunkAPI) => {
+  async (query, thunkAPI) => {
     try {
-      const { data, status } = await axios.post('/api/products', userParams);
+      const { data, status } = await axios.post(
+        `/api/products?category=${query.category}&currentPage=1&pageSize=20`,
+        query.userParams
+      );
       token.set(data.token);
       if (!data) {
         return thunkAPI.rejectWithValue(status);
@@ -74,25 +77,6 @@ export const getProductsCategories = createAsyncThunk(
         userParams
       );
       token.set(data.token);
-      if (!data) {
-        return thunkAPI.rejectWithValue(status);
-      }
-      data.message && toast.success(data.message);
-      return data;
-    } catch (err) {
-      toast.error(err.response.data.message);
-      return thunkAPI.rejectWithValue(err.response.data);
-    }
-  }
-);
-
-export const getProductsByCategories = createAsyncThunk(
-  '/api/products',
-  async (credentials, thunkAPI) => {
-    try {
-      const { data, status } = await axios.get(
-        `/api/products?category=${credentials.categorie}&currentPage=1&pageSize=20`
-      );
       if (!data) {
         return thunkAPI.rejectWithValue(status);
       }
