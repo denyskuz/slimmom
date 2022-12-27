@@ -22,4 +22,9 @@ export const selectLoadError = state => state.products.error;
 
 export const getAllDiaryProduct = state => state.diary.notes;
 export const getProductTitle = state => state.diary.selectTitle;
+export const getIsLoading = state => {
+  console.log(state.diary.isLoading);
+  return state.diary.IsLoading;
+};
+
 export const selectBadCategories = state => state.products.categories;
