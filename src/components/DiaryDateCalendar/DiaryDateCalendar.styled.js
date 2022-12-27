@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import { TextField } from '@mui/material';
 
-
-
 export const DiaryDate = styled.span`
   margin-bottom: 32px;
   font-family: Verdana;
@@ -14,7 +12,6 @@ export const DiaryDate = styled.span`
   align-items: center;
   color: #212121;
   border: none;
-  
 
   @media screen and (min-width: 768px) {
     margin-bottom: 60px;
@@ -24,8 +21,7 @@ export const DiaryDate = styled.span`
 `;
 
 export const Outline = styled(TextField)`
-& .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
-  border: 0px;
-}
+  & .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border: 0px;
+  }
 `;
-

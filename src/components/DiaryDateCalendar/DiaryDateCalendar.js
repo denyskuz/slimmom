@@ -9,10 +9,9 @@ import TextField from '@mui/material/TextField';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export const DiaryDateCalendar = () => {
+  const [value, setValue] = React.useState(dayjs(new Date()));
 
-   const [value, setValue] = React.useState(dayjs(new Date()));
-
-   const handleChange = (newValue) => {
+  const handleChange = newValue => {
     setValue(newValue);
   };
 
@@ -23,9 +22,9 @@ export const DiaryDateCalendar = () => {
           inputFormat="DD.MM.YYYY"
           closeOnSelect={true}
           value={value}
-          components={{OpenPickerIcon: DateRangeIcon}}
+          components={{ OpenPickerIcon: DateRangeIcon }}
           onChange={handleChange}
-          renderInput={(params) => <Outline {...params} />}
+          renderInput={params => <Outline {...params} />}
         />
       </DiaryDate>
     </LocalizationProvider>
