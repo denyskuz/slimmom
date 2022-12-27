@@ -6,7 +6,7 @@ import slim from '../../../images/logo/logoSlim.png';
 import mom from '../../../images/logo/logoMom.png';
 import { zoomIn } from 'react-animations';
 
-const zoomAnimation = keyframes`${zoomIn}`; 
+const zoomAnimation = keyframes`${zoomIn}`;
 
 export const Header = styled.header`
   max-width: 1280px;

@@ -1,8 +1,7 @@
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { zoomIn } from 'react-animations';
 
-const zoomAnimation = keyframes`${zoomIn}`; 
-
+const zoomAnimation = keyframes`${zoomIn}`;
 
 export const ImageContainer = styled.div`
   position: relative;
