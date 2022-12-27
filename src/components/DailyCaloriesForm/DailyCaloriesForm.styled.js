@@ -15,12 +15,12 @@ export const FormWrapper = styled.div`
 
   @media (min-width: 768px) {
     padding-top: 100px;
-    padding-bottom: 150px;
+    padding-bottom: 398px;
   }
 
   @media (min-width: 1280px) {
     padding-top: 137px;
-    padding-bottom: 111px;
+    padding-bottom: 60px;
   }
 `;
 
@@ -40,7 +40,7 @@ export const Title = styled.h1`
     margin: 0;
     width: 520px;
     font-size: 34px;
-    margin-bottom: 68px;
+    margin-bottom: 65px;
   }
 `;
 

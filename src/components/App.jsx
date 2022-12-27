@@ -1,7 +1,6 @@
 import { lazy, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { HelmetProvider } from 'react-helmet-async';
-
 import { GlobalStyle } from './GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -12,7 +11,6 @@ import Layout from './Layout';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import 'react-toastify/dist/ReactToastify.css';
-// import AppBar from './Header/AppBar';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/services/operations';
@@ -41,7 +39,6 @@ export const App = () => {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <CssBaseline />
-          {/* <AppBar /> */}
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route
