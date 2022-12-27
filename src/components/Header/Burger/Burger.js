@@ -21,7 +21,7 @@ const Burger = () => {
     <>
       <BurgerButton
         className={isBurgerMenuOpen ? 'active' : ''}
-        aria-label="open burger menu"
+        aria-label="burger menu"
         onClick={toggleBurgerMenu}
       >
         {isBurgerMenuOpen ? (
