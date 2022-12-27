@@ -84,4 +84,5 @@ export const GramsInput = styled(TextField)`
   @media (min-width: 768px) {
     width: 106px;
     margin-bottom: 0px;
+  }
 `;

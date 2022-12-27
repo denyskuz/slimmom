@@ -15,7 +15,9 @@ const AddForm = () => {
   const date = new Date().toISOString();
   const [productName, setProductName] = useState(null);
   const [product, setProduct] = useState('');
+
   const dataTitle = useSelector(getProductTitle);
+
   const formik = useFormik({
     initialValues: { weight: '' },
     validationSchema: Yup.object().shape({
@@ -23,18 +25,36 @@ const AddForm = () => {
     }),
     onSubmit: ({ weight }, { resetForm }) => {
       if (productName === null) {
-        toast('You need add product');
+        toast.info('You need add product');
         return;
       }
-      const data = { dataTitle, productName, product, weight, date };
-
+      if (weight === ' ') {
+        toast.info('You need add weight');
+        return;
+      }
+      const productToAdd = dataTitle.filter(({ _id }) => _id === product);
+      const data = {
+        prod: productToAdd[0],
+        productName,
+        product,
+        weight,
+        date,
+      };
       dispatch(addDiaryProduct(data));
-      // resetForm();
-      //  setProduct(' ');
-      // setProductName(' ');
+      resetForm();
+      setProduct(' ');
+      setProductName(null);
     },
   });
-
+  const onInputChange = (e, v) => {
+    if (v.length >= 2) {
+      dispatch(getNameProducts(v));
+    }
+    if (v.length === 0) {
+      setProductName(null);
+      setProduct('');
+    }
+  };
   const handleChange = (e, value) => {
     setProduct(value.id);
     setProductName(value.label);
@@ -45,16 +65,14 @@ const AddForm = () => {
       id: e._id,
     };
   });
+  const { values, errors, touched, handleSubmit } = formik;
+
   // const { t } = useTranslation();
   return (
-    <Form onSubmit={formik.handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Complete
-        onInputChange={(e, v) => {
-          console.log('valueeee', v);
-          dispatch(getNameProducts(v));
-        }}
+        onInputChange={onInputChange}
         onChange={handleChange}
-        freeSolo
         disableClearable
         value={productName}
         options={nameProd}
@@ -73,11 +91,13 @@ const AddForm = () => {
         id="weight"
         name="weight"
         label="grams"
+        type={'number'}
         placeholder="Grams"
         variant="standard"
-        multiline
+        InputProps={{ inputProps: { min: 5, max: 500 } }}
         onChange={formik.handleChange}
-        value={formik.values.weight}
+        value={values.weight}
+        error={Boolean(touched.weight && errors.weight)}
       />
       <AddProductBtn type="submit" aria-label="Add product">
         <HiPlus />

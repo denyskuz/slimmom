@@ -12,10 +12,12 @@ import {
   Weight,
 } from './DiaryProductsListItem.styled';
 import { useSelector } from 'react-redux';
-import { getAllDiaryProduct } from 'redux/services/selectors';
+import { getAllDiaryProduct, getIsLoading } from 'redux/services/selectors';
+// import Loader from 'components/Loader';
 
 export default function DiaryProductsListItem() {
   const notes = useSelector(getAllDiaryProduct);
+  const isLoading = useSelector(getIsLoading);
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -24,11 +26,14 @@ export default function DiaryProductsListItem() {
     setOpen(!open);
     localStorage.setItem('id', `${id}`);
   };
-  return (
+
+  return isLoading ? (
+    'Loading ...'
+  ) : (
     <List>
       {notes.map((e, i, ar) => {
         return (
-          <ListItems key={e._id}>
+          <ListItems key={e.id}>
             <NameProduct noWrap>{e.title.ua}</NameProduct>
             <DataProduct>
               <Weight noWrap>{e.weight} g</Weight>
@@ -37,7 +42,7 @@ export default function DiaryProductsListItem() {
             <DeleteButton
               type="button"
               onClick={() => {
-                handleToggle(e._id);
+                handleToggle(e.id);
               }}
             >
               <IconCross />

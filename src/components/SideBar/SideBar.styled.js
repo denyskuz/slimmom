@@ -45,8 +45,9 @@ export const SideBarContainer = styled.div`
   color: #9b9faa;
   background: #f0f1f3;
 
-  @media screen and (min-width: 768px) {
-    display: flex;
+  @media (max-width: 767px) {
+    max-width: 360px;
+    margin: 0 auto;
     flex-direction: row;
     align-items: baseline;
     width: 768px;
