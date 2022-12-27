@@ -36,7 +36,6 @@ export const App = () => {
     <Loader />
   ) : (
     <HelmetProvider>
-
       <ThemeMode>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
