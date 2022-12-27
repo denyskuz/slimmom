@@ -85,7 +85,6 @@ export const AddProductBtn = styled(Button)`
     background: #fc832dbb;
   }
   @media (min-width: 768px) {
-    // margin: 40px 0 0 87px ;
     margin: 0 0 0 87px;
   }
 `;
