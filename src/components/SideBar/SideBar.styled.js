@@ -73,9 +73,7 @@ export const SideBarContainer = styled.div`
     background-image: url(${backgroundTablet});
     background-repeat: no-repeat;
     background-position: bottom 0 right 0;
-    position: fixed;
     bottom: 0;
-    height: 400px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -88,7 +86,6 @@ export const SideBarContainer = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    height: 100vh;
     width: 40%;
     padding: 292px 94px 0 0;
   }
