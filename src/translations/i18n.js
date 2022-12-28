@@ -3,7 +3,7 @@ import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import { TRANSLATIONS_UK } from './uk/translations';
+import { TRANSLATIONS_UA } from './uk/translations';
 import { TRANSLATIONS_EN } from './en/translations';
 
 i18n
@@ -15,8 +15,8 @@ i18n
       en: {
         translation: TRANSLATIONS_EN,
       },
-      uk: {
-        translation: TRANSLATIONS_UK,
+      ua: {
+        translation: TRANSLATIONS_UA,
       },
       debug: false,
       detection: {
@@ -27,7 +27,7 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    fallbackLng: ['en', 'uk'],
+    fallbackLng: ['en', 'ua'],
   });
 
 // i18n.changeLanguage('uk');

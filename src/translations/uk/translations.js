@@ -1,4 +1,4 @@
-export const TRANSLATIONS_UK = {
+export const TRANSLATIONS_UA = {
   Sign_in: 'Увійти',
   Registration: 'Реєстрація',
   Diet_display: 'Ваша дієта',

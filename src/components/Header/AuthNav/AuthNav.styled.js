@@ -1,6 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+// export const Container = styled.div`
+//   display: flex;
+//   align-items: baseline;
+// `;
+
 export const Link = styled(NavLink)`
   padding: 10px;
   font-family: GothamPro-Bold;
@@ -34,6 +39,7 @@ export const LangSwitcher = styled.div`
   align-self: center;
   // background-color: #ecdfdf;
   border-radius: 5px;
+  align-items: baseline;
 `;
 export const LangList = styled.div`
   display: flex;
@@ -97,15 +103,19 @@ export const LangList = styled.div`
 
 export const LangButton = styled.button`
   border: none;
-  background: #ecdfdf;
+  background: #f9f9f9;
   color: orange;
-  font-family: 'Gotham Pro';
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1;
+  font-family: GothamPro-Bold;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 0.93;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  text-align: center;
   color: black;
+  border-radius: 8px;
+  padding: 4px;
+  margin-top: 4px;
 
   position: relative;
   transition: all 0.3s ease;
@@ -115,9 +125,10 @@ export const LangButton = styled.button`
 
   display: flex;
   gap: 4px;
+  align-items: baseline;
 
   &:hover {
-    color: orange;
+    color: pink;
   }
 
   &.active {
