@@ -68,8 +68,10 @@ const LoginForm = () => {
         value={formik.values.password}
       />
       <ButtonBox>
-        <ButtonPrimary type="submit">{t('Login')}</ButtonPrimary>
-        <ButtonSecondary type="button">
+        <ButtonPrimary variant="contained" type="submit">
+          {t('Login')}
+        </ButtonPrimary>
+        <ButtonSecondary variant="outlined" type="button">
           <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
         </ButtonSecondary>
       </ButtonBox>

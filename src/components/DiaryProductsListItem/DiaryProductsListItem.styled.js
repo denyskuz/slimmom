@@ -5,7 +5,7 @@ import { ImCross } from 'react-icons/im';
 export const List = styled.ul`
   overflow-y: scroll;
   list-style: none;
-  margin: 0 auto;
+  margin: 60px auto 0;
   padding: 0;
   width: 290px;
   height: 200px;
@@ -13,6 +13,7 @@ export const List = styled.ul`
     width: 610px;
     height: 439px;
     margin: 0;
+    margin-top: 60px;
     margin-bottom: 55px;
   }
   &::-webkit-scrollbar {
@@ -58,7 +59,7 @@ export const NameProduct = styled(Typography)`
     padding-bottom: 20px;
     margin-right: 22px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     margin-right: 48px;
   }
 `;
@@ -82,7 +83,7 @@ export const Weight = styled(Typography)`
     padding-bottom: 20px;
     margin-right: 46px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     margin-right: 32px;
   }
 `;
@@ -98,6 +99,7 @@ export const Kcal = styled(Typography)`
   }
 `;
 export const DeleteButton = styled.button`
+  cursor: pointer;
   margin-right: 10px;
   border: none;
   width: 20px;
