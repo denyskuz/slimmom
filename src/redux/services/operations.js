@@ -114,25 +114,6 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const getDailyProducts = createAsyncThunk(
-  'products/getDaily',
-  async (value, { getState, rejectWithValue }) => {
-    try {
-      const state = getState();
-      const persistedToken = state.auth.token;
-      token.set(persistedToken);
-      const { data, status } = await axios.get('/api/diary/' + value);
-      if (!data) {
-        return await rejectWithValue(status);
-      }
-      return data;
-    } catch (err) {
-      toast('Get get daily products error');
-      return await rejectWithValue(err.response.data);
-    }
-  }
-);
-
 export const setUserParams = createAction('auth/save');
 
 export const deleteDiaryProduct = createAsyncThunk(

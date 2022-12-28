@@ -19,7 +19,7 @@ import { themeReducer } from '../services/themeSlice';
 const persistAuthConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'use'],
+  whitelist: ['token', 'userParams'],
 };
 
 export const store = configureStore({
