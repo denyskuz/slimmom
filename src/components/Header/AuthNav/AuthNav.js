@@ -1,5 +1,6 @@
-import { Link, LangButton, ButtonContainer } from './AuthNav.styled';
+import { LinkDark, Link, LangButton, ButtonContainer } from './AuthNav.styled';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import i18n from './../../../translations/i18n';
@@ -9,6 +10,7 @@ import 'react-dropdown/style.css';
 const AuthNav = () => {
   const { t } = useTranslation();
   const [language, setLanguage] = useState('en');
+  const theme = useSelector(state => state.theme.darkTheme);
 
   const handleOnclick = e => {
     e.preventDefault();
@@ -31,12 +33,26 @@ const AuthNav = () => {
           className="fi fi-ua"
         ></LangButton>
       </ButtonContainer>
-      <Link to="/login" lang={language}>
-        {t('Sign_in')}
-      </Link>
-      <Link to="/signup" lang={language}>
-        {t('Registration')}
-      </Link>
+      {!theme? (
+        <>
+          <Link to="/login" lang={language}>
+            {t('Sign_in')}
+          </Link>
+          <Link to="/signup" lang={language}>
+            {t('Registration')}
+          </Link>
+        </>
+      ) : (
+          <>
+            <LinkDark to="/login" lang={language}>
+              {t('Sign_in')}
+            </LinkDark>
+            <LinkDark to="/signup" lang={language}>
+              {t('Registration')}
+            </LinkDark>
+          </>
+      )}
+      
     </>
   );
 };

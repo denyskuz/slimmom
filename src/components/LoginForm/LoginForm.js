@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import {
   ButtonPrimary,
   ButtonSecondary,
+  ButtonSecondaryDark,
   LinkButton,
 } from 'components/Button/Button';
 import { login } from '../../redux/services/operations';
@@ -17,6 +18,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme.darkTheme);
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(show => !show);
   const handleMouseDownPassword = event => {
@@ -71,9 +73,13 @@ const LoginForm = () => {
         <ButtonPrimary variant="contained" type="submit">
           {t('Login')}
         </ButtonPrimary>
-        <ButtonSecondary variant="outlined" type="button">
+
+        {!theme?(<ButtonSecondary variant="outlined" type="button">
           <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
-        </ButtonSecondary>
+        </ButtonSecondary>):(<ButtonSecondaryDark variant="outlined" type="button">
+          <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
+        </ButtonSecondaryDark>)}
+        
       </ButtonBox>
     </Form>
   );

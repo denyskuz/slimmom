@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { GrClose } from 'react-icons/gr';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FcDatabase } from "react-icons/fc";
+import { FcDatabase } from 'react-icons/fc';
 import { useSelector } from 'react-redux';
 import {
   BurgerButton,
@@ -53,28 +53,31 @@ const Burger = () => {
           ></LangButton>
         </ButtonContainer>
 
-        {!theme ? (<BurgerButton
-          className={isBurgerMenuOpen ? 'active' : ''}
-          aria-label="burger menu"
-          onClick={toggleBurgerMenu}
-        >
-          {isBurgerMenuOpen ? (
-            <GrClose size={20} />
-          ) : (
+        {!theme ? (
+          <BurgerButton
+            className={isBurgerMenuOpen ? 'active' : ''}
+            aria-label="burger menu"
+            onClick={toggleBurgerMenu}
+          >
+            {isBurgerMenuOpen ? (
+              <GrClose size={20} />
+            ) : (
               <GiHamburgerMenu size={24} />
-          )}
-        </BurgerButton>):(<BurgerButton
-          className={isBurgerMenuOpen ? 'active' : ''}
-          aria-label="burger menu"
-          onClick={toggleBurgerMenu}
-        >
-          {isBurgerMenuOpen ? (
-            <GrClose size={20} />
-          ) : (
+            )}
+          </BurgerButton>
+        ) : (
+          <BurgerButton
+            className={isBurgerMenuOpen ? 'active' : ''}
+            aria-label="burger menu"
+            onClick={toggleBurgerMenu}
+          >
+            {isBurgerMenuOpen ? (
+              <GrClose size={20} />
+            ) : (
               <FcDatabase size={24} />
-          )}
-        </BurgerButton>)}
-
+            )}
+          </BurgerButton>
+        )}
       </ButtonWrapper>
       <BurgerMenu className={isBurgerMenuOpen ? 'open' : ''}>
         {isLoggedIn ? (
