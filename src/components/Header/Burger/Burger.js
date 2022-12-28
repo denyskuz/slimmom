@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { GrClose } from 'react-icons/gr';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FcDatabase,FcImport } from 'react-icons/fc';
+import { FcDatabase, FcImport } from 'react-icons/fc';
 import { useSelector } from 'react-redux';
 import {
   BurgerButton,
