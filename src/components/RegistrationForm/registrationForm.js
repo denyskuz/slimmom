@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import {
   ButtonPrimary,
@@ -91,11 +91,15 @@ const RegisterForm = () => {
       />
       <ButtonBox>
         <ButtonPrimary type="submit">{t('Register')}</ButtonPrimary>
-        {!theme ? (<ButtonSecondary type="button">
-          <LinkButton to={'/login'}>{t('Login')}</LinkButton>
-        </ButtonSecondary>):(<ButtonSecondaryDark type="button">
-          <LinkButton to={'/login'}>{t('Login')}</LinkButton>
-        </ButtonSecondaryDark>)}
+        {!theme ? (
+          <ButtonSecondary type="button">
+            <LinkButton to={'/login'}>{t('Login')}</LinkButton>
+          </ButtonSecondary>
+        ) : (
+          <ButtonSecondaryDark type="button">
+            <LinkButton to={'/login'}>{t('Login')}</LinkButton>
+          </ButtonSecondaryDark>
+        )}
       </ButtonBox>
     </Form>
   );

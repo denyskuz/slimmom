@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { GrClose } from 'react-icons/gr';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FcDatabase } from 'react-icons/fc';
+import { FcDatabase,FcImport } from 'react-icons/fc';
 import { useSelector } from 'react-redux';
 import {
   BurgerButton,
@@ -72,7 +72,7 @@ const Burger = () => {
             onClick={toggleBurgerMenu}
           >
             {isBurgerMenuOpen ? (
-              <GrClose size={20} />
+              <FcImport size={20} />
             ) : (
               <FcDatabase size={24} />
             )}

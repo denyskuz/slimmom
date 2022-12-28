@@ -33,7 +33,7 @@ const AuthNav = () => {
           className="fi fi-ua"
         ></LangButton>
       </ButtonContainer>
-      {!theme? (
+      {!theme ? (
         <>
           <Link to="/login" lang={language}>
             {t('Sign_in')}
@@ -43,16 +43,15 @@ const AuthNav = () => {
           </Link>
         </>
       ) : (
-          <>
-            <LinkDark to="/login" lang={language}>
-              {t('Sign_in')}
-            </LinkDark>
-            <LinkDark to="/signup" lang={language}>
-              {t('Registration')}
-            </LinkDark>
-          </>
+        <>
+          <LinkDark to="/login" lang={language}>
+            {t('Sign_in')}
+          </LinkDark>
+          <LinkDark to="/signup" lang={language}>
+            {t('Registration')}
+          </LinkDark>
+        </>
       )}
-      
     </>
   );
 };

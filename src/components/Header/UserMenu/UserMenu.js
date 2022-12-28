@@ -34,7 +34,11 @@ const UserMenu = () => {
         <Arrow color="black" size="20px" />
       </LinkToCalc>
       <UserInfoWrapper>
-        {!theme? (<UserName>{name}</UserName>):(<UserNameDark>{name}</UserNameDark>)}
+        {!theme ? (
+          <UserName>{name}</UserName>
+        ) : (
+          <UserNameDark>{name}</UserNameDark>
+        )}
         <UserExitButton type="button" onClick={onLogout}>
           {t('Exit')}
         </UserExitButton>
