@@ -20,7 +20,7 @@ const Burger = () => {
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const { isLoggedIn } = useAuth();
 
-  const theme = useSelector(state => state.theme.darkTheme);
+  // const theme = useSelector(state => state.theme.darkTheme);
   const toggleBurgerMenu = () => {
     setBurgerMenuOpen(!isBurgerMenuOpen);
   };

@@ -2,11 +2,13 @@ import { List, Typography } from '@mui/material';
 import { SummaryListItem } from './SideBar.styled';
 import { useTranslation } from 'react-i18next';
 import { useCalculator } from 'hooks/useCalculator';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 export const SummaryList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getDailyProducts(new Date().toISOString()));
+    dispatch(new Date().toISOString());
   }, [dispatch]);
 
   const { dailyNorm, consumed, percent } = useCalculator();
