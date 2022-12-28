@@ -123,7 +123,7 @@ export const LangButton = styled.button`
   align-items: baseline;
 
   &:hover {
-    color: pink;
+    color: orange;
   }
 
   &.active {

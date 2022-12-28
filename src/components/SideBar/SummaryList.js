@@ -10,7 +10,7 @@ export const SummaryList = () => {
   return (
     <List component="ol">
       <SummaryListItem disablePadding>
-        <Typography>Left</Typography>
+        <Typography>{t('Left')}</Typography>
         <Typography>000 {t('kcal')}</Typography>
       </SummaryListItem>
       <SummaryListItem disablePadding>

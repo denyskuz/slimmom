@@ -35,4 +35,7 @@ export const TRANSLATIONS_UA = {
   kcal: 'ккал',
   Email: 'Ел адреса',
   DiaryPage: 'Ваш щоденник',
+  Left: 'Залишилось',
+  Message_not_found: 'Вибачте, сторінка не знайдена!',
+  Back_home: 'Повернутися на головну сторінку',
 };

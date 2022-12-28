@@ -4,12 +4,15 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 import { BlockContainer } from './DiaryPage.styled';
 import { Container } from '@mui/system';
+import { useTranslation } from 'react-i18next';
 
 export default function CalculatorPage() {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Helmet>
-        <title>Diary</title>
+        <title>{t('Diary')}</title>
       </Helmet>
       <BlockContainer>
         <DiaryDateCalendar />

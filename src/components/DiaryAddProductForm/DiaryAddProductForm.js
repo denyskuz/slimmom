@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 // import { addProducts } from 'redux/products/actions';
+import { useTranslation } from 'react-i18next';
 
 import {
   FormWrapper,
@@ -19,12 +20,12 @@ const DiaryAddProductForm = ({ img, openModal }) => {
       console.log(values);
     },
   });
-
+  const { t } = useTranslation();
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
         <Label>
-          Enter product name
+          {t('Product_name')}
           <Input
             id="product"
             name="product"
@@ -34,7 +35,7 @@ const DiaryAddProductForm = ({ img, openModal }) => {
           />
         </Label>
         <Label>
-          Grams
+          {t('Grams')}
           <Input
             id="weigth"
             name="weigth"

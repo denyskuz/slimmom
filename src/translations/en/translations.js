@@ -35,4 +35,7 @@ export const TRANSLATIONS_EN = {
   kcal: 'kcal',
   Email: 'E-mail*',
   DiaryPage: 'DiaryPage',
+  Left: 'Left',
+  Message_not_found: 'Sorry, we not found the page you are looking for!',
+  Back_home: 'Back to home',
 };
