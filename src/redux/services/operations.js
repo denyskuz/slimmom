@@ -176,11 +176,11 @@ export const getAllDiaryProduct = createAsyncThunk(
     try {
       const { data } = await axios.get(`/api/diary/${date}`);
       token.set(persistedToken);
-      const mappedData = data.notes.map(notes => ({
-        title: notes.product.title,
-        id: notes._id,
-        weight: notes.weight,
-        calories: notes.product.calories,
+      const mappedData = data.notes.map(note => ({
+        title: note.product.title,
+        id: note._id,
+        weight: note.weight,
+        calories: Math.round((note.product.calories / note.product.weight) * note.weight)
       }));
       return mappedData;
     } catch (error) {

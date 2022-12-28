@@ -10,9 +10,7 @@ export const useCalculator = () => {
   useEffect(() => {
     if (notes.length) {
       const total = notes.reduce((total, note) => {
-        return (
-          total + (note.product.calories / note.product.weight) * note.weight
-        );
+        return total + note.calories;
       }, 0);
       setConsumed(Math.round(total));
     }
@@ -20,6 +18,6 @@ export const useCalculator = () => {
 
   const dailyNorm = calculateCalories(user);
   const left = dailyNorm - consumed;
-  const percent = (consumed / dailyNorm).toFixed(2) * 100.0;
+  const percent = Math.round((consumed / dailyNorm)) * 100.0;
   return { dailyNorm, consumed, left, percent };
 };
