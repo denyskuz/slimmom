@@ -52,8 +52,6 @@ export const SideBarContainer = styled.div`
   height: 100%;
   margin-right: auto;
   margin-left: auto;
-  display: flex;
-  flex-direction: column;
   padding: 40px 20px 52px 20px;
   font-family: Verdana;
   font-weight: 400;
@@ -75,6 +73,9 @@ export const SideBarContainer = styled.div`
     background-image: url(${backgroundTablet});
     background-repeat: no-repeat;
     background-position: bottom 0 right 0;
+    position: fixed;
+    bottom: 0;
+    height: 400px;
   }
 
   @media screen and (min-width: 1280px) {
