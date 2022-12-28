@@ -88,6 +88,9 @@ export const ButtonContainer = styled.div`
     padding-top: 2px;
     margin-right: 15px;
   }
+  @media screen and (min-width: 1280px) {
+    margin-left: 10px;
+  }
 `;
 
 export const Lang = styled.ul`
