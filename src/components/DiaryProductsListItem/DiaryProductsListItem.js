@@ -11,10 +11,11 @@ import {
   Kcal,
   Weight,
 } from './DiaryProductsListItem.styled';
-import { useDairyStore } from 'hooks/diaryStoreHook';
+import { useSelector } from 'react-redux';
+import { getAllDiaryProduct } from 'redux/services/selectors';
 
 export default function DiaryProductsListItem() {
-  const { mappedData } = useDairyStore();
+  const notes = useSelector(getAllDiaryProduct);
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -26,13 +27,13 @@ export default function DiaryProductsListItem() {
 
   return (
     <List>
-      {mappedData.map((e, i, ar) => {
+      {notes.map((e, i, ar) => {
         return (
           <ListItems key={e.id}>
             <NameProduct noWrap>{e.title.ua}</NameProduct>
             <DataProduct>
               <Weight noWrap>{e.weight} g</Weight>
-              <Kcal noWrap>{e.calories} kcal</Kcal>
+              <Kcal noWrap>{e.calories}kcal</Kcal>
             </DataProduct>
             <DeleteButton
               type="button"
