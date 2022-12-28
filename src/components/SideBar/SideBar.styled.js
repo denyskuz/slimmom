@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ListItem } from '@mui/material';
-import backgroundTablet from '../../images/background/leafsTabSideBar.png';
-import backgroundDesktop from '../../images/background/leafsDeskSideBar.png';
+import backgroundTablet from '../../images/background/sidebar-bg-tablet.png';
+import backgroundDesktop from '../../images/background/sidebar-bg-desktop.png';
 
 export const BadFoodContainer = styled.div`
   margin-top: 40px;
@@ -29,6 +29,24 @@ export const SummaryTitle = styled.h3`
   color: #212121;
 `;
 
+export const BgWrapper = styled.div`
+  background: #f0f1f3;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    padding-right: auto;
+    padding-left: auto;
+  }
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40%;
+  }
+`;
+
 export const SideBarContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -45,11 +63,14 @@ export const SideBarContainer = styled.div`
   color: #9b9faa;
   background: #f0f1f3;
 
-  @media screen and (min-width: 768px) {
-    display: flex;
+  @media (max-width: 767px) {
+    max-width: 360px;
+    margin: 0 auto;
     flex-direction: row;
     align-items: baseline;
-    width: 768px;
+  }
+  @media (min-width: 768px) {
+    display: flex;
     padding: 80px 32px;
     background-image: url(${backgroundTablet});
     background-repeat: no-repeat;
