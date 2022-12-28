@@ -66,7 +66,6 @@ export const SideBarContainer = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    height: 100vh;
     width: 40%;
     padding: 292px 94px 0 0;
   }

@@ -7,7 +7,6 @@ const productsSlice = createSlice({
     calories: 0,
     categories: [],
     bad: [],
-    daily: [],
     loading: false,
     error: '',
   },
