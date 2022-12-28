@@ -18,7 +18,7 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      console.log(action.meta.arg._id);
+      console.log(action.payload.note._id);
       state.notes = [
         ...state.notes,
         {
@@ -31,14 +31,13 @@ const diaryProductSlice = createSlice({
     },
     [deleteDiaryProduct.fulfilled](state, action) {
       const index = state.notes.findIndex(({ id }) => {
-        console.log(id === action.meta.arg);
         return id === action.meta.arg;
       });
-      console.log('INDEX', index);
       state.notes.splice(index, 1);
     },
 
     [getNameProducts.fulfilled](state, action) {
+      console.log('Payload', action.payload);
       state.selectTitle = [...action.payload.products];
     },
   },

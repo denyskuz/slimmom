@@ -159,7 +159,6 @@ export const deleteDiaryProduct = createAsyncThunk(
     try {
       await axios.delete(`/api/diary/${id}`);
     } catch (error) {
-      console.log(error);
       toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -176,7 +175,6 @@ export const getAllDiaryProduct = createAsyncThunk(
     try {
       const { data } = await axios.get(`/api/diary/${date}`);
       token.set(persistedToken);
-
       const mappedData = data.notes.map(notes => ({
         title: notes.product.title,
         id: notes._id,
@@ -203,9 +201,10 @@ export const addDiaryProduct = createAsyncThunk(
       token.set(persistedToken);
       const { data } = await axios.post('api/diary', { product, weight, date });
       toast.success('Product added success!');
+      console.log('return=>>', data);
       return data;
     } catch (error) {
-      toast.warning('something went wrong!!');
+      toast.warning('something went wrong!! Try again.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -224,6 +223,8 @@ export const getNameProducts = createAsyncThunk(
       const { data } = await axios.get(`/api/products`, {
         params: { title: userQuery },
       });
+      console.log('QueryTitle===>', userQuery);
+      console.log('titleReturn===>', data);
       data.message && toast.success(data.message);
       if (data.products.length === 0) {
         toast.info('product is undefined');

@@ -56,10 +56,12 @@ const AddForm = () => {
     }
   };
   const handleChange = (e, value) => {
+    console.log(value.id);
     setProduct(value.id);
     setProductName(value.label);
   };
   const nameProd = dataTitle.map(e => {
+    // console.log(e);
     return {
       label: e.title.ua,
       id: e._id,
