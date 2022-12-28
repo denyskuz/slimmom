@@ -1,21 +1,31 @@
-import { format } from 'date-fns';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteDiaryProduct } from 'redux/services/operations';
+import {
+  deleteDiaryProduct,
+  getAllDiaryProduct as dispatchAllDiaryProduct,
+} from 'redux/services/operations';
 import { getAllDiaryProduct } from '../redux/services/selectors';
-export const useDairyStore = () => {
-  const dispatch = useDispatch();
-  const notes = useSelector(getAllDiaryProduct);
 
-  const [diaryData, setDiaryData] = useState([]);
+export const useDairyStore = () => {
+  const notes = useSelector(getAllDiaryProduct);
+  const dispatch = useDispatch();
+
+  const mappedData = notes.map(({ _id, weight, product }) => ({
+    title: product.title,
+    productId: product._id,
+    _id,
+    weight,
+    calories: Math.round((product.calories / product.weight) * weight),
+  }));
+
+  useEffect(() => {
+    const date = new Date().toISOString();
+    dispatch(dispatchAllDiaryProduct(date));
+  }, [dispatch]);
 
   const deleteDiaryProductHook = id => {
     dispatch(deleteDiaryProduct(id));
-
-    const date = format(new Date(), 'yyyy-MM-dd');
-    dispatch(getAllDiaryProduct(date));
-    setDiaryData(notes);
   };
 
-  return { diaryData, deleteDiaryProductHook };
+  return { mappedData, deleteDiaryProductHook };
 };
