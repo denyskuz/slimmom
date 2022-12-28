@@ -103,7 +103,7 @@ export const LogoLink = styled(NavLink)`
 
 export const Navigation = styled.div`
   display: flex;
-
+  z-index: 3;
   @media only screen and (min-width: 1280px) {
     width: 100%;
   }
