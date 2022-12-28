@@ -27,11 +27,7 @@ const AddForm = () => {
         return;
       }
       const data = { dataTitle, productName, product, weight, date };
-
       dispatch(addDiaryProduct(data));
-      // resetForm();
-      //  setProduct(' ');
-      // setProductName(' ');
     },
   });
 
@@ -50,7 +46,6 @@ const AddForm = () => {
     <Form onSubmit={formik.handleSubmit}>
       <Complete
         onInputChange={(e, v) => {
-          console.log('valueeee', v);
           dispatch(getNameProducts(v));
         }}
         onChange={handleChange}
@@ -78,6 +73,7 @@ const AddForm = () => {
         multiline
         onChange={formik.handleChange}
         value={formik.values.weight}
+        error={Boolean(formik.touched.weight && formik.errors.weight)}
       />
       <AddProductBtn type="submit" aria-label="Add product">
         <HiPlus />

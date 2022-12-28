@@ -17,19 +17,10 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      // const idToAdd = action.meta.arg.dataTitle;
-      // const idWhatAdd = action.meta.arg.product;
-      // const productToAdd = idToAdd.filter(({ _id }) => _id === idWhatAdd);
-      console.log('action', action);
-      console.log('action', action);
-      state.notes = [
-        ...state.notes,
-        { title: action.meta.arg.productName, id: action.meta.arg.product },
-      ];
+      state.notes = [...state.notes, action.payload];
     },
     [deleteDiaryProduct.fulfilled](state, action) {
-      const index = state.notes.findIndex(({ _id }) => _id === action.meta.arg);
-      state.notes.splice(index, 1);
+      state.notes = state.notes.filter(note => note._id !== action.payload);
     },
     [getNameProducts.fulfilled](state, action) {
       state.selectTitle = action.payload.products;
