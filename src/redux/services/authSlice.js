@@ -62,7 +62,9 @@ const authSlice = createSlice({
       state.isRefreshing = false;
     },
     [refreshUser.rejected](state) {
+      state.isLoggedIn = false;
       state.isRefreshing = false;
+      state.token = null;
     },
   },
 });
