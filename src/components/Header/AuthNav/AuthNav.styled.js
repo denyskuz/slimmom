@@ -32,7 +32,7 @@ export const LangSwitcher = styled.div`
   position: relative;
   z-index: 3;
   align-self: center;
-  background-color: #ecdfdf;
+  // background-color: #ecdfdf;
   border-radius: 5px;
 `;
 export const LangList = styled.div`
