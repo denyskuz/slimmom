@@ -13,6 +13,8 @@ import {
 } from './dailyCalorieIntake.styled';
 import { calculateCalories } from 'utils';
 import { CustomizedList } from './FoodListNotEat';
+import Box from '@mui/material/Box';
+import Loader from 'components/Loader';
 import { useSelector } from 'react-redux';
 import { selectBadCategories } from 'redux/services/selectors';
 
@@ -36,11 +38,17 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       <ListWrapper>
         <ListTitle>{t('Food_list')}</ListTitle>
         <List>
-          {categories.map((item, index) => {
-            return (
-              <CustomizedList key={item} number={index + 1} category={item} />
-            );
-          })}
+          {!categories[1] ? (
+            <Box sx={{ height: '400px', width: '200px' }}>
+              <Loader />
+            </Box>
+          ) : (
+            categories.map((item, index) => {
+              return (
+                <CustomizedList key={item} number={index + 1} category={item} />
+              );
+            })
+          )}
         </List>
       </ListWrapper>
       <ButtonStart type="button">

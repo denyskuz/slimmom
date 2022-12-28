@@ -114,24 +114,6 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const addProducts = createAsyncThunk(
-  'products/addItem',
-  async (product, { getState, rejectWithValue }) => {
-    try {
-      const state = getState();
-      const persistedToken = state.auth.token;
-      token.set(persistedToken);
-      const result = await axios.post(`/api/diary/`, {
-        ...product,
-      });
-      return result.data;
-    } catch (error) {
-      toast('Add product in diary error');
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
 export const getDailyProducts = createAsyncThunk(
   'products/getDaily',
   async (value, { getState, rejectWithValue }) => {
@@ -158,6 +140,7 @@ export const deleteDiaryProduct = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       await axios.delete(`/api/diary/${id}`);
+      return id;
     } catch (error) {
       toast('product is not correct');
       return thunkAPI.rejectWithValue(error.message);
@@ -175,16 +158,8 @@ export const getAllDiaryProduct = createAsyncThunk(
     try {
       const { data } = await axios.get(`/api/diary/${date}`);
       token.set(persistedToken);
-      console.log('data', data);
-      const mappedData = data.notes.map(({ _id, weight, product }) => ({
-        title: product.title,
-        productId: product._id,
-        _id,
-        weight,
-        calories: Math.round((product.calories / product.weight) * weight),
-      }));
-      console.log('mappedData', mappedData);
-      return mappedData;
+
+      return data.notes;
     } catch (error) {
       toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
@@ -203,10 +178,8 @@ export const addDiaryProduct = createAsyncThunk(
     try {
       token.set(persistedToken);
       const { data } = await axios.post('api/diary', { product, weight, date });
-      console.log('data ===', data);
       toast('Product added success!');
-
-      return data;
+      return data.note;
     } catch (error) {
       toast('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
@@ -229,7 +202,6 @@ export const getNameProducts = createAsyncThunk(
         params: { title: userQuery },
       });
       data.message && toast.success(data.message);
-      console.log('data', data);
       return data;
     } catch (err) {
       toast.error(err.response.data.message);
