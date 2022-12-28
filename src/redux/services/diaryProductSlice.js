@@ -18,7 +18,6 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      console.log('ACT=>>', action.payload);
       state.notes = [
         ...state.notes,
         {
@@ -37,7 +36,6 @@ const diaryProductSlice = createSlice({
     },
 
     [getNameProducts.fulfilled](state, action) {
-      // console.log('Payload', action.payload);
       state.selectTitle = action.payload.products;
     },
   },

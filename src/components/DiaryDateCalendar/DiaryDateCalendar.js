@@ -15,7 +15,7 @@ export const DiaryDateCalendar = () => {
 
   const handleChange = newValue => {
     const date = dayjs(newValue).format();
-    console.log(date);
+
     setValue(date);
     dispatch(getAllDiaryProduct(date));
   };

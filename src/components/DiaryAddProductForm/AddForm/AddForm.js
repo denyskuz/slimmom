@@ -32,9 +32,7 @@ const AddForm = () => {
         toast.info('You need add weight');
         return;
       }
-      // const productToAdd = dataTitle.filter(({ _id }) => _id === product);
       const data = {
-        // prod: productToAdd[0],
         dataTitle,
         productName,
         product,
@@ -61,7 +59,6 @@ const AddForm = () => {
     setProductName(value.label);
   };
   const nameProd = dataTitle.map(e => {
-    // console.log(e);
     return {
       label: e.title.ua,
       id: e._id,

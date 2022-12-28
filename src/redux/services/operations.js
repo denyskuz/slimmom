@@ -223,8 +223,6 @@ export const getNameProducts = createAsyncThunk(
       const { data } = await axios.get(`/api/products`, {
         params: { title: userQuery },
       });
-      console.log('QueryTitle===>', userQuery);
-      console.log('titleReturn===>', data);
       data.message && toast.success(data.message);
       if (data.products.length === 0) {
         toast.info('product is undefined');
