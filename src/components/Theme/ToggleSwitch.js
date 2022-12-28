@@ -4,8 +4,8 @@ import { styled } from '@mui/material/styles';
 import { toggleTheme } from '../../redux/services/themeSlice';
 
 export const ToggleSwitch = () => {
-  const theme = useSelector(state => state.theme);
-
+  const theme = useSelector(state => state.theme.darkTheme);
+  
   const dispatch = useDispatch();
 
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -61,7 +61,7 @@ export const ToggleSwitch = () => {
       <FormControlLabel
         control={
           <MaterialUISwitch
-            checked={theme.darkTheme}
+            checked={theme}
             onChange={() => dispatch(toggleTheme())}
           />
         }
