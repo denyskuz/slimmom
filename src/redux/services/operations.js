@@ -202,8 +202,7 @@ export const addDiaryProduct = createAsyncThunk(
       token.set(persistedToken);
       const { data } = await axios.post('api/diary', { product, weight, date });
       toast.success('Product added success!');
-      console.log('return=>>', data);
-      return data;
+      return data.note;
     } catch (error) {
       toast.warning('something went wrong!! Try again.');
       return thunkAPI.rejectWithValue(error.message);

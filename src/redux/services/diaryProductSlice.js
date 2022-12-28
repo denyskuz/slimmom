@@ -18,14 +18,14 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      console.log(action.payload.note._id);
+      console.log('ACT=>>', action.payload);
       state.notes = [
         ...state.notes,
         {
-          title: { ua: action.meta.arg.productName },
-          id: action.payload.note._id,
-          weight: action.meta.arg.weight,
-          calories: action.meta.arg.prod.calories,
+          title: { ua: action.payload.product.title.ua },
+          id: action.payload._id,
+          weight: action.payload.weight,
+          calories: action.payload.product.calories,
         },
       ];
     },
@@ -37,8 +37,8 @@ const diaryProductSlice = createSlice({
     },
 
     [getNameProducts.fulfilled](state, action) {
-      console.log('Payload', action.payload);
-      state.selectTitle = [...action.payload.products];
+      // console.log('Payload', action.payload);
+      state.selectTitle = action.payload.products;
     },
   },
 });
