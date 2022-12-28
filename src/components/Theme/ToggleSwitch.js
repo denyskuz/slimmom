@@ -4,13 +4,13 @@ import { styled } from '@mui/material/styles';
 import { toggleTheme } from '../../redux/services/themeSlice';
 
 export const ToggleSwitch = () => {
-  const theme = useSelector(state => state.theme);
+  const theme = useSelector(state => state.theme.darkTheme);
 
   const dispatch = useDispatch();
 
-  const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-    width: 62,
-    height: 34,
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+    width: 45,
+    height: 24,
     padding: 7,
     '& .MuiSwitch-switchBase': {
       margin: 1,
@@ -33,8 +33,8 @@ export const ToggleSwitch = () => {
     },
     '& .MuiSwitch-thumb': {
       backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
-      width: 32,
-      height: 32,
+      width: 22,
+      height: 22,
       '&:before': {
         content: "''",
         position: 'absolute',
@@ -61,7 +61,7 @@ export const ToggleSwitch = () => {
       <FormControlLabel
         control={
           <MaterialUISwitch
-            checked={theme.darkTheme}
+            checked={theme}
             onChange={() => dispatch(toggleTheme())}
           />
         }
