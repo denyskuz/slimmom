@@ -9,59 +9,64 @@ export const Form = styled.form`
   align-items: center;
   margin: 80px auto 0px;
   @media (min-width: 768px) {
+    height: 48px;
     flex-direction: row;
     padding: 80px 20px;
-    width: 503px;
+    width: 550px;
     padding: 0px;
     margin: 0px;
-    margin-bottom: 60px;
   }
 `;
 export const Complete = styled(Autocomplete)`
   width: 280px;
   margin-bottom: 32px;
-  @media (min-width: 768px) {
+
+  @media screen and (min-width: 768px) {
     width: 240px;
     margin-right: 22px;
     margin-bottom: 0px;
   }
+  @media screen and (min-width: 1280px) {
+    margin-right: 48px;
+  }
   & .MuiInputLabel-outlined:not(.MuiInputLabel-shrink) {
     transform: 'translate(34px, 20px) scale(1);';
-  }
-  &.Mui-focused .MuiInputLabel-outlined {
-    color: 'purple';
+    top: 8px;
+    left: -14px;
   }
   & .MuiAutocomplete-inputRoot {
-    color: 'purple';
-
     & .MuiOutlinedInput-notchedOutline {
-      height: 53px;
       border: none;
+      height: 53px;
       border-radius: 0px;
-      border-bottom: 1px solid;
-    }
-    &:hover .MuiOutlinedInput-notchedOutline {
+      border-bottom: 1px solid #9b9faa;
+      ;
     }
     &.Mui-focused .MuiOutlinedInput-notchedOutline {
+      border-bottom-color: #fc842d;
     }
-  }
 `;
 
 export const ProductInput = styled(TextField)`
-  font-size: 16px;
   outline: none;
   width: 240px;
   height: 37px;
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
-  margin-right: 22px;
-  margin-bottom: 8px;
-  font-family: Verdana;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
+
+  & label {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
+    padding: 0;
+  }
+  & label.Mui-focused {
+    color: #fc842d;
+    left: -14px;
+  }
   @media (max-width: 767px) {
     margin-bottom: 40px;
     margin-right: 0;
@@ -70,18 +75,32 @@ export const ProductInput = styled(TextField)`
 `;
 
 export const GramsInput = styled(TextField)`
-  font-size: 16px;
   outline: none;
   height: 37px;
   width: 280px;
   border: none;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
-  margin-bottom: 8px;
+  border-bottom: 1px solid #9b9faa;
   margin-right: 87px;
-  :placeholder {
-    text-align: right;
+  & .MuiInput-underline:after {
+    border-bottom-color: #fc842d;
+  }
+  & label {
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
+    top: 4.3px;
+  }
+  & label.Mui-focused {
+    color: #fc842d;
   }
   @media (min-width: 768px) {
     width: 106px;
     margin-bottom: 0px;
+    & label {
+      top: 4.3px;
+      left: 58px;
+  }
 `;
