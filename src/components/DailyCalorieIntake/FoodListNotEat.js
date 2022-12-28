@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { number, string } from 'prop-types';
+import { number, string, bool } from 'prop-types';
 import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
 import Menu from '@mui/material/Menu';
@@ -12,7 +12,7 @@ import { ListText, ProductListText } from './FoodListNotEat.styled';
 import { selectUserParams } from 'redux/services/selectors';
 import Loader from 'components/Loader';
 
-export const CustomizedList = ({ number, category }) => {
+export const CustomizedList = ({ number, category, withNumbers }) => {
   const user = useSelector(selectUserParams);
   const [products, setProducts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -66,8 +66,7 @@ export const CustomizedList = ({ number, category }) => {
       >
         <ListText
           primary={
-            number +
-            '.  ' +
+            (withNumbers ? number + '.  ' : '') +
             category.charAt(0).toUpperCase() +
             category.slice(1)
           }
@@ -130,4 +129,5 @@ export const CustomizedList = ({ number, category }) => {
 CustomizedList.propTypes = {
   number: number.isRequired,
   category: string.isRequired,
+  withNumbers: bool.isRequired,
 };

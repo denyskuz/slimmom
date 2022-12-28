@@ -33,7 +33,7 @@ export default function DiaryProductsListItem() {
             <NameProduct noWrap>{e.title.ua}</NameProduct>
             <DataProduct>
               <Weight noWrap>{e.weight} g</Weight>
-              <Kcal noWrap>{e.calories}kcal</Kcal>
+              <Kcal noWrap>{e.calories} kcal</Kcal>
             </DataProduct>
             <DeleteButton
               type="button"
