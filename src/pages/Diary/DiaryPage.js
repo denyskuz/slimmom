@@ -5,20 +5,34 @@ import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalenda
 
 import DiaryProductsListItem from 'components/DiaryProductsListItem/DiaryProductsListItem';
 import { Container } from '@mui/system';
+import { useMediaQuery } from 'react-responsive';
+import { Wrapper } from 'pages/MainPage/MainPage.styled';
 import { useTranslation } from 'react-i18next';
 
 export default function CalculatorPage() {
   const { t } = useTranslation();
-
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   return (
-    <Container>
-      <Helmet>
-        <title>{t('Diary')}</title>
-      </Helmet>
-      <BlockContainer>
-        <DiaryDateCalendar />
-        <DiaryAddProductForm />
-      </BlockContainer>
+    <Wrapper>
+      <Container>
+        <Helmet>
+          <title>{t('Diary')}</title>
+        </Helmet>
+
+        {isMobile ? (
+          <>
+            <DiaryDateCalendar />
+            <DiaryProductsListItem />
+            <DiaryAddProductForm />
+          </>
+        ) : (
+          <>
+            <DiaryDateCalendar />
+            <DiaryAddProductForm />
+            <DiaryProductsListItem />
+          </>
+        )}
+      </Container>
       <SideBar />
     </Wrapper>
   );

@@ -38,7 +38,7 @@ export const SummaryList = () => {
     dispatch(getDailyProducts(new Date().toISOString()));
   }, [dispatch]);
 
-  const { dailyNorm, consumed, left, percent } = useCalculator();
+  const { dailyNorm, consumed, percent } = useCalculator();
 
   const { t } = useTranslation();
   return (

@@ -9,7 +9,7 @@ import {
   AuthLink,
   ButtonWrapper,
 } from './Burger.styled';
-import { LangButton, ButtonContainer } from '../AuthNav/AuthNav.styled';
+import { LangButton } from '../AuthNav/AuthNav.styled';
 import { useAuth } from 'hooks/useAuth';
 import { useTranslation } from 'react-i18next';
 import i18n from './../../../translations/i18n';
@@ -37,18 +37,17 @@ const Burger = () => {
   return (
     <>
       <ButtonWrapper>
-        <ButtonContainer>
-          <LangButton
-            value="en"
-            onClick={handleOnclick}
-            className="fi fi-gb"
-          ></LangButton>
-          <LangButton
-            value="uk"
-            onClick={handleOnclick}
-            className="fi fi-ua"
-          ></LangButton>
-        </ButtonContainer>
+        <LangButton
+          value="en"
+          onClick={handleOnclick}
+          className="fi fi-gb"
+        ></LangButton>
+        <LangButton
+          value="uk"
+          onClick={handleOnclick}
+          className="fi fi-ua"
+        ></LangButton>
+
         <BurgerButton
           className={isBurgerMenuOpen ? 'active' : ''}
           aria-label="burger menu"

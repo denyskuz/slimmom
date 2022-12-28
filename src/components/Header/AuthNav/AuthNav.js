@@ -2,7 +2,6 @@ import { Link, LangSwitcher, LangList, LangButton } from './AuthNav.styled';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import i18n from './../../../translations/i18n';
 import i18next from 'i18next';
 import { MdOutlineLanguage } from 'react-icons/md';
 
