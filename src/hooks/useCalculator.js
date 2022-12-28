@@ -18,6 +18,6 @@ export const useCalculator = () => {
 
   const dailyNorm = calculateCalories(user);
   const left = dailyNorm - consumed;
-  const percent = Math.round((consumed / dailyNorm)) * 100.0;
+  const percent = Math.round(consumed / dailyNorm) * 100.0;
   return { dailyNorm, consumed, left, percent };
 };
