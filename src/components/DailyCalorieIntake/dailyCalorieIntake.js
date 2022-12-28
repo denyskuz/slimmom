@@ -9,19 +9,19 @@ import {
   TitleWrapper,
   CloseButton,
   ButtonStart,
+  List,
 } from './dailyCalorieIntake.styled';
 import { calculateCalories } from 'utils';
 import { CustomizedList } from './FoodListNotEat';
+import Box from '@mui/material/Box';
+import Loader from 'components/Loader';
 import { useSelector } from 'react-redux';
-import { selectBadProducts } from 'redux/services/selectors';
+import { selectBadCategories } from 'redux/services/selectors';
 
 import { useTranslation } from 'react-i18next';
 
 const DailyCalorieIntake = ({ closeModal, params }) => {
-  const products = useSelector(selectBadProducts);
-  const product_categories = products
-    .flatMap(product => product.categories)
-    .filter((categorie, index, array) => array.indexOf(categorie) === index);
+  const categories = useSelector(selectBadCategories);
   const { t } = useTranslation();
 
   return (
@@ -37,20 +37,19 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>{t('Food_list')}</ListTitle>
-        {product_categories.map(item => {
-          const number = product_categories.indexOf(item) + 1;
-          const filterList = products.filter(el =>
-            el.categories.includes(item)
-          );
-          return (
-            <CustomizedList
-              key={item}
-              number={number}
-              categorie={item}
-              list={filterList}
-            />
-          );
-        })}
+        <List>
+          {!categories[1] ? (
+            <Box sx={{ height: '400px', width: '200px' }}>
+              <Loader />
+            </Box>
+          ) : (
+            categories.map((item, index) => {
+              return (
+                <CustomizedList key={item} number={index + 1} category={item} />
+              );
+            })
+          )}
+        </List>
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>{t('Start_loosing')}</LinkButton>

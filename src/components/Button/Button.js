@@ -66,10 +66,13 @@ export const LinkButton = styled(NavLink)`
 `;
 
 export const AddProductBtn = styled(Button)`
-  align-self: center;
+  padding: 0;
+  min-width: 0px;
+  display: flex;
+  margin: 60px auto;
   border-radius: 50px;
   cursor: pointer;
-  min-width: 48px;
+  width: 48px;
   height: 48px;
   background: #fc842d;
   border: none;
@@ -80,5 +83,8 @@ export const AddProductBtn = styled(Button)`
   &:hover {
     transform: rotate(90deg);
     background: #fc832dbb;
+  }
+  @media (min-width: 768px) {
+    margin: 0 0 0 87px;
   }
 `;

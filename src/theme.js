@@ -6,6 +6,7 @@ export const theme = {
     background: '#fff',
     bcgUserInfo: '#EFF1F3',
     bcgBurger: '#264061',
+    bgcSideBar: '#F0F1F3',
     primary: '#212121',
     secondary: '#9B9FAA',
     accent: '#FC842D',

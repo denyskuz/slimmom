@@ -2,7 +2,8 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Link = styled(NavLink)`
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: GothamPro-Bold;
   font-size: 12px;
   font-weight: bold;
@@ -12,8 +13,8 @@ export const Link = styled(NavLink)`
   text-transform: uppercase;
   color: #ecdfdf;
 
-  :first-child {
-    margin-right: ${prop => prop.theme.space[4]}px;
+  &:last-child {
+    margin-left: ${prop => prop.theme.space[4]}px;
   }
 
   :hover {

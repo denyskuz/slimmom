@@ -3,7 +3,10 @@ import { Modal } from '@mui/material';
 import { bool } from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserParams, getProducts } from 'redux/services/operations';
+import {
+  setUserParams,
+  getProductsCategories,
+} from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
 import { userParamsSchema } from 'validation';
 import {
@@ -43,8 +46,8 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));
+      dispatch(getProductsCategories(data));
       setOpen(true);
-      dispatch(getProducts(data));
     },
   });
 
@@ -86,7 +89,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
           type="number"
           label={t('Height')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 300 } }}
+          InputProps={{ inputProps: { min: 100, max: 250 } }}
           onChange={handleChange}
           value={values.height}
           error={Boolean(touched.height && errors.height)}
@@ -98,7 +101,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
           type="number"
           label={t('Age')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 200 } }}
+          InputProps={{ inputProps: { min: 18, max: 100 } }}
           onChange={handleChange}
           value={values.age}
           error={Boolean(touched.age && errors.age)}
@@ -110,7 +113,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
           type="number"
           label={t('Current_weight')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          InputProps={{ inputProps: { min: 20, max: 500 } }}
           onChange={handleChange}
           value={values.currentWeight}
           error={Boolean(touched.currentWeight && errors.currentWeight)}
@@ -122,7 +125,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
           type="number"
           label={t('Desired_weight')}
           variant="standard"
-          InputProps={{ inputProps: { min: 1, max: 500 } }}
+          InputProps={{ inputProps: { min: 20, max: 500 } }}
           onChange={handleChange}
           value={values.desiredWeight}
           error={Boolean(touched.desiredWeight && errors.desiredWeight)}

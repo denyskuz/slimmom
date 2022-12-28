@@ -1,6 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const BurgerButton = styled.button`
   display: block;
   float: left;
@@ -47,7 +53,7 @@ export const BurgerMenu = styled.nav`
   padding-top: ${prop => prop.theme.spaceForm[3]}px;
   display: flex;
   flex-flow: column;
-  width: 100vw;
+  width: 100%;
   height: 105%;
   overflow-y: auto;
   background-color: ${prop => prop.theme.colors.bcgBurger};
@@ -87,6 +93,23 @@ export const NavDiaryLink = styled(NavLink)`
 `;
 
 export const NavCalcLink = styled(NavLink)`
+  padding: ${prop => prop.theme.spaceForm[1]}px;
+  font-family: Verdana;
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  font-size: ${prop => prop.theme.fontSizes.s};
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: ${prop => prop.theme.colors.secondary};
+
+  &.active {
+    color: ${prop => prop.theme.colors.white};
+  }
+`;
+
+export const AuthLink = styled(NavLink)`
   padding: ${prop => prop.theme.spaceForm[1]}px;
   font-family: Verdana;
   font-weight: ${prop => prop.theme.fontWeights.bold};

@@ -1,6 +1,7 @@
 import AuthNav from 'components/Header/AuthNav';
 import UserMenu from 'components/Header/UserMenu';
 import Burger from 'components/Header/Burger';
+import { ToggleSwitch } from 'components/Theme/ToggleSwitch';
 import {
   Header,
   NavHeader,
@@ -13,11 +14,15 @@ import {
   Navigation,
   UserMenuWrapperDesk,
   UserMenuWrapper,
+  AuthMenu,
+  BurgerWrapper,
+  AuthContainer,
 } from './AppBar.styled';
 import { useAuth } from 'hooks/useAuth';
 
 const AppBar = () => {
   const { isLoggedIn } = useAuth();
+
   return (
     <Header>
       <NavHeader>
@@ -41,6 +46,8 @@ const AppBar = () => {
           )}
         </LogoLink>
 
+        <ToggleSwitch />
+
         <Navigation>
           {isLoggedIn ? (
             <>
@@ -50,7 +57,14 @@ const AppBar = () => {
               <Burger />
             </>
           ) : (
-            <AuthNav />
+            <AuthContainer>
+              <AuthMenu>
+                <AuthNav />
+              </AuthMenu>
+              <BurgerWrapper>
+                <Burger />
+              </BurgerWrapper>
+            </AuthContainer>
           )}
         </Navigation>
       </NavHeader>
