@@ -21,20 +21,19 @@ const AddForm = () => {
   const formik = useFormik({
     initialValues: { weight: '' },
     validationSchema: Yup.object().shape({
-      weight: Yup.number().min(2).required(),
+      weight: Yup.number().min(2),
     }),
     onSubmit: ({ weight }, { resetForm }) => {
       if (productName === null) {
         toast.info('You need add product');
         return;
       }
-      if (weight === ' ') {
+      if (weight === '') {
         toast.info('You need add weight');
         return;
       }
-      const productToAdd = dataTitle.filter(({ _id }) => _id === product);
       const data = {
-        prod: productToAdd[0],
+        dataTitle,
         productName,
         product,
         weight,

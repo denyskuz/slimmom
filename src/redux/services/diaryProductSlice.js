@@ -18,28 +18,25 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      console.log(action.meta.arg._id);
       state.notes = [
         ...state.notes,
         {
-          title: { ua: action.meta.arg.productName },
-          id: action.payload.note._id,
-          weight: action.meta.arg.weight,
-          calories: action.meta.arg.prod.calories,
+          title: { ua: action.payload.product.title.ua },
+          id: action.payload._id,
+          weight: action.payload.weight,
+          calories: action.payload.product.calories,
         },
       ];
     },
     [deleteDiaryProduct.fulfilled](state, action) {
       const index = state.notes.findIndex(({ id }) => {
-        console.log(id === action.meta.arg);
         return id === action.meta.arg;
       });
-      console.log('INDEX', index);
       state.notes.splice(index, 1);
     },
 
     [getNameProducts.fulfilled](state, action) {
-      state.selectTitle = [...action.payload.products];
+      state.selectTitle = action.payload.products;
     },
   },
 });

@@ -99,6 +99,7 @@ export const Kcal = styled(Typography)`
   }
 `;
 export const DeleteButton = styled.button`
+  cursor: pointer;
   margin-right: 10px;
   border: none;
   width: 20px;
