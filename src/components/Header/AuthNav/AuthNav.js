@@ -9,12 +9,10 @@ import { MdOutlineLanguage } from 'react-icons/md';
 const AuthNav = () => {
   const { t } = useTranslation();
   const [droped, setDroped] = useState('');
-  // const [language, setLanguage] = useState('en');
 
   const hadleChangeLang = language => {
     console.log('language', language);
     i18next.changeLanguage(language);
-    // setLanguage(language);
   };
   console.log('i18next', i18next.languages);
   console.log('i18next', i18next.language);

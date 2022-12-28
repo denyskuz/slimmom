@@ -1,11 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-// export const Container = styled.div`
-//   display: flex;
-//   align-items: baseline;
-// `;
-
 export const Link = styled(NavLink)`
   padding: 10px;
   font-family: GothamPro-Bold;
