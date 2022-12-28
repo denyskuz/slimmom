@@ -9,6 +9,7 @@ import {
   LinkToCalc,
   UserInfoWrapper,
   UserName,
+  UserNameDark,
   UserExitButton,
 } from './UserMenu.styled';
 
@@ -16,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme.darkTheme);
   const name = useSelector(getUserName);
 
   const onLogout = () => {
@@ -32,7 +34,11 @@ const UserMenu = () => {
         <Arrow color="black" size="20px" />
       </LinkToCalc>
       <UserInfoWrapper>
-        <UserName>{name}</UserName>
+        {!theme ? (
+          <UserName>{name}</UserName>
+        ) : (
+          <UserNameDark>{name}</UserNameDark>
+        )}
         <UserExitButton type="button" onClick={onLogout}>
           {t('Exit')}
         </UserExitButton>
