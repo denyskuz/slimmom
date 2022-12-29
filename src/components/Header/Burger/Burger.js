@@ -21,20 +21,17 @@ import 'react-dropdown/style.css';
 const Burger = () => {
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const { isLoggedIn } = useAuth();
-
+  const { t } = useTranslation();
   const theme = useSelector(state => state.theme.darkTheme);
   const toggleBurgerMenu = () => {
     setBurgerMenuOpen(!isBurgerMenuOpen);
   };
 
-  const { t } = useTranslation();
-  const [language, setLanguage] = useState('en');
 
   const handleOnclick = e => {
     e.preventDefault();
-    setLanguage(e.target.value);
     i18n.changeLanguage(e.target.value);
-    localStorage.setLanguage('locale', language);
+    localStorage.setItem('lang', e.target.value)
   };
 
   return (
@@ -47,7 +44,7 @@ const Burger = () => {
             className="fi fi-gb"
           ></LangButton>
           <LangButton
-            value="uk"
+            value="ua"
             onClick={handleOnclick}
             className="fi fi-ua"
           ></LangButton>
