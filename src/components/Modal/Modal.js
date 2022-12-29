@@ -10,7 +10,6 @@ const Modal = ({ onClose, children }) => {
     window.addEventListener('keydown', onEscPress);
     const body = document.querySelector('body');
     body.style.overflow = 'hidden';
-    
 
     return () => {
       window.removeEventListener('keydown', onEscPress);
@@ -20,7 +19,7 @@ const Modal = ({ onClose, children }) => {
     };
   });
   const { t } = useTranslation();
-  
+
   const onEscPress = e => {
     if (e.code === 'Escape') {
       onClose();

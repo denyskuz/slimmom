@@ -26,9 +26,7 @@ const NotFoundPage = () => {
             <Image src={error} alt="404" width="250" />
             <ErrorTitle>404</ErrorTitle>
           </ImageWrapper>
-          <ErrorText>
-            {t('Not_found')}
-          </ErrorText>
+          <ErrorText>{t('Not_found')}</ErrorText>
           <StyledLink to={backLink}>
             <ButtonSecondary style={{ margin: 0 }}>
               {t('Back_home')}

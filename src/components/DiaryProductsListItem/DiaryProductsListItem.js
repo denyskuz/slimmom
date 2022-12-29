@@ -35,7 +35,9 @@ export default function DiaryProductsListItem() {
           <ListItems key={e.id}>
             <NameProduct noWrap>{e.title.ua}</NameProduct>
             <DataProduct>
-              <Weight noWrap>{e.weight} {t('g')}</Weight>
+              <Weight noWrap>
+                {e.weight} {t('g')}
+              </Weight>
               <Kcal noWrap>
                 {Math.round((e.calories / 100) * e.weight)} {t('kcal')}
               </Kcal>
