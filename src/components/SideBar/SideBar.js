@@ -4,15 +4,16 @@ import {
   BadFoodContainer,
   SummaryTitle,
 } from './SideBar.styled';
-import { BadFoodList } from './BadFoodList';
 import { SummaryList } from './SummaryList';
 import { useTranslation } from 'react-i18next';
+import { CategoriesList } from 'components/DailyCalorieIntake/categoriesList';
 
 export const SideBar = () => {
   const { t } = useTranslation();
+
   return (
     <SideBarContainer>
-      <Box>
+      <Box sx={{ maxWidth: 450 }}>
         <SummaryTitle>
           {t('Summary_for')} {new Date().toDateString()}
         </SummaryTitle>
@@ -20,7 +21,7 @@ export const SideBar = () => {
       </Box>
       <BadFoodContainer>
         <SummaryTitle>{t('Food_not_recommended')}</SummaryTitle>
-        <BadFoodList />
+        <CategoriesList onMain={false} />
       </BadFoodContainer>
     </SideBarContainer>
   );

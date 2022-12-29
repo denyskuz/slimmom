@@ -46,8 +46,8 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));
-      dispatch(getProductsCategories(data));
-      setOpen(true);
+      console.log('data', data);
+      isModal ? setOpen(true) : data && dispatch(getProductsCategories(data));
     },
   });
 
@@ -160,7 +160,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
         </Button>
 
         <Modal
-          open={isModal && isOpen}
+          open={isOpen}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"

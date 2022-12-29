@@ -73,7 +73,29 @@ export const UserName = styled.span`
     background-color: ${prop => prop.theme.colors.input};
   }
 `;
+export const UserNameDark = styled.span`
+  position: relative;
+  display: inline;
+  font-family: GothamPro-Bold;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding: 15px 16px 13px 0;
+  color: ${prop => prop.theme.colors.accent};
 
+  ::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    height: 32px;
+    width: 2px;
+    background-color: ${prop => prop.theme.colors.input};
+  }
+`;
 export const LinkToCalc = styled(NavLink)`
   border: none;
   background-color: transparent;
