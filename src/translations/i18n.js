@@ -15,7 +15,7 @@ i18n
       en: {
         translation: TRANSLATIONS_EN,
       },
-      uk: {
+      ua: {
         translation: TRANSLATIONS_UK,
       },
       debug: false,
@@ -29,6 +29,7 @@ i18n
     },
   });
 
-i18n.changeLanguage('uk');
+const defaultLang = localStorage.getItem('lang') || 'ua';
+i18n.changeLanguage(defaultLang);
 
 export default i18n;
