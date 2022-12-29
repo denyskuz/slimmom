@@ -15,7 +15,7 @@ i18n
       en: {
         translation: TRANSLATIONS_EN,
       },
-      uk: {
+      ua: {
         translation: TRANSLATIONS_UK,
       },
       debug: false,
@@ -28,7 +28,5 @@ i18n
       escapeValue: false,
     },
   });
-
-i18n.changeLanguage('uk');
 
 export default i18n;

@@ -15,15 +15,15 @@ export const IntakeBar = styled.div`
 `;
 
 export const CloseButton = styled(Button)`
-  width: 672px;
+  width: 40px;
+  min-width: 40px !important;
   height: 40px;
   border: none;
-  background: url(${Close_mobile}) no-repeat bottom 16px left 40px #eff1f3;
+  background: url(${Close_mobile}) no-repeat center #eff1f3;
   @media (min-width: 768px) {
-    background: url(${Close}) no-repeat top 15px right 20px;
+    background: url(${Close}) no-repeat center;
   }
 `;
-
 export const TitleWrapper = styled.div`
   text-align: left;
   padding-top: 40px;
@@ -59,6 +59,12 @@ export const ListWrapper = styled.div`
   @media (min-width: 768px) {
     width: 330px;
   }
+  nav div[class*='MuiCollapse-vertical'] span {
+    font-size: 12px;
+  }
+  div[id='scrollableDiv'] {
+    height: 150px !important;
+  }
 `;
 
 export const ListTitle = styled.h3`
@@ -93,4 +99,10 @@ export const ButtonStart = styled.button`
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
+
+  &:hover,
+  &:focus {
+    background-color: #ffffff;
+    color: #fc842d;
+  }
 `;
