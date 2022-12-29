@@ -14,7 +14,7 @@ const AuthNav = () => {
   const handleOnclick = e => {
     e.preventDefault();
     i18n.changeLanguage(e.target.value);
-    localStorage.setItem('lang', e.target.value)
+    localStorage.setItem('lang', e.target.value);
   };
 
   return (
@@ -33,21 +33,13 @@ const AuthNav = () => {
       </ButtonContainer>
       {!theme ? (
         <>
-          <Link to="/login">
-            {t('Sign_in')}
-          </Link>
-          <Link to="/signup">
-            {t('Registration')}
-          </Link>
+          <Link to="/login">{t('Sign_in')}</Link>
+          <Link to="/signup">{t('Registration')}</Link>
         </>
       ) : (
         <>
-          <LinkDark to="/login">
-            {t('Sign_in')}
-          </LinkDark>
-          <LinkDark to="/signup">
-            {t('Registration')}
-          </LinkDark>
+          <LinkDark to="/login">{t('Sign_in')}</LinkDark>
+          <LinkDark to="/signup">{t('Registration')}</LinkDark>
         </>
       )}
     </>
