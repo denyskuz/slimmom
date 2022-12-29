@@ -217,15 +217,15 @@ export const StyledModalBox = styled(Box)`
   width: 100%;
   height: 100%;
   background-color: #fff;
+  overflow: auto;
   @media (min-width: 768px) {
     width: 672px;
     height: 572px;
-    padding: 0 20px;
+    padding: 20px;
+    padding-top: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    boxshadow: 24;
-    p: 3;
   }
 `;

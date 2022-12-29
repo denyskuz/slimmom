@@ -14,6 +14,7 @@ export const SummaryList = () => {
         <Typography>
           {left || '000'} {t('kcal')}
         </Typography>
+  
       </SummaryListItem>
       <SummaryListItem disablePadding>
         <Typography noWrap>{t('Consumed')}</Typography>
