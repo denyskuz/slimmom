@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryProduct, getNameProducts } from 'redux/services/operations';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { getProductTitle } from 'redux/services/selectors';
+import { getProductTitle, selectUserParams } from 'redux/services/selectors';
 
 const AddForm = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const AddForm = () => {
   const [product, setProduct] = useState('');
 
   const dataTitle = useSelector(getProductTitle);
+  const userParams = useSelector(selectUserParams);
 
   const formik = useFormik({
     initialValues: { weight: '' },
@@ -59,9 +60,14 @@ const AddForm = () => {
     setProductName(value.label);
   };
   const nameProd = dataTitle.map(e => {
+    const bloodTypes = e.groupBloodNotAllowed.flatMap((type, i) =>
+      type === true ? i : []
+    );
+    const badProduct = bloodTypes.includes(userParams.bloodType);
     return {
       label: e.title.ua,
       id: e._id,
+      color: badProduct ? 'rgba(200, 0, 0, 0.1)' : 'rgba(224, 224, 224, 0.1)',
     };
   });
   const { values, errors, touched, handleSubmit } = formik;
@@ -74,6 +80,14 @@ const AddForm = () => {
         onChange={handleChange}
         disableClearable
         value={productName}
+        renderOption={(props, option) => (
+          <li {...props}>
+            <span style={{ backgroundColor: option.color }}>
+              {option.label}
+            </span>
+          </li>
+        )}
+        noOptionsText="Enter product name"
         options={nameProd}
         renderInput={params => (
           <ProductInput
