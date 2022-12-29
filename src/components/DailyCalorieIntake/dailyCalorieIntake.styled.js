@@ -94,7 +94,8 @@ export const ButtonStart = styled.button`
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: #ffffff;
     color: #fc842d;
   }
