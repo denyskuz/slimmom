@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 
 export const FormWrapper = styled.div`
-  height: 100%;
+  height: 100vh;
   padding-top: 32px;
   padding-bottom: 41px;
 
@@ -20,7 +20,7 @@ export const FormWrapper = styled.div`
 
   @media (min-width: 1280px) {
     padding-top: 137px;
-    padding-bottom: 60px;
+    padding-bottom: 110px;
   }
 `;
 
