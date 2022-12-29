@@ -1,6 +1,7 @@
 import { Backdrop } from '@mui/material';
 import { DiaryModalList } from 'components/DiaryModalList/DiaryModalList';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   DeleteButton,
   IconCross,
@@ -20,6 +21,8 @@ export default function DiaryProductsListItem() {
   const handleClose = () => {
     setOpen(false);
   };
+  const { t } = useTranslation();
+
   const handleToggle = id => {
     setOpen(!open);
     localStorage.setItem('id', `${id}`);
@@ -32,9 +35,11 @@ export default function DiaryProductsListItem() {
           <ListItems key={e.id}>
             <NameProduct noWrap>{e.title.ua}</NameProduct>
             <DataProduct>
-              <Weight noWrap>{e.weight} g</Weight>
+              <Weight noWrap>
+                {e.weight} {t('g')}
+              </Weight>
               <Kcal noWrap>
-                {Math.round((e.calories / 100) * e.weight)} kcal
+                {Math.round((e.calories / 100) * e.weight)} {t('kcal')}
               </Kcal>
             </DataProduct>
             <DeleteButton

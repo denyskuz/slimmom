@@ -35,4 +35,12 @@ export const TRANSLATIONS_EN = {
   kcal: 'kcal',
   Email: 'E-mail*',
   DiaryPage: 'DiaryPage',
+  Enter_product_name: 'Enter product name',
+  Left: 'Left',
+  n_of_normal: '% of normal',
+  Back_home: 'Back home',
+  yes: 'Yes',
+  no: 'No',
+  Not_found: 'Sorry, we not found the page you are looking for!',
+  Delete_product: 'Do you want delete this product?',
 };
