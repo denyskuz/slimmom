@@ -40,7 +40,6 @@ export const UserInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 40px;
-  z-index: 10;
 
   @media screen and (min-width: 768px) {
     margin-right: 50px;
