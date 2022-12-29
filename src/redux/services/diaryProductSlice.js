@@ -18,15 +18,7 @@ const diaryProductSlice = createSlice({
       state.notes = action.payload;
     },
     [addDiaryProduct.fulfilled](state, action) {
-      state.notes = [
-        ...state.notes,
-        {
-          title: { ua: action.payload.product.title.ua },
-          id: action.payload._id,
-          weight: action.payload.weight,
-          calories: action.payload.product.calories,
-        },
-      ];
+      state.notes = [...state.notes, action.payload];
     },
     [deleteDiaryProduct.fulfilled](state, action) {
       const index = state.notes.findIndex(({ id }) => {

@@ -2,11 +2,7 @@ import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import { ImCross } from 'react-icons/im';
 
-export const List = styled.ul`
-  display: flex;
-  flex-direction: column-reverse;
-  overflow-y: scroll;
-  list-style: none;
+export const Box = styled.ul`
   margin: 60px auto 0;
   padding: 0;
   width: 290px;
@@ -18,6 +14,14 @@ export const List = styled.ul`
     padding-top: 60px;
     padding-bottom: 55px;
   }
+`;
+
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+  list-style: none;
+
   &::-webkit-scrollbar {
     width: 6px;
   }
