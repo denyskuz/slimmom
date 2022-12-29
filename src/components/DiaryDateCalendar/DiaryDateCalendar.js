@@ -28,6 +28,7 @@ export const DiaryDateCalendar = () => {
       <DiaryDate>
         <DesktopDatePicker
           inputFormat="MMM DD YYYY"
+          disableMaskedInput
           closeOnSelect={true}
           value={value}
           components={{ OpenPickerIcon: DateRangeIcon }}

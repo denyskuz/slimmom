@@ -11,7 +11,6 @@ const DiaryAddProductForm = () => {
   const [modal, setModal] = useState(false);
   const onModal = () => {
     setModal(prevState => !prevState);
-    console.log('yes');
   };
 
   return (

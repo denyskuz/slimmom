@@ -6,6 +6,7 @@ import backgroundDesktop from '../../images/background/leafsDeskSideBar.png';
 export const BadFoodContainer = styled.div`
   margin-top: 40px;
   max-width: 450px;
+  overflow: auto;
 
   @media screen and (min-width: 1280px) {
     margin-top: 60px;

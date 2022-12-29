@@ -16,18 +16,6 @@ export const SideBar = () => {
   const theme = useSelector(state => state.theme.darkTheme);
 
   return (
-    // <SideBarContainer>
-    //   <Box sx={{ maxWidth: 450 }}>
-    //     <SummaryTitle>
-    //       {t('Summary_for')} {new Date().toDateString()}
-    //     </SummaryTitle>
-    //     <SummaryList />
-    //   </Box>
-    //   <BadFoodContainer>
-    //     <SummaryTitle>{t('Food_not_recommended')}</SummaryTitle>
-    //     <CategoriesList onMain={false} />
-    //   </BadFoodContainer>
-    // </SideBarContainer>
     <>
       {!theme ? (
         <SideBarContainer>
