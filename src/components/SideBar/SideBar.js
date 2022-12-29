@@ -13,7 +13,7 @@ export const SideBar = () => {
 
   return (
     <SideBarContainer>
-      <Box>
+      <Box sx={{ maxWidth: 450 }}>
         <SummaryTitle>
           {t('Summary_for')} {new Date().toDateString()}
         </SummaryTitle>

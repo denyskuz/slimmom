@@ -5,10 +5,8 @@ import backgroundDesktop from '../../images/background/sidebar-bg-desktop.png';
 
 export const BadFoodContainer = styled.div`
   margin-top: 40px;
-  @media screen and (min-width: 768px) {
-    margin-left: 80px;
-    margin-top: 0px;
-  }
+  max-width: 450px;
+
   @media screen and (min-width: 1280px) {
     margin-top: 60px;
     margin-left: 0;
@@ -60,15 +58,11 @@ export const SideBarContainer = styled.div`
   letter-spacing: 0.04em;
   color: #9b9faa;
   background: #f0f1f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
-  @media (max-width: 767px) {
-    max-width: 360px;
-    margin: 0 auto;
-    flex-direction: row;
-    align-items: baseline;
-  }
   @media (min-width: 768px) {
-    display: flex;
     padding: 80px 32px;
     background-image: url(${backgroundTablet});
     background-repeat: no-repeat;
@@ -80,14 +74,15 @@ export const SideBarContainer = styled.div`
     background-image: url(${backgroundDesktop});
     background-repeat: no-repeat;
     background-position: top 0 right 0;
-    display: grid;
+    display: flex;
     align-content: start;
-    justify-content: center;
+    justify-content: stretch;
     position: absolute;
     top: 0;
     right: 0;
     width: 40%;
-    padding: 292px 94px 0 0;
+    padding: 15% 100px;
+    padding-bottom: 100px;
   }
 `;
 

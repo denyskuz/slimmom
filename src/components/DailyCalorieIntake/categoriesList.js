@@ -1,5 +1,3 @@
-import Box from '@mui/material/Box';
-import Loader from 'components/Loader';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProductsCategories } from 'redux/services/operations';
@@ -15,37 +13,31 @@ import { BadFoodPlaceholder } from 'components/SideBar';
 
 export const CategoriesList = ({ onMain = true }) => {
   const userParams = useSelector(selectUserParams);
-
   const categories = useSelector(selectBadCategories);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+
   useEffect(() => {
-    if (!categories.length) {
+    if (!categories.length && userParams && userParams.age !== 0) {
       dispatch(getProductsCategories(userParams));
     }
   }, [dispatch, userParams, categories]);
 
-  const { t } = useTranslation();
   if (!categories.length) {
     return <BadFoodPlaceholder>{t('Diet_display')}</BadFoodPlaceholder>;
   }
   return (
     <List>
-      {!categories[1] ? (
-        <Box sx={{ height: '400px', width: '200px' }}>
-          <Loader />
-        </Box>
-      ) : (
-        categories.map((item, index) => {
-          return (
-            <CustomizedList
-              key={item}
-              number={index + 1}
-              category={item}
-              withNumbers={onMain}
-            />
-          );
-        })
-      )}
+      {categories.map((item, index) => {
+        return (
+          <CustomizedList
+            key={item}
+            number={index + 1}
+            category={item}
+            withNumbers={onMain}
+          />
+        );
+      })}
     </List>
   );
 };
