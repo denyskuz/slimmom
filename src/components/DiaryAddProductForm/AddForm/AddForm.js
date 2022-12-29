@@ -18,8 +18,6 @@ const AddForm = () => {
 
   const dataTitle = useSelector(getProductTitle);
 
-  
-
   const formik = useFormik({
     initialValues: { weight: '' },
     validationSchema: Yup.object().shape({
@@ -68,10 +66,8 @@ const AddForm = () => {
   });
   const { values, errors, touched, handleSubmit } = formik;
 
-  
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
-
     <Form onSubmit={handleSubmit}>
       <Complete
         onInputChange={onInputChange}
@@ -82,7 +78,7 @@ const AddForm = () => {
         renderInput={params => (
           <ProductInput
             {...params}
-            label={t("Product_name")}
+            label={t('Product_name')}
             InputProps={{
               ...params.InputProps,
               type: 'search',
@@ -93,7 +89,7 @@ const AddForm = () => {
       <GramsInput
         id="weight"
         name="weight"
-        label={t("Grams")}
+        label={t('Grams')}
         type={'number'}
         variant="standard"
         InputProps={{ inputProps: { min: 5, max: 500 } }}

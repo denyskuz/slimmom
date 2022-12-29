@@ -40,5 +40,5 @@ export const TRANSLATIONS_UA = {
   Back_home: 'Повернутися на головну сторінку',
   Need_add: 'Введіть назву продукту',
   Delete_product: 'Ви бажаєте видалити цей продукт?',
-  yes:"так",
+  yes: 'так',
 };

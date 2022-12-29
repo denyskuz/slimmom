@@ -20,10 +20,10 @@ export const DiaryModalList = () => {
 
   return (
     <ModalDiaryStyled>
-      <ModalTextDiary>{t("Delete_product")}</ModalTextDiary>
+      <ModalTextDiary>{t('Delete_product')}</ModalTextDiary>
       <ButtonBox>
         <ButtonModalDiary variant="contained" onClick={handleDelete}>
-        {t("yes")}
+          {t('yes')}
         </ButtonModalDiary>
         <ButtonModalDiary variant="outlined">no</ButtonModalDiary>
       </ButtonBox>
