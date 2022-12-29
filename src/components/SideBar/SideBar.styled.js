@@ -34,7 +34,7 @@ export const SummaryTitleDark = styled.h3`
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: #FC842D;
+  color: #fc842d;
 `;
 
 export const BgWrapper = styled.div`

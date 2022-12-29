@@ -31,15 +31,16 @@ const UserMenu = () => {
         {!theme ? (
           <>
             <ListItem to="/diary">{t('Diary')}</ListItem>
-        <ListItem to="/calculator">{t('Calculator_button')}</ListItem>
+            <ListItem to="/calculator">{t('Calculator_button')}</ListItem>
           </>
         ) : (
-            <>
-              <ListItemDark to="/diary">{t('Diary')}</ListItemDark>
-        <ListItemDark to="/calculator">{t('Calculator_button')}</ListItemDark>
-            </>
+          <>
+            <ListItemDark to="/diary">{t('Diary')}</ListItemDark>
+            <ListItemDark to="/calculator">
+              {t('Calculator_button')}
+            </ListItemDark>
+          </>
         )}
-        
       </List>
       <LinkToCalc to="/calculator">
         <Arrow color="black" size="20px" />
