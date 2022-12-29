@@ -6,7 +6,7 @@ import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalenda
 import DiaryProductsListItem from 'components/DiaryProductsListItem/DiaryProductsListItem';
 import { Container } from '@mui/system';
 import { useMediaQuery } from 'react-responsive';
-import { Wrapper } from 'pages/MainPage/MainPage.styled';
+import { Wrapper } from './DiaryPage.styled';
 export default function CalculatorPage() {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
