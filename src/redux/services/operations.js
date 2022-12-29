@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
         password: value.password,
         email: value.email,
       });
-      token.set(data.accessToken);
+      token.set(data.data.accessToken);
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -37,7 +37,7 @@ export const login = createAsyncThunk(
   async (value, thunkAPI) => {
     try {
       const { data } = await axios.post('/api/auth/login', value);
-      token.set(data.accessToken);
+      token.set(data.data.accessToken);
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -54,7 +54,7 @@ export const getProducts = createAsyncThunk(
         `/api/products?category=${query.category}&currentPage=1&pageSize=20`,
         query.userParams
       );
-      token.set(data.token);
+
       if (!data) {
         return thunkAPI.rejectWithValue(status);
       }
@@ -76,7 +76,7 @@ export const getProductsCategories = createAsyncThunk(
         '/api/products/categories',
         userParams
       );
-      token.set(data.token);
+
       if (!data) {
         return thunkAPI.rejectWithValue(status);
       }
@@ -89,12 +89,18 @@ export const getProductsCategories = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk('/api/auth/logout', async () => {
-  try {
-    await axios.get(`/api/auth/logout`);
-    token.unset();
-  } catch (error) {}
-});
+export const logout = createAsyncThunk(
+  '/api/auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      await axios.get(`/api/auth/logout`);
+      token.unset();
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
@@ -116,11 +122,8 @@ export const refreshUser = createAsyncThunk(
 
 export const addProducts = createAsyncThunk(
   'products/addItem',
-  async (product, { getState, rejectWithValue }) => {
+  async (product, { rejectWithValue }) => {
     try {
-      const state = getState();
-      const persistedToken = state.auth.token;
-      token.set(persistedToken);
       const result = await axios.post(`/api/diary/`, {
         ...product,
       });
@@ -134,11 +137,8 @@ export const addProducts = createAsyncThunk(
 
 export const getDailyProducts = createAsyncThunk(
   'products/getDaily',
-  async (value, { getState, rejectWithValue }) => {
+  async (value, { rejectWithValue }) => {
     try {
-      const state = getState();
-      const persistedToken = state.auth.token;
-      token.set(persistedToken);
       const { data, status } = await axios.get('/api/diary/' + value);
       if (!data) {
         return await rejectWithValue(status);
@@ -168,21 +168,13 @@ export const deleteDiaryProduct = createAsyncThunk(
 export const getAllDiaryProduct = createAsyncThunk(
   'getAllDiaryProduct',
   async (date, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
     try {
       const { data } = await axios.get(`/api/diary/${date}`);
-      token.set(persistedToken);
       const mappedData = data.notes.map(note => ({
         title: note.product.title,
         id: note._id,
         weight: note.weight,
-        calories: Math.round(
-          (note.product.calories / note.product.weight) * note.weight
-        ),
+        calories: note.product.calories,
       }));
       return mappedData;
     } catch (error) {
@@ -195,13 +187,7 @@ export const addDiaryProduct = createAsyncThunk(
   'addDiaryProduct',
   async (data, thunkAPI) => {
     const { product, weight, date } = data;
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
     try {
-      token.set(persistedToken);
       const { data } = await axios.post('api/diary', { product, weight, date });
       toast.success('Product added success!');
       return data.note;
@@ -215,13 +201,7 @@ export const addDiaryProduct = createAsyncThunk(
 export const getNameProducts = createAsyncThunk(
   '/api/products',
   async (userQuery, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
     try {
-      token.set(persistedToken);
       const { data } = await axios.get(`/api/products`, {
         params: { title: userQuery },
       });

@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 // import { addProducts } from 'redux/products/actions';
 import { useTranslation } from 'react-i18next';
 
+
 import {
   FormWrapper,
   Form,
@@ -9,6 +10,15 @@ import {
   Input,
   Button,
 } from './DiaryAddProductForm.styled';
+
+const DiaryAddProductForm = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const [modal, setModal] = useState(false);
+  const onModal = () => {
+    setModal(prevState => !prevState);
+    console.log('yes');
+  };
+
 
 const DiaryAddProductForm = ({ img, openModal }) => {
   const formik = useFormik({
@@ -22,6 +32,7 @@ const DiaryAddProductForm = ({ img, openModal }) => {
   });
   const { t } = useTranslation();
   return (
+
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
         <Label>
@@ -49,6 +60,20 @@ const DiaryAddProductForm = ({ img, openModal }) => {
         </Button>{' '}
       </Form>
     </FormWrapper>
+
+    <div>
+      {isMobile ? (
+        <FormWrapper>
+          <AddProductBtn type="button" onClick={onModal}>
+            <HiPlus />
+          </AddProductBtn>
+          {modal && <DiaryModal onModal={onModal} />}
+        </FormWrapper>
+      ) : (
+        <AddForm />
+      )}
+    </div>
+
   );
 };
 

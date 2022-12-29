@@ -174,4 +174,7 @@ export const LangButton = styled.button`
     pointer-events: none;
     opacity: 0;
   }
+  @media screen and (min-width: 1280px) {
+    margin-left: 10px;
+  }
 `;

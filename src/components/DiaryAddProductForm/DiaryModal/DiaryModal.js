@@ -1,15 +1,11 @@
 import AddForm from '../AddForm/AddForm';
 
-import { Backdrop, Btn } from './DiaryModal.styled';
-import { useTranslation } from 'react-i18next';
+import { Backdrop } from './DiaryModal.styled';
 
-const DiaryModal = ({ onSubmit, onClickModal }) => {
-  const { t } = useTranslation();
+const DiaryModal = ({ onModal }) => {
   return (
     <Backdrop>
-      <AddForm onClickModal={onClickModal} onSubmit={onSubmit}>
-        <Btn type="submit">{t('Add')}</Btn>
-      </AddForm>
+      <AddForm onModal={onModal}></AddForm>
     </Backdrop>
   );
 };

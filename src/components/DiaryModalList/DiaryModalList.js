@@ -20,7 +20,11 @@ export const DiaryModalList = () => {
 
   return (
     <ModalDiaryStyled>
+
       <ModalTextDiary>{t('Delete_product')}</ModalTextDiary>
+
+      <ModalTextDiary>Do you want delete this product?</ModalTextDiary>
+
       <ButtonBox>
         <ButtonModalDiary variant="contained" onClick={handleDelete}>
           {t('yes')}
