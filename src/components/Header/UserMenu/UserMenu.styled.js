@@ -34,7 +34,30 @@ export const ListItem = styled(NavLink)`
     color: ${prop => prop.theme.colors.primary};
   }
 `;
+export const ListItemDark = styled(NavLink)`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: GothamPro-Bold;
+  font-size: ${prop => prop.theme.fontSizes.xs};
+  font-weight: ${prop => prop.theme.fontWeights.bold};
+  line-height: ${prop => prop.theme.lineHeights.link};
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: ${prop => prop.theme.colors.secondary};
 
+  :first-child {
+    margin-right: ${prop => prop.theme.space[4]}px;
+  }
+
+  :hover {
+    color: #fff;
+  }
+
+  &.active {
+    color: ${prop => prop.theme.colors.accent};;
+  }
+`;
 export const UserInfoWrapper = styled.div`
   position: relative;
   display: flex;

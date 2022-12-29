@@ -5,6 +5,7 @@ import { logout } from 'redux/services/operations';
 import {
   List,
   ListItem,
+  ListItemDark,
   Arrow,
   LinkToCalc,
   UserInfoWrapper,
@@ -27,8 +28,18 @@ const UserMenu = () => {
   return (
     <>
       <List>
-        <ListItem to="/diary">{t('Diary')}</ListItem>
+        {!theme ? (
+          <>
+            <ListItem to="/diary">{t('Diary')}</ListItem>
         <ListItem to="/calculator">{t('Calculator_button')}</ListItem>
+          </>
+        ) : (
+            <>
+              <ListItemDark to="/diary">{t('Diary')}</ListItemDark>
+        <ListItemDark to="/calculator">{t('Calculator_button')}</ListItemDark>
+            </>
+        )}
+        
       </List>
       <LinkToCalc to="/calculator">
         <Arrow color="black" size="20px" />

@@ -152,7 +152,7 @@ export const UserMenuWrapperDesk = styled.div`
   @media screen and (min-width: 1280px) {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-right: 0;
   }

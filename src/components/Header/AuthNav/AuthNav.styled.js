@@ -55,10 +55,9 @@ export const LinkDark = styled(NavLink)`
     color: '#fff';
   }
 
-  &.active {
+  &.active{
     color: ${prop => prop.theme.colors.accent};
   }
-
   @media screen and (max-width: 349.5px) {
     font-size: 12px;
 
