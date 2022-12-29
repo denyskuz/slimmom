@@ -80,7 +80,6 @@ export const getProductsCategories = createAsyncThunk(
       if (!data) {
         return thunkAPI.rejectWithValue(status);
       }
-      data.message && toast.success(data.message);
       return data;
     } catch (err) {
       toast.error(err.response.data.message);

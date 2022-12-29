@@ -1,4 +1,4 @@
-import { func, string, shape } from 'prop-types';
+import { func, string, number, shape, oneOfType } from 'prop-types';
 import { LinkButton } from 'components/Button/Button';
 import {
   IntakeBar,
@@ -45,9 +45,9 @@ export default DailyCalorieIntake;
 DailyCalorieIntake.propTypes = {
   closeModal: func.isRequired,
   params: shape({
-    height: string.isRequired,
-    age: string.isRequired,
-    currentWeight: string.isRequired,
-    desiredWeight: string.isRequired,
+    height: oneOfType([string, number]).isRequired,
+    age: oneOfType([string, number]).isRequired,
+    currentWeight: oneOfType([string, number]).isRequired,
+    desiredWeight: oneOfType([string, number]).isRequired,
   }),
 };
