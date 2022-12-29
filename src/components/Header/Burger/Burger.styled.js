@@ -57,7 +57,7 @@ export const BurgerMenu = styled.nav`
   height: 105%;
   overflow-y: auto;
   background-color: ${prop => prop.theme.colors.bcgBurger};
-  z-index: 100;
+  z-index: 10;
   transition: 0.8s;
 
   @media screen and (min-width: 1280px) {
@@ -80,6 +80,7 @@ export const NavDiaryLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  transition: 0.3s;
   color: ${prop => prop.theme.colors.secondary};
 
   @media screen and (min-width: 768px) {
@@ -89,6 +90,7 @@ export const NavDiaryLink = styled(NavLink)`
 
   &.active {
     color: ${prop => prop.theme.colors.white};
+    transform: scale(1.1);
   }
 `;
 
@@ -103,9 +105,15 @@ export const NavCalcLink = styled(NavLink)`
   text-decoration: none;
   text-transform: uppercase;
   color: ${prop => prop.theme.colors.secondary};
+  transition: 0.3s;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
 
   &.active {
     color: ${prop => prop.theme.colors.white};
+    transform: scale(1.1);
   }
 `;
 
@@ -120,12 +128,10 @@ export const AuthLink = styled(NavLink)`
   text-decoration: none;
   text-transform: uppercase;
   color: ${prop => prop.theme.colors.secondary};
-
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
-  }
+  transition: 0.3s;
 
   &.active {
     color: ${prop => prop.theme.colors.white};
+    transform: scale(1.1);
   }
 `;

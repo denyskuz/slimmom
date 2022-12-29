@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ListItem } from '@mui/material';
-import backgroundTablet from '../../images/background/sidebar-bg-tablet.png';
-import backgroundDesktop from '../../images/background/sidebar-bg-desktop.png';
+import backgroundTablet from '../../images/background/leafsTabSideBar.png';
+import backgroundDesktop from '../../images/background/leafsDeskSideBar.png';
 
 export const BadFoodContainer = styled.div`
   margin-top: 40px;
