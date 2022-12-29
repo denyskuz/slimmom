@@ -16,7 +16,19 @@ export const ImageContainer = styled.div`
   }
   z-index: 1;
 `;
+export const ImageContainerDark = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 
+  /* @media screen and (min-width: 1280px) {
+    background-color: ${props => (props.visible ? '#FFFFFF' : 'transparent')};
+  } */
+  z-index: 1;
+`;
 export const StrawberryImg = styled.img`
   animation: 2s ${zoomAnimation};
   @media screen and (max-width: 767.5px) {

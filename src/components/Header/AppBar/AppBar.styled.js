@@ -36,8 +36,8 @@ export const NavHeader = styled.nav`
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    padding-left: ${prop => prop.theme.space[4]}px;
-    padding-right: ${prop => prop.theme.space[4]}px;
+    /* padding-left: ${prop => prop.theme.space[4]}px; */
+    /* padding-right: ${prop => prop.theme.space[4]}px; */
     justify-content: flex-start;
     align-items: baseline;
     padding-top: 80px;
