@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { getProductTitle } from 'redux/services/selectors';
 
-const AddForm = () => {
+const AddForm = ({ onModal }) => {
   const dispatch = useDispatch();
   const date = new Date().toISOString();
   const [productName, setProductName] = useState(null);
@@ -43,6 +43,7 @@ const AddForm = () => {
       resetForm();
       setProduct(' ');
       setProductName(null);
+      onModal();
     },
   });
   const onInputChange = (e, v) => {
