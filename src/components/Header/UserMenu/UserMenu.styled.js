@@ -52,7 +52,7 @@ export const ListItemDark = styled(NavLink)`
     color: #fff;
   }
   &.active {
-    color: ${prop => prop.theme.colors.accent};;
+    color: ${prop => prop.theme.colors.accent};
   }
 `;
 export const UserInfoWrapper = styled.div`
