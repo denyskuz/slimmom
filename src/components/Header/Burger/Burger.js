@@ -30,7 +30,6 @@ const Burger = () => {
   const handleOnclick = e => {
     e.preventDefault();
     i18n.changeLanguage(e.target.value);
-    localStorage.setItem('lang', e.target.value);
   };
 
   return (
