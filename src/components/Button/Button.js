@@ -26,6 +26,32 @@ export const ButtonPrimary = styled(Button)`
     margin-right: 32px;
   }
 `;
+
+export const ButtonSecondaryDark = styled(Button)`
+  margin-top: 60px;
+  width: 182px;
+  background-color: #fc842d;
+  color: #fff;
+  height: 44px;
+  border-radius: 30px;
+  border: 0px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  &:hover {
+    background-color: #fff;
+    color: #fc842d;
+    border: 2px solid #fc842d;
+    box-shadow: none;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
+`;
+
 export const ButtonSecondary = styled(Button)`
   margin-top: 20px;
   padding: 0px;

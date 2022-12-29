@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Backdrop = styled.div`
   position: absolute;
+  z-index: 1;
   background: #ffffff;
   top: 84px;
   left: 0;
