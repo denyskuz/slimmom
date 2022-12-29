@@ -1,11 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { zoomIn } from 'react-animations';
+
+const zoomAnimation = keyframes`${zoomIn}`;
 
 export const ImageContainer = styled.div`
   position: relative;
+  width: 100%;
   height: 100%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
-
 
   @media screen and (min-width: 1280px) {
     background-color: ${props => (props.visible ? '#FFFFFF' : 'transparent')};
@@ -14,6 +18,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const StrawberryImg = styled.img`
+  animation: 2s ${zoomAnimation};
   @media screen and (max-width: 767.5px) {
     display: none;
   }
@@ -31,6 +36,8 @@ export const StrawberryImg = styled.img`
 `;
 
 export const StrawberryAuthImg = styled.img`
+  animation: 2s ${zoomAnimation};
+
   @media screen and (max-width: 767.5px) {
     display: none;
   }
@@ -54,17 +61,18 @@ export const BananaImg = styled.img`
   position: absolute;
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
   @media screen and (max-width: 1279px) {
-    bottom: -210px;
+    bottom: -220px;
     right: 0px;
   }
   @media screen and (min-width: 1280px) {
-    top: 0px;
+    top: 30px;
     right: 0px;
   }
   z-index: 2;
 `;
 
 export const LeafsImg = styled.img`
+  animation: 2s ${zoomAnimation};
   @media screen and (max-width: 767.5px) {
     display: none;
   }
@@ -75,13 +83,14 @@ export const LeafsImg = styled.img`
     left: 0px;
   }
   @media screen and (min-width: 1280px) {
-    top: 0;
-    right: 195px;
+    top: 0px;
+    right: 220px;
   }
   z-index: 1;
 `;
 
 export const LeafsAuthImg = styled.img`
+  animation: 2s ${zoomAnimation};
   @media screen and (max-width: 767.5px) {
     display: none;
   }
@@ -106,12 +115,12 @@ export const VectorImg = styled.img`
   display: ${props => (props.visibleImg ? 'flex' : 'none')};
 
   @media screen and (max-width: 1279px) {
-    bottom: -200px;
+    bottom: -220px;
     right: 0;
   }
   @media screen and (min-width: 1280px) {
-    bottom: 40px;
-    right: 0;
+    bottom: 0px;
+    right: 0px;
   }
   z-index: -1;
 `;

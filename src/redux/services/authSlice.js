@@ -32,12 +32,16 @@ const authSlice = createSlice({
       state.userParams = action.payload;
     },
     [register.fulfilled](state, action) {
-      state.user = action.payload.data.user;
+      const { email, name, ...userParams } = action.payload.data.user;
+      state.user = { email, name };
+      state.userParams = userParams;
       state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
     },
     [login.fulfilled](state, action) {
-      state.user = action.payload.data.user;
+      const { email, name, ...userParams } = action.payload.data.user;
+      state.user = { email, name };
+      state.userParams = userParams;
       state.token = action.payload.data.accessToken;
       state.isLoggedIn = true;
     },
@@ -58,7 +62,9 @@ const authSlice = createSlice({
       state.isRefreshing = false;
     },
     [refreshUser.rejected](state) {
+      state.isLoggedIn = false;
       state.isRefreshing = false;
+      state.token = null;
     },
   },
 });

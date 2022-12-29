@@ -1,30 +1,56 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { number, arrayOf, objectOf, shape, string, bool } from 'prop-types';
+import axios from 'axios';
+import { number, string, bool } from 'prop-types';
 import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
-import List from '@mui/material/List';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import { ListText, ProductListText } from './FoodListNotEat.styled';
-import { selectBadProducts } from 'redux/services/selectors';
+import { selectUserParams } from 'redux/services/selectors';
+import Loader from 'components/Loader';
 
-export const CustomizedList = ({ number, categorie }) => {
-  const allList = useSelector(selectBadProducts);
-  const productList = allList.filter(item =>
-    item.categories.includes(categorie)
-  );
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
+export const CustomizedList = ({ number, category, withNumbers }) => {
+  const user = useSelector(selectUserParams);
+  const [products, setProducts] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [page, setPage] = useState(1);
   const isOpen = Boolean(anchorEl);
+
+  const getTitles = () => {
+    axios
+      .post(
+        `/api/products?category=${category}&currentPage=${page}&pageSize=25`,
+        user
+      )
+      .then(res => {
+        const titles = res.data.products.flatMap(prod => prod.title.ua);
+        setProducts(prev => [...prev, ...titles]);
+      });
+    setPage(prev => prev + 1);
+  };
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
+    axios
+      .post(
+        `/api/products?category=${category}&currentPage=${page}&pageSize=25`,
+        user
+      )
+      .then(res => {
+        const titles = res.data.products.flatMap(prod => prod.title.ua);
+        setProducts(prev => [...prev, ...titles]);
+      });
+    setPage(prev => prev + 1);
     setOpen(!open);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
+    setOpen(!open);
   };
 
   return (
@@ -34,70 +60,74 @@ export const CustomizedList = ({ number, categorie }) => {
         onClick={handleClick}
         sx={{
           pt: 0,
-          pb: open ? 0 : 1,
-          '&:hover, &:focus': { '& svg': { opacity: open ? 1 : 0 } },
+          pb: open ? 0 : 0,
+          '&:hover, &:focus': { '& svg': { opacity: open ? 0 : 1 } },
         }}
       >
         <ListText
           primary={
-            number +
-            '.  ' +
-            categorie.charAt(0).toUpperCase() +
-            categorie.slice(1)
+            (withNumbers ? number + '.  ' : '') +
+            category.charAt(0).toUpperCase() +
+            category.slice(1)
           }
           sx={{ my: 0 }}
         />
         <KeyboardArrowDown
           sx={{
             mr: -1,
-            opacity: 0,
+            opacity: 1,
             transform: open ? 'rotate(-180deg)' : 'rotate(0)',
             transition: '0.2s',
           }}
         />
       </ListItemButton>
-      <List
-        sx={{
-          width: '100%',
-          bgcolor: 'background.paper',
-          position: 'relative',
-          overflow: 'auto',
-          maxHeight: 200,
-          '& ul': { padding: 0 },
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={isOpen}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
         }}
       >
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={isOpen}
-          onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
-        >
-          {open &&
-            productList.map(item => (
-              <MenuItem onClick={handleClose} key={item.title.ua}>
-                <ProductListText primary={'-  ' + item.title.ua} />
-              </MenuItem>
-            ))}
-        </Menu>
-      </List>
+        {open && (
+          <div
+            id="scrollableDiv"
+            style={{
+              height: 700,
+              overflow: 'auto',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <InfiniteScroll
+              dataLength={products.length}
+              next={getTitles}
+              style={{ display: 'flex', flexDirection: 'column' }}
+              inverse={false} //
+              hasMore={true}
+              loader={
+                <Box sx={{ height: '400px', width: '300px' }}>
+                  <Loader />
+                </Box>
+              }
+              scrollableTarget="scrollableDiv"
+            >
+              {products.map((item, index) => (
+                <MenuItem onClick={handleClose} key={index}>
+                  <ProductListText primary={'-  ' + item} />
+                </MenuItem>
+              ))}
+            </InfiniteScroll>
+          </div>
+        )}
+      </Menu>
     </Box>
   );
 };
 
 CustomizedList.propTypes = {
   number: number.isRequired,
-  categorie: string.isRequired,
-  list: arrayOf(
-    shape({
-      categories: arrayOf(string.isRequired),
-      groupBloodNotAllowed: arrayOf(bool),
-      title: objectOf(string.isRequired),
-      weight: number,
-      __v: number,
-      _id: string,
-    })
-  ),
+  category: string.isRequired,
+  withNumbers: bool.isRequired,
 };

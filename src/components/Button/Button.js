@@ -26,6 +26,32 @@ export const ButtonPrimary = styled(Button)`
     margin-right: 32px;
   }
 `;
+
+export const ButtonSecondaryDark = styled(Button)`
+  margin-top: 60px;
+  width: 182px;
+  background-color: #fc842d;
+  color: #fff;
+  height: 44px;
+  border-radius: 30px;
+  border: 0px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  &:hover {
+    background-color: #fff;
+    color: #fc842d;
+    border: 2px solid #fc842d;
+    box-shadow: none;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
+`;
+
 export const ButtonSecondary = styled(Button)`
   margin-top: 20px;
   padding: 0px;
@@ -66,10 +92,13 @@ export const LinkButton = styled(NavLink)`
 `;
 
 export const AddProductBtn = styled(Button)`
-  align-self: center;
+  padding: 0;
+  min-width: 0px;
+  display: flex;
+  margin: 60px auto;
   border-radius: 50px;
   cursor: pointer;
-  min-width: 48px;
+  width: 48px;
   height: 48px;
   background: #fc842d;
   border: none;
@@ -80,5 +109,8 @@ export const AddProductBtn = styled(Button)`
   &:hover {
     transform: rotate(90deg);
     background: #fc832dbb;
+  }
+  @media (min-width: 768px) {
+    margin: 0 0 0 87px;
   }
 `;

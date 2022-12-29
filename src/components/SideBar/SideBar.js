@@ -3,17 +3,14 @@ import {
   SideBarContainer,
   BadFoodContainer,
   SummaryTitle,
-  BackgroundImageTab,
-  BackgroundImageDesk,
 } from './SideBar.styled';
-import { BadFoodList } from './BadFoodList';
 import { SummaryList } from './SummaryList';
-import leafsDeskSideBar from '../../images/background/leafsDeskSideBar.png';
-import leafsTabSideBar from '../../images/background/leafsTabSideBar.png';
 import { useTranslation } from 'react-i18next';
+import { CategoriesList } from 'components/DailyCalorieIntake/categoriesList';
 
 export const SideBar = () => {
   const { t } = useTranslation();
+
   return (
     <SideBarContainer>
       <Box>
@@ -24,10 +21,8 @@ export const SideBar = () => {
       </Box>
       <BadFoodContainer>
         <SummaryTitle>{t('Food_not_recommended')}</SummaryTitle>
-        <BadFoodList />
+        <CategoriesList onMain={false} />
       </BadFoodContainer>
-      <BackgroundImageTab src={leafsTabSideBar} alt="leafs" />
-      <BackgroundImageDesk src={leafsDeskSideBar} alt="leafs" />
     </SideBarContainer>
   );
 };

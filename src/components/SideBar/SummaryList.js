@@ -1,31 +1,35 @@
 import { List, Typography } from '@mui/material';
-import { useSelector } from 'react-redux';
-import { selectCalories } from 'redux/services/selectors';
 import { SummaryListItem } from './SideBar.styled';
 import { useTranslation } from 'react-i18next';
+import { useCalculator } from 'hooks/useCalculator';
 
 export const SummaryList = () => {
-  const dailyCalories = useSelector(selectCalories);
+  const { dailyNorm, consumed, left, percent } = useCalculator();
+
   const { t } = useTranslation();
   return (
     <List component="ol" padding="0px">
       <SummaryListItem disablePadding>
         <Typography>Left</Typography>
-        <Typography>000 {t('kcal')}</Typography>
+        <Typography>
+          {left || '000'} {t('kcal')}
+        </Typography>
       </SummaryListItem>
       <SummaryListItem disablePadding>
         <Typography noWrap>{t('Consumed')}</Typography>
-        <Typography>000 {t('kcal')}</Typography>
+        <Typography>
+          {consumed || '000'} {t('kcal')}
+        </Typography>
       </SummaryListItem>
       <SummaryListItem disablePadding>
         <Typography>{t('Daily_rate')}</Typography>
         <Typography>
-          {dailyCalories || '000'} {t('kcal')}
+          {dailyNorm || '000'} {t('kcal')}
         </Typography>
       </SummaryListItem>
       <SummaryListItem disablePadding>
         <Typography>n% of normal</Typography>
-        <Typography>000 %</Typography>
+        <Typography>{percent || '000'} %</Typography>
       </SummaryListItem>
     </List>
   );

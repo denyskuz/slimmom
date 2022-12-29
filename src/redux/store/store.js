@@ -13,19 +13,24 @@ import {
 } from 'redux-persist';
 import { authReducer } from '../services/authSlice';
 import { productsReducer } from '../services/productSlice';
+import { diaryReducer } from '../services/diaryProductSlice';
 import { themeReducer } from '../services/themeSlice';
 
 const persistAuthConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'use'],
+  whitelist: ['token', 'userParams'],
 };
-
+const persistThemeConfig = {
+  key: 'theme',
+  storage,
+};
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistAuthConfig, authReducer),
     products: productsReducer,
-    theme: themeReducer,
+    diary: diaryReducer,
+    theme: persistReducer(persistThemeConfig, themeReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
