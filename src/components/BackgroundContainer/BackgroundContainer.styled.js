@@ -16,6 +16,15 @@ export const ImageContainer = styled.div`
   }
   z-index: 1;
 `;
+export const ImageContainerDark = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  z-index: 1;
+`;
 
 export const StrawberryImg = styled.img`
   animation: 2s ${zoomAnimation};
