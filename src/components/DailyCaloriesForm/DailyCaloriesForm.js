@@ -3,7 +3,10 @@ import { Modal } from '@mui/material';
 import { bool } from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserParams } from 'redux/services/operations';
+import {
+  setUserParams,
+  getProductsCategories,
+} from 'redux/services/operations';
 import { selectLoadStatus, selectUserParams } from 'redux/services/selectors';
 import { userParamsSchema } from 'validation';
 import {
@@ -43,7 +46,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));
-      setOpen(true);
+      isModal ? setOpen(true) : dispatch(getProductsCategories(data));
     },
   });
 
@@ -156,7 +159,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
         </Button>
 
         <Modal
-          open={isModal && isOpen}
+          open={isOpen}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
