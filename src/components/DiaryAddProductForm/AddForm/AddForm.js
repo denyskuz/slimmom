@@ -1,6 +1,7 @@
 import { HiPlus } from 'react-icons/hi';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { PropTypes } from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { AddProductBtn } from 'components/Button/Button';
 import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
@@ -74,6 +75,9 @@ const AddForm = ({ onModal }) => {
         onInputChange={onInputChange}
         onChange={handleChange}
         disableClearable
+        isOptionEqualToValue={(option, value) => {
+          return option.label === value;
+        }}
         value={productName}
         options={nameProd}
         renderInput={params => (
@@ -106,3 +110,5 @@ const AddForm = ({ onModal }) => {
 };
 
 export default AddForm;
+
+AddForm.propTypes = { onModal: PropTypes.func };
