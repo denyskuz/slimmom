@@ -38,4 +38,7 @@ export const TRANSLATIONS_EN = {
   Left: 'Left',
   Message_not_found: 'Sorry, we not found the page you are looking for!',
   Back_home: 'Back to home',
+  Need_add: 'You need add product',
+  Delete_product: 'Do you want delete this product?',
+  yes: 'yes',
 };

@@ -38,4 +38,7 @@ export const TRANSLATIONS_UA = {
   Left: 'Залишилось',
   Message_not_found: 'Вибачте, сторінка не знайдена!',
   Back_home: 'Повернутися на головну сторінку',
+  Need_add: 'Введіть назву продукту',
+  Delete_product: 'Ви бажаєте видалити цей продукт?',
+  yes:"так",
 };

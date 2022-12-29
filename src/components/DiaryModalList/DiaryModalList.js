@@ -7,6 +7,8 @@ import {
   ButtonModalDiary,
 } from './DiaryModalList.styled';
 
+import { useTranslation } from 'react-i18next';
+
 export const DiaryModalList = () => {
   const dispatch = useDispatch();
   const handleDelete = () => {
@@ -14,12 +16,14 @@ export const DiaryModalList = () => {
     dispatch(deleteDiaryProduct(id));
   };
 
+  const { t } = useTranslation();
+
   return (
     <ModalDiaryStyled>
-      <ModalTextDiary>'Do you want delete this product?'</ModalTextDiary>
+      <ModalTextDiary>{t("Delete_product")}</ModalTextDiary>
       <ButtonBox>
         <ButtonModalDiary variant="contained" onClick={handleDelete}>
-          yes
+        {t("yes")}
         </ButtonModalDiary>
         <ButtonModalDiary variant="outlined">no</ButtonModalDiary>
       </ButtonBox>
