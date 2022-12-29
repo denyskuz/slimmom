@@ -27,7 +27,7 @@ export const DiaryDateCalendar = () => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DiaryDate>
         <DesktopDatePicker
-          inputFormat="DD.MM.YYYY"
+          inputFormat="MMM DD YYYY"
           closeOnSelect={true}
           value={value}
           components={{ OpenPickerIcon: DateRangeIcon }}

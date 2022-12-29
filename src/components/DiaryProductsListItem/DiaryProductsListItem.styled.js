@@ -3,15 +3,17 @@ import { Typography } from '@mui/material';
 import { ImCross } from 'react-icons/im';
 
 export const List = styled.ul`
+  display: flex;
+  flex-direction: column-reverse;
   overflow-y: scroll;
   list-style: none;
   margin: 60px auto 0;
   padding: 0;
   width: 290px;
-  height: 200px;
+  max-height: 200px;
   @media screen and (min-width: 768px) {
     width: 610px;
-    height: 439px;
+    max-height: 439px;
     margin: 0;
     padding-top: 60px;
     padding-bottom: 55px;
@@ -40,6 +42,7 @@ export const List = styled.ul`
 
 export const ListItems = styled.li`
   display: flex;
+
   margin-bottom: 20px;
   font-weight: 400;
   font-size: 14px;

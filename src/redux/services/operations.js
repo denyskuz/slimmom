@@ -174,9 +174,7 @@ export const getAllDiaryProduct = createAsyncThunk(
         title: note.product.title,
         id: note._id,
         weight: note.weight,
-        calories: Math.round(
-          (note.product.calories / note.product.weight) * note.weight
-        ),
+        calories: note.product.calories,
       }));
       return mappedData;
     } catch (error) {
