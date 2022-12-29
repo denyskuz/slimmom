@@ -33,7 +33,9 @@ export default function DiaryProductsListItem() {
             <NameProduct noWrap>{e.title.ua}</NameProduct>
             <DataProduct>
               <Weight noWrap>{e.weight} g</Weight>
-              <Kcal noWrap>{e.calories} kcal</Kcal>
+              <Kcal noWrap>
+                {Math.round((e.calories / 100) * e.weight)} kcal
+              </Kcal>
             </DataProduct>
             <DeleteButton
               type="button"
