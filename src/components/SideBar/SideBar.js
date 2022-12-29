@@ -29,34 +29,33 @@ export const SideBar = () => {
     //   </BadFoodContainer>
     // </SideBarContainer>
     <>
-    {
-    !theme ? (
-      <SideBarContainer>
-      <Box sx={{ maxWidth: 450 }}>
-        <SummaryTitle>
-          {t('Summary_for')} {new Date().toDateString()}
-        </SummaryTitle>
-        <SummaryList />
-      </Box>
-      <BadFoodContainer>
-        <SummaryTitle>{t('Food_not_recommended')}</SummaryTitle>
-        <CategoriesList onMain={false} />
-      </BadFoodContainer>
-    </SideBarContainer>
-    ) : (
+      {!theme ? (
+        <SideBarContainer>
+          <Box sx={{ maxWidth: 450 }}>
+            <SummaryTitle>
+              {t('Summary_for')} {new Date().toDateString()}
+            </SummaryTitle>
+            <SummaryList />
+          </Box>
+          <BadFoodContainer>
+            <SummaryTitle>{t('Food_not_recommended')}</SummaryTitle>
+            <CategoriesList onMain={false} />
+          </BadFoodContainer>
+        </SideBarContainer>
+      ) : (
         <SideBarContainerDark>
-      <Box sx={{ maxWidth: 450 }}>
-        <SummaryTitleDark>
-          {t('Summary_for')} {new Date().toDateString()}
-        </SummaryTitleDark>
-        <SummaryList />
-      </Box>
-      <BadFoodContainer>
-        <SummaryTitleDark>{t('Food_not_recommended')}</SummaryTitleDark>
-        <CategoriesList onMain={false} />
-      </BadFoodContainer>
-    </SideBarContainerDark>
-        )}
-      </>
+          <Box sx={{ maxWidth: 450 }}>
+            <SummaryTitleDark>
+              {t('Summary_for')} {new Date().toDateString()}
+            </SummaryTitleDark>
+            <SummaryList />
+          </Box>
+          <BadFoodContainer>
+            <SummaryTitleDark>{t('Food_not_recommended')}</SummaryTitleDark>
+            <CategoriesList onMain={false} />
+          </BadFoodContainer>
+        </SideBarContainerDark>
+      )}
+    </>
   );
 };
