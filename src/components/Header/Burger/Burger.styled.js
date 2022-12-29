@@ -56,8 +56,7 @@ export const BurgerMenu = styled.nav`
   width: 100%;
   height: 105%;
   overflow-y: auto;
-  /* background-color: ${prop => prop.theme.colors.bcgBurger}; */
-  background-color: green;
+  background-color: ${prop => prop.theme.colors.bcgBurger};
   z-index: 100;
   transition: 0.8s;
 
