@@ -1,7 +1,7 @@
 import { HiPlus } from 'react-icons/hi';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { AddProductBtn } from 'components/Button/Button';
 import { Form, ProductInput, GramsInput, Complete } from './AddForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -67,7 +67,7 @@ const AddForm = ({ onModal }) => {
   });
   const { values, errors, touched, handleSubmit } = formik;
 
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <Form onSubmit={handleSubmit}>
       <Complete
@@ -79,7 +79,7 @@ const AddForm = ({ onModal }) => {
         renderInput={params => (
           <ProductInput
             {...params}
-            label="Enter product name"
+            label={t('Enter_product_name')}
             InputProps={{
               ...params.InputProps,
               type: 'search',
@@ -90,7 +90,7 @@ const AddForm = ({ onModal }) => {
       <GramsInput
         id="weight"
         name="weight"
-        label="Grams"
+        label={t('Grams')}
         type={'number'}
         variant="standard"
         InputProps={{ inputProps: { min: 5, max: 500 } }}

@@ -1,5 +1,6 @@
 import { ButtonBox } from 'components/DiaryModalList/DiaryModalList.styled';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { deleteDiaryProduct } from 'redux/services/operations';
 import {
   ModalDiaryStyled,
@@ -13,15 +14,16 @@ export const DiaryModalList = () => {
     const id = localStorage.getItem('id');
     dispatch(deleteDiaryProduct(id));
   };
+  const { t } = useTranslation();
 
   return (
     <ModalDiaryStyled>
-      <ModalTextDiary>Do you want delete this product?</ModalTextDiary>
+      <ModalTextDiary>{t('Delete_product')}</ModalTextDiary>
       <ButtonBox>
         <ButtonModalDiary variant="contained" onClick={handleDelete}>
-          yes
+          {t('yes')}
         </ButtonModalDiary>
-        <ButtonModalDiary variant="outlined">no</ButtonModalDiary>
+        <ButtonModalDiary variant="outlined">{t('no')}</ButtonModalDiary>
       </ButtonBox>
     </ModalDiaryStyled>
   );

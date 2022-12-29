@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { ButtonSecondary } from 'components/Button/Button';
 import { Box } from 'components/Box';
+import { useTranslation } from 'react-i18next';
 import {
   Wrapper,
   StyledLink,
@@ -15,6 +16,8 @@ import Container from 'components/Container';
 const NotFoundPage = () => {
   const location = useLocation();
   const backLink = location.state?.from ?? '/';
+  const { t } = useTranslation();
+
   return (
     <Box as="main">
       <Container>
@@ -24,11 +27,11 @@ const NotFoundPage = () => {
             <ErrorTitle>404</ErrorTitle>
           </ImageWrapper>
           <ErrorText>
-            Sorry, we not found the page you are looking for!
+            {t('Not_found')}
           </ErrorText>
           <StyledLink to={backLink}>
             <ButtonSecondary style={{ margin: 0 }}>
-              Back to home
+              {t('Back_home')}
             </ButtonSecondary>
           </StyledLink>
         </Wrapper>

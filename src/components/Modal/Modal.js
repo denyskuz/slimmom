@@ -2,6 +2,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { Overlay, ModalContainer, CloseButton, Title } from './Modal.styled';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 
 const Modal = ({ onClose, children }) => {
@@ -9,6 +10,7 @@ const Modal = ({ onClose, children }) => {
     window.addEventListener('keydown', onEscPress);
     const body = document.querySelector('body');
     body.style.overflow = 'hidden';
+    
 
     return () => {
       window.removeEventListener('keydown', onEscPress);
@@ -17,7 +19,8 @@ const Modal = ({ onClose, children }) => {
       body.style.overflow = 'auto';
     };
   });
-
+  const { t } = useTranslation();
+  
   const onEscPress = e => {
     if (e.code === 'Escape') {
       onClose();
@@ -43,9 +46,7 @@ const Modal = ({ onClose, children }) => {
         {/* <MobileModalClose type="button" onClick={handleButtonClick}>
         
         <MobileModalClose/> */}
-        <Title>
-          Your recommended daily <br /> calorie intake is
-        </Title>
+        <Title>{t('Daily_calorie')}</Title>
         {children}
       </ModalContainer>
     </Overlay>,
