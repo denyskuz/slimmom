@@ -3,7 +3,7 @@ import { TextField } from '@mui/material';
 
 export const DiaryDate = styled.div`
   margin: 40px auto 32px auto;
-  width: 150px;
+  width: 155px;
   font-family: Verdana;
   font-style: normal;
   font-weight: 700;
@@ -24,6 +24,7 @@ export const DiaryDate = styled.div`
 `;
 
 export const Outline = styled(TextField)`
+  /* width: 200px; */
   & .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
     border: 0px;
   }

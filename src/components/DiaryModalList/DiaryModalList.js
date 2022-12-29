@@ -16,7 +16,7 @@ export const DiaryModalList = () => {
 
   return (
     <ModalDiaryStyled>
-      <ModalTextDiary>'Do you want delete this product?'</ModalTextDiary>
+      <ModalTextDiary>Do you want delete this product?</ModalTextDiary>
       <ButtonBox>
         <ButtonModalDiary variant="contained" onClick={handleDelete}>
           yes
