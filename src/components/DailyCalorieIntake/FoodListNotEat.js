@@ -4,21 +4,22 @@ import axios from 'axios';
 import { number, string, bool } from 'prop-types';
 import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import { ListText, ProductListText } from './FoodListNotEat.styled';
 import { selectUserParams } from 'redux/services/selectors';
-import Loader from 'components/Loader';
+
+import List from '@mui/material/List';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const CustomizedList = ({ number, category, withNumbers }) => {
   const user = useSelector(selectUserParams);
   const [products, setProducts] = useState([]);
-  const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(1);
-  const isOpen = Boolean(anchorEl);
 
   const getTitles = () => {
     axios
@@ -34,7 +35,7 @@ export const CustomizedList = ({ number, category, withNumbers }) => {
   };
 
   const handleClick = event => {
-    setAnchorEl(event.currentTarget);
+    setOpen(!open);
     axios
       .post(
         `/api/products?category=${category}&currentPage=${page}&pageSize=25`,
@@ -45,83 +46,75 @@ export const CustomizedList = ({ number, category, withNumbers }) => {
         setProducts(prev => [...prev, ...titles]);
       });
     setPage(prev => prev + 1);
-    setOpen(!open);
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
     setOpen(!open);
   };
 
   return (
     <Box>
-      <ListItemButton
-        alignItems="flex-start"
-        onClick={handleClick}
-        sx={{
-          pt: 0,
-          pb: open ? 0 : 0,
-          '&:hover, &:focus': { '& svg': { opacity: open ? 0 : 1 } },
-        }}
+      <List
+        sx={{ width: '100%', padding: 0 }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
       >
-        <ListText
-          primary={
-            (withNumbers ? number + '.  ' : '') +
-            category.charAt(0).toUpperCase() +
-            category.slice(1)
-          }
-          sx={{ my: 0 }}
-        />
-        <KeyboardArrowDown
-          sx={{
-            mr: -1,
-            opacity: 1,
-            transform: open ? 'rotate(-180deg)' : 'rotate(0)',
-            transition: '0.2s',
-          }}
-        />
-      </ListItemButton>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={isOpen}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        {open && (
-          <div
-            id="scrollableDiv"
-            style={{
-              height: 700,
-              overflow: 'auto',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <InfiniteScroll
-              dataLength={products.length}
-              next={getTitles}
-              style={{ display: 'flex', flexDirection: 'column' }}
-              inverse={false} //
-              hasMore={true}
-              loader={
-                <Box sx={{ height: '400px', width: '300px' }}>
-                  <Loader />
-                </Box>
-              }
-              scrollableTarget="scrollableDiv"
+        <ListItemButton onClick={handleClick} sx={{ pl: 0 }}>
+          <ListItemText
+            primary={
+              (withNumbers ? number + '.  ' : '') +
+              category.charAt(0).toUpperCase() +
+              category.slice(1)
+            }
+            sx={{ my: 0, p: 0 }}
+          />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <div
+              id="scrollableDiv"
+              style={{
+                height: 300,
+                overflow: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
             >
-              {products.map((item, index) => (
-                <MenuItem onClick={handleClose} key={index}>
-                  <ProductListText primary={'-  ' + item} />
-                </MenuItem>
-              ))}
-            </InfiniteScroll>
-          </div>
-        )}
-      </Menu>
+              <InfiniteScroll
+                dataLength={products.length}
+                next={getTitles}
+                style={{ display: 'flex', flexDirection: 'column' }}
+                inverse={false} //
+                hasMore={true}
+                loader={
+                  <Box
+                    sx={{
+                      height: '150px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <CircularProgress color="info" />
+                  </Box>
+                }
+                scrollableTarget="scrollableDiv"
+              >
+                {products.map((item, index) => (
+                  <ListItemButton
+                    onClick={handleClose}
+                    key={index}
+                    sx={{ pl: 0 }}
+                  >
+                    <ListItemText primary={'-  ' + item} />
+                  </ListItemButton>
+                ))}
+              </InfiniteScroll>
+            </div>
+          </List>
+        </Collapse>
+      </List>
     </Box>
   );
 };

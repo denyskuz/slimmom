@@ -4,7 +4,6 @@ import { getProducts, getProductsCategories } from './operations';
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
-    calories: 0,
     categories: [],
     bad: [],
     loading: false,

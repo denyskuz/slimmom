@@ -4,6 +4,9 @@ export const calculateCalories = ({
   currentWeight,
   desiredWeight,
 }) => {
+  if ([height, age, currentWeight, desiredWeight].includes(0)) {
+    return 0;
+  }
   return Math.round(
     10 * currentWeight +
       6.25 * height -

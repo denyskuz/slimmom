@@ -73,6 +73,10 @@ export const Wrapper = styled.div`
 export const LoggedWrapper = styled.div`
   display: flex;
 
+  @media screen and (max-width: 767.5px) {
+    display: none;
+  }
+
   @media screen and (min-width: 1280px) {
     position: absolute;
     bottom: 0;
@@ -152,7 +156,7 @@ export const UserMenuWrapperDesk = styled.div`
   @media screen and (min-width: 1280px) {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-right: 0;
   }

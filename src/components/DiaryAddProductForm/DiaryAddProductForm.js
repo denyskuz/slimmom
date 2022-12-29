@@ -11,6 +11,7 @@ const DiaryAddProductForm = () => {
   const [modal, setModal] = useState(false);
   const onModal = () => {
     setModal(prevState => !prevState);
+    console.log('yes');
   };
 
   return (
@@ -20,7 +21,7 @@ const DiaryAddProductForm = () => {
           <AddProductBtn type="button" onClick={onModal}>
             <HiPlus />
           </AddProductBtn>
-          {modal && <DiaryModal />}
+          {modal && <DiaryModal onModal={onModal} />}
         </FormWrapper>
       ) : (
         <AddForm />
