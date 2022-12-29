@@ -46,7 +46,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));
-      console.log('data', data);
+
       isModal ? setOpen(true) : data && dispatch(getProductsCategories(data));
     },
   });

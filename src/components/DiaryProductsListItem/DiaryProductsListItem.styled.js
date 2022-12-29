@@ -1,6 +1,17 @@
 import styled from '@emotion/styled';
-import { Typography } from '@mui/material';
+import { Typography, FormGroup, Checkbox } from '@mui/material';
 import { ImCross } from 'react-icons/im';
+
+export const ProductCheckboxGroup = styled(FormGroup)`
+  margin-bottom: 20px;
+`;
+
+export const ProductCheckbox = styled(Checkbox)`
+  color: #e0e0e0;
+  &.Mui-checked {
+    color: #fc842d;
+  }
+`;
 
 export const Box = styled.ul`
   margin: 60px auto 0;

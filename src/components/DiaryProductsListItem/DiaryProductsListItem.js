@@ -2,9 +2,7 @@ import { Backdrop } from '@mui/material';
 import { DiaryModalList } from 'components/DiaryModalList/DiaryModalList';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import {
   DeleteButton,
   IconCross,
@@ -15,6 +13,8 @@ import {
   Kcal,
   Weight,
   Box,
+  ProductCheckbox,
+  ProductCheckboxGroup,
 } from './DiaryProductsListItem.styled';
 import { useSelector } from 'react-redux';
 import {
@@ -41,14 +41,17 @@ export default function DiaryProductsListItem() {
 
   return (
     <Box>
-      <FormGroup style={{ marginBottom: 2 }}>
+      <ProductCheckboxGroup>
         <FormControlLabel
           control={
-            <Checkbox checked={group} onChange={() => setGrouped(!group)} />
+            <ProductCheckbox
+              checked={group}
+              onChange={() => setGrouped(!group)}
+            />
           }
-          label="Group products"
+          label={t('GroupProducts')}
         />
-      </FormGroup>
+      </ProductCheckboxGroup>
       <List>
         {dailyProducts.map((e, i, ar) => {
           return (
