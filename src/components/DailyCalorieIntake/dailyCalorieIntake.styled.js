@@ -16,7 +16,7 @@ export const IntakeBar = styled.div`
 
 export const CloseButton = styled(Button)`
   width: 40px;
-  min-width: 40px!important;
+  min-width: 40px !important;
   height: 40px;
   border: none;
   background: url(${Close_mobile}) no-repeat center #eff1f3;
@@ -59,11 +59,11 @@ export const ListWrapper = styled.div`
   @media (min-width: 768px) {
     width: 330px;
   }
-  nav div[class*=MuiCollapse-vertical] span {
+  nav div[class*='MuiCollapse-vertical'] span {
     font-size: 12px;
   }
-  div[id="scrollableDiv"] {
-    height: 150px!important;
+  div[id='scrollableDiv'] {
+    height: 150px !important;
   }
 `;
 

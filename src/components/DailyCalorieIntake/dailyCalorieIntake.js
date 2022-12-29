@@ -31,7 +31,7 @@ const DailyCalorieIntake = ({ closeModal, params }) => {
       </TitleWrapper>
       <ListWrapper>
         <ListTitle>{t('Food_list')}</ListTitle>
-        <CategoriesList/>
+        <CategoriesList />
       </ListWrapper>
       <ButtonStart type="button">
         <LinkButton to={'/signup'}>{t('Start_loosing')}</LinkButton>
@@ -45,9 +45,9 @@ export default DailyCalorieIntake;
 DailyCalorieIntake.propTypes = {
   closeModal: func.isRequired,
   params: shape({
-    height: oneOfType([string,number]).isRequired,
-    age: oneOfType([string,number]).isRequired,
-    currentWeight: oneOfType([string,number]).isRequired,
-    desiredWeight: oneOfType([string,number]).isRequired,
+    height: oneOfType([string, number]).isRequired,
+    age: oneOfType([string, number]).isRequired,
+    currentWeight: oneOfType([string, number]).isRequired,
+    desiredWeight: oneOfType([string, number]).isRequired,
   }),
 };
