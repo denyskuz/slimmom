@@ -29,7 +29,4 @@ i18n
     },
   });
 
-const defaultLang = localStorage.getItem('lang') || 'ua';
-i18n.changeLanguage(defaultLang);
-
 export default i18n;
