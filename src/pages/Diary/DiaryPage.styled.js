@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   height: calc(100% - 122px);
 
   @media screen and (min-width: 1280px) {
-    height: calc(100% - 162px);
+    height: 100vh;
   }
 `;
 
