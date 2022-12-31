@@ -4,6 +4,7 @@ const {
   addDiaryProduct,
   deleteDiaryProduct,
   getNameProducts,
+  setDiaryDay,
 } = require('./operations');
 
 const diaryProductSlice = createSlice({
@@ -12,6 +13,7 @@ const diaryProductSlice = createSlice({
     notes: [],
     selectTitle: [],
     isLoading: false,
+    day: new Date().toISOString(),
   },
   extraReducers: {
     [getAllDiaryProduct.fulfilled](state, action) {
@@ -29,6 +31,9 @@ const diaryProductSlice = createSlice({
 
     [getNameProducts.fulfilled](state, action) {
       state.selectTitle = action.payload.products;
+    },
+    [setDiaryDay]: (state, action) => {
+      state.day = action.payload;
     },
   },
 });

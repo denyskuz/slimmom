@@ -151,6 +151,7 @@ export const getDailyProducts = createAsyncThunk(
 );
 
 export const setUserParams = createAction('auth/save');
+export const setDiaryDay = createAction('diary/day');
 
 export const deleteDiaryProduct = createAsyncThunk(
   'delete',

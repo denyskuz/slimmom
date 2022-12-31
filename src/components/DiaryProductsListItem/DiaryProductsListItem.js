@@ -55,14 +55,17 @@ export default function DiaryProductsListItem() {
       <List>
         {dailyProducts.map((e, i, ar) => {
           return (
-            <ListItems key={e.id}>
-              <NameProduct noWrap>{e.title.ua}</NameProduct>
+            <ListItems key={e._id}>
+              <NameProduct noWrap>{e.product.title.ua}</NameProduct>
               <DataProduct>
                 <Weight noWrap>
                   {e.weight} {t('g')}
                 </Weight>
                 <Kcal noWrap>
-                  {e.calories} {t('kcal')}
+                  {Math.round(
+                    (e.product.calories / e.product.weight) * e.weight
+                  )}{' '}
+                  {t('kcal')}
                 </Kcal>
               </DataProduct>
               {!group && (

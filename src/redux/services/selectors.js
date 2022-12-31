@@ -21,42 +21,31 @@ export const selectLoadStatus = state => state.products.loading;
 export const selectLoadError = state => state.products.error;
 
 export const getAllGroupDiaryProduct = state => {
-  let notes = [];
-  let keys = [];
-  state.diary.notes.forEach(note => {
-    if (!keys.includes(note.product._id)) {
-      keys.push(note.product._id);
-    }
-  });
-  keys.forEach(key => {
-    const grouped = state.diary.notes
-      .filter(note => note.product._id === key)
-      .reduce(
-        (total, current) => {
-          total.title = current.product.title;
-          total.id = current.product._id;
-          total.weight += current.weight;
-          total.calories += Math.round(
-            (current.product.calories / 100) * current.weight
-          );
-          return total;
+  const products = state.diary.notes.reduce((total, note) => {
+    const index = total.findIndex(product => product._id === note.product._id);
+    if (-1 === index) {
+      total.push({
+        _id: note.product._id,
+        weight: note.weight,
+        product: {
+          title: note.product.title,
+          calories: note.product.calories,
+          weight: note.product.weight,
         },
-        { title: '', id: '', weight: 0, calories: 0 }
+      });
+    } else {
+      total[index].weight += note.weight;
+      total[index].calories += Math.round(
+        (note.product.calories / 100) * note.weight
       );
-    notes.push(grouped);
-  });
-  return notes;
+    }
+    return total;
+  }, []);
+  return products;
 };
-export const getAllDiaryProduct = state => {
-  const mappedData = state.diary.notes.map(note => ({
-    title: note.product.title,
-    id: note._id,
-    weight: note.weight,
-    calories: Math.round((note.product.calories / 100) * note.weight),
-  }));
-  return mappedData;
-};
+export const getAllDiaryProduct = state => state.diary.notes;
 export const getProductTitle = state => state.diary.selectTitle;
 export const getIsLoading = state => state.diary.IsLoading;
+export const getDiaryDay = state => state.diary.day;
 
 export const selectBadCategories = state => state.products.categories;
