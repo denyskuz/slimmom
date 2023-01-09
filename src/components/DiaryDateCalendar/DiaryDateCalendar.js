@@ -8,7 +8,7 @@ import { DiaryDate, Outline } from './DiaryDateCalendar.styled';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllDiaryProduct, setDiaryDay } from 'redux/services/operations';
-import { getDiaryDay } from 'redux/services/selectors';
+import { selectIsRefreshing, getDiaryDay } from 'redux/services/selectors';
 
 export const DiaryDateCalendar = () => {
   const dispatch = useDispatch();
@@ -20,10 +20,13 @@ export const DiaryDateCalendar = () => {
     dispatch(getAllDiaryProduct(date));
   };
   const day = useSelector(getDiaryDay);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   React.useEffect(() => {
-    dispatch(getAllDiaryProduct(day));
-  }, [dispatch, day]);
+    if (!isRefreshing) {
+      dispatch(getAllDiaryProduct(day));
+    }
+  }, [dispatch, day, isRefreshing]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
