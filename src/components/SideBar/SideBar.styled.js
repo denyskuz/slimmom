@@ -25,21 +25,11 @@ export const SummaryTitle = styled.h3`
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: #212121;
-`;
-
-export const SummaryTitleDark = styled.h3`
-  margin-bottom: 20px;
-  font-family: Verdana;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  color: #fc842d;
+  color: ${prop => prop.theme.palette.common.title};
 `;
 
 export const BgWrapper = styled.div`
-  background: #f0f1f3;
+  background: ${prop=>prop.theme.palette.common.sideBar};
   @media (max-width: 767px) {
     width: 100%;
   }
@@ -67,8 +57,8 @@ export const SideBarContainer = styled.div`
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: #9b9faa;
-  background: #f0f1f3;
+  color: ${prop=>prop.theme.palette.text.secondary};
+  background: ${prop=>prop.theme.palette.common.sideBar};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -94,47 +84,6 @@ export const SideBarContainer = styled.div`
     width: 40%;
     padding: 15% 100px;
     padding-bottom: 100px;
-  }
-`;
-export const SideBarContainerDark = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 40px 20px 52px 20px;
-  font-family: Verdana;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
-  /* background: #f0f1f3; */
-  @media (max-width: 767px) {
-    max-width: 360px;
-    margin: 0 auto;
-    flex-direction: row;
-    align-items: baseline;
-  }
-  @media (min-width: 768px) {
-    display: flex;
-    padding: 80px 32px;
-    background-image: url(${backgroundTablet});
-    background-repeat: no-repeat;
-    background-position: bottom 0 right 0;
-    bottom: 0;
-  }
-  @media screen and (min-width: 1280px) {
-    background-image: url(${backgroundDesktop});
-    background-repeat: no-repeat;
-    background-position: top 0 right 0;
-    display: grid;
-    align-content: start;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    padding: 292px 94px 0 0;
   }
 `;
 

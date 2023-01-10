@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import { keyframes } from 'styled-components';
+import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../images/logo/logo.png';
 import logoDesk from '../../../images/logo/logoDesk.png';
@@ -12,8 +13,8 @@ export const Header = styled.header`
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  border-bottom: ${prop => prop.theme.borders.line};
-  border-color: ${prop => prop.theme.colors.input};
+  border-bottom: 2px solid;
+  border-color: ${prop => prop.theme.palette.input.primary};
 
   @media screen and (min-width: 1280px) {
     border-bottom: none;
@@ -65,7 +66,7 @@ export const Wrapper = styled.div`
       left: 130px;
       height: ${prop => prop.theme.space[5]}px;
       width: ${prop => prop.theme.space[1]}px;
-      background-color: ${prop => prop.theme.colors.input};
+      background-color: ${prop => prop.theme.palette.input.primary};
     }
   }
 `;
@@ -90,7 +91,7 @@ export const LoggedWrapper = styled.div`
       left: 130px;
       height: ${prop => prop.theme.space[5]}px;
       width: ${prop => prop.theme.space[1]}px;
-      background-color: ${prop => prop.theme.colors.input};
+      background-color: ${prop => prop.theme.palette.input.primary};
     }
   }
 `;
@@ -168,7 +169,7 @@ export const UserMenuWrapper = styled.div`
   align-items: center;
   padding-right: ${prop => prop.theme.spaceForm[1]}px;
   padding-left: ${prop => prop.theme.spaceForm[1]}px;
-  background-color: ${prop => prop.theme.colors.bcgUserInfo};
+  background-color: ${prop => prop.theme.palette.userInfo.primary};
 
   @media screen and (min-width: 768px) {
     display: none;

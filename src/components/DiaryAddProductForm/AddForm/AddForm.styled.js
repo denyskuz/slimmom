@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Autocomplete, TextField } from '@mui/material';
 
 export const Form = styled.form`
@@ -17,6 +17,7 @@ export const Form = styled.form`
     margin: 0px;
   }
 `;
+
 export const Complete = styled(Autocomplete)`
   width: 280px;
   margin-bottom: 32px;
@@ -39,12 +40,12 @@ export const Complete = styled(Autocomplete)`
       border: none;
       height: 53px;
       border-radius: 0px;
-      border-bottom: 1px solid #9b9faa;
+      border-bottom: 1px solid ${prop=> prop.theme.palette.text.secondary};
       ;
     }
     &.Mui-focused .MuiOutlinedInput-notchedOutline {
-      border-bottom-color: #fc842d;
-    }
+      border-bottom-color: ${prop=>prop.theme.palette.primary.main};
+    }}
 `;
 
 export const ProductInput = styled(TextField)`
@@ -52,7 +53,6 @@ export const ProductInput = styled(TextField)`
   width: 240px;
   height: 37px;
   border: none;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
 
   & label {
     font-family: Verdana;
@@ -60,11 +60,11 @@ export const ProductInput = styled(TextField)`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: #9b9faa;
+    color: ${prop=>prop.theme.palette.text.secondary};
     padding: 0;
   }
   & label.Mui-focused {
-    color: #fc842d;
+    color: ${prop=>prop.theme.palette.primary.main};
     left: -14px;
   }
   @media (max-width: 767px) {
@@ -79,10 +79,8 @@ export const GramsInput = styled(TextField)`
   height: 37px;
   width: 280px;
   border: none;
-  border-bottom: 1px solid #9b9faa;
-  margin-right: 87px;
   & .MuiInput-underline:after {
-    border-bottom-color: #fc842d;
+    border-bottom-color: ${prop => prop.theme.palette.primary.main};
   }
   & label {
     font-family: Verdana;
@@ -90,17 +88,15 @@ export const GramsInput = styled(TextField)`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: #9b9faa;
-    top: 4.3px;
+    color: ${prop => prop.theme.palette.text.secondary};
   }
   & label.Mui-focused {
-    color: #fc842d;
+    color: ${prop => prop.theme.palette.primary.main};
   }
   @media (min-width: 768px) {
     width: 106px;
     margin-bottom: 0px;
     & label {
-      top: 4.3px;
-      left: 58px;
+    }
   }
 `;

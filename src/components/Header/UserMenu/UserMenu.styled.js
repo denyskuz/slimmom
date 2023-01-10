@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import { FiCornerDownLeft } from 'react-icons/fi';
 
@@ -14,47 +14,27 @@ export const ListItem = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: GothamPro-Bold;
-  font-size: ${prop => prop.theme.fontSizes.xs};
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  line-height: ${prop => prop.theme.lineHeights.link};
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 0.93;
   letter-spacing: 0.04em;
   text-decoration: none;
   text-transform: uppercase;
-  color: ${prop => prop.theme.colors.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
 
-  :first-child {
+  :first-of-type {
     margin-right: ${prop => prop.theme.space[4]}px;
   }
 
   :hover {
-    color: ${prop => prop.theme.colors.accent};
+    color: ${prop => prop.theme.palette.primary.main};
   }
 
   &.active {
-    color: ${prop => prop.theme.colors.primary};
+    color: ${prop => prop.theme.palette.text.primary};
   }
 `;
-export const ListItemDark = styled(NavLink)`
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family: GothamPro-Bold;
-  font-size: ${prop => prop.theme.fontSizes.xs};
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  line-height: ${prop => prop.theme.lineHeights.link};
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: ${prop => prop.theme.colors.secondary};
-  :first-child {
-    margin-right: ${prop => prop.theme.space[4]}px;
-  }
-  :hover {
-    color: #fff;
-  }
-  &.active {
-    color: ${prop => prop.theme.colors.accent};
-  }
-`;
+
 export const UserInfoWrapper = styled.div`
   position: relative;
   display: flex;
@@ -73,13 +53,13 @@ export const UserName = styled.span`
   position: relative;
   display: inline;
   font-family: GothamPro-Bold;
-  font-size: ${prop => prop.theme.fontSizes.xs};
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  line-height: ${prop => prop.theme.lineHeights.link};
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 0.93;
   letter-spacing: 0.04em;
   margin: 0;
   padding: 15px 16px 13px 0;
-  color: ${prop => prop.theme.colors.primary};
+  color: ${prop => prop.theme.palette.text.secondary};
 
   ::after {
     content: '';
@@ -89,32 +69,14 @@ export const UserName = styled.span`
     right: 0;
     height: 32px;
     width: 2px;
-    background-color: ${prop => prop.theme.colors.input};
+    background-color: ${prop => prop.theme.palette.input.primary};
   }
-`;
-export const UserNameDark = styled.span`
-  position: relative;
-  display: inline;
-  font-family: GothamPro-Bold;
-  font-size: ${prop => prop.theme.fontSizes.xs};
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  line-height: ${prop => prop.theme.lineHeights.link};
-  letter-spacing: 0.04em;
-  margin: 0;
-  padding: 15px 16px 13px 0;
-  color: ${prop => prop.theme.colors.accent};
 
-  ::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 5px;
-    right: 0;
-    height: 32px;
-    width: 2px;
-    background-color: ${prop => prop.theme.colors.input};
+  @media screen and (min-width: 768px) {
+    color: ${prop => prop.theme.palette.text.primary};
   }
 `;
+
 export const LinkToCalc = styled(NavLink)`
   border: none;
   background-color: transparent;
@@ -122,7 +84,7 @@ export const LinkToCalc = styled(NavLink)`
   cursor: pointer;
 
   &:hover {
-    color: ${prop => prop.theme.colors.accent};
+    color: ${prop => prop.theme.palette.primary.main};
   }
 
   &.active {
@@ -139,17 +101,17 @@ export const Arrow = styled(FiCornerDownLeft)`
 
 export const UserExitButton = styled.button`
   font-family: GothamPro-Bold;
-  font-size: ${prop => prop.theme.fontSizes.xs};
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  line-height: ${prop => prop.theme.lineHeights.link};
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 0.93;
   letter-spacing: 0.04em;
-  color: ${prop => prop.theme.colors.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
   border: none;
   background-color: transparent;
   padding: 15px 0 13px 16px;
   cursor: pointer;
 
   &:hover {
-    color: ${prop => prop.theme.colors.accent};
+    color: ${prop => prop.theme.palette.primary.main};
   }
 `;

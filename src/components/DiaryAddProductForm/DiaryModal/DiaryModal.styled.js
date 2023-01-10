@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Backdrop = styled.div`
   position: absolute;
   z-index: 1;
-  background: #ffffff;
+  background: ${prop=>prop.theme.palette.background.paper};
   top: 84px;
   left: 0;
   width: 100%;
@@ -16,7 +16,7 @@ export const Btn = styled.button`
   height: 44px;
   border-radius: 7px;
   border: none;
-  background: #fc842d;
+  background: ${prop => prop.theme.palette.primary.main};
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
   font-family: 'Verdana';
@@ -26,5 +26,5 @@ export const Btn = styled.button`
   line-height: 17px;
   text-align: center;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: ${prop=>prop.theme.palette.common.white};
 `;

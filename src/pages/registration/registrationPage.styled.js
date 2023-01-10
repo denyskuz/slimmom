@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   margin-bottom: 40px;
   text-align: center;
-  color: #fc842d;
+  color: ${prop => prop.theme.palette.primary.main};
   font-family: GothamPro-Bold;
   font-style: normal;
   font-weight: 700;

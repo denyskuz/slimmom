@@ -30,13 +30,13 @@ export const List = styled.ul`
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: #264061;
+    background: ${prop => prop.theme.palette.burger.primary};
     height: 40px;
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover:focus {
-    background: #fc842d;
+    background: ${prop => prop.theme.palette.primary.main};
   }
 `;
 
@@ -55,7 +55,7 @@ export const NameProduct = styled(Typography)`
   padding-bottom: 8px;
   width: 130px;
   height: 24px;
-  border-bottom: 2px solid #9b9faa;
+  border-bottom: 2px solid ${prop=> prop.theme.palette.text.secondary};
   @media screen and (min-width: 768px) {
     width: 240px;
     height: 36px;
@@ -79,7 +79,7 @@ export const Weight = styled(Typography)`
   margin-right: 8px;
   width: 49px;
   height: 24px;
-  border-bottom: 2px solid #9b9faa;
+  border-bottom: 2px solid ${prop=> prop.theme.palette.text.secondary};
   @media screen and (min-width: 768px) {
     width: 106px;
     height: 36px;
@@ -94,7 +94,7 @@ export const Kcal = styled(Typography)`
   text-align: end;
   width: 58px;
   height: 24px;
-  border-bottom: 2px solid #9b9faa;
+  border-bottom: 2px solid ${prop=> prop.theme.palette.text.secondary};
   @media screen and (min-width: 768px) {
     width: 106px;
     height: 36px;
@@ -110,5 +110,5 @@ export const DeleteButton = styled.button`
   background-color: transparent;
 `;
 export const IconCross = styled(ImCross)`
-  color: #9b9faa;
+  color: ${prop => prop.theme.palette.text.secondary};
 `;

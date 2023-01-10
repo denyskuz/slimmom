@@ -11,7 +11,7 @@ export const DiaryDate = styled.div`
   line-height: 22px;
   display: flex;
   align-items: center;
-  color: #212121;
+  color: ${prop => prop.theme.palette.common.black};
   border: none;
 
   @media screen and (min-width: 768px) {

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Overlay = styled.div`
   top: 0;
@@ -26,7 +26,7 @@ export const ModalContainer = styled.div`
   overflow: hidden;
   border-radius: 3px;
 
-  background-color: #ffffff;
+  background-color: ${prop => prop.theme.palette.background.paper};
 
   @media screen and (min-width: 768px) {
     top: 485px;
@@ -54,7 +54,7 @@ export const CloseButton = styled.button`
   }
   &:hover {
     border-radius: 50%;
-    background-color: #fc842d;
+    background-color: ${prop => prop.theme.palette.primary.main};
   }
 `;
 

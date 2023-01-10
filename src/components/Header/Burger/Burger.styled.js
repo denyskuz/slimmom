@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ export const BurgerMenu = styled.nav`
   width: 100%;
   height: 105%;
   overflow-y: auto;
-  background-color: ${prop => prop.theme.colors.bcgBurger};
+  background-color: ${prop => prop.theme.palette.burger.primary};
   z-index: 10;
   transition: 0.8s;
 
@@ -73,15 +73,15 @@ export const BurgerMenu = styled.nav`
 export const NavDiaryLink = styled(NavLink)`
   padding: ${prop => prop.theme.spaceForm[1]}px;
   font-family: Verdana;
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  font-size: ${prop => prop.theme.fontSizes.s};
+  font-weight: 700;
+  font-size: 18px;
   line-height: 1.2;
   letter-spacing: 0.04em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.3s;
-  color: ${prop => prop.theme.colors.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
 
   @media screen and (min-width: 768px) {
     padding-top: 100px;
@@ -89,7 +89,7 @@ export const NavDiaryLink = styled(NavLink)`
   }
 
   &.active {
-    color: ${prop => prop.theme.colors.white};
+    color: ${prop => prop.theme.palette.common.white};
     transform: scale(1.1);
   }
 `;
@@ -97,14 +97,14 @@ export const NavDiaryLink = styled(NavLink)`
 export const NavCalcLink = styled(NavLink)`
   padding: ${prop => prop.theme.spaceForm[1]}px;
   font-family: Verdana;
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  font-size: ${prop => prop.theme.fontSizes.s};
+  font-weight: 700;
+  font-size: 18px;
   line-height: 1.2;
   letter-spacing: 0.04em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  color: ${prop => prop.theme.colors.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
   transition: 0.3s;
 
   @media screen and (min-width: 768px) {
@@ -112,7 +112,7 @@ export const NavCalcLink = styled(NavLink)`
   }
 
   &.active {
-    color: ${prop => prop.theme.colors.white};
+    color: ${prop => prop.theme.palette.common.white};
     transform: scale(1.1);
   }
 `;
@@ -120,18 +120,18 @@ export const NavCalcLink = styled(NavLink)`
 export const AuthLink = styled(NavLink)`
   padding: ${prop => prop.theme.spaceForm[1]}px;
   font-family: Verdana;
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  font-size: ${prop => prop.theme.fontSizes.s};
+  font-weight: 700;
+  font-size: 18px;
   line-height: 1.2;
   letter-spacing: 0.04em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  color: ${prop => prop.theme.colors.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
   transition: 0.3s;
 
   &.active {
-    color: ${prop => prop.theme.colors.white};
+    color: ${prop => prop.theme.palette.common.white};
     transform: scale(1.1);
   }
 `;

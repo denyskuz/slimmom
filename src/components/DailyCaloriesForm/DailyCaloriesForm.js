@@ -29,7 +29,6 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
   const user = useSelector(selectUserParams);
-  const currentTheme = useSelector(state => state.theme.darkTheme);
   const initialValues = {
     height: user?.height || '',
     age: user?.age || '',
@@ -165,11 +164,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <StyledModalBox
-            sx={{
-              bgcolor: currentTheme ? `#212121` : `#fff`,
-            }}
-          >
+          <StyledModalBox>
             <DailyCalorieIntake closeModal={handleClose} params={params} />
           </StyledModalBox>
         </Modal>
