@@ -1,17 +1,17 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Link = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: GothamPro-Bold;
-  font-size: ${prop => prop.theme.fontSizes.xs};
-  font-weight: ${prop => prop.theme.fontWeights.bold};
+  font-size: 14px;
+  font-weight: 700;
   line-height: 0.93;
   letter-spacing: 0.04em;
   text-decoration: none;
   text-transform: uppercase;
-  color: ${prop => prop.theme.colors.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
 
   &:last-child {
     margin-left: ${prop => prop.theme.space[4]}px;
@@ -19,44 +19,11 @@ export const Link = styled(NavLink)`
 
   &:hover,
   &:focus {
-    color: ${prop => prop.theme.colors.accent};
+    color: ${prop => prop.theme.palette.primary.main};
   }
 
   &.active {
-    color: ${prop => prop.theme.colors.primary};
-  }
-
-  @media screen and (max-width: 349.5px) {
-    font-size: 12px;
-
-    &:last-child {
-      margin-left: 10px;
-    }
-  }
-`;
-export const LinkDark = styled(NavLink)`
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family: GothamPro-Bold;
-  font-size: ${prop => prop.theme.fontSizes.xs};
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  line-height: 0.93;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: ${prop => prop.theme.colors.secondary};
-
-  &:last-child {
-    margin-left: ${prop => prop.theme.space[4]}px;
-  }
-
-  &:hover,
-  &:focus {
-    color: '#fff';
-  }
-
-  &.active {
-    color: ${prop => prop.theme.colors.accent};
+    color: ${prop => prop.theme.palette.text.primary};
   }
 
   @media screen and (max-width: 349.5px) {

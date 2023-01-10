@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Close from '../../images/icon/Close.svg';
 import Close_mobile from '../../images/icon/Close_mobile.svg';
 import { Button } from '@mui/material';
@@ -6,11 +6,10 @@ import { Button } from '@mui/material';
 export const IntakeBar = styled.div`
   height: 40px;
   margin: 0 -20px;
-  background: #eff1f3;
   text-align: left;
+  padding-left: 20px;
   @media (min-width: 768px) {
     text-align: right;
-    background-color: #fff;
   }
 `;
 
@@ -19,7 +18,7 @@ export const CloseButton = styled(Button)`
   min-width: 40px !important;
   height: 40px;
   border: none;
-  background: url(${Close_mobile}) no-repeat center #eff1f3;
+  background: url(${Close_mobile}) no-repeat center;
   @media (min-width: 768px) {
     background: url(${Close}) no-repeat center;
   }
@@ -37,7 +36,6 @@ export const IntakeTitle = styled.h2`
   font-weight: 700;
   font-size: 18px;
   line-height: 140%;
-  color: #212121;
 `;
 
 export const IntakeResult = styled.p`
@@ -47,7 +45,6 @@ export const IntakeResult = styled.p`
   font-size: 48px;
   line-height: 58px;
   letter-spacing: 0.04em;
-  color: #264061;
 `;
 
 export const ListWrapper = styled.div`
@@ -55,7 +52,7 @@ export const ListWrapper = styled.div`
   text-align: left;
   margin-left: auto;
   margin-right: auto;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid ${prop => prop.theme.palette.input.primary};
   @media (min-width: 768px) {
     width: 330px;
   }
@@ -76,7 +73,6 @@ export const ListTitle = styled.h3`
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #212121;
 `;
 
 export const List = styled.div`
@@ -87,8 +83,8 @@ export const ButtonStart = styled.button`
   margin: 40px auto 0 auto;
   width: 210px;
   height: 43px;
-  background-color: #fc842d;
-  color: #ffffff;
+  background-color: ${prop => prop.theme.palette.primary.main};
+  color: ${prop => prop.theme.palette.primary.contrastText};
   display: block;
   font-family: Verdana;
   font-weight: 500;
@@ -102,7 +98,7 @@ export const ButtonStart = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #ffffff;
-    color: #fc842d;
+    background-color: ${prop => prop.theme.palette.primary.contrastText};
+    color: ${prop => prop.theme.palette.primary.main};
   }
 `;

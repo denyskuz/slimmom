@@ -13,7 +13,6 @@ import { useLocation } from 'react-router-dom';
 import { useResizeDetector } from 'react-resize-detector';
 import {
   ImageContainer,
-  ImageContainerDark,
   VectorImg,
   BananaImg,
   StrawberryImg,
@@ -21,10 +20,8 @@ import {
   LeafsImg,
   LeafsAuthImg,
 } from './BackgroundContainer.styled';
-import { useSelector } from 'react-redux';
 
 const BackgroundContainer = ({ children }) => {
-  const theme = useSelector(state => state.theme.darkTheme);
   const { isLoggedIn } = useAuth();
   const { width, ref } = useResizeDetector();
   const desktop = width >= 1280;
@@ -41,99 +38,51 @@ const BackgroundContainer = ({ children }) => {
 
   return (
     <>
-      {!theme ? (
-        <ImageContainer ref={ref} visible={isLoggedIn}>
-          {isMainPage ? (
-            <>
-              <VectorImg
-                src={vector}
-                alt="grey background"
-                visibleImg={!isLoggedIn}
-              />
+      <ImageContainer ref={ref} visible={isLoggedIn}>
+        {isMainPage ? (
+          <>
+            <VectorImg
+              src={vector}
+              alt="grey background"
+              visibleImg={!isLoggedIn}
+            />
 
-              <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
+            <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
 
-              <StrawberryImg
-                src={strawberry}
-                alt="strawberry"
-                visibleImg={!isLoggedIn}
-              />
+            <StrawberryImg
+              src={strawberry}
+              alt="strawberry"
+              visibleImg={!isLoggedIn}
+            />
 
-              <LeafsImg src={leafs} alt="leafs" visibleImg={!isLoggedIn} />
-              {children}
-            </>
-          ) : (
-            <>
-              <VectorImg
-                src={vector}
-                alt="grey background"
-                visibleImg={!isLoggedIn}
-              />
+            <LeafsImg src={leafs} alt="leafs" visibleImg={!isLoggedIn} />
+            {children}
+          </>
+        ) : (
+          <>
+            <VectorImg
+              src={vector}
+              alt="grey background"
+              visibleImg={!isLoggedIn}
+            />
 
-              <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
+            <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
 
-              <StrawberryAuthImg
-                src={strawberryAuth}
-                alt="strawberry"
-                visibleImg={!isLoggedIn}
-              />
+            <StrawberryAuthImg
+              src={strawberryAuth}
+              alt="strawberry"
+              visibleImg={!isLoggedIn}
+            />
 
-              <LeafsAuthImg
-                src={leafsAuth}
-                alt="leafs"
-                visibleImg={!isLoggedIn}
-              />
-              {children}
-            </>
-          )}
-        </ImageContainer>
-      ) : (
-        <ImageContainerDark ref={ref} visible={isLoggedIn}>
-          {isMainPage ? (
-            <>
-              <VectorImg
-                src={vector}
-                alt="grey background"
-                visibleImg={!isLoggedIn}
-              />
-
-              <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
-
-              <StrawberryImg
-                src={strawberry}
-                alt="strawberry"
-                visibleImg={!isLoggedIn}
-              />
-
-              <LeafsImg src={leafs} alt="leafs" visibleImg={!isLoggedIn} />
-              {children}
-            </>
-          ) : (
-            <>
-              <VectorImg
-                src={vector}
-                alt="grey background"
-                visibleImg={!isLoggedIn}
-              />
-
-              <BananaImg src={banana} alt="banana" visibleImg={!isLoggedIn} />
-
-              <StrawberryAuthImg
-                src={strawberryAuth}
-                alt="strawberry"
-                visibleImg={!isLoggedIn}
-              />
-
-              <LeafsAuthImg
-                src={leafsAuth}
-                alt="leafs"
-                visibleImg={!isLoggedIn}
-              />
-              {children}
-            </>
-          )}
-        </ImageContainerDark>
-      )}
+            <LeafsAuthImg
+              src={leafsAuth}
+              alt="leafs"
+              visibleImg={!isLoggedIn}
+            />
+            {children}
+          </>
+        )}
+      </ImageContainer>
     </>
   );
 };

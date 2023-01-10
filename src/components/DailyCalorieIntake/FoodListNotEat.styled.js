@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import ListItemText from '@mui/material/ListItemText';
 
 export const ListText = styled(ListItemText)`
@@ -8,7 +8,7 @@ export const ListText = styled(ListItemText)`
   line-height: 17px;
   letter-spacing: 0.04em;
   width: 100%;
-  color: #9b9faa;
+  color: ${prop => prop.theme.palette.text.secondary};
 `;
 
 export const ProductListText = styled(ListItemText)`
@@ -19,5 +19,5 @@ export const ProductListText = styled(ListItemText)`
   line-height: 17px;
   letter-spacing: 0.04em;
   width: 100%;
-  color: #9b9faa;
+  color: ${prop => prop.theme.palette.text.secondary};
 `;

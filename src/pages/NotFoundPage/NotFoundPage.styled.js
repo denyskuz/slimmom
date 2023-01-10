@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import { keyframes } from 'styled-components';
+import styled from '@emotion/styled';
 import { swing } from 'react-animations';
 
 const swingAnimation = keyframes`${swing}`;
@@ -40,7 +41,7 @@ export const ErrorTitle = styled.h2`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: ${prop => prop.theme.fontSizes.l};
+  font-size: 26px;
 `;
 
 export const ErrorText = styled.h2`
@@ -49,14 +50,14 @@ export const ErrorText = styled.h2`
   align-items: center;
   margin-bottom: ${prop => prop.theme.space[6]}px;
   font-family: Verdana;
-  font-weight: ${prop => prop.theme.fontWeights.bold};
-  font-size: ${prop => prop.theme.fontSizes.m};
+  font-weight: 700;
+  font-size: 24px;
   line-height: 1.2;
   letter-spacing: 0.04em;
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    font-size: ${prop => prop.theme.fontSizes.l};
+    font-size: 26px;
     margin-bottom: ${prop => prop.theme.space[6]}px;
   }
 `;

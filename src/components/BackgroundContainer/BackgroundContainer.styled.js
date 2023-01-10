@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import { keyframes } from 'styled-components';
+import styled from '@emotion/styled';
 import { zoomIn } from 'react-animations';
 
 const zoomAnimation = keyframes`${zoomIn}`;
@@ -10,20 +11,7 @@ export const ImageContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-
-  @media screen and (min-width: 1280px) {
-    background-color: ${props => (props.visible ? '#FFFFFF' : 'transparent')};
-  }
-  z-index: 1;
-`;
-export const ImageContainerDark = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-  z-index: 1;
+  background-color: ${p => p.theme.palette.background.paper};
 `;
 
 export const StrawberryImg = styled.img`
@@ -77,7 +65,6 @@ export const BananaImg = styled.img`
     top: 30px;
     right: 0px;
   }
-  z-index: 2;
 `;
 
 export const LeafsImg = styled.img`
@@ -95,7 +82,6 @@ export const LeafsImg = styled.img`
     top: 0px;
     right: 220px;
   }
-  z-index: 1;
 `;
 
 export const LeafsAuthImg = styled.img`

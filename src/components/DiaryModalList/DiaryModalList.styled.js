@@ -4,7 +4,7 @@ export const ModalDiaryStyled = styled(Box)`
   padding: 20px;
   width: 450px;
   height: 200px;
-  background-color: #fff;
+  background-color: ${prop => prop.theme.palette.background.paper};
   border-radius: 8px;
 `;
 export const ButtonModalDiary = styled(Button)`
@@ -15,9 +15,9 @@ export const ButtonModalDiary = styled(Button)`
     margin-bottom: 10px;
   }
   &.MuiButton-contained:hover {
-    background-color: #fff;
-    color: #fc842d;
-    border: 1px solid #fc842d;
+    background-color: ${prop => prop.theme.palette.background.paper};
+    color: ${prop => prop.theme.borders.accent};
+    border: 1px solid ${prop => prop.theme.palette.primary.main};
     box-shadow: none;
   }
   @media screen and (min-width: 768px) {
@@ -27,7 +27,7 @@ export const ButtonModalDiary = styled(Button)`
   }
 `;
 export const ModalTextDiary = styled(Typography)`
-  color: #000;
+  color: ${prop => prop.theme.palette.text.primary};
   text-align: center;
   margin: 20px auto 20px;
   font-size: large;
