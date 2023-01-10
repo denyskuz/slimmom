@@ -12,7 +12,6 @@ export const ImageContainer = styled.div`
   margin-right: auto;
   box-sizing: border-box;
   background-color: ${p => p.theme.palette.background.paper};
-
 `;
 
 export const StrawberryImg = styled.img`

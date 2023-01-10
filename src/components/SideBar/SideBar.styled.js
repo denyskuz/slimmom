@@ -29,7 +29,7 @@ export const SummaryTitle = styled.h3`
 `;
 
 export const BgWrapper = styled.div`
-  background: ${prop=>prop.theme.palette.common.sideBar};
+  background: ${prop => prop.theme.palette.common.sideBar};
   @media (max-width: 767px) {
     width: 100%;
   }
@@ -57,8 +57,8 @@ export const SideBarContainer = styled.div`
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: ${prop=>prop.theme.palette.text.secondary};
-  background: ${prop=>prop.theme.palette.common.sideBar};
+  color: ${prop => prop.theme.palette.text.secondary};
+  background: ${prop => prop.theme.palette.common.sideBar};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

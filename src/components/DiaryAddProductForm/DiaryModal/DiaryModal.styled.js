@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Backdrop = styled.div`
   position: absolute;
   z-index: 1;
-  background: ${prop=>prop.theme.palette.background.paper};
+  background: ${prop => prop.theme.palette.background.paper};
   top: 84px;
   left: 0;
   width: 100%;
@@ -26,5 +26,5 @@ export const Btn = styled.button`
   line-height: 17px;
   text-align: center;
   letter-spacing: 0.04em;
-  color: ${prop=>prop.theme.palette.common.white};
+  color: ${prop => prop.theme.palette.common.white};
 `;

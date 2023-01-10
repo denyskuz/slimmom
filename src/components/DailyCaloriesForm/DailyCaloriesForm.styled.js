@@ -65,10 +65,10 @@ export const Label = styled(FormControlLabel)`
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: ${prop=>prop.theme.palette.text.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
   & .Mui-checked + .MuiFormControlLabel-label {
     font-weight: 700;
-    color: ${prop=>prop.theme.palette.primary.main};
+    color: ${prop => prop.theme.palette.primary.main};
     margin: 0;
   }
 `;
@@ -84,14 +84,14 @@ export const Input = styled(TextField)`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
   }
   & input:-webkit-autofill,
   & input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
   }
   & .MuiInput-underline:after {
-    border-bottom-color: ${prop=>prop.theme.palette.primary.main};
+    border-bottom-color: ${prop => prop.theme.palette.primary.main};
   }
   & label {
     font-family: Verdana;
@@ -99,10 +99,10 @@ export const Input = styled(TextField)`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
   }
   & label.Mui-focused {
-    color: ${prop=>prop.theme.palette.primary.main};
+    color: ${prop => prop.theme.palette.primary.main};
   }
   & p {
     margin: 0;
@@ -112,7 +112,7 @@ export const Input = styled(TextField)`
     font-size: 10px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
   }
 `;
 export const ShiftedInput = styled(Input)`
@@ -135,10 +135,10 @@ export const BloodInput = styled(Input)`
     }
   }
   & label.Mui-focused {
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
   }
   & .MuiInput-underline:after {
-    border-bottom-color: ${prop=>prop.theme.palette.text.secondary};
+    border-bottom-color: ${prop => prop.theme.palette.text.secondary};
   }
 `;
 
@@ -160,7 +160,7 @@ export const RadioButton = styled(Radio)`
   }
   &.Mui-checked {
     & span {
-      color: ${prop=>prop.theme.palette.primary.main};
+      color: ${prop => prop.theme.palette.primary.main};
     }
   }
 `;
@@ -175,7 +175,7 @@ export const Button = styled(MuiButton)`
     font-size: 14px;
     line-height: 1.2;
     letter-spacing: 0.04em;
-    background: ${prop=>prop.theme.palette.primary.main};
+    background: ${prop => prop.theme.palette.primary.main};
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     @media (min-width: 320px) {
       margin-top: 40px;
@@ -189,7 +189,7 @@ export const Button = styled(MuiButton)`
   }
   &.MuiButtonBase-root:hover {
     background: #fff;
-    color: ${prop=>prop.theme.palette.primary.main};
+    color: ${prop => prop.theme.palette.primary.main};
   }
   @media (max-width: 767.5px) {
     grid-row: 6 / span 1;

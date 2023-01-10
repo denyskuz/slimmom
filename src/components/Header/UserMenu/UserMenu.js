@@ -25,16 +25,16 @@ const UserMenu = () => {
   return (
     <>
       <List>
-          <>
-            <ListItem to="/diary">{t('Diary')}</ListItem>
-            <ListItem to="/calculator">{t('Calculator_button')}</ListItem>
-          </>
+        <>
+          <ListItem to="/diary">{t('Diary')}</ListItem>
+          <ListItem to="/calculator">{t('Calculator_button')}</ListItem>
+        </>
       </List>
       <LinkToCalc to="/calculator">
         <Arrow color="black" size="20px" />
       </LinkToCalc>
       <UserInfoWrapper>
-          <UserName>{name}</UserName>
+        <UserName>{name}</UserName>
         <UserExitButton type="button" onClick={onLogout}>
           {t('Exit')}
         </UserExitButton>

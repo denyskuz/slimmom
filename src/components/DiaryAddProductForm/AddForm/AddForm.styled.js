@@ -40,12 +40,12 @@ export const Complete = styled(Autocomplete)`
       border: none;
       height: 53px;
       border-radius: 0px;
-      border-bottom: 1px solid ${prop=> prop.theme.palette.text.secondary};
-      ;
+      border-bottom: 1px solid ${prop => prop.theme.palette.text.secondary};
     }
     &.Mui-focused .MuiOutlinedInput-notchedOutline {
-      border-bottom-color: ${prop=>prop.theme.palette.primary.main};
-    }}
+      border-bottom-color: ${prop => prop.theme.palette.primary.main};
+    }
+  }
 `;
 
 export const ProductInput = styled(TextField)`
@@ -60,11 +60,11 @@ export const ProductInput = styled(TextField)`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
     padding: 0;
   }
   & label.Mui-focused {
-    color: ${prop=>prop.theme.palette.primary.main};
+    color: ${prop => prop.theme.palette.primary.main};
     left: -14px;
   }
   @media (max-width: 767px) {

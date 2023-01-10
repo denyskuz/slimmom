@@ -71,9 +71,9 @@ const LoginForm = () => {
         <ButtonPrimary variant="contained" type="submit">
           {t('Login')}
         </ButtonPrimary>
-          <ButtonSecondary variant="outlined" type="button">
-            <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
-          </ButtonSecondary>
+        <ButtonSecondary variant="outlined" type="button">
+          <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
+        </ButtonSecondary>
       </ButtonBox>
     </Form>
   );

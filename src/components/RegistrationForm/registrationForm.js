@@ -89,9 +89,9 @@ const RegisterForm = () => {
       />
       <ButtonBox>
         <ButtonPrimary type="submit">{t('Register')}</ButtonPrimary>
-          <ButtonSecondary type="button">
-            <LinkButton to={'/login'}>{t('Login')}</LinkButton>
-          </ButtonSecondary>
+        <ButtonSecondary type="button">
+          <LinkButton to={'/login'}>{t('Login')}</LinkButton>
+        </ButtonSecondary>
       </ButtonBox>
     </Form>
   );

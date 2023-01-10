@@ -8,7 +8,7 @@ export const ListText = styled(ListItemText)`
   line-height: 17px;
   letter-spacing: 0.04em;
   width: 100%;
-  color: ${prop=>prop.theme.palette.text.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
 `;
 
 export const ProductListText = styled(ListItemText)`
@@ -19,5 +19,5 @@ export const ProductListText = styled(ListItemText)`
   line-height: 17px;
   letter-spacing: 0.04em;
   width: 100%;
-  color: ${prop=>prop.theme.palette.text.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
 `;

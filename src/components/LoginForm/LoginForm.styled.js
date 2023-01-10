@@ -8,7 +8,7 @@ export const Form = styled.form`
   margin: 0 auto;
   max-width: 280px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: ${prop=>prop.theme.palette.text.secondary};
+  color: ${prop => prop.theme.palette.text.secondary};
 
   @media screen and (min-width: 768px) {
     max-width: 240px;
@@ -36,14 +36,14 @@ export const Input = styled(TextField)`
     line-height: 17px;
     letter-spacing: 0.04em;
     width: 100%;
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
   }
   & input:-webkit-autofill,
   & input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
   }
   & .MuiInput-underline:after {
-    border-bottom-color: ${prop=>prop.theme.palette.primary.main};
+    border-bottom-color: ${prop => prop.theme.palette.primary.main};
   }
   & label {
     padding-top: 20px;
@@ -52,10 +52,10 @@ export const Input = styled(TextField)`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
   }
   & label.Mui-focused {
-    color: ${prop=>prop.theme.palette.primary.main};
+    color: ${prop => prop.theme.palette.primary.main};
   }
   & p {
     text-align: right;
@@ -64,6 +64,6 @@ export const Input = styled(TextField)`
     font-size: 10px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: ${prop=>prop.theme.palette.text.secondary};
+    color: ${prop => prop.theme.palette.text.secondary};
   }
 `;

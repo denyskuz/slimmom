@@ -55,7 +55,7 @@ export const NameProduct = styled(Typography)`
   padding-bottom: 8px;
   width: 130px;
   height: 24px;
-  border-bottom: 2px solid ${prop=> prop.theme.palette.text.secondary};
+  border-bottom: 2px solid ${prop => prop.theme.palette.text.secondary};
   @media screen and (min-width: 768px) {
     width: 240px;
     height: 36px;
@@ -79,7 +79,7 @@ export const Weight = styled(Typography)`
   margin-right: 8px;
   width: 49px;
   height: 24px;
-  border-bottom: 2px solid ${prop=> prop.theme.palette.text.secondary};
+  border-bottom: 2px solid ${prop => prop.theme.palette.text.secondary};
   @media screen and (min-width: 768px) {
     width: 106px;
     height: 36px;
@@ -94,7 +94,7 @@ export const Kcal = styled(Typography)`
   text-align: end;
   width: 58px;
   height: 24px;
-  border-bottom: 2px solid ${prop=> prop.theme.palette.text.secondary};
+  border-bottom: 2px solid ${prop => prop.theme.palette.text.secondary};
   @media screen and (min-width: 768px) {
     width: 106px;
     height: 36px;

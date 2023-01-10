@@ -4,7 +4,7 @@ export const ModalDiaryStyled = styled(Box)`
   padding: 20px;
   width: 450px;
   height: 200px;
-  background-color: ${prop=>prop.theme.palette.background.paper};
+  background-color: ${prop => prop.theme.palette.background.paper};
   border-radius: 8px;
 `;
 export const ButtonModalDiary = styled(Button)`

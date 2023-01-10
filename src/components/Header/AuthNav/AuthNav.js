@@ -28,10 +28,10 @@ const AuthNav = () => {
           className="fi fi-ua"
         ></LangButton>
       </ButtonContainer>
-        <>
-          <Link to="/login">{t('Sign_in')}</Link>
-          <Link to="/signup">{t('Registration')}</Link>
-        </>
+      <>
+        <Link to="/login">{t('Sign_in')}</Link>
+        <Link to="/signup">{t('Registration')}</Link>
+      </>
     </>
   );
 };
