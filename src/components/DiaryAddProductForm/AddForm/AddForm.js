@@ -45,7 +45,7 @@ const AddForm = ({ onModal }) => {
       resetForm();
       setProduct(' ');
       setProductName(null);
-      onModal();
+      onModal && onModal();
     },
   });
   const onInputChange = (e, v) => {
