@@ -9,6 +9,7 @@ export const TRANSLATIONS_EN = {
   Product_name: 'Enter product name',
   Add: 'Add',
   Grams: 'Grams',
+  GroupProducts: 'Group products',
   Diary: 'Diary',
   Calculator_button: 'Calculator',
   Exit: 'Exit',

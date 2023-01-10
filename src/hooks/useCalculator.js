@@ -10,7 +10,9 @@ export const useCalculator = () => {
   useEffect(() => {
     if (notes.length) {
       const total = notes.reduce((total, note) => {
-        return total + (note.calories / 100) * note.weight;
+        return (
+          total + (note.product.calories / note.product.weight) * note.weight
+        );
       }, 0);
       setConsumed(Math.round(total));
     }

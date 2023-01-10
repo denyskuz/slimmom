@@ -6,22 +6,24 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import 'react-datetime/css/react-datetime.css';
 import { DiaryDate, Outline } from './DiaryDateCalendar.styled';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-import { useDispatch } from 'react-redux';
-import { getAllDiaryProduct } from 'redux/services/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDiaryProduct, setDiaryDay } from 'redux/services/operations';
+import { getDiaryDay } from 'redux/services/selectors';
 
 export const DiaryDateCalendar = () => {
-  const [value, setValue] = React.useState(new Date().toISOString());
   const dispatch = useDispatch();
 
   const handleChange = newValue => {
     const date = dayjs(newValue).format();
 
-    setValue(date);
+    dispatch(setDiaryDay(date));
     dispatch(getAllDiaryProduct(date));
   };
+  const day = useSelector(getDiaryDay);
+
   React.useEffect(() => {
-    dispatch(getAllDiaryProduct(value));
-  }, [dispatch, value]);
+    dispatch(getAllDiaryProduct(day));
+  }, [dispatch, day]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -30,7 +32,7 @@ export const DiaryDateCalendar = () => {
           inputFormat="MMM DD YYYY"
           disableMaskedInput
           closeOnSelect={true}
-          value={value}
+          value={day}
           components={{ OpenPickerIcon: DateRangeIcon }}
           onChange={handleChange}
           renderInput={params => <Outline {...params} />}

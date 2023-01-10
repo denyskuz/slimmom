@@ -151,6 +151,7 @@ export const getDailyProducts = createAsyncThunk(
 );
 
 export const setUserParams = createAction('auth/save');
+export const setDiaryDay = createAction('diary/day');
 
 export const deleteDiaryProduct = createAsyncThunk(
   'delete',
@@ -169,13 +170,7 @@ export const getAllDiaryProduct = createAsyncThunk(
   async (date, thunkAPI) => {
     try {
       const { data } = await axios.get(`/api/diary/${date}`);
-      const mappedData = data.notes.map(note => ({
-        title: note.product.title,
-        id: note._id,
-        weight: note.weight,
-        calories: note.product.calories,
-      }));
-      return mappedData;
+      return data.notes;
     } catch (error) {
       toast.warning('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);
