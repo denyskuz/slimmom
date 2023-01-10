@@ -7,6 +7,7 @@ export const IntakeBar = styled.div`
   height: 40px;
   margin: 0 -20px;
   text-align: left;
+  padding-left: 20px;
   @media (min-width: 768px) {
     text-align: right;
   }
@@ -17,7 +18,7 @@ export const CloseButton = styled(Button)`
   min-width: 40px !important;
   height: 40px;
   border: none;
-  background: url(${Close_mobile}) no-repeat center #eff1f3;
+  background: url(${Close_mobile}) no-repeat center;
   @media (min-width: 768px) {
     background: url(${Close}) no-repeat center;
   }
