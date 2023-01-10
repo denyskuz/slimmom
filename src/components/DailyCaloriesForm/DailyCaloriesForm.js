@@ -167,9 +167,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
         >
           <StyledModalBox
             sx={{
-              bgcolor: currentTheme
-                ? `#212121`
-                : `#fff`,
+              bgcolor: currentTheme ? `#212121` : `#fff`,
             }}
           >
             <DailyCalorieIntake closeModal={handleClose} params={params} />
