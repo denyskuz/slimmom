@@ -9,6 +9,7 @@ export const TRANSLATIONS_UK = {
   Start_loosing: 'Почати худнути',
   Product_name: 'Введіть назву продукту',
   Grams: 'Грами',
+  GroupProducts: 'Сгрупувати продукти',
   Add: 'Додати',
   Diary: 'Щоденник',
   Calculator_button: 'Калькулятор',

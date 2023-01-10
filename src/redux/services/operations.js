@@ -4,15 +4,7 @@ import { toast } from 'react-toastify';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 axios.defaults.baseURL = BASE_URL;
-
-const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
-};
+axios.defaults.withCredentials = true;
 
 export const register = createAsyncThunk(
   '/api/auth/registration',
@@ -23,7 +15,6 @@ export const register = createAsyncThunk(
         password: value.password,
         email: value.email,
       });
-      token.set(data.data.accessToken);
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -37,7 +28,6 @@ export const login = createAsyncThunk(
   async (value, thunkAPI) => {
     try {
       const { data } = await axios.post('/api/auth/login', value);
-      token.set(data.data.accessToken);
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -93,7 +83,6 @@ export const logout = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       await axios.get(`/api/auth/logout`);
-      token.unset();
     } catch (err) {
       toast.error(err.response.data.message);
       return thunkAPI.rejectWithValue(err.response.data);
@@ -110,8 +99,16 @@ export const refreshUser = createAsyncThunk(
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
-      token.set(persistedToken);
-      const res = await axios.get('/api/auth/current');
+      const res = await axios.get('/api/auth/current').catch(async data => {
+        if (401 === data.response.status) {
+          const refresh = await axios.get('/api/auth/refresh', {
+            headers: { Authorization: `Bearer ${persistedToken}` },
+          });
+          if (200 === refresh.status) {
+            return await axios.get('/api/auth/current');
+          }
+        }
+      });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -151,6 +148,7 @@ export const getDailyProducts = createAsyncThunk(
 );
 
 export const setUserParams = createAction('auth/save');
+export const setDiaryDay = createAction('diary/day');
 
 export const deleteDiaryProduct = createAsyncThunk(
   'delete',
@@ -169,13 +167,7 @@ export const getAllDiaryProduct = createAsyncThunk(
   async (date, thunkAPI) => {
     try {
       const { data } = await axios.get(`/api/diary/${date}`);
-      const mappedData = data.notes.map(note => ({
-        title: note.product.title,
-        id: note._id,
-        weight: note.weight,
-        calories: note.product.calories,
-      }));
-      return mappedData;
+      return data.notes;
     } catch (error) {
       toast.warning('something went wrong!!');
       return thunkAPI.rejectWithValue(error.message);

@@ -35,14 +35,14 @@ const authSlice = createSlice({
       const { email, name, ...userParams } = action.payload.data.user;
       state.user = { email, name };
       state.userParams = userParams;
-      state.token = action.payload.data.accessToken;
+      state.token = action.payload.data.refreshToken;
       state.isLoggedIn = true;
     },
     [login.fulfilled](state, action) {
       const { email, name, ...userParams } = action.payload.data.user;
       state.user = { email, name };
       state.userParams = userParams;
-      state.token = action.payload.data.accessToken;
+      state.token = action.payload.data.refreshToken;
       state.isLoggedIn = true;
     },
     [logout.fulfilled](state, _) {
