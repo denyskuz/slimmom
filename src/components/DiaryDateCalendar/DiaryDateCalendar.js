@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllDiaryProduct, setDiaryDay } from 'redux/services/operations';
 import { selectIsRefreshing, getDiaryDay } from 'redux/services/selectors';
 
+
 export const DiaryDateCalendar = () => {
   const dispatch = useDispatch();
 
@@ -27,6 +28,7 @@ export const DiaryDateCalendar = () => {
       dispatch(getAllDiaryProduct(day));
     }
   }, [dispatch, day, isRefreshing]);
+
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
