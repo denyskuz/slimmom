@@ -6,11 +6,9 @@ import { Button } from '@mui/material';
 export const IntakeBar = styled.div`
   height: 40px;
   margin: 0 -20px;
-  background: #eff1f3;
   text-align: left;
   @media (min-width: 768px) {
     text-align: right;
-    background-color: #fff;
   }
 `;
 
@@ -37,7 +35,6 @@ export const IntakeTitle = styled.h2`
   font-weight: 700;
   font-size: 18px;
   line-height: 140%;
-  color: #212121;
 `;
 
 export const IntakeResult = styled.p`
@@ -47,7 +44,6 @@ export const IntakeResult = styled.p`
   font-size: 48px;
   line-height: 58px;
   letter-spacing: 0.04em;
-  color: #264061;
 `;
 
 export const ListWrapper = styled.div`

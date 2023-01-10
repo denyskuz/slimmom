@@ -29,6 +29,7 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoadStatus);
   const user = useSelector(selectUserParams);
+  const currentTheme = useSelector(state => state.theme.darkTheme);
   const initialValues = {
     height: user?.height || '',
     age: user?.age || '',
@@ -46,7 +47,6 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
     onSubmit: data => {
       setParams(data);
       dispatch(setUserParams(data));
-      console.log('data', data);
       isModal ? setOpen(true) : data && dispatch(getProductsCategories(data));
     },
   });
@@ -165,7 +165,13 @@ export const DailyCaloriesForm = ({ isModal = false }) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <StyledModalBox>
+          <StyledModalBox
+            sx={{
+              bgcolor: currentTheme
+                ? `#212121`
+                : `#fff`,
+            }}
+          >
             <DailyCalorieIntake closeModal={handleClose} params={params} />
           </StyledModalBox>
         </Modal>
