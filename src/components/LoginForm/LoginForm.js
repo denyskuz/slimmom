@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import GoogleLogin from 'react-google-login';
+import { gapi } from 'gapi-script';
 import { useFormik } from 'formik';
 import {
   ButtonPrimary,
@@ -22,6 +24,32 @@ const LoginForm = () => {
   const handleMouseDownPassword = event => {
     event.preventDefault();
   };
+  const clientID =
+    '1031961331557-6mt21rdd0d8p0u6q3l3tvqii5rqe5gcc.apps.googleusercontent.com';
+
+  useEffect(() => {
+    const start = () => {
+      gapi.auth2.init({
+        clientId: clientID,
+      })
+    }
+    gapi.load('client:auth2', start)
+  }, [])
+  
+  const onSuccess = (response) => {
+    const { email, googleId } = response.profileObj;
+    dispatch(
+      login({
+        email: email,
+        password: googleId,
+      })
+    );
+    console.log(response.profileObj);
+  }
+
+  const onFailure = () => {
+    console.log('fail!');
+  }
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
@@ -75,6 +103,14 @@ const LoginForm = () => {
           <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
         </ButtonSecondary>
       </ButtonBox>
+      <div className='googleBtn' style={{paddingTop: '40px'}}>
+        <GoogleLogin
+          clientId={clientID}
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={'single_host_policy'}
+        />
+      </div>
     </Form>
   );
 };
