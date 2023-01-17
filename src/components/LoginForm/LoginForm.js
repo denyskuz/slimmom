@@ -31,12 +31,12 @@ const LoginForm = () => {
     const start = () => {
       gapi.auth2.init({
         clientId: clientID,
-      })
-    }
-    gapi.load('client:auth2', start)
-  }, [])
-  
-  const onSuccess = (response) => {
+      });
+    };
+    gapi.load('client:auth2', start);
+  }, []);
+
+  const onSuccess = response => {
     const { email, googleId } = response.profileObj;
     dispatch(
       login({
@@ -45,11 +45,11 @@ const LoginForm = () => {
       })
     );
     console.log(response.profileObj);
-  }
+  };
 
   const onFailure = () => {
     console.log('fail!');
-  }
+  };
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
@@ -103,7 +103,7 @@ const LoginForm = () => {
           <LinkButton to={'/signup'}>{t('Register')}</LinkButton>
         </ButtonSecondary>
       </ButtonBox>
-      <div className='googleBtn' style={{paddingTop: '40px'}}>
+      <div className="googleBtn" style={{ paddingTop: '40px' }}>
         <GoogleLogin
           clientId={clientID}
           onSuccess={onSuccess}

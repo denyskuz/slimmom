@@ -16,17 +16,17 @@ export const SideBar = () => {
   return (
     <>
       <SideBarContainer>
-          <Box sx={{ maxWidth: 450 }}>
-            <SummaryTitle>
-              {t('Summary_for')} {day.substring(0, 10)}
-            </SummaryTitle>
-            <SummaryList />
-          </Box>
-          <BadFoodContainer>
-            <SummaryTitle>{t('Food_not_recommended')}</SummaryTitle>
-            <CategoriesList onMain={false} />
-          </BadFoodContainer>
-        </SideBarContainer>
+        <Box sx={{ maxWidth: 450 }}>
+          <SummaryTitle>
+            {t('Summary_for')} {day.substring(0, 10)}
+          </SummaryTitle>
+          <SummaryList />
+        </Box>
+        <BadFoodContainer>
+          <SummaryTitle>{t('Food_not_recommended')}</SummaryTitle>
+          <CategoriesList onMain={false} />
+        </BadFoodContainer>
+      </SideBarContainer>
     </>
   );
 };
